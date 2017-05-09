@@ -1,0 +1,23 @@
+<?php
+
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Admin extends CI_Controller {
+
+    function __construct() {
+
+        parent::__construct();
+        $this->load->library('session', 'form_validation', 'email');
+        $this->load->helper('url', 'form', 'html');
+        $this->load->library('pagination');
+}          
+
+    public function index() {
+       
+        $this->load->view('home');
+    }   
+}
+
+?>
