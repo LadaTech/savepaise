@@ -1,7 +1,7 @@
 <div id="sidebar" class="sidebar responsive ace-save-state sidebar-fixed sidebar-scroll">				 
 				<ul class="nav nav-list">
                                     <li class="active">
-						<a href="#">
+						<a href="index">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Dashboard </span>
 						</a>
@@ -58,7 +58,7 @@
 						<ul class="submenu">	
 
 							<li class="">
-                                                            <a href="admin/adduser">
+                                                            <a href="add_user">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Add User
 								</a>
@@ -67,7 +67,7 @@
 							</li>							 
 
 							<li class="">
-								<a href="#">
+								<a href="view_user">
 									<i class="menu-icon fa fa-caret-right"></i>
 									View User
 								</a>
