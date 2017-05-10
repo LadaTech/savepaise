@@ -12,8 +12,8 @@ class Index extends CI_Controller {
 
     public function index() {
 // Load our view to be displayed        
-        $this->load->view('login');
-    }
+        $this->load->view('admin/login');
+    }    
      public function home() {
 // Load our view to be displayed        
         $this->load->view('home');
