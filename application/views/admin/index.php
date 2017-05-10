@@ -9,19 +9,29 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Dashboard</a>
+								<a href="#">Home</a>
 							</li>
-  
+ 
+							<li class="active">Users</li>
 						</ul><!-- /.breadcrumb -->
 						 
 					</div>
                                                 
-                                    <div class="page-content">                                  
+                                    <div class="page-content">
+                                        <div class="page-header">
+							<h1>
+								Users
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									Add Users
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
                                                 
                                                 <div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								  <form class="form-horizontal" role="form">
+								<form class="form-horizontal" role="form">
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name </label>
 
@@ -64,7 +74,7 @@
                                                                     </div>
                                                                     
  
-                                                                        </form>  
+                                                                        </form> 
                                                         </div>
                                                 </div>
                                                                 
