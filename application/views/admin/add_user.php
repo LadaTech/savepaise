@@ -9,7 +9,7 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="#">Home</a>
+                        <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
                     <li class="active">Add User</li>
@@ -36,7 +36,7 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" id="form-field-1" placeholder="First Name" class="col-xs-10 col-sm-5" />
+                                    <input type="text" id="firstname" name="firstname" placeholder="First Name" class="col-xs-10 col-sm-5" />
                                 </div>
                             </div>
 
@@ -44,50 +44,46 @@
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" id="form-field-1" placeholder="Last Name" class="col-xs-10 col-sm-5" />
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> Password </label>
-
-                                <div class="col-sm-9">
-                                    <input type="password" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />											 
+                                    <input type="text" id="lastname"  name="lastname" placeholder="Last Name" class="col-xs-10 col-sm-5" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Email ID </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" id="form-field-1" placeholder="Email ID" class="col-xs-10 col-sm-5" />
+                                    <input type="text" id="email"  name="email" placeholder="Email ID" class="col-xs-10 col-sm-5" />
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> Password </label>
+
+                                <div class="col-sm-9">
+                                    <input type="password" id="password" name="password" placeholder="Password" class="col-xs-10 col-sm-5" />											 
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Phone Number </label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" id="form-field-1" placeholder="Phone Number" class="col-xs-10 col-sm-5" />
+                                    <input type="text" id="pnumber" name="pnumber" placeholder="Phone Number" class="col-xs-10 col-sm-5" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> User Type </label>
 
                                 <div class="col-sm-9">
-                                    <select class="col-xs-10 col-sm-5" id="form-field-select-1">
-                                         
-                                        <option value="AL">Alabama</option>
-                                        <option value="AK">Alaska</option>
-                                        <option value="AZ">Arizona</option>
-                                        <option value="AR">Arkansas</option>
-                                        <option value="CA">California</option>
+                                    <select class="col-xs-10 col-sm-5" id="usertype" name="usertype">
+                                        <option value="">Select User</option>
+                                        <option value="1">Super Admin</option>
+                                        <option value="2">Admin</option>
+                                        <option value="3">User</option>                                        
                                     </select>
                                 </div>
                             </div>   
                             <div class="center col-md-10">
-                                <button class="btn btn-primary">Save</button>
+                                <button class="btn btn-primary" id="adduser" name="adduser">Add User</button>
                             </div>
-
-
                         </form>
                     </div>
                 </div>
@@ -96,8 +92,15 @@
             </div>	 
         </div>
     </div><!-- /.main-content -->
+    </div><!-- /.main-container -->
 
     <?php include_once('common/footer.php') ?>
 
-</div><!-- /.main-container -->
- 
+<script src="<?php echo base_url(); ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap -->
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+<script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
+<script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.js"></script>
+<script type="text/javascript">
+    
+</script>
