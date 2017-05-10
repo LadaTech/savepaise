@@ -5,27 +5,71 @@
 
 			<div class="main-content">
 				<div class="main-content-inner">
-					<div class="breadcrumbs ace-save-state breadcrumbs-fixed" id="breadcrumbs">
+                                    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+								<a href="#">Dashboard</a>
 							</li>
- 
-							<li class="active">Add User</li>
+  
 						</ul><!-- /.breadcrumb -->
-
-						<!--<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+						 
 					</div>
+                                                
+                                    <div class="page-content">                                  
+                                                
+                                                <div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								  <form class="form-horizontal" role="form">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name </label>
 
-					 
+										<div class="col-sm-9">
+											<input type="text" id="form-field-1" placeholder="First Name" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name </label>
+
+										<div class="col-sm-9">
+											<input type="text" id="form-field-1" placeholder="Last Name" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+ 
+                                                                        <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> Password Field </label>
+
+										<div class="col-sm-9">
+											<input type="password" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />											 
+										</div>
+									</div>
+                                                                        <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> User Type </label>
+
+										<div class="col-sm-9">
+											<select class="col-xs-10 col-sm-5" id="form-field-select-1">
+                                                                                            <option value=""></option>
+                                                                                            <option value="AL">Alabama</option>
+                                                                                            <option value="AK">Alaska</option>
+                                                                                            <option value="AZ">Arizona</option>
+                                                                                            <option value="AR">Arkansas</option>
+                                                                                            <option value="CA">California</option>
+                                                                                        </select>
+										</div>
+									</div>   
+                                                                    <div class="center col-md-10">
+                                                                    <button class="btn btn-primary">Save</button>
+                                                                    </div>
+                                                                    
+ 
+                                                                        </form>  
+                                                        </div>
+                                                </div>
+                                                                
+
+                                    </div>	 
 				</div>
 			</div><!-- /.main-content -->
 

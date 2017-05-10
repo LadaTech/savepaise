@@ -20,7 +20,7 @@ class Admin extends CI_Controller {
     }  
      public function adduser() {
 // Load our view to be displayed        
-        $this->load->view('admin/adduser');
+        $this->load->view('adduser');
     }
 }
 

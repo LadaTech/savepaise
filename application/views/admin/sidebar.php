@@ -1,6 +1,6 @@
 <div id="sidebar" class="sidebar responsive ace-save-state sidebar-fixed sidebar-scroll">				 
 				<ul class="nav nav-list">
-					<li class="active">
+                                    <li class="active">
 						<a href="#">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Dashboard </span>
@@ -13,7 +13,7 @@
 					<li class="">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-tag"></i>
-							<span class="menu-text"> Categoreis</span>
+							<span class="menu-text"> Categories</span>
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
 
@@ -24,7 +24,7 @@
 							<li class="">
 								<a href="#">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Categoreis-1
+									Categories-1
 								</a>
 
 								<b class="arrow"></b>
@@ -33,7 +33,7 @@
 							<li class="">
 								<a href="#">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Categoreis-2
+									Categories-2
 								</a>
 
 								<b class="arrow"></b>
@@ -53,12 +53,12 @@
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
 
-						<b class="arrow"></b>
+						<b class=""></b>
 
 						<ul class="submenu">	
 
 							<li class="">
-								<a href="#">
+                                                            <a href="admin/adduser">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Add User
 								</a>
@@ -125,7 +125,7 @@
 							 
 						</ul>
 					</li>
-				</ul><!-- /.nav-list -->
+				</ul><!--  nav-list -->
 
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
