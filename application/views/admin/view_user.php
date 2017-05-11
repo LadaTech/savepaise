@@ -1,8 +1,6 @@
-<?PHP include_once('common/header.php'); ?>
-
+<?PHP include_once('common/header.php'); ?> 
 <div class="main-container ace-save-state" id="main-container">		
     <?PHP include_once('common/sidebar.php'); ?>
-
     <div class="main-content">
         <div class="main-content-inner">
             <div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -34,66 +32,30 @@
                         <table id="simple-table" class="table  table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th class="center">
-                                        Sl No
-                                    </th>
-                                    <th class="center">
-                                        First Name
-                                    </th>
-
-                                    <th>Last Name</th>
+                                    <th class="center"> Sl No</th>                                    
+                                    <th class="center">First Name </th>                                      
+                                    <th>Last Name</th>                                    
+                                    <th class="hidden-480">Email ID</th>				 
+                                    <th class="hidden-480">Phone Number</th>   
                                     <th>User Type</th>
-
-
-                                    <th class="hidden-480">														 
-                                        Email ID
-                                    </th>
-                                    <th class="hidden-480">Phone Number</th>
-
-                                    <th>Action</th>
-                                </tr>
+                                    <th>Action</th>                            
+                                </tr> 
                             </thead>
-
                             <tbody>
                                 <tr>
-                                    <td class="center">
-                                        1
-                                    </td>
-                                    <td class="center">
-                                        Jone Doe
-                                    </td>
-
-
-                                    <td>
-                                        Wiliams
-                                    </td>
-                                    <td>ER345</td>
-
-
-                                    <td>jone.doe@example.com</td>
-                                    <td class="hidden-480">
-                                        9000251485 
-                                    </td>
-
-
-
-
-                                    <td>
-                                        <div class="hidden-sm hidden-xs btn-group">															 
-
-                                            <button class="btn btn-xs btn-info"  href="#my-modal" role="button" data-toggle="modal">
-                                                <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                            </button>
-
-                                            <button class="btn btn-xs btn-danger" href="#my-modal1" role="button" data-toggle="modal">
-                                                <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                            </button>
-
-
-                                        </div>
-
-
-                                    </td>
+                                    <?php                                   
+                                    
+                                        echo "hi";exit;
+                                        foreach ($userdata as $udata) {
+                                            echo "<td>" . $udata->id . "</td>";
+                                            echo "<td>" . $udata->firstname . "</td>";
+                                            echo "<td>" . $udata->lastname . "</td>";
+                                            echo "<td>" . $udata->email . "</td>";
+                                            echo "<td>" . $udata->pnumber . "</td>";
+                                            echo "<td>" . $udata->usertype . "</td>";
+                                        }
+                                   
+                                    ?>
                                 </tr>
 
 
