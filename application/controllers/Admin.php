@@ -15,22 +15,33 @@ class Admin extends CI_Controller {
         $this->load->model('addusers_model');
     }
 
-    public function index() {
-
+    public function index() {         
         $this->load->view('admin/index');
     }
 
     public function add_user() {
-        $this->load->view('admin/add_user');
+        $this->load->database();
+        $data['utype']=  $this->addusers_model->view_usertype()->result();
+//        echo "<pre>";
+//        print_r($data);exit;
+        $this->load->view('admin/add_user',$data);
     }
 
-    public function view_user() {
+    public function view_user() { 
         $this->load->database();
-        $userdata = $this->addusers_model->view_user();
-        echo "<pre>";
-        print_r($userdata);
-        exit;        
-        $this->load->view('admin/view_user',$query);
+        $data['records'] = $this->addusers_model->view_user()->result(); 
+        $data['utype']=  $this->addusers_model->view_usertype()->result();     
+        $this->load->view('admin/view_user',$data);
+    }
+    
+    public function add_usertype() {
+        $this->load->view('admin/usertype/add_usertype');
+    }
+     public function view_usertype() {
+         $this->load->database();
+        $data['utype']=  $this->addusers_model->view_usertype()->result();
+        $this->load->view('admin/usertype/view_usertype',$data);
+        
     }
 
 }

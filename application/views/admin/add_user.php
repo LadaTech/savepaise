@@ -73,13 +73,14 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> User Type </label>
-
-                                <div class="col-sm-9">
+                                <div class="col-sm-9">                                      
                                     <select class="col-xs-10 col-sm-5" id="usertype" name="usertype">
+
                                         <option value="">Select User</option>
-                                        <option value="1">Super Admin</option>
-                                        <option value="2">Admin</option>
-                                        <option value="3">User</option>                                        
+                                        <?php foreach ($utype as $ind) { ?>                                
+                                            <option value="<?php echo $ind->id; ?>">
+                                                <?php echo $ind->user_type; ?>                                      
+                                            </option><?php } ?> 
                                     </select>
                                 </div>
                             </div>   
@@ -157,7 +158,7 @@
                 password: {
                     required: "Please Provide Password",
                     custompass: "your password should least one number, one lowercase,one uppercase letter and minimum 6 letters"
-                },                
+                },
                 pnumber: {
                     required: "Please Enter Your  Mobile Number",
                     maxlength: "Enter 10 Digit Number",

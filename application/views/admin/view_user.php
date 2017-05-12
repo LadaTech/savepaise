@@ -12,7 +12,6 @@
 
                     <li class="active">View Users</li>
                 </ul><!-- /.breadcrumb -->
-
             </div>
 
             <div class="page-content">
@@ -42,305 +41,142 @@
                                 </tr> 
                             </thead>
                             <tbody>
-                                <tr>
-                                    <?php                                   
-                                    
-                                        echo "hi";exit;
-                                        foreach ($userdata as $udata) {
-                                            echo "<td>" . $udata->id . "</td>";
-                                            echo "<td>" . $udata->firstname . "</td>";
-                                            echo "<td>" . $udata->lastname . "</td>";
-                                            echo "<td>" . $udata->email . "</td>";
-                                            echo "<td>" . $udata->pnumber . "</td>";
-                                            echo "<td>" . $udata->usertype . "</td>";
-                                        }
-                                   
+                                <?php
+                                foreach ($records as $udata) {
+                                    echo "<tr>";
+                                    echo "<td>" . $udata->id . "</td>";
+                                    echo "<td>" . $udata->firstname . "</td>";
+                                    echo "<td>" . $udata->lastname . "</td>";
+                                    echo "<td>" . $udata->email . "</td>";
+                                    echo "<td>" . $udata->pnumber . "</td>";
+                                    echo "<td>" . $udata->usertype . "</td>";
                                     ?>
-                                </tr>
+                                <td>
+                                    <div class="hidden-sm hidden-xs btn-group">															 
 
+                                        <button class="btn btn-xs btn-info" href="#my-modal" role="button" data-toggle="modal">
+                                            <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                        </button>
 
+                                        <button class="btn btn-xs btn-danger" href="#my-modal1" role="button" data-toggle="modal">
+                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                        </button>
+                                    </div>
+                                </td>                               
 
-                            <div id="my-modal" class="modal fade" tabindex="-1">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h3 class="smaller lighter blue no-margin">Edit Member</h3>
-                                        </div>
+                                <!--EDIT MODEL DIV CALL-->
 
-                                        <div class="modal-body">
-                                            <div class="col-xs-12">
-                                                <!-- PAGE CONTENT BEGINS -->
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-
-                                                        <form class="form-horizontal" role="form">
-                                                            <div class="form-group">
-                                                                <label class="col-sm-6 control-label" for="form-field-1">Frist Name</label>
-                                                                <input type="text" class="col-xs-8 col-sm-6" id="form-input-readonly" value="Jhone Doe">
-                                                            </div>
-                                                            <div class="clearleft"></div>
-                                                            <div class="form-group">
-                                                                <label class="col-sm-6 control-label" for="form-field-1">Last Name</label>
-                                                                <input type="text" class="col-xs-8 col-sm-6" id="form-input-readonly" value="Wiliams">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-sm-6 control-label" for="form-field-1">User Type</label>
-                                                                <input type="text" class="col-xs-8 col-sm-6" id="form-input-readonly" value="WR345">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-sm-6 control-label" for="form-field-1">Email ID</label>
-                                                                <input type="text" class="col-xs-8 col-sm-6" id="form-input-readonly" value="jone.doe@gmail.com">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-sm-6 control-label" for="form-field-1">Phone Number</label>
-                                                                <input type="text" class="col-xs-8 col-sm-6" id="form-input-readonly" value="9000251485">
-                                                            </div>
-                                                            <div class="clearboth"></div>
-                                                        </form>						 
-
-
-
-
-                                                    </div><!-- /.span --> 
-                                                </div><!-- /.row -->
-
-
-
-
+                                <div id="my-modal" class="modal fade" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form class="form-horizontal useredit" role="form" id="useredit" action="<?php echo base_url() ?>users/edituser" method="post"></form>
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h3 class="smaller lighter blue no-margin">Edit Member</h3>
                                             </div>
-                                            <div class="clearfix"></div>
-                                        </div>
 
-                                        <div class="modal-footer">
-                                            <button class="btn btn-sm btn-info" type="button">
-                                                <i class="ace-icon fa fa-check bigger-110"></i>
-                                                Save
-                                            </button>
-                                            <button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
-                                                <i class="ace-icon fa fa-times"></i>
-                                                Close
-                                            </button>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div>
-
-                            <div id="my-modal1" class="modal fade" tabindex="-1">
-                                <div class="modal-dialog modal-sm">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h3 class="smaller lighter blue no-margin">Delete This Item</h3>
-                                        </div>
-
-                                        <div class="modal-body">
-                                            <div class="col-xs-12">
-                                                <!-- PAGE CONTENT BEGINS -->
-                                                <div class="alert alert-info bigger-110">
-                                                    These items will be permanently deleted and cannot be recovered.
+                                            <div class="modal-body">
+                                                <div class="col-xs-12">
+                                                    <!-- PAGE CONTENT BEGINS -->
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            
+                                                                <div class="form-group">                                                                
+                                                                    <input type="hidden" class="col-xs-8 col-sm-6" id="id" name="id" value="<?php echo $udata->id ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-6 control-label" for="form-field-1">Frist Name</label>
+                                                                    <input type="text" class="col-xs-8 col-sm-6" id="firstname" name="firstname" value="<?php echo $udata->firstname ?>">
+                                                                </div>
+                                                                <div class="clearleft"></div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-6 control-label" for="form-field-1">Last Name</label>
+                                                                    <input type="text" class="col-xs-8 col-sm-6" id="lastname" name="lastname" value="<?php echo $udata->lastname ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-6 control-label" for="form-field-1">User Type</label>
+                                                                    <input type="text" class="col-xs-8 col-sm-6" id="usertype" name="usertype" value="<?php echo $udata->usertype ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-6 control-label" for="form-field-1">Email ID</label>
+                                                                    <input type="text" class="col-xs-8 col-sm-6" id="email" name="email" value="<?php echo $udata->email ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-6 control-label" for="form-field-1">Phone Number</label>
+                                                                    <input type="text" class="col-xs-8 col-sm-6" id="pnumber" name="pnumber" value="<?php echo $udata->pnumber ?>">
+                                                                </div>
+                                                                <div class="clearboth"></div>
+                                                        </div><!-- /.span --> 
+                                                    </div><!-- /.row -->
                                                 </div>
-
-                                                <div class="space-6"></div>
-
-                                                <p class="bigger-110 bolder center grey">
-                                                    <i class="ace-icon fa fa-hand-o-right blue bigger-120"></i>
-                                                    Are you sure?
-                                                </p>
-
-
-
-
+                                                <div class="clearfix"></div>
                                             </div>
-                                            <div class="clearfix"></div>
-                                        </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-sm btn-info" type="button" id="edituser" name="edituser">
+                                                    <i class="ace-icon fa fa-check bigger-110"></i>EDIT USER
+                                                </button>
 
-                                        <div class="modal-footer">
-                                            <button class="btn btn-sm btn-info" type="button">
-                                                <i class="ace-icon fa fa-trash-o bigger-110"></i>
-                                                Delete
-                                            </button>
-                                            <button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
-                                                <i class="ace-icon fa fa-times"></i>
-                                                Close
-                                            </button>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div>
+                                                <button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
+                                                    <i class="ace-icon fa fa-times"></i>
+                                                    Close
+                                                </button>
+                                                	
 
+                                            </div></form>
+                                        </div><!-- /.modal-content -->
+                                        
+                                    </div><!-- /.modal-dialog -->
+                                </div>
 
-                            <tr>
-                                <td class="center">
-                                    2
-                                </td>
-                                <td class="center">
-                                    Jone Doe
-                                </td>
+                                <!--EDIT CLASS MODEL DIV CLOSE-->
+                                <!--DELETE CLASSMODEL DIV OPEN-->
 
+                                <div id="my-modal1" class="modal fade" tabindex="-1">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h3 class="smaller lighter blue no-margin">Delete This Item</h3>
+                                            </div>
 
-                                <td>
-                                    Wiliams
-                                </td>
-                                <td>ER345</td>
-
-
-                                <td>jone.doe@example.com</td>
-                                <td class="hidden-480">
-                                    9000251485 
-                                </td>
-
-
-
-
-                                <td>
-                                    <div class="hidden-sm hidden-xs btn-group">															 
-
-                                        <button class="btn btn-xs btn-info">
-                                            <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                        </button>
-
-                                        <button class="btn btn-xs btn-danger">
-                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                        </button>
-
-                                    </div>
-
-
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="center">
-                                    3
-                                </td>
-                                <td class="center">
-                                    Jone Doe
-                                </td>
-
-
-                                <td>
-                                    Wiliams
-                                </td>
-                                <td>ER345</td>
-
-
-                                <td>jone.doe@example.com</td>
-                                <td class="hidden-480">
-                                    9000251485 
-                                </td>
-
-
-
-
-                                <td>
-                                    <div class="hidden-sm hidden-xs btn-group">															 
-
-                                        <button class="btn btn-xs btn-info">
-                                            <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                        </button>
-
-                                        <button class="btn btn-xs btn-danger">
-                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                        </button>
-
-                                    </div>
-
-
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="center">
-                                    4
-                                </td>
-                                <td class="center">
-                                    Jone Doe
-                                </td>
-
-
-                                <td>
-                                    Wiliams
-                                </td>
-                                <td>ER345</td>
-
-
-                                <td>jone.doe@example.com</td>
-                                <td class="hidden-480">
-                                    9000251485 
-                                </td>
-
-
-
-
-                                <td>
-                                    <div class="hidden-sm hidden-xs btn-group">															 
-
-                                        <button class="btn btn-xs btn-info">
-                                            <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                        </button>
-
-                                        <button class="btn btn-xs btn-danger">
-                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                        </button>
-
-                                    </div>
-
-
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="center">
-                                    5
-                                </td>
-                                <td class="center">
-                                    Jone Doe
-                                </td>
-
-
-                                <td>
-                                    Wiliams
-                                </td>
-                                <td>ER345</td>
-
-
-                                <td>jone.doe@example.com</td>
-                                <td class="hidden-480">
-                                    9000251485 
-                                </td>
-
-
-
-
-                                <td>
-                                    <div class="hidden-sm hidden-xs btn-group">															 
-
-                                        <button class="btn btn-xs btn-info">
-                                            <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                        </button>
-
-                                        <button class="btn btn-xs btn-danger">
-                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                        </button>
-
-                                    </div>
-
-
-                                </td>
-                            </tr>
-
-
+                                            <div class="modal-body">
+                                                <div class="col-xs-12">
+                                                    <!-- PAGE CONTENT BEGINS -->
+                                                    <div class="alert alert-info bigger-110">
+                                                        These items will be permanently deleted and cannot be recovered.
+                                                    </div>
+                                                    <div class="space-6"></div>
+                                                    <p class="bigger-110 bolder center grey">
+                                                        <i class="ace-icon fa fa-hand-o-right blue bigger-120"></i>
+                                                        Are you sure?
+                                                    </p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-sm btn-info" type="button">
+                                                    <i class="ace-icon fa fa-trash-o bigger-110"></i>
+                                                    Delete
+                                                </button>
+                                                <button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
+                                                    <i class="ace-icon fa fa-times"></i>
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+                                <!--DELETE MODEL CLASS CLOSE-->
+                                <?php
+                                echo "<tr>";
+                            }
+                            ?>     
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-
             </div>	 
         </div>
     </div><!-- /.main-content -->
-
     <?php include_once('common/footer.php') ?>
-
 </div><!-- /.main-container -->

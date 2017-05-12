@@ -40,6 +40,40 @@
                 </li>
             </ul>
         </li>
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-user"></i>
+
+                <span class="menu-text">
+                    UserTypes
+
+                </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <b class=""></b >
+            <ul class="submenu">	
+                <li class="">
+                    <a href="<?php echo base_url() ?>admin/add_usertype">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Add UserType
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>							 
+
+                <li class="">
+                    <a href="<?php echo base_url() ?>admin/view_usertype">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        View UserTypes
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+            </ul>
+        </li>
 
         <li class="">
             <a href="#" class="dropdown-toggle">
@@ -53,7 +87,7 @@
                 <b class="arrow fa fa-angle-down"></b>
             </a>
 
-            <b class=""></b>
+            <b class=""></b>            
 
             <ul class="submenu">	
 
