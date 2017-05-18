@@ -54,7 +54,7 @@ class Users Extends CI_Controller {
                 if ($result = $this->addusers_model->add_user($userdata)) {
                     redirect('admin/add_user');
                 } else {
-                    redirect('admin/add_user');
+                    redirect('admin/view_user');
                 }
             }
         }
@@ -70,7 +70,7 @@ class Users Extends CI_Controller {
                     'pnumber' => $_POST['pnumber'],
                     'usertype' => $_POST['usertype']                
                 );
-            if ($result = $this->addusers_model->edit_user($usereditdata)) {
+            if ($result = $this->addusers_model->update_user($usereditdata)) {
                     redirect('admin/view_user');
                 } else {
                     redirect('admin/add_user');

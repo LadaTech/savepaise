@@ -30,7 +30,9 @@ class Admin extends CI_Controller {
     public function view_user() { 
         $this->load->database();
         $data['records'] = $this->addusers_model->view_user()->result(); 
-        $data['utype']=  $this->addusers_model->view_usertype()->result();     
+        $data['utype']=  $this->addusers_model->view_usertype()->result(); 
+//        echo "<pre>";
+//        print_r($data);exit;
         $this->load->view('admin/view_user',$data);
     }
     
@@ -40,18 +42,23 @@ class Admin extends CI_Controller {
      public function view_usertype() {
          $this->load->database();
         $data['utype']=  $this->addusers_model->view_usertype()->result();
+        
         $this->load->view('admin/usertype/view_usertype',$data);
         
     }
-    function ajax_edit_user()
-    {
+    
+    public function edit_user() {
+        $uid = $_GET['uid'];
+        $this->load->database();
+        $data['utdata'] = $this->addusers_model->view_usertype()->result();
 
-        //print_r($_POST); die;
-        $data['id'] = $_POST['id'];   
-        // get your data by manufacture id and passed to the modal 
-        echo $this->load->view('admin/view_user',$data,true);
+        $data['udata'] = $this->addusers_model->edit_user($uid);
+//         echo "<pre>";
+//        print_r($data);exit;
+        $this->load->view('admin/edit_user', $data);
+       
     }
-
+   
 }
 
 ?>

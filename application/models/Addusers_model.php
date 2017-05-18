@@ -28,11 +28,19 @@ class Addusers_model extends CI_Model {
         return $this->db->get('adduser');
     }
     
-    public function edit_user($usereditdata){
+    public function edit_user($uid){
+//        $id=$usereditdata['id'];
+//        echo $id;exit;
+        $this->db->where('id',$uid);
+        $query = $this->db->get('adduser')->result();
+        return $query[0];
+    }
+    public function update_user($usereditdata){
+         $this->load->database();
         $id=$usereditdata['id'];
-        echo $id;exit;
+//        echo $id;exit;
         $this->db->where('id',$id);
-        $query=  $this->db->update('adduser',$usereditdata);
+        $query = $this->db->update("adduser",$usereditdata);
         if ($query) {
             return TRUE;
         } else {
