@@ -43,6 +43,14 @@ class Admin extends CI_Controller {
         $this->load->view('admin/usertype/view_usertype',$data);
         
     }
+    function ajax_edit_user()
+    {
+
+        //print_r($_POST); die;
+        $data['id'] = $_POST['id'];   
+        // get your data by manufacture id and passed to the modal 
+        echo $this->load->view('admin/view_user',$data,true);
+    }
 
 }
 
