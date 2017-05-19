@@ -48,6 +48,20 @@ class Addusers_model extends CI_Model {
         }
     }
     
+    public function delete_user($id) {
+        $this->load->database();
+        $this->db->where('id', $id);
+        $query1 = $this->db->delete('adduser');
+        $query = $this->db->get('adduser');
+        $result = $query->result_array();
+
+        if ($result) {
+            return $result;
+        } else {
+            return FALSE;
+        }
+    }
+    
     public function add_usertype($usertypedata){
         $this->load->database();
         $query = $this->db->insert("usertypes", $usertypedata);
@@ -60,6 +74,42 @@ class Addusers_model extends CI_Model {
     
      public function view_usertype() {                
         return $this->db->get('usertypes');
+    }
+    public function edit_usertype($uid){
+//        $id=$usereditdata['id'];
+//        echo $id;exit;
+        $this->db->where('id',$uid);
+        $query = $this->db->get('usertypes')->result();
+        return $query[0];
+    }
+    public function update_usertype($usertypeeditdata){
+//        echo "<pre>";
+//        print_r($usertypeeditdata);exit;
+         $this->load->database();
+        $id=$usertypeeditdata['id'];
+    $usertype=$usertypeeditdata['user_type'];
+//        echo $id;exit;
+        $this->db->where('id',$id);
+        $this->db->set('user_type',$usertype);                
+        $query = $this->db->update("usertypes",$usertypeeditdata);
+        if ($query) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    
+    public function delete_usertype($id) {
+        $this->load->database();
+        $this->db->where('id', $id);
+        $query1 = $this->db->delete('usertypes');
+        $query = $this->db->get('usertypes');
+        $result = $query->result_array();
+        if ($result) {
+            return $result;
+        } else {
+            return FALSE;
+        }
     }
 
 }

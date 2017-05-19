@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,10 +10,12 @@ class Users Extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->library('session', 'email');
+        $this->load->library('email');
         $this->load->library('form_validation');
+        $this->load->library('session');
         $this->load->helper('url', 'form', 'html');
         $this->load->model('addusers_model');
+        $this->load->library('javascript');
     }
 
     public function index($msg = NULL) {
@@ -51,34 +53,42 @@ class Users Extends CI_Controller {
                     'created_date' => date('Y-m-d H:i:s')
                 );
 
-                if ($result = $this->addusers_model->add_user($userdata)) {
+                if ($this->addusers_model->add_user($userdata)) {
+//                    $this->session->set_flashdata('flashSuccess', 'This is a success message.');              
                     redirect('admin/add_user');
                 } else {
-                    redirect('admin/view_user');
+//                    $this->session->set_flashdata('flashError', 'This is an error message.');
+                    redirect('admin/add_user');
                 }
             }
         }
     }
 
-    public function edituser(){
-        if(isset($_POST['edituser'])){
-           $usereditdata = array(
-                    'id' =>$_POST['id'],
-                    'firstname' => trim($_POST['firstname']),
-                    'lastname' => trim($_POST['lastname']),
-                    'email' => trim($_POST['email']),                    
-                    'pnumber' => $_POST['pnumber'],
-                    'usertype' => $_POST['usertype']                
-                );
+    public function edituser() {
+        if (isset($_POST['edituser'])) {
+            $usereditdata = array(
+                'id' => $_POST['id'],
+                'firstname' => trim($_POST['firstname']),
+                'lastname' => trim($_POST['lastname']),
+                'email' => trim($_POST['email']),
+                'pnumber' => $_POST['pnumber'],
+                'usertype' => $_POST['usertype'],
+                'updated_date' => date('Y-m-d H:i:s')
+            );
             if ($result = $this->addusers_model->update_user($usereditdata)) {
-                    redirect('admin/view_user');
-                } else {
-                    redirect('admin/add_user');
-                }
- 
+                redirect('admin/view_user');
+            } else {
+                redirect('admin/add_user');
+            }
         }
     }
-    
+
+    public function delete_user() {
+        $id = $_GET['uid'];
+        $data = $this->addusers_model->delete_user($id);
+        redirect('admin/view_user', $data);
+    }
+
 //    function for add usertype
     public function addusertype() {
         if (isset($_POST['addusertype'])) {
@@ -88,13 +98,33 @@ class Users Extends CI_Controller {
 //                'created_by' => $_SESSION[''],
                 'created_date' => date('Y-m-d H:i:s')
             );
-           if($result= $this->addusers_model->add_usertype($usertypedata)){
-               redirect('admin/add_usertype');
-           }
-           else{
-               redirect('admin/add_user');
-           }
+            if ($result = $this->addusers_model->add_usertype($usertypedata)) {
+                redirect('admin/add_usertype');
+            } else {
+                redirect('admin/add_user');
+            }
         }
+    }
+
+    public function edit_usertype() {
+        if (isset($_POST['editusertype'])) {
+            $usertypeeditdata = array(
+                'id' => $_POST['id'],
+                "user_type" => trim($_POST['utypename']),
+                'status' => 1,
+                'updated_date' => date('Y-m-d H:i:s')
+            );
+            if ($result = $this->addusers_model->update_usertype($usertypeeditdata)) {
+                redirect('admin/view_usertype');
+            } else {
+                redirect('admin/add_usertype');
+            }
+        }
+    }
+    public function delete_usertype() {
+        $id = $_GET['uid'];
+        $data = $this->addusers_model->delete_usertype($id);
+        redirect('admin/view_usertype', $data);
     }
 
 }

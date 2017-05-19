@@ -1,7 +1,12 @@
-<?PHP include_once('common/header.php'); ?>
-
+<?PHP
+//if (!defined('BASEPATH'))
+//    exit('No direct script access allowed');
+//$CI = & get_instance();
+//$this->load->library('session');
+$this->load->view('admin/common/header', true);
+?>
 <div class="main-container ace-save-state" id="main-container">		
-    <?PHP include_once('common/sidebar.php'); ?>
+<?PHP $this->load->view('admin/common/sidebar', true); ?>
     <div class="main-content">
         <div class="main-content-inner">
             <div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -34,6 +39,9 @@
                             <?php
                             $this->load->library('form_validation');
                             echo validation_errors();
+//                             if($this->session->flashdata('flashSuccess')){
+//                                echo $this->session->flashdata('flashSuccess');
+//                            }
                             ?>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name </label>
@@ -77,9 +85,9 @@
                                     <select class="col-xs-10 col-sm-5" id="usertype" name="usertype">
 
                                         <option value="">Select User</option>
-                                        <?php foreach ($utype as $ind) { ?>                                
+                                            <?php foreach ($utype as $ind) { ?>                                
                                             <option value="<?php echo $ind->id; ?>">
-                                                <?php echo $ind->user_type; ?>                                      
+    <?php echo $ind->user_type; ?>                                      
                                             </option><?php } ?> 
                                     </select>
                                 </div>
@@ -97,7 +105,7 @@
     </div><!-- /.main-content -->
 </div><!-- /.main-container -->
 
-<?php include_once('common/footer.php') ?>
+<?php $this->load->view('admin/common/footer', true); ?>
 <!--end of form application-->
 <!--add user form validations-->
 <script src="<?php echo base_url(); ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
