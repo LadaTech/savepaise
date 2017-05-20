@@ -39,8 +39,12 @@ $this->load->view('admin/common/header', true);
                             <?php
                             $this->load->library('form_validation');
                             echo validation_errors();
-//                             if($this->session->flashdata('flashSuccess')){
-//                                echo $this->session->flashdata('flashSuccess');
+//                            echo "<pre>";
+//                            print_r($_SESSION);
+//                            print_r($session);
+//                            echo "</pre>";
+//                            if($this->session->flashSuccess){
+//                                echo $this->session->flashSuccess;
 //                            }
                             ?>
                             <div class="form-group">

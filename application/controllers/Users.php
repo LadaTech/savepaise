@@ -1,5 +1,7 @@
 <?php
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,6 +14,7 @@ class Users Extends CI_Controller {
         parent::__construct();
         $this->load->library('email');
         $this->load->library('form_validation');
+//        $this->load->library('Session');
         $this->load->library('session');
         $this->load->helper('url', 'form', 'html');
         $this->load->model('addusers_model');
@@ -54,10 +57,10 @@ class Users Extends CI_Controller {
                 );
 
                 if ($this->addusers_model->add_user($userdata)) {
-//                    $this->session->set_flashdata('flashSuccess', 'This is a success message.');              
+//                    $this->session->flashSuccess = 'This is a success message.';
                     redirect('admin/add_user');
                 } else {
-//                    $this->session->set_flashdata('flashError', 'This is an error message.');
+//                    $this->session->flashError = 'This is an error message.';
                     redirect('admin/add_user');
                 }
             }
@@ -121,6 +124,7 @@ class Users Extends CI_Controller {
             }
         }
     }
+
     public function delete_usertype() {
         $id = $_GET['uid'];
         $data = $this->addusers_model->delete_usertype($id);

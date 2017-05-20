@@ -9,7 +9,9 @@ class Admin extends CI_Controller {
         $this->load->library('session', 'form_validation', 'email');
         $this->load->helper('url', 'form', 'html');
         $this->load->library('pagination');
+        $this->load->database();
         $this->load->model('addusers_model');
+        $this->load->model('category_model');
     }
 
     public function index() {         
@@ -19,6 +21,8 @@ class Admin extends CI_Controller {
     public function add_user() {
         $this->load->database();
         $data['utype']=  $this->addusers_model->view_usertype()->result();
+//        print_r($this->session);
+//        $data['session']= $this->session;
 //        echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/add_user',$data);
@@ -108,12 +112,16 @@ class Admin extends CI_Controller {
 //        $this->pagination->initialize($config);
 //        $data['pagination'] = $this->pagination->create_links();
 //
-//        $data['list'] = $this->Category_model->category_list1('', $config["per_page"], $data['page'], $this->uri->segment(3));
-//        // print_r($data['productsLists']);exit;
-//
+        $data['cat_list'] = $this->category_model->view_category();
+//        echo "<pre>";
+//         print_r($data);exit;//
 //        $data['group'] = $this->Category_model->cat_group();
-        $this->load->view('admin/category/view_category');
+        $this->load->view('admin/category/view_category',$data);
         
+    }
+    public function category_edit() {
+        $data['edit'] = $this->category_model->edit_category();
+        $this->load->view('admin/category/edit_category', $data);        
     }
 
     
