@@ -100,14 +100,57 @@ class Category extends CI_Controller {
                 redirect('admin/view_category');
         }
     }
-    
+
     public function category_delete() {
         $id = $_GET['catid'];
-        
+
         $data['list'] = $this->category_model->delete_category($id);
-        
-//        $data['group'] = $this->Category_model->cat_group();
+
+        $data['group'] = $this->category_model->cat_group();
         redirect('admin/view_category');
+    }
+
+    public function add_catgroup() {
+        if (isset($_POST["submit_g"]) == 'submit' || !empty($_POST)) {
+            $allowed_ext = array("jpeg", "jpg", "gif", "png");
+            $tmp_ext = explode(".", $_FILES["group_image"]["name"]); //for dividing purpose
+            $ext = strtolower(end($tmp_ext)); //for converting capital to small
+            $image_path = $_SERVER['REQUEST_TIME'] . '.' . $ext;
+            if ((($_FILES["group_image"]["type"] == "image/jpeg") || ($_FILES["group_image"]["type"] == "image/jpg") || ($_FILES["group_image"]["type"] == "image/gif") || ($_FILES["group_image"]["type"] == "image/png")) && in_array($ext, $allowed_ext)) {
+                $editImage = 1;
+                $target_path = $_SERVER['DOCUMENT_ROOT'] . '/assets/images/nav-icons/';
+                // echo $target_path = base_url() . 'assets/img/'; 
+
+                $target_path = $target_path . basename($image_path);
+                if (!file_exists($target_path)) {
+                    if (move_uploaded_file($_FILES['group_image']['tmp_name'], $target_path)) {
+                        $image = $target_path;
+                        $maxHeight = 50;
+                        $maxWidth = 50;
+                        //  echo "The file " . basename($_FILES['image_c']['name']) . " has been uploaded";exit;
+                    }
+                }
+            }
+            $image_name = $image_path;
+            $catg_data = array(
+                'cate_id' => $_POST['catg_names'],
+                'group_name' => $_POST['c_group'],
+                'image' => $image_path,
+                'status' => 0,
+//                'created_by' => $_SESSION['uid'],
+                'created_date' => date('Y-m-d H:i:s')
+            );
+
+            $result = $this->category_model->add_catgroup($catg_data);
+
+            if ($result != '') {
+
+//                redirect('admin/categorygroup_list?mes=1');
+                redirect('admin/add_category_group');
+            } else {
+                redirect('admin/add_category_group');
+            }
+        }
     }
 
 }

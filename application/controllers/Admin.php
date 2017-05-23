@@ -126,8 +126,10 @@ class Admin extends CI_Controller {
 
     
     public function add_category_group() {
-//        $data['categories'] = $this->Category_model->category_list();
-        $this->load->view('admin/category/add_category_group');
+        $data['category'] = $this->category_model->view_category();
+//        echo "<pre>";
+//        print_r($data);exit;
+        $this->load->view('admin/category/add_category_group',$data);
 //        $this->load->view('admin/footer');
     }
     
@@ -169,11 +171,12 @@ class Admin extends CI_Controller {
 //        $this->pagination->initialize($config);
 //        $data['pagination'] = $this->pagination->create_links();
 //
-//        $data['list'] = $this->Category_model->getcat_group1('', $config["per_page"], $data['page'], $this->uri->segment(3));
-//        $data['categories'] = $this->Category_model->category_list();
-//        $data['catgroup'] = $this->Category_model->getCatGroups();
-        $this->load->view('admin/category/view_category_group');
-//        $this->load->view('admin/footer');
+        $data['list'] = $this->category_model->getcat_group1('',  $this->uri->segment(3));
+//        echo "<pre>";
+//        print_r($data);exit;
+        $data['category'] = $this->category_model->view_category();
+        $data['catgroup'] = $this->category_model->getCatGroups();
+        $this->load->view('admin/category/view_category_group',$data);
     }
     
      public function add_subcategory() {
