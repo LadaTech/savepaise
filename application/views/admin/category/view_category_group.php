@@ -1,6 +1,6 @@
 <?PHP
 $this->load->view('admin/common/header', true);
-////echo "<pre>";
+//echo "<pre>";
 //print_r($list);exit;
 ?>
 <div class="main-container ace-save-state" id="main-container">		
@@ -58,12 +58,12 @@ $this->load->view('admin/common/header', true);
 
                                 <td><img style="object-fit:contain; width:100px; height: 100px;" src="<?php echo base_url() . "/assets/images/nav-icons/" . $catGroup['image']; ?>" alt="<?php echo $catGroup['group_name']; ?>" /></td>
                                 <td><?php echo $catGroup['created_date']; ?> </td>
-                                <td><a href="<?php echo base_url() ?>admin/editcategory_group?catid=<?php echo $catGroup['g_id']; ?>">Edit</a><?php // if ($_SESSION['utype'] == 1) {  ?><a  href="<?php // echo base_url() ?>category/category_delete?catid=<?php echo $catGroup['g_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" >Delete</a> <?php // }  ?></td>
+                                <td><a href="<?php echo base_url() ?>admin/editcategory_group?catid=<?php echo $catGroup['g_id']; ?>">Edit</a><?php // if ($_SESSION['utype'] == 1) {  ?>/<a  href="<?php // echo base_url() ?>category/category_delete?catid=<?php echo $catGroup['g_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" >Delete</a> <?php // }  ?></td>
                                 <td style="width:15%;">
                                     <input type="text" class="sortW" name="sortId" id="sortid_<?php echo $catGroup['g_id']; ?>" value="<?php echo $catGroup['sorting']; ?>">
                                     <input type="hidden" name="catid" value="<?php echo $catGroup['g_id']; ?>">
                                     <button type="button" onClick="sortFunction('<?php echo $catGroup['g_id']; ?>', 'sortid_<?php echo $catGroup['g_id']; ?>');" id="catsorting" value="save" name="save" class="sorting_value btn btn-success btn-quirk btn-wide mr5">Save</button>
-                                </td>
+                                </td></tr>
 
 <?php } ?>
 

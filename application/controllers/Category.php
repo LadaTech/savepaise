@@ -152,6 +152,52 @@ class Category extends CI_Controller {
             }
         }
     }
+    
+    public function edit_catgroup() {
+        //print_r($_POST); print_r($_SESSION);exit;
+//        $editImage = 0;
+        if (isset($_POST["submit_g"]) == 'submit' || !empty($_POST)) {
+            $allowed_ext = array("jpeg", "jpg", "gif", "png");
+            $tmp_ext = explode(".", $_FILES["group_image"]["name"]); //for dividing purpose
+            $ext = strtolower(end($tmp_ext)); //for converting capital to small
+            $image_path = $_SERVER['REQUEST_TIME'] . '.' . $ext;
+            if ((($_FILES["group_image"]["type"] == "image/jpeg") || ($_FILES["group_image"]["type"] == "image/jpg") || ($_FILES["group_image"]["type"] == "image/gif") || ($_FILES["group_image"]["type"] == "image/png")) && in_array($ext, $allowed_ext)) {
+//                $editImage = 1;
+                $target_path = $_SERVER['DOCUMENT_ROOT'] . '/assets/images/nav-icons/';
+                // echo $target_path = base_url() . 'assets/img/'; 
+
+                $target_path = $target_path . basename($image_path);
+                if (!file_exists($target_path)) {
+                    if (move_uploaded_file($_FILES['group_image']['tmp_name'], $target_path)) {
+                        $image = $target_path;
+                        $maxHeight = 50;
+                        $maxWidth = 50;
+                        //  echo "The file " . basename($_FILES['image_c']['name']) . " has been uploaded";exit;
+                    }
+                }
+            }
+            $image_name = $image_path;
+            $catg_data = array(
+                'cate_id' => $_POST['catg_names'],
+                'group_name' => $_POST['c_group'],
+//                'image' => $image_path,
+                'status' => 0,
+//                'updated_by' => $_SESSION['uid'],
+                'updated_date' => date('Y-m-d H:i:s')
+            );
+            $editGropId = $_POST['editgroupId'];
+            if ($editImage == 1) {
+                $catg_data['image'] = $image_path;
+            }
+            $result = $this->category_model->group_update($catg_data, $editGropId);
+
+            if ($result != '') {
+                redirect('admin/view_category_group');
+            } else {
+                redirect('admin/category_group');
+            }
+        }
+    }
 
 }
 

@@ -135,5 +135,15 @@ class Category_model extends CI_Model {
         $query = $this->db->get('category_group')->result();
         return $query;
     }
+    
+    public function group_update($edit_data, $id) {
+        $this->db->where('g_id', $id);
+        $query = $this->db->update('category_group', $edit_data);
+        if ($query) {
+            return true;
+        } else {
+            return FALSE;
+        }
+    }
 
 }

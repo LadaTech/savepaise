@@ -1,5 +1,7 @@
 <?php
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
@@ -12,31 +14,33 @@ class Admin extends CI_Controller {
         $this->load->database();
         $this->load->model('addusers_model');
         $this->load->model('category_model');
+        $this->load->model('subcategory_model');
     }
 
-    public function index() {         
+    public function index() {
         $this->load->view('admin/index');
     }
 
     public function add_user() {
         $this->load->database();
-        $data['utype']=  $this->addusers_model->view_usertype()->result();
+        $data['utype'] = $this->addusers_model->view_usertype()->result();
 //        print_r($this->session);
 //        $data['session']= $this->session;
 //        echo "<pre>";
 //        print_r($data);exit;
-        $this->load->view('admin/add_user',$data);
+        $this->load->view('admin/add_user', $data);
     }
 
-    public function view_user() { 
+    public function view_user() {
         $this->load->database();
-        $data['records'] = $this->addusers_model->view_user()->result(); 
-        $data['utype']=  $this->addusers_model->view_usertype()->result(); 
+        $data['records'] = $this->addusers_model->view_user()->result();
+        $data['utype'] = $this->addusers_model->view_usertype()->result();
 //        echo "<pre>";
 //        print_r($data);exit;
-        $this->load->view('admin/view_user',$data);
+        $this->load->view('admin/view_user', $data);
     }
-     public function edit_user() {
+
+    public function edit_user() {
         $uid = $_GET['uid'];
         $this->load->database();
         $data['utdata'] = $this->addusers_model->view_usertype()->result();
@@ -45,33 +49,33 @@ class Admin extends CI_Controller {
 //         echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/edit_user', $data);
-       
-    }   
-    
+    }
+
     public function add_usertype() {
         $this->load->view('admin/usertype/add_usertype');
     }
-     public function view_usertype() {
-         $this->load->database();
-        $data['utype']=  $this->addusers_model->view_usertype()->result();
-        
-        $this->load->view('admin/usertype/view_usertype',$data);
-        
+
+    public function view_usertype() {
+        $this->load->database();
+        $data['utype'] = $this->addusers_model->view_usertype()->result();
+
+        $this->load->view('admin/usertype/view_usertype', $data);
     }
-    
-     public function edit_usertype() {
+
+    public function edit_usertype() {
         $uid = $_GET['uid'];
         $this->load->database();
-        $data['utdata'] = $this->addusers_model->edit_usertype($uid);    
+        $data['utdata'] = $this->addusers_model->edit_usertype($uid);
 //         echo "<pre>";
 //        print_r($data);exit;
-        $this->load->view('admin/usertype/edit_usertype', $data);       
-    }  
+        $this->load->view('admin/usertype/edit_usertype', $data);
+    }
+
     public function add_category() {
         $this->load->view('admin/category/add_category');
 //        $this->load->view('admin/footer');
     }
-    
+
     public function view_category() {
         //$config['base_url'] = site_url("admin/category_list/" . $this->uri->segment(3) . "/" . $this->uri->segment(4));
         //$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -116,23 +120,22 @@ class Admin extends CI_Controller {
 //        echo "<pre>";
 //         print_r($data);exit;//
 //        $data['group'] = $this->Category_model->cat_group();
-        $this->load->view('admin/category/view_category',$data);
-        
-    }
-    public function category_edit() {
-        $data['edit'] = $this->category_model->edit_category();
-        $this->load->view('admin/category/edit_category', $data);        
+        $this->load->view('admin/category/view_category', $data);
     }
 
-    
+    public function category_edit() {
+        $data['edit'] = $this->category_model->edit_category();
+        $this->load->view('admin/category/edit_category', $data);
+    }
+
     public function add_category_group() {
         $data['category'] = $this->category_model->view_category();
 //        echo "<pre>";
 //        print_r($data);exit;
-        $this->load->view('admin/category/add_category_group',$data);
+        $this->load->view('admin/category/add_category_group', $data);
 //        $this->load->view('admin/footer');
     }
-    
+
     public function view_category_group() {
         //$config['base_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 //        $config['base_url'] = site_url("admin/categorygroup_list");
@@ -171,29 +174,31 @@ class Admin extends CI_Controller {
 //        $this->pagination->initialize($config);
 //        $data['pagination'] = $this->pagination->create_links();
 //
-        $data['list'] = $this->category_model->getcat_group1('',  $this->uri->segment(3));
-//        echo "<pre>";
-//        print_r($data);exit;
+        $data['list'] = $this->category_model->getcat_group1('', $this->uri->segment(3));
+        
         $data['category'] = $this->category_model->view_category();
         $data['catgroup'] = $this->category_model->getCatGroups();
-        $this->load->view('admin/category/view_category_group',$data);
+//        echo "<pre>";
+//        print_r($data);exit;
+        $this->load->view('admin/category/view_category_group', $data);
     }
-    
-     public function add_subcategory() {
-//        $data['categories'] = $this->Category_model->category_list();
-//        $data['catgroup'] = $this->Category_model->getcat_group();
 
+    public function add_subcategory() {
+        $data['categories'] = $this->category_model->view_category();
+
+        $data['catgroup'] = $this->category_model->getcat_group();
+//         echo "<pre>";
+//        print_r($data);exit;
 //        $data['brandNames'] = $this->Brand_model->brandslist();
-        $this->load->view('admin/subcategory/add_subcategory');
-//        $this->load->view('admin/footer');
+        $this->load->view('admin/subcategory/add_subcategory', $data);
     }
-    
+
     public function view_subcategory() {
 //        $config['base_url'] = site_url("admin/subcat_view");
 //        $config['per_page'] = "10";
 //        $data['per_page'] = $config['per_page'];
 //        $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-//        $data['allRecords'] = $this->Subcategory_model->subcat_view1('all', $config["per_page"], $data['page'], $this->uri->segment(3));
+//        $data['allRecords'] = $this->subcategory_model->subcat_view1('all', $config["per_page"], $data['page'], $this->uri->segment(3));
 ////        echo "<pre>";
 ////        print_r($data['allRecords']);
 ////        echo "</pre>";exit;
@@ -226,15 +231,23 @@ class Admin extends CI_Controller {
 //        $config['num_tag_close'] = '</li>';
 //        $this->pagination->initialize($config);
 //        $data['pagination'] = $this->pagination->create_links();
-//
-//        $data['sublist'] = $this->Subcategory_model->subcat_view1('', $config["per_page"], $data['page'], $this->uri->segment(3));
-//        $data['categories'] = $this->Category_model->category_list();
-//        $data['group'] = $this->Category_model->cat_group();
-//        // $data['sublist'] = $this->Subcategory_model->subcat_view();
-        $this->load->view('admin/subcategory/view_subcategory');
-      
+
+        $data['sublist'] = $this->subcategory_model->subcat_view1( '', $this->uri->segment(3));        
+        
+        $data['categories'] = $this->category_model->view_category();
+        $data['group'] = $this->category_model->cat_group();
+        $data['sublist'] = $this->subcategory_model->subcat_view();
+    
+        $this->load->view('admin/subcategory/view_subcategory',$data);
+         
     }
-   
+
+    public function editcategory_group() {
+        $data['catGroup'] = $this->category_model->cat_group($_REQUEST['catid']);
+        $data['categories'] = $this->category_model->view_category();
+        $this->load->view('admin/category/edit_category_group', $data);
+    }
+
 }
 
 ?>
