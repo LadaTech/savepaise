@@ -82,7 +82,8 @@ class Subcategory_model extends CI_Model{
         } else {
             return FALSE;
         }
-    }     
+    }      
+   
     
    
 /**
@@ -113,6 +114,17 @@ class Subcategory_model extends CI_Model{
             return $query->result();
         }
     }
+    
+    // To Edit subcategory of Admin Panel 
+
+    public function getsubcategory() {
+        //data is retrive from this query 
+        $this->db->where('scat_id', $_GET['subid']);
+        $query = $this->db->get('subcategories')->result();
+        return $query[0];
+    }
+
+    //End of the Funtion 
     /**
      * Get values for subcategories
      * @param type $id
@@ -156,6 +168,40 @@ class Subcategory_model extends CI_Model{
         $result = $query->result_array();
         return $result;
     }
+    
+     // To Update the Edit subcategory of Admin Panel 
+    public function subcat_update($sedit_data) {
+        $this->db->where('scat_id', $sedit_data['scat_id']);
+        $query = $this->db->update('subcategories', $sedit_data);
+        if ($query) {
+            return true;
+        } else {
+            return FALSE;
+        }
+    }
+
+    //End of the Funtion 
+    
+    // To dalete the  subcategory of Admin Panel 
+    public function deletesubcategory($id) {
+        $data = array(
+            'status' => 0,
+            'updated_by' => $_SESSION['uid'],
+            'updated_date' => date('Y-m-d H:i:s')
+        );
+        $this->db->where('scat_id', $id);
+        $query1 = $this->db->update('subcategories', $data);
+        $query = $this->db->get('subcategories');
+        $result = $query->result_array();
+        // print_r($result);exit;
+        if ($result) {
+            return $result;
+        } else {
+            return FALSE;
+        }
+    }
+
+    //End of the Funtion 
 
 }
 

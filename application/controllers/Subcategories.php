@@ -54,6 +54,60 @@ class Subcategories extends CI_Controller{
             }
         }
     }
+    
+    //To Edit Subcategory to admin panel
+    public function subcat_edit() {
+        if (isset($_POST['edit_submit']) || !empty($_POST)) {
+            $allowed_ext = array("jpeg", "jpg", "gif", "png", "zip");
+            $tmp_ext = explode(".", $_FILES["image_c"]["name"]); //for dividing purpose
+            $ext = strtolower(end($tmp_ext)); //for converting capital to small
+            $image_path = $_SERVER['REQUEST_TIME'] . '.' . $ext;
+            if ((($_FILES["image_c"]["type"] == "image/jpeg") || ($_FILES["image_c"]["type"] == "image/jpg") || ($_FILES["image_c"]["type"] == "image/gif") || ($_FILES["image_c"]["type"] == "image/png")) && in_array($ext, $allowed_ext)) {
+                $target_path = $_SERVER['DOCUMENT_ROOT'] . '/assets/img/';
+                // echo $target_path = base_url() . 'assets/img/'; 
+
+                $target_path = $target_path . basename($image_path);
+                if (!file_exists($target_path)) {
+                    if (move_uploaded_file($_FILES['image_c']['tmp_name'], $target_path)) {
+                        $image = $target_path;
+                        $maxHeight = 50;
+                        $maxWidth = 50;
+                        //  echo "The file " . basename($_FILES['image_c']['name']) . " has been uploaded";exit;
+                    }
+                }
+            }
+            if (!empty($image_path)) {
+                $image_path1 = $image_path;
+            }
+            $sedit_data = array(
+                'scat_id' => $_POST['sub_eid'],
+                'category_id' => $_POST['scat_e'],
+                'scat_name' => $_POST['sub_edit'],
+                'category_group' => $_POST['cat_group'],
+                'logo' => $image_path1,
+                'status' => 1,
+                'updated_by' => $_SESSION['uid'],
+                'updated_date' => date('Y-m-d H:i:s')
+            ); //echo '<pre>';
+            //print_r($sedit_data);exit;
+            if ($result = $this->subcategory_model->subcat_update($sedit_data))
+                redirect('admin/view_subcategory');
+            else {
+                redirect('admin/edit_subcategory');
+            }
+        }
+    }
+    
+    // //To delete  specified category  form the Admin Panel
+    public function subcategory_delete() {
+        $id = $_GET['subid'];
+
+        $result = $this->subcategory_model->deletesubcategory($id);
+
+        redirect('admin/view_subcategory');
+    }
+
+    //To update the status of the subcategories list 
     //To update the status of the subcategories list
      public function status() {
 

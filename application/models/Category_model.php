@@ -46,11 +46,11 @@ class Category_model extends CI_Model {
     }
 
     public function delete_category($id) {
-        $data = array(
+       $data = array(
             'status' => 0,
         );
         $this->db->where('cat_id', $id);
-        $query1 = $this->db->delete('categories');
+        $query1 = $this->db->update('categories', $data);
         $query = $this->db->get('categories');
         $result = $query->result_array();
 
@@ -84,7 +84,7 @@ class Category_model extends CI_Model {
 
     public function getcat_group() {
         //data is retrive from this query         
-        $query = $this->db->get('category_group')->result();
+        $query = $this->db->get('category_group')->result_array();
 
         return $query;
     }

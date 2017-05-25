@@ -245,8 +245,24 @@ class Admin extends CI_Controller {
     public function editcategory_group() {
         $data['catGroup'] = $this->category_model->cat_group($_REQUEST['catid']);
         $data['categories'] = $this->category_model->view_category();
+//        echo "<pre>";
+//        print_r($data);exit;
         $this->load->view('admin/category/edit_category_group', $data);
     }
+    
+     //To display the subcategory_edit for the Admin Panel
+    public function subcat_edit() {         
+        $data['subedit'] = $this->subcategory_model->getsubcategory();
+        $data['categories'] = $this->category_model->view_category();
+        $data['catgroup'] = $this->category_model->getcat_group();     
+//        echo "<pre>";
+//        print_r($data);exit;
+        //$data['sublist'] = $this->subcategory_model->subcat_view();       
+        $this->load->view('admin/subcategory/edit_subcategory', $data);
+    
+    }
+
+    //End of the Function 
 
 }
 
