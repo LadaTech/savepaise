@@ -6,7 +6,7 @@
 $this->load->view('admin/common/header', true);
 ?>
 <div class="main-container ace-save-state" id="main-container">		
-<?PHP $this->load->view('admin/common/sidebar', true); ?>
+    <?PHP $this->load->view('admin/common/sidebar', true); ?>
     <div class="main-content">
         <div class="main-content-inner">
             <div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -38,14 +38,11 @@ $this->load->view('admin/common/header', true);
                         <form class="form-horizontal"  id="adduserform" name="adduserform" role="form" action="<?php echo base_url() ?>users/adduser" method="post">
                             <?php
                             $this->load->library('form_validation');
+                            $this->load->library('session');
                             echo validation_errors();
-//                            echo "<pre>";
-//                            print_r($_SESSION);
-//                            print_r($session);
-//                            echo "</pre>";
-//                            if($this->session->flashSuccess){
-//                                echo $this->session->flashSuccess;
-//                            }
+                            if (isset($_SESSION['messgae']) && (!empty($_SESSION['messgae']))) {
+                                echo $_SESSION['messgae'];
+                            }
                             ?>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name </label>
@@ -89,9 +86,9 @@ $this->load->view('admin/common/header', true);
                                     <select class="col-xs-10 col-sm-5" id="usertype" name="usertype">
 
                                         <option value="">Select User</option>
-                                            <?php foreach ($utype as $ind) { ?>                                
+                                        <?php foreach ($utype as $ind) { ?>                                
                                             <option value="<?php echo $ind->id; ?>">
-    <?php echo $ind->user_type; ?>                                      
+                                                <?php echo $ind->user_type; ?>                                      
                                             </option><?php } ?> 
                                     </select>
                                 </div>
@@ -99,6 +96,7 @@ $this->load->view('admin/common/header', true);
                             <div class="center col-md-10">
                                 <button class="btn btn-primary" id="adduser" name="adduser">Add User</button>
                             </div>
+                            <?php // }   ?>
                         </form>
                     </div>
                 </div>

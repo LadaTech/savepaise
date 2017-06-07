@@ -57,11 +57,18 @@ class Users Extends CI_Controller {
                 );
 
                 if ($this->addusers_model->add_user($userdata)) {
-//                    $this->session->flashSuccess = 'This is a success message.';
+                    $this->Session->messgae='user added successfully';
+//                   
+//                    
+//                    $this->session->userdata('messgae')="praveen";
+                   
+//                   $msg="User added successfully";
                     redirect('admin/add_user');
+//                    header("Location:admin/add_user?msg=$msg");
                 } else {
-//                    $this->session->flashError = 'This is an error message.';
+                    $this->Session->messgae="while error occured while adding user";
                     redirect('admin/add_user');
+//                    header("Location:admin/add_user?msg=$msg");
                 }
             }
         }

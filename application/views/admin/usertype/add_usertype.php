@@ -29,7 +29,7 @@
                         <form class="form-horizontal"  id="addtypeuserform" name="addusertypeform" role="form" action="<?php echo base_url() ?>users/addusertype" method="post">
                             <?php
                             $this->load->library('form_validation');
-                            echo validation_errors();
+                            echo validation_errors();                          
                             ?>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label capitalize">UserType Name <span class="text-danger">*</span></label>

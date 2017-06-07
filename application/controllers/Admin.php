@@ -8,7 +8,7 @@ class Admin extends CI_Controller {
     function __construct() {
 
         parent::__construct();
-        $this->load->library('session', 'form_validation', 'email');
+        $this->load->library('session','form_validation', 'email');
         $this->load->helper('url', 'form', 'html');
         $this->load->library('pagination');
         $this->load->database();
