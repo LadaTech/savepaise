@@ -124,6 +124,7 @@ class Category_model extends CI_Model {
         //return $query 
     }
 
+    // To Edit category of Admin Panel 
     public function cat_group($catGroupId = '', $catId = '') {
         if ($catGroupId != '') {
             $this->db->where('g_id', $catGroupId);
@@ -135,6 +136,7 @@ class Category_model extends CI_Model {
         $query = $this->db->get('category_group')->result();
         return $query;
     }
+
     
     public function group_update($edit_data, $id) {
         $this->db->where('g_id', $id);

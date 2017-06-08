@@ -52,7 +52,7 @@
                                         <input type="hidden" name="id" value="<?php echo $_GET['catid']; ?>" >
                                  
                                         <button type="submit" id="edit_category"  name="edit_category" value="submit"  class="btn btn-success btn-quirk btn-wide mr5">Submit</button>
-                                        <button type="reset" class="btn btn-quirk btn-wide btn-default">Reset</button>
+                                        
                                     </div>
                                 </div>
 

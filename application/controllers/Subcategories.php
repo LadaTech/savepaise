@@ -40,6 +40,7 @@ class Subcategories extends CI_Controller{
             $subcat_data = array(
                 'category_id' => $_POST['cat_names'],
                 'category_group' => $_POST['cat_group'],
+                'brand_id' => $_POST['brandId'],
                 'scat_name' => $_POST['subname'],                
                 'logo' => $image_path,
                 'status' => 1,

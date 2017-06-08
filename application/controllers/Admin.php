@@ -15,6 +15,7 @@ class Admin extends CI_Controller {
         $this->load->model('addusers_model');
         $this->load->model('category_model');
         $this->load->model('subcategory_model');
+        $this->load->model('brand_model');
     }
 
     public function index() {
@@ -186,10 +187,10 @@ class Admin extends CI_Controller {
     public function add_subcategory() {
         $data['categories'] = $this->category_model->view_category();
 
-        $data['catgroup'] = $this->category_model->getcat_group();
+        $data['catgroup'] = $this->category_model->getcat_group();        
+        $data['brandNames'] = $this->brand_model->brandslist();
 //         echo "<pre>";
 //        print_r($data);exit;
-//        $data['brandNames'] = $this->Brand_model->brandslist();
         $this->load->view('admin/subcategory/add_subcategory', $data);
     }
 
@@ -263,6 +264,102 @@ class Admin extends CI_Controller {
     }
 
     //End of the Function 
+    //To add brands 
+    public function addBrands() {
+        $this->load->view('admin/brands/addbrand');        
+    }
+    
+    //To Add category to admin panel
+    public function addbrandAction($msg = NULL) {
+        if (isset($_POST["submit_c"]) == 'submit' || !empty($_POST)) {
+            $image_path = time() . "_" . $_POST['brand_name'] . '_' . $_FILES['logo']['name'];
+            $allowed_ext = array("jpeg", "jpg", "gif", "png", "zip");
+            $tmp_ext = explode(".", $_FILES["logo"]["name"]); //for dividing purpose
+            $ext = strtolower(end($tmp_ext)); //for converting capital to small
+            if ((($_FILES["logo"]["type"] == "image/jpeg") || ($_FILES["logo"]["type"] == "image/jpg") || ($_FILES["logo"]["type"] == "image/gif") || ($_FILES["logo"]["type"] == "image/png")) && in_array($ext, $allowed_ext)) {
+                $target_path = $_SERVER['DOCUMENT_ROOT'] . '/assets/img/';
+                // echo $target_path = base_url() . 'assets/img/';
+
+                $target_path = $target_path . basename($image_path);
+                if (!file_exists($target_path)) {
+                    if (move_uploaded_file($_FILES['logo']['tmp_name'], $target_path)) {
+                        $image = $target_path;
+                        $maxHeight = 50;
+                        $maxWidth = 50;
+                        //  echo "The file " . basename($_FILES['image_c']['name']) . " has been uploaded";exit;
+                    }
+                }
+            }
+            $cat_data = array(
+                'brand_name' => $_POST['brand_name'],
+                'logo' => $image_path,
+                'status' => 1,
+//                'created_by' => $_SESSION['uid'],
+                'created_date' => date('Y-m-d H:i:s')
+            );
+            $this->load->model('brand_model');
+            $result = $this->brand_model->add($cat_data);
+            if ($result != '') {
+                redirect('admin/addBrands');
+            } else {
+                redirect('admin/addBrands');
+            }
+        }
+    }
+
+    //End of the Function 
+    
+    //To display the Brands_list for the Admin Panel
+    public function brandslist() {
+        //$config['base_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+//        $config['base_url'] = site_url("admin/brandslist");
+//        $config['per_page'] = "10";
+//        $data['per_page'] = $config['per_page'];
+//        $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+//        $totalRecords = $this->Brand_model->getCount();
+//
+//        $config['total_rows'] = $totalRecords[0]['countbrands'];
+//        $data['total_rows'] = $config['total_rows'];
+//        $config["uri_segment"] = 3;
+////        $choice = $config["total_rows"] / $config["per_page"];
+//        $choice = 10;
+//
+//        $config["num_links"] = floor($choice);
+//
+//        // integrate bootstrap pagination
+//        $config['full_tag_open'] = '<ul class="pagination">';
+//        $config['full_tag_close'] = '</ul>';
+//        $config['first_link'] = false;
+//        $config['last_link'] = false;
+//        $config['first_tag_open'] = '<li>';
+//        $config['first_tag_close'] = '</li>';
+//        $config['prev_link'] = '«';
+//        $config['prev_tag_open'] = '<li class="prev">';
+//        $config['prev_tag_close'] = '</li>';
+//        $config['next_link'] = '»';
+//        $config['next_tag_open'] = '<li>';
+//        $config['next_tag_close'] = '</li>';
+//        $config['last_tag_open'] = '<li>';
+//        $config['last_tag_close'] = '</li>';
+//        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+//        $config['cur_tag_close'] = '</a></li>';
+//        $config['num_tag_open'] = '<li>';
+//        $config['num_tag_close'] = '</li>';
+//        $this->pagination->initialize($config);
+//        $data['pagination'] = $this->pagination->create_links();
+
+        $data['list'] = $this->brand_model->brandslist1('', $this->uri->segment(3));
+
+        //$data['list'] = $this->Brand_model->brandslist();
+        $data['group'] = $this->category_model->cat_group();
+        $this->load->view('admin/brands/listbrand', $data);
+       
+    }
+    public function brandedit() {
+        $data['edit'] = $this->brand_model->brandedit();
+        $this->load->view('admin/brands/editbrand', $data);
+    }
+
 
 }
 
