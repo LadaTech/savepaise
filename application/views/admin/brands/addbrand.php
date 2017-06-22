@@ -2,7 +2,7 @@
 $this->load->view('admin/common/header', true);
 ?>
 <div class="main-container ace-save-state" id="main-container">		
-<?PHP $this->load->view('admin/common/sidebar', true); ?>
+    <?PHP $this->load->view('admin/common/sidebar', true); ?>
     <div class="main-content">
         <div class="main-content-inner">
             <div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -31,28 +31,34 @@ $this->load->view('admin/common/header', true);
                 <div class="row">
                     <div class="col-xs-12">               
                         <!-- PAGE CONTENT BEGINS -->
-                        <form method="post" id="brands"  class="form-horizontal" action="<?php echo base_url() ?>admin/addbrandAction" enctype="multipart/form-data" >
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label capitalize">Brand Name <span class="text-danger">*</span></label>
-                        <div class="col-sm-6">
-                            <input type="text" name="brand_name" id="brandname" class="form-control capitalize" placeholder="Enter Brand Name" required/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Image <span class="text-danger">*</span></label>
-                        <div class="col-sm-6">
-                            <input type="file" name="logo" id="image_c" size="20" required />
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-9 col-sm-offset-3">
-                            <button type="submit" id="submit_c"  name="submit_c" value="submit"  class="btn btn-success btn-quirk btn-wide mr5">Submit</button>
-                            <button type="reset" class="btn btn-quirk btn-wide btn-default">Reset</button>
-                        </div>
-                    </div>
+                        <form method="post" id="brands"  class="form-horizontal" action="<?php echo base_url() ?>brands/add_brand" enctype="multipart/form-data" >
+                            <?php
+                            if ((isset($message)) && (!empty($message))) {
+                                print_r($message);
+                            }
+                            ?>
 
-                </form> <!-- panel-body --> 
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label capitalize">Brand Name <span class="text-danger">*</span></label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="brand_name" id="brandname" class="form-control capitalize" placeholder="Enter Brand Name" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Image <span class="text-danger">*</span></label>
+                                <div class="col-sm-6">
+                                    <input type="file" name="logo" id="image_c" size="20" required />
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-9 col-sm-offset-3">
+                                    <button type="submit" id="submit_c"  name="submit_c" value="submit"  class="btn btn-success btn-quirk btn-wide mr5">Submit</button>
+                                    <button type="reset" class="btn btn-quirk btn-wide btn-default">Reset</button>
+                                </div>
+                            </div>
+
+                        </form> <!-- panel-body --> 
                     </div>
                 </div>
 
@@ -97,15 +103,14 @@ $this->load->view('admin/common/header', true);
                         $("#brands").validate({
                             rules: {
                                 brand_name: "required",
-								logo:{
-						required:true,
-						extension: "jpeg"|"jpg"| "gif"|"png"
-					 },
+                                logo: {
+                                    required: true,
+                                    extension: "jpeg" | "jpg" | "gif" | "png"
+                                },
                             },
                             messages: {
                                 brand_name: "Please enter Brand Name",
-                              
-								 logo:"Please upload jpeg,png,gif,jpg file type logo only",
+                                logo: "Please upload jpeg,png,gif,jpg file type logo only",
                             },
                             submitHandler: function (form) {
                                 form.submit();

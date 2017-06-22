@@ -1,8 +1,4 @@
 <?PHP
-//if (!defined('BASEPATH'))
-//    exit('No direct script access allowed');
-//$CI = & get_instance();
-//$this->load->library('session');
 $this->load->view('admin/common/header', true);
 ?>
 <div class="main-container ace-save-state" id="main-container">		
@@ -40,8 +36,8 @@ $this->load->view('admin/common/header', true);
                             $this->load->library('form_validation');
                             $this->load->library('session');
                             echo validation_errors();
-                            if (isset($_SESSION['messgae']) && (!empty($_SESSION['messgae']))) {
-                                echo $_SESSION['messgae'];
+                            if ((isset($message)) && (!empty($message))) {
+                                print_r($message);
                             }
                             ?>
                             <div class="form-group">

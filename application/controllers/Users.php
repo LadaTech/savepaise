@@ -57,18 +57,14 @@ class Users Extends CI_Controller {
                 );
 
                 if ($this->addusers_model->add_user($userdata)) {
-                    $this->Session->messgae='user added successfully';
-//                   
-//                    
-//                    $this->session->userdata('messgae')="praveen";
+                    $data1['message']="user added successfully";                    
+                    $this->load->view("admin/add_user",$data1);
                    
-//                   $msg="User added successfully";
-                    redirect('admin/add_user');
-//                    header("Location:admin/add_user?msg=$msg");
                 } else {
-                    $this->Session->messgae="while error occured while adding user";
-                    redirect('admin/add_user');
-//                    header("Location:admin/add_user?msg=$msg");
+
+                    $data1['message']="error occured while adding";
+                    $this->load->view("admin/add_user",$data1);
+                 
                 }
             }
         }
@@ -109,9 +105,13 @@ class Users Extends CI_Controller {
                 'created_date' => date('Y-m-d H:i:s')
             );
             if ($result = $this->addusers_model->add_usertype($usertypedata)) {
-                redirect('admin/add_usertype');
+                 $data1['message']="usertype added successfully";//                    
+                    $this->load->view("admin/usertype/add_usertype",$data1);
+//                redirect('admin/add_usertype');
             } else {
-                redirect('admin/add_user');
+                $data1['message']="error occured while adding";
+                    $this->load->view("admin/usertype/add_usertype",$data1);
+//                redirect('admin/add_user');
             }
         }
     }

@@ -1,6 +1,7 @@
 <?php
 
-class Subcategories extends CI_Controller{
+class Subcategories extends CI_Controller {
+
     function __construct() {
         parent::__construct();
         $this->load->library('session', 'form_validation', 'email');
@@ -9,10 +10,11 @@ class Subcategories extends CI_Controller{
         $this->load->model('category_model');
 //        $this->load->model('Login_model');
     }
-    public function index(){
+
+    public function index() {
         $this->load->view('admin/subcategory/add_subcatgory');
     }
-    
+
     //To Add Subcategory to admin panel
     public function subcat_add($msg = NULL) {
         // Load our view to be displayed
@@ -41,7 +43,7 @@ class Subcategories extends CI_Controller{
                 'category_id' => $_POST['cat_names'],
                 'category_group' => $_POST['cat_group'],
                 'brand_id' => $_POST['brandId'],
-                'scat_name' => $_POST['subname'],                
+                'scat_name' => $_POST['subname'],
                 'logo' => $image_path,
                 'status' => 1,
 //                'created_by' => $_SESSION['uid'],
@@ -49,13 +51,17 @@ class Subcategories extends CI_Controller{
             );
             $this->load->model('subcategory_model');
             if ($result = $this->subcategory_model->subcat_add($subcat_data)) {
-                redirect('admin/view_subcategory');
+                $data1['message'] = "subcategory added successfully";
+                $this->load->view("admin/subcategory/add_subcategory", $data1);
+//                redirect('admin/view_subcategory');
             } else {
-                redirect('admin/add_subcategory');
+                $data1['message'] = "error occured while adding";
+                $this->load->view("admin/subcategory/add_subcategory", $data1);
+//                redirect('admin/add_subcategory');
             }
         }
     }
-    
+
     //To Edit Subcategory to admin panel
     public function subcat_edit() {
         if (isset($_POST['edit_submit']) || !empty($_POST)) {
@@ -98,7 +104,7 @@ class Subcategories extends CI_Controller{
             }
         }
     }
-    
+
     // //To delete  specified category  form the Admin Panel
     public function subcategory_delete() {
         $id = $_GET['subid'];
@@ -110,15 +116,15 @@ class Subcategories extends CI_Controller{
 
     //To update the status of the subcategories list 
     //To update the status of the subcategories list
-     public function status() {
+    public function status() {
 
         //print_r($_POST);exit;
         $this->load->model('Subcategory_model');
         $updateStatus = $this->Subcategory_model->status();
         return $updateStatus;
     }
-    
-     //To search in categories list of the admin panel
+
+    //To search in categories list of the admin panel
     public function search_subcat() {
         $this->load->model('Category_model');
         $subcat_name = $_POST['search_sub'];
@@ -132,4 +138,5 @@ class Subcategories extends CI_Controller{
     }
 
 }
+
 ?>

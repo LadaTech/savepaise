@@ -13,7 +13,11 @@ class Index extends CI_Controller {
     public function index() {
 // Load our view to be displayed        
         $this->load->view('admin/login');
-    }    
+    }   
+    
+    public function sign_in() {       
+        $this->load->view('admin/sign_in');
+    }  
      public function home() {
 // Load our view to be displayed        
         $this->load->view('home');

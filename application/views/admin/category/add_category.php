@@ -32,7 +32,9 @@ $this->load->view('admin/common/header', true);
                     <div class="col-xs-12">               
                         <!-- PAGE CONTENT BEGINS -->
                        <form method="post" id="addcategory"  class="form-horizontal" action="<?php echo base_url() . "category/add_category" ?>" enctype="multipart/form-data" >
-
+                           <?php if ((isset($message)) && (!empty($message))) {
+                                print_r($message);
+                            } ?>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label capitalize">Category Name <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">

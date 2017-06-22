@@ -45,8 +45,12 @@ class Category extends CI_Controller {
             $this->load->model('Category_model');
             $result = $this->Category_model->add_category($cat_data);
             if ($result != '') {
-                redirect('admin/add_category');
+                $data1['message'] = "category added successfully"; //                    
+                $this->load->view("admin/category/add_category", $data1);
+//                redirect('admin/add_category');
             } else {
+                $data1['message'] = "error occured while adding"; //                    
+                $this->load->view("admin/category/add_category", $data1);
                 redirect('admin/add_category');
             }
         }
@@ -144,15 +148,18 @@ class Category extends CI_Controller {
             $result = $this->category_model->add_catgroup($catg_data);
 
             if ($result != '') {
-
+                $data1['message'] = "category gruop added successfully";
+                $this->load->view("admin/category/add_category_group", $data1);
 //                redirect('admin/categorygroup_list?mes=1');
-                redirect('admin/add_category_group');
+//                redirect('admin/add_category_group');
             } else {
-                redirect('admin/add_category_group');
+                 $data1['message'] = "error occured while adding"; //                    
+                $this->load->view("admin/category/add_category_group", $data1);
+//                redirect('admin/add_category_group');
             }
         }
     }
-    
+
     public function edit_catgroup() {
         //print_r($_POST); print_r($_SESSION);exit;
 //        $editImage = 0;
