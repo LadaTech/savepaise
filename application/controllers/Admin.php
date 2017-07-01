@@ -8,7 +8,7 @@ class Admin extends CI_Controller {
     function __construct() {
 
         parent::__construct();
-        $this->load->library('session','form_validation', 'email');
+        $this->load->library('form_validation', 'email');
         $this->load->helper('url', 'form', 'html');
         $this->load->library('pagination');
         $this->load->database();
@@ -16,6 +16,7 @@ class Admin extends CI_Controller {
         $this->load->model('category_model');
         $this->load->model('subcategory_model');
         $this->load->model('brand_model');
+        $this->load->model('login_model');
     }
 
     public function index() {

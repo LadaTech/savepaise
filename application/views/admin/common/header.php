@@ -97,7 +97,7 @@
                                 <li class="divider"></li>
 
                                 <li>
-                                    <a href="#">
+                                    <a href="<?PHP echo base_url()?>index">
                                         <i class="ace-icon fa fa-power-off"></i>
                                         Logout
                                     </a>
