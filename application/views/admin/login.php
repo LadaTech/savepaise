@@ -1,10 +1,32 @@
 <?PHP
+
 ?>
+ <!-- bootstrap & fontawesome -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+        <!-- page specific plugin styles -->
+
+        <!-- text fonts -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fonts.googleapis.com.css" />
+
+        <!-- ace styles -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+        <!--[if lte IE 9]>
+                <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+        <![endif]-->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ace-skins.min.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ace-rtl.min.css" />
 <div class="service-area inner-padding7">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12"></div>
-            <div class="col-md-4 col-sm-12 col-xs-12 well">
+            <div class="col-md-4 col-sm-12 col-xs-12">                
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 well" style="margin-top: 50px;">
+                <div class="adminLogin">
+                    <h3>  Login to Admin</h3>
+                </div>
                 <?PHP               
                 if($this->session->flashdata() != '' || $this->session->flashdata() != NULL) {
                     echo $this->session->flashdata('errormsg');
@@ -25,7 +47,7 @@
                             <a href="#">Forgot Password?</a>
                         </label>
                     </div>
-                    <button type="submit" id="log_in" name="log_in" class="btn btn-default">submit</button>
+                    <button type="submit" id="log_in" name="log_in" class="btn btn-info">submit</button>                     
                     <div class="form-group">
                         <div class="col-md-12 control">
                             <div style="border-top: 1px solid#888; margin-top:15px; font-size:85%" >
