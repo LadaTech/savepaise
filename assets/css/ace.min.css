@@ -4,7 +4,10 @@
     font-size: 12px;
 }
 .adminLogin{}
-.adminLogin h3{ text-align: center; background:#0350a0; color:#fff;}
+.adminLogin h3{ text-align: center; border-bottom:#0350a0 solid 1px; color:#0350a0; margin-bottom: 20px;}
 input.sortW {
     width: 60px;
 }
+.admin-logo{background:#fff; border:#ccc dotted 1px; margin-bottom: 5px; text-align: center; }
+.dntAc{border-top: 1px solid#888; margin-top:15px; font-size:14px; text-align: center; padding-top:14px;}
+.bg {background-image:url('/assets/images/login-bg.png'); height:100%;}

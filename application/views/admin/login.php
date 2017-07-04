@@ -18,12 +18,13 @@
         <![endif]-->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ace-skins.min.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ace-rtl.min.css" />
-<div class="service-area inner-padding7">
+<div class="service-area inner-padding7 bg">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-12">                
             </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 well" style="margin-top: 50px;">
+            <div class="col-md-4 col-sm-12 col-xs-12 well" style="margin-top: 100px;">
+                <div class="admin-logo"><img src="assets/images/sp-logo.png" /></div>
                 <div class="adminLogin">
                     <h3>  Login to Admin</h3>
                 </div>
@@ -33,32 +34,34 @@
                 }
 //                if (isset($msg) && $msg != '') echo $msg;   
                 ?>           
-                <form id="login" name="login" method="post" enctype="multipart/form-data" action="<?PHP echo base_url()?>index/process">
+                <form id="login" name="login" class="form-horizontal" method="post" enctype="multipart/form-data" action="<?PHP echo base_url()?>index/process">
                     <div class="form-group">
-                        <label for="Email">Email</label>
+                        <label for="Email" class="col-sm-4 control-label">Email</label>
+                        <div class="col-sm-8">
                         <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="password">
-                    </div>    
-                    <div class="forgot">
-                        <label>
-                            <a href="#">Forgot Password?</a>
-                        </label>
-                    </div>
-                    <button type="submit" id="log_in" name="log_in" class="btn btn-info">submit</button>                     
-                    <div class="form-group">
-                        <div class="col-md-12 control">
-                            <div style="border-top: 1px solid#888; margin-top:15px; font-size:85%" >
-                                Don't have an account! 
-                                <a href="#" onClick="$('#loginbox').hide();
-                                        $('#signupbox').show()">
-                                    Sign Up Here
-                                </a>
-                            </div>
                         </div>
-                    </div> 
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-4 control-label">Password</label>
+                        <div class="col-sm-8">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">
+                            
+                        </label>
+                        <div class="col-sm-8">
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-4 control-label"></label>
+                        <div class="col-sm-8">
+                    <button type="submit" id="log_in" name="log_in" class="btn btn-info">submit</button>  
+                        </div>
+                    </div>
+                     
                 </form>
 
             </div>
