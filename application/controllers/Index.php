@@ -13,7 +13,10 @@ class Index extends CI_Controller {
     public function index() {
 // Load our view to be displayed        
         $this->load->view('admin/login');
-    }   
+    } 
+    public function logout(){
+        $this->load->view('admin/logout');
+    }
     
     public function sign_in() {       
         $this->load->view('admin/sign_in');
@@ -41,7 +44,7 @@ class Index extends CI_Controller {
         } else {
 // If user did validate, 
 // Send them to members area
-            if ($_SESSION['utype'] == 2 || $_SESSION['utype'] == 1) {
+            if ($_SESSION['utype'] == 2 || $_SESSION['utype'] == 1) {               
                 redirect(base_url() . 'admin');
             }
             if ($_SESSION['utype'] == 3 && !empty($_POST['urlValue'])) {

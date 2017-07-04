@@ -8,6 +8,7 @@ class Admin extends CI_Controller {
     function __construct() {
 
         parent::__construct();
+
         $this->load->library('form_validation', 'email');
         $this->load->helper('url', 'form', 'html');
         $this->load->library('pagination');
@@ -19,8 +20,12 @@ class Admin extends CI_Controller {
         $this->load->model('login_model');
     }
 
-    public function index() {
-        $this->load->view('admin/index');
+    public function index() {    
+        if ((isset($_SESSION['uemail']))&&($_SESSION['utype'] == 2 || $_SESSION['utype'] == 1)) {           
+            $this->load->view('admin/index');        
+        } else {
+            redirect(base_url() . 'index');
+        }
     }
 
     public function add_user() {
@@ -177,7 +182,7 @@ class Admin extends CI_Controller {
 //        $data['pagination'] = $this->pagination->create_links();
 //
         $data['list'] = $this->category_model->getcat_group1('', $this->uri->segment(3));
-        
+
         $data['category'] = $this->category_model->view_category();
         $data['catgroup'] = $this->category_model->getCatGroups();
 //        echo "<pre>";
@@ -188,7 +193,7 @@ class Admin extends CI_Controller {
     public function add_subcategory() {
         $data['categories'] = $this->category_model->view_category();
 
-        $data['catgroup'] = $this->category_model->getcat_group();        
+        $data['catgroup'] = $this->category_model->getcat_group();
         $data['brandNames'] = $this->brand_model->brandslist();
 //         echo "<pre>";
 //        print_r($data);exit;
@@ -234,14 +239,13 @@ class Admin extends CI_Controller {
 //        $this->pagination->initialize($config);
 //        $data['pagination'] = $this->pagination->create_links();
 
-        $data['sublist'] = $this->subcategory_model->subcat_view1( '', $this->uri->segment(3));        
-        
+        $data['sublist'] = $this->subcategory_model->subcat_view1('', $this->uri->segment(3));
+
         $data['categories'] = $this->category_model->view_category();
         $data['group'] = $this->category_model->cat_group();
         $data['sublist'] = $this->subcategory_model->subcat_view();
-    
-        $this->load->view('admin/subcategory/view_subcategory',$data);
-         
+
+        $this->load->view('admin/subcategory/view_subcategory', $data);
     }
 
     public function editcategory_group() {
@@ -251,30 +255,26 @@ class Admin extends CI_Controller {
 //        print_r($data);exit;
         $this->load->view('admin/category/edit_category_group', $data);
     }
-    
-     //To display the subcategory_edit for the Admin Panel
-    public function subcat_edit() {         
+
+    //To display the subcategory_edit for the Admin Panel
+    public function subcat_edit() {
         $data['subedit'] = $this->subcategory_model->getsubcategory();
         $data['categories'] = $this->category_model->view_category();
-        $data['catgroup'] = $this->category_model->getcat_group();     
+        $data['catgroup'] = $this->category_model->getcat_group();
 //        echo "<pre>";
 //        print_r($data);exit;
         //$data['sublist'] = $this->subcategory_model->subcat_view();       
         $this->load->view('admin/subcategory/edit_subcategory', $data);
-    
     }
 
     //End of the Function 
     //To add brands 
     public function addBrands() {
-        $this->load->view('admin/brands/addbrand');        
+        $this->load->view('admin/brands/addbrand');
     }
-    
-    //To Add category to admin panel
-    
 
+    //To Add category to admin panel
     //End of the Function 
-    
     //To display the Brands_list for the Admin Panel
     public function brandslist() {
         //$config['base_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -319,13 +319,12 @@ class Admin extends CI_Controller {
         //$data['list'] = $this->Brand_model->brandslist();
         $data['group'] = $this->category_model->cat_group();
         $this->load->view('admin/brands/listbrand', $data);
-       
     }
+
     public function brandedit() {
         $data['edit'] = $this->brand_model->brandedit();
         $this->load->view('admin/brands/editbrand', $data);
     }
-
 
 }
 

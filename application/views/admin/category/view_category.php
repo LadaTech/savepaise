@@ -133,9 +133,9 @@
                                                                 //                                                                        alert(status);
                                                                 var msg = (status == '0') ? '1' : '0';
                                                                 if (status == '0') {
-                                                                    status = 'Inactive';
-                                                                } else {
                                                                     status = 'Active';
+                                                                } else {
+                                                                    status = 'Inactive';
                                                                 }
                                                                 if (confirm("Are you sure to " + status)) {
                                                                     //                                                                            var id = $(this).attr('id');

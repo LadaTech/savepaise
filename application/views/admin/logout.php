@@ -1,6 +1,7 @@
 <?PHP 
 session_start();
-session_destroy();
+$this->session->sess_destroy();
 redirect(base_url().'index');
+die;
 ?>
 
