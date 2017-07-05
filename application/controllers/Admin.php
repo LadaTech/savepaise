@@ -18,6 +18,7 @@ class Admin extends CI_Controller {
         $this->load->model('subcategory_model');
         $this->load->model('brand_model');
         $this->load->model('login_model');
+        $this->load->model('store_model');
     }
 
     public function index() {    
@@ -324,6 +325,61 @@ class Admin extends CI_Controller {
     public function brandedit() {
         $data['edit'] = $this->brand_model->brandedit();
         $this->load->view('admin/brands/editbrand', $data);
+    }
+     public function add_store() {
+        $this->load->view('admin/stores/addstore');
+    }
+    
+    public function view_store() {
+        //$config['base_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+//        $config['base_url'] = site_url("admin/categorygroup_list");
+//        $config['per_page'] = "10";
+//        $data['per_page'] = $config['per_page'];
+//        $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+//        $data['allRecords'] = $this->Category_model->getcat_group1('all', $config["per_page"], $data['page'], $this->uri->segment(3));
+//
+//        $config['total_rows'] = sizeof($data['allRecords']);
+//        $data['total_rows'] = $config['total_rows'];
+//        $config["uri_segment"] = 3;
+////        $choice = $config["total_rows"] / $config["per_page"];
+//        $choice = 10;
+//
+//        $config["num_links"] = floor($choice);
+//
+//        // integrate bootstrap pagination
+//        $config['full_tag_open'] = '<ul class="pagination">';
+//        $config['full_tag_close'] = '</ul>';
+//        $config['first_link'] = false;
+//        $config['last_link'] = false;
+//        $config['first_tag_open'] = '<li>';
+//        $config['first_tag_close'] = '</li>';
+//        $config['prev_link'] = '«';
+//        $config['prev_tag_open'] = '<li class="prev">';
+//        $config['prev_tag_close'] = '</li>';
+//        $config['next_link'] = '»';
+//        $config['next_tag_open'] = '<li>';
+//        $config['next_tag_close'] = '</li>';
+//        $config['last_tag_open'] = '<li>';
+//        $config['last_tag_close'] = '</li>';
+//        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+//        $config['cur_tag_close'] = '</a></li>';
+//        $config['num_tag_open'] = '<li>';
+//        $config['num_tag_close'] = '</li>';
+//        $this->pagination->initialize($config);
+//        $data['pagination'] = $this->pagination->create_links();     
+//$data['records'] = $this->addusers_model->view_user()->result();
+        $data['records'] = $this->store_model->view_store()->result();        
+//        echo "<pre>";
+//        print_r($data);exit;
+        $this->load->view('admin/stores/view_store', $data);
+    }
+    public function edit_store() {
+        $this->load->database();
+        $uid = $_GET['sid'];        
+        $data['store_data'] = $this->store_model->edit_store($uid);        
+//         echo "<pre>";
+//        print_r($data);exit;
+        $this->load->view('admin/stores/edit_store', $data);
     }
 
 }
