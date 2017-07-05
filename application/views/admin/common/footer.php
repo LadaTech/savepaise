@@ -17,7 +17,7 @@
 <!-- basic scripts -->
 
 <!--[if !IE]> -->
-<script src="<?php echo base_url(); ?>assets/js/jquery-2.1.4.min.js"></script>
+<script src="<?php echo base_url(); ?>assets1/js/jquery-2.1.4.min.js"></script>
 
 <!-- <![endif]-->
 
@@ -28,16 +28,16 @@
     if ('ontouchstart' in document.documentElement)
         document.write("<script src='<?php echo base_url(); ?>assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
 </script>
-<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets1/js/bootstrap.min.js"></script>
 
  
 		<!-- page specific plugin scripts -->
-		<script src="<?php echo base_url(); ?>assets/js/jquery-ui.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets1/js/jquery-ui.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets1/js/jquery.ui.touch-punch.min.js"></script>
 
 <!-- ace scripts -->
-<script src="<?php echo base_url(); ?>assets/js/ace-elements.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/ace.min.js"></script>
+<script src="<?php echo base_url(); ?>assets1/js/ace-elements.min.js"></script>
+<script src="<?php echo base_url(); ?>assets1/js/ace.min.js"></script>
 <script type="text/javascript">
                    // $(document).on('click', '.nav-list li ul li', function() {
                    //  $(".nav-list li ul li").removeClass("active");
