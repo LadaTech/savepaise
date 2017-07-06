@@ -1404,7 +1404,7 @@ ul.social {
 .sign-area label {
   font-weight: normal;
 }
-.sign-area .or {
+.sign-area .ortxt {
   text-align: center;
   position: absolute;
   right: 0;
@@ -2357,7 +2357,7 @@ h6.store-name {
    -moz-box-shadow: 0 0 1px #000;
    box-shadow: 0 0 1px #000;
 }
-.view a.info: hover {
+.view a.info:hover {
    -webkit-box-shadow: 0 0 5px #000;
    -moz-box-shadow: 0 0 5px #000;
    box-shadow: 0 0 5px #000;
@@ -2447,3 +2447,16 @@ h6.store-name {
 {
     background-color: #3db8f4; border-radius: 10px;
 }
+/*.rgmsg {
+     float: left; 
+    position: absolute;
+    left: 34%;
+    padding: 80px;
+    width: 25%;
+    background: #fff;
+    text-align: center;
+    z-index: 99;
+    top: 1%;
+    border: #ff6600 solid 1px;
+    
+}*/

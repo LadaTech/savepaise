@@ -28,6 +28,9 @@ class Admin extends CI_Controller {
             redirect(base_url() . 'index');
         }
     }
+    public function dashboard(){
+        $this->load->view('admin/index');
+    }
 
     public function add_user() {
         $this->load->database();
