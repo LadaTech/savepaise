@@ -98,17 +98,8 @@
                 <!-- Header Header -->
                 <div class="header-header bg-white">
                     <div class="container">
-                        <div class="welcome-msg">Welcome ! <span class="guestName">
-                                <?PHP
-                                if (isset($_SESSION['firstname']) && $_SESSION['firstname'] != '' || isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') {
-                                    echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname'];
-                                } else {
-                                    ?>                                    
-                                    Guest</span></div>
-                        <?PHP } ?>    
-
-
-                        </span>
+                           
+  
                         <div class="row row-rl-0 row-tb-20 row-md-cell">  
 
                             <div class="brand col-md-3 t-xs-center t-md-left valign-middle">
@@ -143,7 +134,16 @@
                                         <div class="add-234x60"><p>234x60 add here</p></div>
                                     </div>
 
-                                    <div class="col-sm-3 t-xs-center t-md-right mgn-tp-15">
+                                    <div class="col-sm-3 t-xs-center t-md-right">
+                                        <div class="welcome-msg">Welcome ! <span class="guestName">
+                                                <?PHP
+                                                if (isset($_SESSION['firstname']) && $_SESSION['firstname'] != '' || isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') {
+                                                    echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname'];
+                                                } else {
+                                                    ?>                                    
+                                                    Guest</span>
+                                        </div>
+                                        <?PHP } ?> 
                                         <?PHP if (isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') { ?>
                                             <a href="<?PHP echo base_url() ?>/index/logout" onclick="return confirm('Are you sure you want to Sign out?')"  class="logout"><i class="icon-signout"></i> Logout </a>                                            
                                             <!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href="<?PHP echo URLINDEXPATH; ?>abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  

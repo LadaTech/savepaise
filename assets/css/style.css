@@ -1451,6 +1451,15 @@ ul.social {
 .btn-google-plus:focus {
   background-color: #d73925;
 }
+.welcome-msg {
+    color: green;
+}
+.guestName {
+    color: #000;
+}
+.logout {
+    color: #f00;
+}
 /* ––––––––––––––––––––––––––––––––––––––––––––– */
 /* –––––––––––––>>> Contact Area  <<<––––––––––– */
 /* ––––––––––––––––––––––––––––––––––––––––––––– */
