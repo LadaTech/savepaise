@@ -3,6 +3,9 @@
 //if ($this->session->flashdata() != NULL) {
 //    echo $this->session->flashdata('msg');
 //}
+//echo "<pre>";
+//print_r($records);
+//exit;
 
 include_once('common/header.php');
 ?>

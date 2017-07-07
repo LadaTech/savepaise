@@ -55,6 +55,13 @@ class Store_model extends CI_Model {
             return false;
         }
     }
+    
+    public function display_store(){
+        $this->db->where('status',1);
+        $this->db->order_by('store_name');
+        $query = $this->db->get('stores');       
+        return $query;
+    }
 
 }
 

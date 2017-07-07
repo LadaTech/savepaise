@@ -147,5 +147,12 @@ class Category_model extends CI_Model {
             return FALSE;
         }
     }
+    
+    public function display_categories(){
+        $this->db->where('status',1);
+        $this->db->order_by('cat_name');
+        $query = $this->db->get('categories');
+        return $query;
+    }
 
 }

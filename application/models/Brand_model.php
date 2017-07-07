@@ -95,9 +95,14 @@ class Brand_model extends CI_Model {
             return FALSE;
         }
     }
-
     //End of the Funtion
     
+    public function display_brands(){
+        $this->db->where('status',1);
+        $this->db->order_by('brand_name');
+        $query = $this->db->get('brands');
+        return $query;
+    }
     
 }
 

@@ -15,13 +15,13 @@ class stores extends CI_Controller {
         
     }
 
-    public function add_store() {
+    public function add_store() {          
         if (isset($_POST["store_submit"]) == 'submit' || !empty($_POST)) {
             $store_data = array(
                 'store_name' => $_POST['store_name'],
                 'store_url' => $_POST['store_url'],
                 'status' => 1,
-                'created_by'=>$_SESSION['uid'],
+                'created_by'=>$_SESSION['usertype'],
                 'created_date' => date('Y-m-d H:i:s')
             );
             $result = $this->Store_model->add_store($store_data);
@@ -58,6 +58,12 @@ class stores extends CI_Controller {
        $data = $this->Store_model->delete_store($id);
         redirect('admin/view_store',$data);
     }
+//    public function display_store(){
+////        $data['records'] = $this->store_model->view_store()->result();
+//        $data['records'] = $this->Store_model->dispaly_store()->result();
+//        print_r($data);exit;
+//        $this->load->view(base_url().'index',$data);
+//    }
 }
     ?>
 

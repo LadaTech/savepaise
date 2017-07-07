@@ -28,7 +28,7 @@ class Admin extends CI_Controller {
             redirect(base_url() . 'index');
         }
     }
-    public function dashboard(){
+    public function dashboard(){       
         $this->load->view('admin/index');
     }
 

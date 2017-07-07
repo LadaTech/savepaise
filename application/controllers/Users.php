@@ -52,7 +52,7 @@ class Users Extends CI_Controller {
                     'pnumber' => $_POST['pnumber'],
                     'usertype' => $_POST['usertype'],
                     'status' => 1,
-//                'created_by' => $_SESSION[''],
+                'created_by' => $_SESSION['usertype'],
                     'created_date' => date('Y-m-d H:i:s')
                 );
 

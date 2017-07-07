@@ -1,4 +1,5 @@
-<?PHP include_once('common/header.php'); ?>
+<?PHP include_once('common/header.php');  
+?>
 
 <div class="main-container ace-save-state" id="main-container">		
     <?PHP include_once('common/sidebar.php'); ?>

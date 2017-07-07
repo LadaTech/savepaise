@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?PHP
+// if(isset($_SESSION)){
+//print_r($_SESSION);}exit;
+?>
 <!--[if lt IE 9 ]> <html lang="en" dir="ltr" class="no-js ie-old"> <![endif]-->
 <!--[if IE 9 ]> <html lang="en" dir="ltr" class="no-js ie9"> <![endif]-->
 <!--[if IE 10 ]> <html lang="en" dir="ltr" class="no-js ie10"> <![endif]-->
@@ -94,15 +98,26 @@
                 <!-- Header Header -->
                 <div class="header-header bg-white">
                     <div class="container">
+                        <div class="welcome-msg">Welcome ! <span class="guestName">
+                                <?PHP
+                                if (isset($_SESSION['firstname']) && $_SESSION['firstname'] != '' || isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') {
+                                    echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname'];
+                                } else {
+                                    ?>                                    
+                                    Guest</span></div>
+                        <?PHP } ?>    
 
-                        <div class="row row-rl-0 row-tb-20 row-md-cell">                           
+
+                        </span>
+                        <div class="row row-rl-0 row-tb-20 row-md-cell">  
+
                             <div class="brand col-md-3 t-xs-center t-md-left valign-middle">
                                 <?PHP
                                 if ($this->session->flashdata() != NULL) {
                                     echo "<div class ='rgmsg' >" . $this->session->flashdata('msg') . "</div>";
                                 }
                                 ?>
-                                <a href="index.php" class="logo">
+                                <a href="<?PHP echo base_url() . 'index' ?>" class="logo">
                                     <img src="assets/images/logo.png" alt="" width="250">
                                 </a>
                             </div>
@@ -129,12 +144,17 @@
                                     </div>
 
                                     <div class="col-sm-3 t-xs-center t-md-right mgn-tp-15">
-                                        <div class="header-cart">
-                                            <a href="#" data-toggle="modal" data-target="#signIn"><i class="fa fa-lock"></i> Sign In</a>
-                                        </div>
-                                        <div class="header-wishlist ml-20">
-                                            <a href="#" data-toggle="modal" data-target="#signUp"><i class="fa fa-user"></i> Sign Up</a> 
-                                        </div>
+                                        <?PHP if (isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') { ?>
+                                            <a href="<?PHP echo base_url() ?>/index/logout" onclick="return confirm('Are you sure you want to Sign out?')"  class="logout"><i class="icon-signout"></i> Logout </a>                                            
+                                            <!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href="<?PHP echo URLINDEXPATH; ?>abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  
+                                        <?PHP } else { ?>
+                                            <div class="header-cart">
+                                                <a href="#" data-toggle="modal" data-target="#signIn"><i class="fa fa-lock"></i> Sign In</a>
+                                            </div>
+                                            <div class="header-wishlist ml-20">
+                                                <a href="#" data-toggle="modal" data-target="#signUp"><i class="fa fa-user"></i> Sign Up</a> 
+                                            </div>
+                                        <?PHP } ?>
                                     </div>
                                 </div>
                             </div>
@@ -161,40 +181,21 @@
                                     </li>
                                     <li class="dropdown-mega-menu">
                                         <a href="#">Online Stores</a>
+
                                         <div class="mega-menu">
                                             <div class="row row-v-10">
                                                 <div class="col-md-3">
-                                                    <ul>
-                                                        <li><a href="amazon-deals.php">Amazon Offers</a></li>
-                                                        <li><a href="flipkart-deals.php">Flipkart Offers</a></li>
-                                                        <li><a href="#">Zivame Offers</a></li>
-                                                        <li><a href="#">Yatra Offers</a></li>
+                                                    <ul>                                                        
+                                                        <?PHP foreach ($stores as $store) {
+                                                            ?>
+                                                            <li><a href=""><?PHP echo $store->store_name; ?></a></li>
+                                                        <?PHP }
+                                                        ?>
+
                                                     </ul>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <ul>
-                                                        <li><a href="amazon-deals.php">Amazon Offers</a></li>
-                                                        <li><a href="flipkart-deals.php">Flipkart Offers</a></li>
-                                                        <li><a href="#">Zivame Offers</a></li>
-                                                        <li><a href="#">Yatra Offers</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <ul>
-                                                        <li><a href="amazon-deals.php">Amazon Offers</a></li>
-                                                        <li><a href="flipkart-deals.php">Flipkart Offers</a></li>
-                                                        <li><a href="#">Zivame Offers</a></li>
-                                                        <li><a href="#">Yatra Offers</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <ul>
-                                                        <li><a href="amazon-deals.php">Amazon Offers</a></li>
-                                                        <li><a href="flipkart-deals.php">Flipkart Offers</a></li>
-                                                        <li><a href="#">Zivame Offers</a></li>
-                                                        <li><a href="#">Yatra Offers</a></li>
-                                                    </ul>
-                                                </div>
+                                                </div>                                         
+
+
                                             </div>
                                         </div>
                                     </li>
@@ -204,48 +205,34 @@
                                             <div class="row row-v-10">
                                                 <div class="col-md-3">
                                                     <ul>
-                                                        <li><a href="category-deals.php">Fashion</a></li>
-                                                        <li><a href="#">Mobile Offers</a></li>
-                                                        <li><a href="#">Baby Clothes</a></li>
-                                                        <li><a href="#">Hotels</a></li>
+                                                        <?PHP foreach ($categories as $cat) {
+                                                            ?>
+                                                            <li><a href=""><?PHP echo $cat->cat_name; ?></a></li>
+                                                        <?PHP }
+                                                        ?>
                                                     </ul>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <ul>
-                                                        <li><a href="category-deals.php">Fashion</a></li>
-                                                        <li><a href="#">Mobile Offers</a></li>
-                                                        <li><a href="#">Baby Clothes</a></li>
-                                                        <li><a href="#">Hotels</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <ul>
-                                                        <li><a href="category-deals.php">Fashion</a></li>
-                                                        <li><a href="#">Mobile Offers</a></li>
-                                                        <li><a href="#">Baby Clothes</a></li>
-                                                        <li><a href="#">Hotels</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <ul>
-                                                        <li><a href="category-deals.php">Fashion</a></li>
-                                                        <li><a href="#">Mobile Offers</a></li>
-                                                        <li><a href="#">Baby Clothes</a></li>
-                                                        <li><a href="#">Hotels</a></li>
-                                                    </ul>
-                                                </div>
+                                                </div>                                            
+
+                                                <!--                                                <div class="col-md-3">
+                                                                                                    <ul>
+                                                                                                        <li><a href="category-deals.php">Fashion</a></li>
+                                                                                                        <li><a href="#">Mobile Offers</a></li>
+                                                                                                        <li><a href="#">Baby Clothes</a></li>
+                                                                                                        <li><a href="#">Hotels</a></li>
+                                                                                                    </ul>
+                                                                                                </div>-->
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <a href="#">Shop by Brands</a>
                                         <ul>
-                                            <li><a href="adidas-deals.php">Adidas Offers</a>
-                                            </li>
-                                            <li><a href="#">Bibo Offers</a>
-                                            </li>
-                                            <li><a href="#">Dominos Offers</a>
-                                            </li>
+                                            <?PHP foreach ($brands as $brand) {
+                                                ?>
+                                                <li><a href=""><?PHP echo $brand->brand_name; ?></a></li>
+                                            <?PHP }
+                                            ?>
+
                                         </ul>
                                     </li>
 

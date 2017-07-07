@@ -11,28 +11,36 @@ class Index extends CI_Controller {
         $this->load->library('form_validation', 'email');
         $this->load->helper('url', 'form', 'html', 'cookie');
         $this->load->model('login_model');
+        $this->load->model('category_model');
         $this->load->model('addusers_model');
+        $this->load->model('store_model');
+        $this->load->model('brand_model');
     }
 
     public function index() {
-        $this->load->view('index');
+        $data['categories'] = $this->category_model->display_categories()->result();
+         $data['stores'] = $this->store_model->display_store()->result();
+         $data['brands'] = $this->brand_model->display_brands()->result();
+        $this->load->view('index',$data);
+        
     }
 
     public function login() {
         $this->load->view('admin/login');
     }
-
     public function logout() {
         $this->load->view('admin/logout');
     }
-
-    public function sign_in() {        
-            $result = $this->login_model->sign_in();            
+    public function sign_in() {  
+        
+            $result = $this->login_model->sign_in(); 
+            
             if (!$result) {
                 $this->session->set_flashdata('msg', '<font color=red>Invalid username and/or password.</font><br />');
                 $this->load->view(base_url() . 'index');
             } else {                 
-                if ($_SESSION['usertype'] == 2 || $_SESSION['usertype'] == 1) {                   
+                if ($_SESSION['usertype'] == 2 || $_SESSION['usertype'] == 1) {   
+                   
                     redirect(base_url() . 'admin/dashboard');                }
                 if ($_SESSION['usertype'] == 3 || !empty($_POST['urlValue'])) {
                     redirect(base_url() . 'index');                }
@@ -41,8 +49,6 @@ class Index extends CI_Controller {
                 }
             }
         }
-  
-
     public function sign_up() {
         if (isset($_POST["sign_up"]) == 'submit' || !empty($_POST)) {
             $udata = array(
@@ -68,7 +74,6 @@ class Index extends CI_Controller {
             }
         }
     }
-
     public function home() {
 // Load our view to be displayed        
         $this->load->view('home');
@@ -103,5 +108,13 @@ class Index extends CI_Controller {
             }
         }
     }
-
+    public function category_deals(){
+        $this->load->view('category-deals'); 
+    }
+    public function amazon_deals(){
+        $this->load->view('store-deals'); 
+    }
+    public function online_store(){
+        
+    }
 }

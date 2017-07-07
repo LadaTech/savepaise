@@ -1,4 +1,4 @@
- <?PHP include_once('header.php'); ?>
+ <?PHP include_once('/common/header.php'); ?>
  <!-- –––––––––––––––[ PAGE CONTENT ]––––––––––––––– -->
         <main id="mainContent" class="main-content">
             <div class="page-container ptb-20">
@@ -1186,4 +1186,4 @@
         </main>		
 		 
         <!-- –––––––––––––––[ END PAGE CONTENT ]––––––––––––––– -->
-		<?php include_once('footer.php') ?>
+		<?php include_once('common/footer.php') ?>
