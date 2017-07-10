@@ -236,7 +236,7 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="contact-us.php">Contact Us</a> </li>                                 
+                                    <li><a href="<?PHP echo base_url().'index/contact_us'?>">Contact Us</a> </li>                                 
 
                                 </ul>
                             </div>

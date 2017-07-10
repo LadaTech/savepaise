@@ -136,6 +136,7 @@ class Users Extends CI_Controller {
         $id = $_GET['uid'];
         $data = $this->addusers_model->delete_usertype($id);
         redirect('admin/view_usertype', $data);
-    }
+    }  
+    
 
 }

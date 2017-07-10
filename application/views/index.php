@@ -19,7 +19,12 @@ include_once('common/header.php');
                     <div class="col-xs-12 col-md-4 col-lg-3">
                         <aside>
                             <ul class="nav-coupon-category panel">
-                                <li><a href="#"><i class="fa fa-cutlery"></i>Food &amp; Drink<span>40</span></a>
+                                <?PHP foreach ($categories as $cat) {
+                                    ?>
+                                    <li><a href=""><i class="fa fa-cutlery"></i><?PHP echo $cat->cat_name; ?></a></li>
+                                <?PHP }
+                                ?>
+<!--                                <li><a href="#"><i class="fa fa-cutlery"></i>Food &amp; Drink<span>40</span></a>
                                 </li>
                                 <li><a href="#"><i class="fa fa-calendar"></i>Events<span>42</span></a>
                                 </li>
@@ -36,7 +41,7 @@ include_once('common/header.php');
                                 <li><a href="#"><i class="fa fa-home"></i>Home &amp; Graden<span>30</span></a>
                                 </li>
                                 <li><a href="#"><i class="fa fa-plane"></i>Travel<span>48</span></a>
-                                </li>
+                                </li>-->
                                 <li class="all-cat">
                                     <a class="font-14" href="#">All Categories</a>
                                 </li>

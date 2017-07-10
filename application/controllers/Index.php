@@ -117,4 +117,8 @@ class Index extends CI_Controller {
     public function online_store(){
         
     }
+    
+    public function contact_us(){
+        $this->load->view('contact-us');
+    }
 }
