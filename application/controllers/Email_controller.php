@@ -5,6 +5,7 @@ class Email_controller extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('email');
+        $this->load->model('subscribe_model');
     }
 
     public function index() {
@@ -17,7 +18,6 @@ class Email_controller extends CI_Controller {
             $name = $_POST['user_name'];
             $from_email = trim($_POST['email']);
             $pnumber = $_POST['pnumber'];
-
             $to_email = 'janibasha@ladatechnologies.com';
             $config = Array(
                 'protocol' => 'smtp',
@@ -51,6 +51,39 @@ class Email_controller extends CI_Controller {
             }
         }
     }
+    
+    public function get_subscribe(){
+        if(isset($_POST['subscribe_submit'])){         
+            $subscribe_email = trim($_POST['subscribe_email']); 
+            $data = array(
+                'email' => $subscribe_email,                
+                'status' => 1,               
+                'created_date' => date('Y-m-d H:i:s')
+            );      
+             
+             $result = $this->subscribe_model->add_subscribe_email($data);
+             if(isset($result)){
+                 $this->session->set_flashdata('subscribe_msg','Thank you for Subscribing,you will get daily  offer notifications');
+                 redirect(base_url().'index');
+             }
+        }elseif (isset($_POST['subscribe_submit1'])) {
+            $subscribe_email = trim($_POST['subscribe_email1']); 
+            $data = array(
+                'email' => $subscribe_email,                
+                'status' => 1,               
+                'created_date' => date('Y-m-d H:i:s')
+            );
+            $result = $this->subscribe_model->add_subscribe_email($data);
+            if(isset($result)){
+                 $this->session->set_flashdata('subscribe_msg','Thank you for Subscribing,you will get daily  offer notifications');
+                 redirect(base_url().'index');
+             }
+        }else{
+            $this->session->set_flashdata('subscribe_msg','Your Email was not registered');
+            redirect(base_url().'index');
+        }
+    }
+    
 
 }
 

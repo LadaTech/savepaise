@@ -135,6 +135,7 @@
 <!------ header signin and signup ------->
 
 <div class="modal fade get-coupon-area" tabindex="-1" role="dialog" id="signIn">
+
     <div class="modal-dialog modal-lg">
         <div class="modal-content panel">
             <div class="modal-body">
@@ -190,11 +191,20 @@
             <div class="modal-footer footer-info t-center ptb-20 prl-30">
                 <h4 class="mb-15">Subscribe to Mail</h4>
                 <p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>
-                <form method="post" action="#">
+                <div id="msg">
+                    <?PHP
+                    if ($this->session->flashdata('subscribe_msg') != '') {
+                        echo $this->session->flashdata('subscribe_msg');
+                    }
+                    ?>
+                </div>
+                <form  id="subscribe_form" method="post" name="subscribe_form" action="<?PHP echo base_url() . 'email_controller/get_subscribe' ?>">
+
+
                     <div class="input-group">
-                        <input type="text" class="form-control bg-white" placeholder="Your Email Address" required="required">
+                        <input type="email" name="subscribe_email" id="subscribe_email" class="form-control bg-white" placeholder="Your Email Address" required="required">
                         <span class="input-group-btn">
-                            <button class="btn" type="submit">Sign Up</button>
+                            <button class="btn" name="subscribe_submit"  id="subscribe_submit" type="submit">Sign Up</button>
                         </span>
                     </div>
                 </form>
@@ -270,11 +280,20 @@
             <div class="modal-footer footer-info t-center ptb-20 prl-30">
                 <h4 class="mb-15">Subscribe to Mail</h4>
                 <p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>
-                <form method="post" action="#">
+                <form method="post" id="subscribe_form1" name="subscribe_form1" action="<?PHP echo base_url() . 'email_controller/get_subscribe' ?>">
+<?PHP // if ($this->session->flashdata != NULL) {  ?>
+<!--                            <script>
+                            $(document).ready(function () {
+                                $("#signUp").modal();
+                            });
+                        </script>-->
+
+<?PHP // }
+?>
                     <div class="input-group">
-                        <input type="text" class="form-control bg-white" placeholder="Your Email Address" required="required">
+                        <input type="email"  name="subscribe_email1" id="subscribe_email1" class="form-control bg-white" placeholder="Your Email Address" required="required">
                         <span class="input-group-btn">
-                            <button class="btn" type="submit">Sign Up</button>
+                            <button class="btn" name="subscribe_submit1"  id="subscribe_submit1" type="submit">Sign Up</button>
                         </span>
                     </div>
                 </form>
@@ -394,14 +413,19 @@
     });
 
     $(document).ready(function () {
+        //        custom validation method for email
         $.validator.addMethod('customemail', function (value, element) {
             var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            return re.test(value);            
+            return re.test(value);
         },
+                'Sorry, I`ve enabled very strict email validation'
+                );
         $.validator.addMethod('custompass', function (value, element) {
             var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
             return re.test(value);
         },
+                'Sorry, I`ve enabled very strict password validation'
+                );
         $("#sign_up").validate({
             rules: {
                 email: {
@@ -415,7 +439,7 @@
                 }
             },
             messages: {
-                 email: {
+                email: {
                     required: "Please Enter Your Email",
                     email: "Enter Correct Email Id ",
                     customemail: "Enter Valid Email"
@@ -427,7 +451,101 @@
             }
         });
     });
+
+    $(document).ready(function () {
+        //        custom validation method for email
+        $.validator.addMethod('customemail', function (value, element) {
+            var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            return re.test(value);
+        },
+                'Sorry, I`ve enabled very strict email validation'
+                );
+        $('#subscribe_form').validate({
+            rules: {
+                subscribe_email: {
+                    required: true,
+                    email: true,
+                    customemail: true
+                }
+            },
+            messages: {
+                subscribe_email: {
+                    required: "please enter Email",
+                    email: "Enter valid Email",
+                    customemail: "Enter valid Email"
+                }
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        //        custom validation method for email
+        $.validator.addMethod('customemail', function (value, element) {
+            var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            return re.test(value);
+        },
+                'Sorry, I`ve enabled very strict email validation'
+                );
+        $('#subscribe_form1').validate({
+            rules: {
+                subscribe_email1: {
+                    required: true,
+                    email: true,
+                    customemail: true
+                }
+            },
+            messages: {
+                subscribe_email1: {
+                    required: "please enter Email",
+                    email: "Enter valid Email",
+                    customemail: "Enter valid Email"
+                }
+            }
+        });
+    });
 </script>
+<script>
+//    $(document).ready(function(){
+//    $('#subscribe_form').on('load', function () {
+//        $('#signIn').modal('show');
+//    });
+//    });
+//$('#signIn').click(function () {
+//        setTimeout(function () {
+//          $('.btn').trigger('click');
+//        }, 1000);
+//      });
+
+//    $('#signIn').click(function () {
+//        setTimeout(function () {
+//            $('.btn').trigger('click');
+//        }, 7000);
+//    });
+//$('#subscribe_submit').click(function(){
+//    setTimeout(function () {
+//            $('.btn').trigger('click');
+//        }, 7000);
+//})
+
+//$("#signIn").bind("hide", function() {
+//        // remove event listeners on the buttons
+//        $("#signIn a.btn").unbind();
+//    });
+
+//$('.btn').click(function(){
+//    setTimeout(function () {
+//           $('#signIn').trigger('click');
+//       }, 7000);
+//})
+
+$('#subscribe_submit').submit(function(e) {
+    e.preventDefault();
+    // Coding
+    $('#signIn').modal('toggle'); //or  $('#IDModal').modal('hide');
+    return false;
+});
+</script>
+
 </body>
 
 </html>
