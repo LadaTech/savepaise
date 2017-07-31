@@ -11,8 +11,9 @@ class Subcategory_model extends CI_Model{
     public function subcat_add($subcat_data) {
         $this->db->set($subcat_data);
         $query = $this->db->insert('subcategories', $subcat_data);
+        $insert_id = $this->db->insert_id();
         if ($query) {
-            return true;
+            return $insert_id;
         } else {
             return FALSE;
         }

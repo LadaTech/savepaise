@@ -15,40 +15,46 @@ class Index extends CI_Controller {
         $this->load->model('addusers_model');
         $this->load->model('store_model');
         $this->load->model('brand_model');
+        $this->load->model('vcommision_model');
+        $this->load->model('coupons_model');
     }
 
     public function index() {
         $data['categories'] = $this->category_model->display_categories()->result();
-         $data['stores'] = $this->store_model->display_store()->result();
-         $data['brands'] = $this->brand_model->display_brands()->result();
-        $this->load->view('index',$data);
-        
+        $data['stores'] = $this->store_model->display_store()->result();
+        $data['brands'] = $this->brand_model->display_brands()->result();
+        $this->load->view('index', $data);
     }
 
     public function login() {
         $this->load->view('admin/login');
     }
+
     public function logout() {
         $this->load->view('admin/logout');
     }
-    public function sign_in() {  
-        
-            $result = $this->login_model->sign_in(); 
-            
-            if (!$result) {
-                $this->session->set_flashdata('msg', '<font color=red>Invalid username and/or password.</font><br />');
-                $this->load->view(base_url() . 'index');
-            } else {                 
-                if ($_SESSION['usertype'] == 2 || $_SESSION['usertype'] == 1) {   
-                   
-                    redirect(base_url() . 'admin/dashboard');                }
-                if ($_SESSION['usertype'] == 3 || !empty($_POST['urlValue'])) {
-                    redirect(base_url() . 'index');                }
-                if (empty($_POST['urlValue'])) {
-                    redirect('/');
-                }
+
+    public function sign_in() {
+
+        $result = $this->login_model->sign_in();
+
+        if (!$result) {
+            $this->session->set_flashdata('msg', '<font color=red>Invalid username and/or password.</font><br />');
+            $this->load->view(base_url() . 'index');
+        } else {
+            if ($_SESSION['usertype'] == 2 || $_SESSION['usertype'] == 1) {
+
+                redirect(base_url() . 'admin/dashboard');
+            }
+            if ($_SESSION['usertype'] == 3 || !empty($_POST['urlValue'])) {
+                redirect(base_url() . 'index');
+            }
+            if (empty($_POST['urlValue'])) {
+                redirect('/');
             }
         }
+    }
+
     public function sign_up() {
         if (isset($_POST["sign_up"]) == 'submit' || !empty($_POST)) {
             $udata = array(
@@ -74,6 +80,7 @@ class Index extends CI_Controller {
             }
         }
     }
+
     public function home() {
 // Load our view to be displayed        
         $this->load->view('home');
@@ -108,17 +115,36 @@ class Index extends CI_Controller {
             }
         }
     }
-    public function category_deals(){
-        $this->load->view('category-deals'); 
+
+    public function category_deals() {
+        $this->load->view('category-deals');
     }
-    public function amazon_deals(){
-        $this->load->view('store-deals'); 
+
+    public function amazon_deals() {
+        $this->load->view('store-deals');
     }
-    public function online_store(){
+
+    public function online_store() {
         
     }
-    
-    public function contact_us(){
+
+    public function contact_us() {
         $this->load->view('contact-us');
     }
+    
+    public function getDeals(){
+//        print_r($_POST);
+        $storeId = $this->input->post('store');
+        $categoryId = $this->input->post('category');
+        $subcatId = $this->input->post('subcat');
+        $type = $this->input->post('type');
+        $limit = $this->input->post('limit');
+        $data['type'] = $type;
+        $data['couponsList'] = $this->coupons_model->getcoupons($storeId,$categoryId,$subcatId,$type,$limit);
+//        print_r($data['couponsList']);
+        $this->load->view('ajaxdeals', $data);
+//        exit;
+        
+    }
+
 }

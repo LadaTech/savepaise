@@ -281,15 +281,15 @@
                 <h4 class="mb-15">Subscribe to Mail</h4>
                 <p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>
                 <form method="post" id="subscribe_form1" name="subscribe_form1" action="<?PHP echo base_url() . 'email_controller/get_subscribe' ?>">
-<?PHP // if ($this->session->flashdata != NULL) {  ?>
+                    <?PHP // if ($this->session->flashdata != NULL) {  ?>
 <!--                            <script>
                             $(document).ready(function () {
                                 $("#signUp").modal();
                             });
                         </script>-->
 
-<?PHP // }
-?>
+                    <?PHP // }
+                    ?>
                     <div class="input-group">
                         <input type="email"  name="subscribe_email1" id="subscribe_email1" class="form-control bg-white" placeholder="Your Email Address" required="required">
                         <span class="input-group-btn">
@@ -538,14 +538,16 @@
 //       }, 7000);
 //})
 
-$('#subscribe_submit').submit(function(e) {
-    e.preventDefault();
-    // Coding
-    $('#signIn').modal('toggle'); //or  $('#IDModal').modal('hide');
-    return false;
-});
+    $('#subscribe_submit').submit(function (e) {
+        e.preventDefault();
+        // Coding
+        $('#signIn').modal('toggle'); //or  $('#IDModal').modal('hide');
+        return false;
+    });
 </script>
-
+<?PHP
+echo $extraSript;
+?>
 </body>
 
 </html>

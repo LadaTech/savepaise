@@ -15,8 +15,9 @@ class Store_model extends CI_Model {
     public function add_store($data) {
         $this->db->set($data);
         $query = $this->db->insert('stores', $data);
+        $insert_id = $this->db->insert_id();
         if ($query) {
-            return true;
+            return $insert_id;
         } else {
             return FALSE;
         }
@@ -55,12 +56,36 @@ class Store_model extends CI_Model {
             return false;
         }
     }
-    
-    public function display_store(){
-        $this->db->where('status',1);
+
+    public function display_store() {
+        $this->db->where('status', 1);
         $this->db->order_by('store_name');
-        $query = $this->db->get('stores');       
+        $query = $this->db->get('stores');
         return $query;
+    }
+
+    public function getStoreinfobyfield($field = '', $fieldValue = '') {
+        if ($field == "offer_id") {
+            $this->db->where('offer_id', $fieldValue);
+        }
+        $query = $this->db->get('stores');
+//        echo "<pre>";
+//        print_r($this->db);
+//        echo "</pre>";
+//        exit;
+        $row = $query->result_array();
+        return $row;
+    }
+
+    public function updateStoreByField($store_data, $field = 'id') {
+        $id = $store_data[$field];
+        $this->db->where($field, $id);
+        $query = $this->db->update("stores", $store_data);
+        if ($query) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 
 }
