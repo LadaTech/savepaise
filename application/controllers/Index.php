@@ -17,12 +17,16 @@ class Index extends CI_Controller {
         $this->load->model('brand_model');
         $this->load->model('vcommision_model');
         $this->load->model('coupons_model');
+        $this->load->model('subcategory_model');
     }
 
     public function index() {
-        $data['categories'] = $this->category_model->display_categories()->result();
-        $data['stores'] = $this->store_model->display_store()->result();
-        $data['brands'] = $this->brand_model->display_brands()->result();
+//        $data['categories'] = $this->category_model->display_categories()->result();
+//        $data['sub_categories'] = $this->subcategory_model->display_sub_categories()->result();
+//        $data['stores'] = $this->store_model->display_store()->result();
+//        $data['brands'] = $this->brand_model->display_brands()->result();
+        $this->load->library('Headerincludes');
+        $data = $this->headerincludes->allHeaderIncludes();
         $this->load->view('index', $data);
     }
 
@@ -40,7 +44,8 @@ class Index extends CI_Controller {
 
         if (!$result) {
             $this->session->set_flashdata('msg', '<font color=red>Invalid username and/or password.</font><br />');
-            $this->load->view(base_url() . 'index');
+            redirect(base_url().'index');
+//            $this->load->view(base_url() . 'index');
         } else {
             if ($_SESSION['usertype'] == 2 || $_SESSION['usertype'] == 1) {
 
@@ -82,8 +87,10 @@ class Index extends CI_Controller {
     }
 
     public function home() {
+        $this->load->library('Headerincludes');
+        $data = $this->headerincludes->allHeaderIncludes();
 // Load our view to be displayed        
-        $this->load->view('home');
+        $this->load->view('home',$data);
     }
 
     //To Send  users login page data to database and checking Authentication
@@ -129,10 +136,12 @@ class Index extends CI_Controller {
     }
 
     public function contact_us() {
-        $this->load->view('contact-us');
+        $this->load->library('Headerincludes');
+        $data = $this->headerincludes->allHeaderIncludes();
+        $this->load->view('contact-us',$data);
     }
-    
-    public function getDeals(){
+
+    public function getDeals() {
 //        print_r($_POST);
         $storeId = $this->input->post('store');
         $categoryId = $this->input->post('category');
@@ -140,11 +149,10 @@ class Index extends CI_Controller {
         $type = $this->input->post('type');
         $limit = $this->input->post('limit');
         $data['type'] = $type;
-        $data['couponsList'] = $this->coupons_model->getcoupons($storeId,$categoryId,$subcatId,$type,$limit);
+        $data['couponsList'] = $this->coupons_model->getcoupons($storeId, $categoryId, $subcatId, $type, $limit);
 //        print_r($data['couponsList']);
         $this->load->view('ajaxdeals', $data);
 //        exit;
-        
     }
 
 }

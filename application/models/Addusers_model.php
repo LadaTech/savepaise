@@ -111,5 +111,13 @@ class Addusers_model extends CI_Model {
             return FALSE;
         }
     }
+    
+    public function getusers($uid = ''){
+        if ($uid != '') {
+            $this->db->where('id', $uid);
+        }
+        $query = $this->db->get('users');
+        return $result = $query->result_array();
+    }
 
 }

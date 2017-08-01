@@ -109,7 +109,7 @@
                                 }
                                 ?>
                                 <a href="<?PHP echo base_url() . 'index' ?>" class="logo">
-                                    <img src="assets/images/logo.png" alt="" width="250">
+                                    <img src="/assets/images/logo.png" alt="" width="250">
                                 </a>
                             </div>
                             <div class="header-search col-md-9">
@@ -205,9 +205,9 @@
                                             <div class="row row-v-10">
                                                 <div class="col-md-3">
                                                     <ul>
-                                                        <?PHP foreach ($categories as $cat) {
+                                                        <?PHP foreach ($sub_categories as $cat) {
                                                             ?>
-                                                            <li><a href=""><?PHP echo $cat->cat_name; ?></a></li>
+                                                            <li><a href=""><?PHP echo $cat->scat_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
                                                     </ul>
