@@ -546,7 +546,9 @@
     });
 </script>
 <?PHP
-echo $extraSript;
+if (isset($extraSript)) {
+    echo $extraSript;
+}
 ?>
 </body>
 
