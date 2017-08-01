@@ -546,8 +546,13 @@
     });
 </script>
 <?PHP
+<<<<<<< HEAD
 if (isset($extraSript)) {
     echo $extraSript;
+=======
+if(isset($extraSript)){    
+echo $extraSript;
+>>>>>>> origin/master
 }
 ?>
 </body>

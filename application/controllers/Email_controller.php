@@ -23,18 +23,24 @@ class Email_controller extends CI_Controller {
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
                 'smtp_port' => 465,
-                'smtp_user' => 'xxx@gmail.com', // change it to yours
-                'smtp_pass' => 'xxx', // change it to yours
+                'smtp_user' => 'ladatechnology@gmail.com', // change it to yours
+                'smtp_pass' => 'ladatechnology121', // change it to yours
                 'mailtype' => 'html',
                 'charset' => 'iso-8859-1',
                 'wordwrap' => TRUE
             );
             $message = "<html><body><table border=1>"
-                    . "<tr><td>Name:</td><td>"
-                    . $_POST['user_name'] . "</td></tr><tr><td>Email:</td><td>"
-                    . $_POST['email'] . "</td></tr></td></tr><tr><td>Phno:</td><td>"
-                    . $_POST['pnumber'] . "</td></tr></td></tr><tr><td>Message:</td><td>"
-                    . $_POST['message'] . "</td></tr></table></body></html>";
+            . "<tr><td>Name:</td><td>"
+            . $_POST['user_name'] . "</td></tr><tr><td>Email:</td><td>"            
+            . $_POST['email'] . "</td></tr></td></tr><tr><td>Phno:</td><td>"
+            . $_POST['pnumber'] . "</td></tr></td></tr><tr><td>Message:</td><td>"
+            . $_POST['message'] . "</td></tr></table></body></html>";
+//            $message = "<html><body><table border=1>"
+//                    . "<tr><td>Name:</td><td>"
+//                    . $_POST['user_name'] . "</td></tr><tr><td>Email:</td><td>"
+//                    . $_POST['email'] . "</td></tr></td></tr><tr><td>Phno:</td><td>"
+//                    . $_POST['pnumber'] . "</td></tr></td></tr><tr><td>Message:</td><td>"
+//                    . $_POST['message'] . "</td></tr></table></body></html>";
 
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
@@ -44,10 +50,12 @@ class Email_controller extends CI_Controller {
             $this->email->message($message);
             if ($this->email->send()) {
                 $this->session->set_flashdata("email_sent", "Email sent successfully.");
-                $this->load->view('contact-us');
+                redirect(base_url().'index/contact_us');
+//                $this->load->view('contact-us');
             } else {
                 $this->session->set_flashdata("email_sent","Error in sending Email.");
-                $this->load->view('contact-us');
+                redirect(base_url().'index/contact_us');
+//                $this->load->view('contact-us');
             }
         }
     }

@@ -62,7 +62,7 @@
                                 <h3 class="t-uppercase h-title mb-20">Get in touch</h3>
                                 <form id="contact_details" name="contact_details" method="post" action="<?PHP echo base_url() . 'email_controller/contact_us' ?>">
 
-                                    <?php
+                                    <?PHP
                                     if($this->session->flashdata() != NULL){
                                     echo $this->session->flashdata('email_sent');
                                     }
@@ -100,7 +100,7 @@
 </main>
 
 <!-- –––––––––––––––[ END PAGE CONTENT ]––––––––––––––– -->
-<?php include_once('common/footer.php') ?>
+<?PHP include_once('common/footer.php') ?>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.js"></script>

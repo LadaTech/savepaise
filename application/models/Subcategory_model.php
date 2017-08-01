@@ -203,6 +203,13 @@ class Subcategory_model extends CI_Model{
     }
 
     //End of the Funtion 
+    
+    public function display_sub_categories(){
+        $this->db->where('status',1);
+        $this->db->order_by('scat_name');
+        $query = $this->db->get('subcategories');
+        return $query;
+    }
 
 }
 
