@@ -337,7 +337,7 @@
                                                <?PHP }                                               
                                                  ?>
 <!--                                                <p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expires <?PHP // echo $expiry_days."days"; ?></p>-->
-                                                <div class="dealBox-logo"><img src="assets/images/brands/brand_12.jpg" alt=""></div>
+                                               <!-- <div class="dealBox-logo"><img src="/assets/images/brands/brand_12.jpg" alt=""></div> -->
                                                 <div class="showcode">
                                                     <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_04">Show Code</button>
                                                     <div class="coupon-hide"><?PHP echo $deals_detail->code ;?></div>
@@ -367,7 +367,7 @@
                                                 </button>
                                                 <div class="row row-v-10">
                                                     <div class="col-md-10 col-md-offset-1">
-                                                        <img src="assets/images/brands/store_logo.jpg" alt="">
+                                                        <img src="/assets/images/brands/store_logo.jpg" alt="">
                                                         <h3 class="mb-20">Save 30% off New Domains Names</h3>
                                                         <p class="color-mid"> </p>
                                                     </div>

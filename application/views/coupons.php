@@ -387,7 +387,16 @@
                                                     </ul>
                                                     <h4 class="color-green mb-10 t-uppercase">10% OFF</h4>
                                                     <h5 class="deal-title mb-10">
-                                                        <a href="<?PHP echo $coupon_details->link; ?>"><?PHP echo $coupon_details->title; ?></a>
+                                                        <a href="<?PHP echo $coupon_details->link; ?>" data-toggle="tooltip" data-placement="top" title="<?PHP echo $coupon_details->title; ?>">                                                        
+                                                        <?PHP
+                                                                if (strlen($coupon_details->title) > 38) {
+                                                                    echo substr($coupon_details->title, 0, 38) . '..';
+                                                                } else {
+                                                                    echo $coupon_details->title;
+                                                                }
+                                                                ?>
+                                                        </a>
+                                                        
                                                     </h5>
                                                     <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On <?PHP echo $coupon_details->expiry_date; ?></p>
                                                     <div class="showcode">

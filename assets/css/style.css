@@ -2102,7 +2102,7 @@ ul.social {
  h3.deal-title.mb-10 {
     text-align: left; font-size: 16px;
 }
-
+.panel-body .deal-title, .deal-single .deal-title{min-height:45px;}
 
 .coupon-wrapper.coupon-single {
     position: relative;
@@ -2338,7 +2338,7 @@ h6.store-name {
    background: #ffffff;
 }
 .view .mask,.view .content {
-       width: 160px;
+       width: 156px;
     height: 115px;
     position: absolute;
     overflow: hidden;
@@ -2346,7 +2346,7 @@ h6.store-name {
     left: 2px;
 }
 .view img {
-   display: block;
+    
    position: relative;
 }
  
