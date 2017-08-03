@@ -75,15 +75,15 @@ class Coupons_model extends CI_Model {
         if ($type != "") {
             $this->db->where('type', $type);
         }
-        
+
         $expiryDate = date('Y-m-d');
         $this->db->where('expiry_date >=', $expiryDate);
         $this->db->order_by('added_date DESC');
-        
+
         $this->db->select('*');
         $this->db->from('coupons as c');
         $this->db->join('stores as s', 's.id=c.store_id');
-        
+
         $this->db->join('subcategories as subcat', 'subcat.scat_id=c.subcategory_id');
         $this->db->limit($limit);
         $query = $this->db->get();
@@ -93,6 +93,17 @@ class Coupons_model extends CI_Model {
 //        exit;
         $row = $query->result_array();
         return $row;
+    }
+
+    public function get_deals() {
+        $this->db->select('*');
+        $this->db->where('type', 'Promotion');        
+        return $this->db->get('coupons');
+    }
+    public function get_coupons() {
+        $this->db->select('*');
+        $this->db->where('type', 'Coupon');        
+        return $this->db->get('coupons');
     }
 
 }

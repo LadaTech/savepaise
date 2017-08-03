@@ -24,7 +24,9 @@ class Store_model extends CI_Model {
     }
 
     public function view_store() {
-        $this->db->select('id,store_name,store_url,status,created_by,created_date');
+//        $this->db->select('id,store_name,store_url,status,created_by,created_date');
+        $this->db->select('*');
+        $this->db->order_by('store_name');
         return $this->db->get('stores');
     }
 

@@ -159,7 +159,7 @@ include_once('common/header.php');
             <section class="section latest-deals-area">
                 <header class="panel ptb-15 prl-20 pos-r mb-10">
                     <h3 class="section-title font-18">Latest Deals</h3>
-                    <a href="store-deals.php" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
+                    <a href="<?PHP base_url() ?>index/store_deals" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
                 </header>
                 <div class="row row-masnory row-tb-20" id="home-latestDeals">
 
@@ -171,7 +171,7 @@ include_once('common/header.php');
             <section class="section latest-coupons-area ptb-30">
                 <header class="panel ptb-15 prl-20 pos-r mb-10">
                     <h3 class="section-title font-18">Latest Coupons</h3>
-                    <a href="coupons.php" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
+                    <a href="<?PHP base_url() ?>index/coupons" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
                 </header>
                 <div class="row row-masnory row-tb-20" id="home-latestCoupons">
 
@@ -183,7 +183,7 @@ include_once('common/header.php');
             <section class="section stores-area stores-area-v1">
                 <header class="panel ptb-15 prl-20 pos-r mb-10">
                     <h3 class="section-title font-18">Popular Stores</h3>
-                    <a href="stores.php" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">All Stores</a>
+                    <a href="<?PHP base_url() ?>index/stores" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">All Stores</a>
                 </header>
                 <div class="popular-stores-slider" data-loop="true" data-autoplay="true" data-smart-speed="1000" data-autoplay-timeout="10000" data-margin="20" data-items="2" data-xxs-items="2" data-xs-items="2" data-sm-items="3" data-md-items="5" data-lg-items="6">
                     <?PHP

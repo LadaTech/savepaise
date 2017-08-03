@@ -44,7 +44,7 @@ class Index extends CI_Controller {
 
         if (!$result) {
             $this->session->set_flashdata('msg', '<font color=red>Invalid username and/or password.</font><br />');
-            redirect(base_url().'index');
+            redirect(base_url() . 'index');
 //            $this->load->view(base_url() . 'index');
         } else {
             if ($_SESSION['usertype'] == 2 || $_SESSION['usertype'] == 1) {
@@ -90,7 +90,7 @@ class Index extends CI_Controller {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
 // Load our view to be displayed        
-        $this->load->view('home',$data);
+        $this->load->view('home', $data);
     }
 
     //To Send  users login page data to database and checking Authentication
@@ -123,22 +123,20 @@ class Index extends CI_Controller {
         }
     }
 
-    public function category_deals() {
-        $this->load->view('category-deals');
-    }
-
-    public function amazon_deals() {
-        $this->load->view('store-deals');
-    }
-
-    public function online_store() {
-        
-    }
+//    public function category_deals() {
+//        $this->load->view('category-deals');
+//    }
+//    public function amazon_deals() {
+//        $this->load->view('store-deals');
+//    }
+//    public function online_store() {
+//        
+//    }
 
     public function contact_us() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
-        $this->load->view('contact-us',$data);
+        $this->load->view('contact-us', $data);
     }
 
     public function getDeals() {
@@ -153,6 +151,31 @@ class Index extends CI_Controller {
 //        print_r($data['couponsList']);
         $this->load->view('ajaxdeals', $data);
 //        exit;
+    }
+
+    public function store_deals() {
+        $this->load->library('Headerincludes');
+        $data = $this->headerincludes->allHeaderIncludes();
+        $data['all_deals'] = $this->coupons_model->get_deals()->result();
+//        echo "<pre>";
+//        print_r($data['all_deals']);exit;
+        $this->load->view('store-deals', $data);
+    }
+
+    public function coupons() {
+        $this->load->library('Headerincludes');
+        $data = $this->headerincludes->allHeaderIncludes();
+        $data['all_coupons'] = $this->coupons_model->get_coupons()->result();
+//                echo "<pre>";
+//        print_r($data['all_coupons']);exit;
+        $this->load->view('coupons', $data);
+    }
+
+    public function stores() {
+        $this->load->library('Headerincludes');
+        $data = $this->headerincludes->allHeaderIncludes();
+        $data['all_stores']= $this->store_model->view_store()->result();       
+        $this->load->view('stores', $data);
     }
 
 }
