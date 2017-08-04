@@ -23,9 +23,10 @@ class Store_model extends CI_Model {
         }
     }
 
-    public function view_store() {
+    public function view_store($limit,$start) {
 //        $this->db->select('id,store_name,store_url,status,created_by,created_date');
         $this->db->select('*');
+        $this->db->limit($limit, $start);
         $this->db->order_by('store_name');
         return $this->db->get('stores');
     }
@@ -88,6 +89,12 @@ class Store_model extends CI_Model {
         } else {
             return FALSE;
         }
+    }
+    
+    public function get_stores_rows() {
+        $this->db->select('*');
+        $this->db->order_by('store_name');
+        return $this->db->get('stores')->result();
     }
 
 }

@@ -244,7 +244,37 @@ class Index extends CI_Controller {
     public function stores() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
-        $data['all_stores'] = $this->store_model->view_store()->result();
+        $config['base_url'] = base_url() . 'index/stores';
+        $config['total_rows'] = count($this->store_model->get_stores_rows());
+//        echo $config['total_rows'];exit;
+        $config['per_page'] = 18;
+        $config['uri_segment'] = 3;
+        $config['num_links'] = 2;
+        $config['full_tag_open'] = '<ul class = "page-pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = ' &gt;';
+        $config['next_tag_open'] = '<li class="page-numbers next">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;';
+        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+        $config['Previous_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+        $config['cur_tag_close'] = '</span></li>';
+        $config['num_tag_open'] = '<li class = "page-numbers">';
+        $config['num_tag_close'] = '</li>';
+//        $config['display_pages'] = FALSE;
+
+        $config['attributes'] = array('class' => 'page-numbers');
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $data['all_stores'] = $this->store_model->view_store($config['per_page'],$page)->result();
+        $data['links'] = $this->pagination->create_links();
         $this->load->view('stores', $data);
     }
 
