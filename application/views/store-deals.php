@@ -300,254 +300,133 @@
                             <?PHP
 //                            echo "<pre>";
 //                            print_r($all_deals);exit;
-                            foreach ($all_deals as $deals_detail){?>
-                             <div class="col-xs-12">
-                                <div class="coupon-single panel t-center t-sm-left">
-                                    <div class="row row-sm-cell row-tb-0 row-rl-0">
-                                        <div class="coupon-data col-sm-2 text-center">
-                                            <div class="savings text-center">
-                                                <div>
-                                                    <div class="large">45%</div>
-                                                    <div class="small">off</div>
-                                                    <div class="type"><?PHP echo $deals_detail->type ;?></div>
-                                                </div>
-                                            </div>
-                                            <!-- end:Savings -->
-                                        </div>
-                                        <!-- end col -->
-                                        <div class="col-sm-9">
-                                            <div class="panel-body">
-                                                <ul class="deal-meta list-inline mb-10">
-                                                    <li class="color-green"><i class="ico lnr lnr-smile mr-5"></i>Verifed</li>
-                                                    <li class="color-muted"><i class="ico lnr lnr-users mr-5"></i>230 Used</li>
-                                                </ul>
-                                                <h5 class="deal-title mb-10">
-                                                    <a href="<?PHP echo $deals_detail->link ;?>"><?PHP echo $deals_detail->title ;?></a>
-                                                </h5>
-<!--                                                <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On <?PHP // echo $deals_detail->expiry_date; ?></p>-->
-                                                <?PHP
-                                                $date1 = strtotime(date("Y-m-d H:i:s"));                                               
-                                                $date2 = strtotime($deals_detail->expiry_date);                                               
-                                                if($date1 > $date2){
-                                                    $expiry_days = floor(($date1-$date2)/(60 * 60 * 24));?>
-                                                    <p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expires  in <?PHP echo $expiry_days. "  days"; ?></p>
-                                               <?PHP }else{ 
-                                                  $expired_days = floor(($date2-$date1)/(60 * 60 * 24));?>
-                                                   <p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expired <?PHP echo $expired_days."days" ; ?>Back</p>  
-                                               <?PHP }                                               
-                                                 ?>
-<!--                                                <p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expires <?PHP // echo $expiry_days."days"; ?></p>-->
-                                               <!-- <div class="dealBox-logo"><img src="/assets/images/brands/brand_12.jpg" alt=""></div> -->
-                                                <div class="showcode">
-                                                    <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_04">Show Code</button>
-                                                    <div class="coupon-hide"><?PHP echo $deals_detail->code ;?></div>
-                                                </div>
-                                                <ul class="coupon-details list-inline">
-                                                    <li class="list-inline-item">
-                                                        <div class="btn-group" role="group" aria-label="...">
-                                                            <button type="button" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="left" title="" data-original-title="It worked"><i class="fa fa-thumbs-o-up"></i> </button>
-                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="It didn't work"><i class="fa fa-thumbs-o-down"></i> </button>
-                                                        </div>
-                                                        <!-- end:Btn group -->
-                                                    </li>
-                                                    <li class="list-inline-item">30% of 54 recommend</li>
-                                                    <li class="list-inline-item"><a href="#">Share</a> </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- end col -->
-                                    </div>
-                                    <!-- end row -->
-                                </div>
-                                <div class="modal fade get-coupon-area" tabindex="-1" role="dialog" id="coupon_04">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content panel">
-                                            <div class="modal-body">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <div class="row row-v-10">
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <img src="/assets/images/brands/store_logo.jpg" alt="">
-                                                        <h3 class="mb-20">Save 30% off New Domains Names</h3>
-                                                        <p class="color-mid"> </p>
-                                                    </div>
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <a href="#" class="btn btn-link">Visit Our Store</a>
-                                                    </div>
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <h6 class="color-mid t-uppercase">Click below to get your coupon code</h6>
-                                                        <a href="#" target="_blank" class="coupon-code">X455-17GT-OL58</a>
-                                                    </div>
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <div class="like-report mb-10">
-                                                            <span>Share this coupon :</span>
-                                                            <ul class="list-inline social-icons social-icons--colored mt-10">
-                                                                <li class="social-icons__item">
-                                                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                                                </li>
-                                                                <li class="social-icons__item">
-                                                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                                                </li>
-                                                                <li class="social-icons__item">
-                                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                                                </li>
-                                                                <li class="social-icons__item">
-                                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
+                            foreach ($all_deals as $deals_detail) {
+                                ?>
+                                <div class="col-xs-12">
+                                    <div class="coupon-single panel t-center t-sm-left">
+                                        <div class="row row-sm-cell row-tb-0 row-rl-0">
+                                            <div class="coupon-data col-sm-2 text-center">
+                                                <div class="savings text-center">
+                                                    <div>
+                                                        <div class="large">45%</div>
+                                                        <div class="small">off</div>
+                                                        <div class="type"><?PHP echo $deals_detail->type; ?></div>
                                                     </div>
                                                 </div>
+                                                <!-- end:Savings -->
                                             </div>
-                                            <div class="modal-footer footer-info t-center ptb-40 prl-30">
-                                                <h4 class="mb-15">Subscribe to Mail</h4>
-                                                <p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>
-                                                <form method="post" action="#">
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control bg-white" placeholder="Your Email Address" required="required">
-                                                        <span class="input-group-btn">
-                                                            <button class="btn" type="submit">Sign Up</button>
-                                                        </span>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>   
+                                            <!-- end col -->
+                                            <div class="col-sm-9">
+                                                <div class="panel-body">
+                                                    <ul class="deal-meta list-inline mb-10">
+                                                        <li class="color-green"><i class="ico lnr lnr-smile mr-5"></i>Verifed</li>
+                                                        <li class="color-muted"><i class="ico lnr lnr-users mr-5"></i>230 Used</li>
+                                                    </ul>
+                                                    <h5 class="deal-title mb-10">
+                                                        <a href="<?PHP echo $deals_detail->link; ?>"><?PHP echo $deals_detail->title; ?></a>
+                                                    </h5>
+    <!--                                                <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On <?PHP // echo $deals_detail->expiry_date;     ?></p>-->
+                                                    <?PHP
+                                                    $date1 = strtotime(date("Y-m-d H:i:s"));
+                                                    $date2 = strtotime($deals_detail->expiry_date);
+                                                    if ($date1 > $date2) {
+                                                        $expiry_days = floor(($date1 - $date2) / (60 * 60 * 24));
+                                                        ?>
+                                                        <p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expires  in <?PHP echo $expiry_days . "  days"; ?></p>
+                                                        <?PHP
+                                                    } else {
+                                                        $expired_days = floor(($date2 - $date1) / (60 * 60 * 24));
+                                                        ?>
+                                                        <p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expired <?PHP echo $expired_days . "days"; ?>Back</p>  
+                                                    <?PHP }
+                                                    ?>   
                                 
-                         <?PHP   }                            
-                            ?>
-<!--                            <div class="col-xs-12">
-                                <div class="coupon-single panel t-center t-sm-left">
-                                    <div class="row row-sm-cell row-tb-0 row-rl-0">
-                                        <div class="coupon-data col-sm-2 text-center">
-                                            <div class="savings text-center">
-                                                <div>
-                                                    <div class="large">45%</div>
-                                                    <div class="small">off</div>
-                                                    <div class="type"><?PHP echo $deals_detail->type ;?></div>
+                                                    <div class="showcode">
+                                                        <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#<?PHP echo $deals_detail->id; ?>">Show Code</button>
+                                                        <div class="coupon-hide"><?PHP echo $deals_detail->code; ?></div>
+                                                    </div>
+                                                    <ul class="coupon-details list-inline">
+                                                        <li class="list-inline-item">
+                                                            <div class="btn-group" role="group" aria-label="...">
+                                                                <button type="button" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="left" title="" data-original-title="It worked"><i class="fa fa-thumbs-o-up"></i> </button>
+                                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="It didn't work"><i class="fa fa-thumbs-o-down"></i> </button>
+                                                            </div>
+                                                            <!-- end:Btn group -->
+                                                        </li>
+                                                        <li class="list-inline-item">30% of 54 recommend</li>
+                                                        <li class="list-inline-item"><a href="#">Share</a> </li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                             end:Savings 
+                                            <!-- end col -->
                                         </div>
-                                         end col 
-                                        <div class="col-sm-9">
-                                            <div class="panel-body">
-                                                <ul class="deal-meta list-inline mb-10">
-                                                    <li class="color-green"><i class="ico lnr lnr-smile mr-5"></i>Verifed</li>
-                                                    <li class="color-muted"><i class="ico lnr lnr-users mr-5"></i>230 Used</li>
-                                                </ul>
-                                                <h5 class="deal-title mb-10">
-                                                    <a href="#">There is no place like home 25% off</a>
-                                                </h5>
-                                                <p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expires in 1 day 30 hours</p>
-                                                <div class="dealBox-logo"><img src="assets/images/brands/brand_12.jpg" alt=""></div>
-                                                <div class="showcode">
-                                                    <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_04">Show Code</button>
-                                                    <div class="coupon-hide">X455-17GT-OL58</div>
-                                                </div>
-                                                <ul class="coupon-details list-inline">
-                                                    <li class="list-inline-item">
-                                                        <div class="btn-group" role="group" aria-label="...">
-                                                            <button type="button" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="left" title="" data-original-title="It worked"><i class="fa fa-thumbs-o-up"></i> </button>
-                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="It didn't work"><i class="fa fa-thumbs-o-down"></i> </button>
-                                                        </div>
-                                                         end:Btn group 
-                                                    </li>
-                                                    <li class="list-inline-item">30% of 54 recommend</li>
-                                                    <li class="list-inline-item"><a href="#">Share</a> </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                         end col 
+                                        <!-- end row -->
                                     </div>
-                                     end row 
-                                </div>
-                                <div class="modal fade get-coupon-area" tabindex="-1" role="dialog" id="coupon_04">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content panel">
-                                            <div class="modal-body">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <div class="row row-v-10">
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <img src="assets/images/brands/store_logo.jpg" alt="">
-                                                        <h3 class="mb-20">Save 30% off New Domains Names</h3>
-                                                        <p class="color-mid"> </p>
-                                                    </div>
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <a href="#" class="btn btn-link">Visit Our Store</a>
-                                                    </div>
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <h6 class="color-mid t-uppercase">Click below to get your coupon code</h6>
-                                                        <a href="#" target="_blank" class="coupon-code">X455-17GT-OL58</a>
-                                                    </div>
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <div class="like-report mb-10">
-                                                            <span>Share this coupon :</span>
-                                                            <ul class="list-inline social-icons social-icons--colored mt-10">
-                                                                <li class="social-icons__item">
-                                                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                                                </li>
-                                                                <li class="social-icons__item">
-                                                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                                                </li>
-                                                                <li class="social-icons__item">
-                                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                                                </li>
-                                                                <li class="social-icons__item">
-                                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                                </li>
-                                                            </ul>
+                                    <div class="modal fade get-coupon-area" tabindex="-1" role="dialog" id="<?PHP echo $deals_detail->id; ?>">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content panel">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <div class="row row-v-10">
+                                                        <div class="col-md-10 col-md-offset-1">                                                           
+                                                            <img src="<?PHP echo $deals_detail->store_image; ?>" alt="">
+                                                            <h3 class="mb-20"><?PHP echo $deals_detail->title; ?></h3>
+                                                            <p class="color-mid"> </p>
+                                                        </div>
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <a href="<?PHP echo $deals_detail->store_link; ?>" class="btn btn-link">Visit Our Store</a>
+                                                        </div>
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <h6 class="color-mid t-uppercase">Click below to get your coupon code</h6>
+                                                            <a href="<?PHP echo $deals_detail->link; ?>" target="_blank" class="coupon-code"><?PHP echo $deals_detail->code; ?></a>
+                                                        </div>
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <div class="like-report mb-10">
+                                                                <span>Share this coupon :</span>
+                                                                <ul class="list-inline social-icons social-icons--colored mt-10">
+                                                                    <li class="social-icons__item">
+                                                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                                                    </li>
+                                                                    <li class="social-icons__item">
+                                                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                                                    </li>
+                                                                    <li class="social-icons__item">
+                                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                                    </li>
+                                                                    <li class="social-icons__item">
+                                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer footer-info t-center ptb-40 prl-30">
-                                                <h4 class="mb-15">Subscribe to Mail</h4>
-                                                <p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>
-                                                <form method="post" action="#">
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control bg-white" placeholder="Your Email Address" required="required">
-                                                        <span class="input-group-btn">
-                                                            <button class="btn" type="submit">Sign Up</button>
-                                                        </span>
-                                                    </div>
-                                                </form>
+                                                <div class="modal-footer footer-info t-center ptb-40 prl-30">
+                                                    <h4 class="mb-15">Subscribe to Mail</h4>
+                                                    <p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>
+                                                    <form method="post" action="#">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control bg-white" placeholder="Your Email Address" required="required">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn" type="submit">Sign Up</button>
+                                                            </span>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>   -->
-                                
+                                </div>   
+
+                                <?PHP
+                            }
+                                ?> 
+                            <?PHP echo $links; ?>                       
+                           
+
                         </div>
-                        <!-- Page Pagination -->
-                        <div class="page-pagination text-center mt-30 p-10">
-                            <nav>
-                                <!-- Page Pagination -->
-                                <ul class="page-pagination">
-                                    <li><a class="page-numbers previous" href="#">Previous</a>
-                                    </li>
-                                    <li><a href="#" class="page-numbers">1</a>
-                                    </li>
-                                    <li><span class="page-numbers current">2</span>
-                                    </li>
-                                    <li><a href="#" class="page-numbers">3</a>
-                                    </li>
-                                    <li><a href="#" class="page-numbers">4</a>
-                                    </li>
-                                    <li><span class="page-numbers dots">...</span>
-                                    </li>
-                                    <li><a href="#" class="page-numbers">20</a>
-                                    </li>
-                                    <li><a href="#" class="page-numbers next">Next</a>
-                                    </li>
-                                </ul>
-                                <!-- End Page Pagination -->
-                            </nav>
-                        </div>
-                        <!-- End Page Pagination -->
+                       
                     </section>
                 </div>
 

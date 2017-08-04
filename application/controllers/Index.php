@@ -10,6 +10,8 @@ class Index extends CI_Controller {
         parent::__construct();
         $this->load->library('form_validation', 'email');
         $this->load->helper('url', 'form', 'html', 'cookie');
+        $this->load->library('pagination');
+//        $this->load->library('Ajax_pagination');
         $this->load->model('login_model');
         $this->load->model('category_model');
         $this->load->model('addusers_model');
@@ -156,16 +158,84 @@ class Index extends CI_Controller {
     public function store_deals() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
-        $data['all_deals'] = $this->coupons_model->get_deals()->result();
-//        echo "<pre>";
+//        $confg = array();
+        $config['base_url'] = base_url() . 'index/store_deals';
+        $config['total_rows'] = count($this->coupons_model->get_deals_rows());
+//        echo $config['total_rows'];exit;
+        $config['per_page'] = 15;
+        $config['uri_segment'] = 3;
+        $config['num_links'] = 2;
+        $config['full_tag_open'] = '<ul class = "page-pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = ' &gt;';
+        $config['next_tag_open'] = '<li class="page-numbers next">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;';
+        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+        $config['Previous_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+        $config['cur_tag_close'] = '</span></li>';
+        $config['num_tag_open'] = '<li class = "page-numbers">';
+        $config['num_tag_close'] = '</li>';
+//        $config['display_pages'] = FALSE;
+
+        $config['attributes'] = array('class' => 'page-numbers');
+//        $config['anchor_class'] = 'class="page-numbers previous" ';
+
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : $config['per_page'];
+
+        $data['all_deals'] = $this->coupons_model->get_deals($config['per_page'], $page);
+//        echo"<pre>";
 //        print_r($data['all_deals']);exit;
+        $data['links'] = $this->pagination->create_links();
+
+
+
         $this->load->view('store-deals', $data);
     }
 
     public function coupons() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
-        $data['all_coupons'] = $this->coupons_model->get_coupons()->result();
+        $config['base_url'] = base_url() . 'index/coupons';
+        $config['total_rows'] = count($this->coupons_model->get_coupons_rows());
+//        echo $config['total_rows'];exit;
+        $config['per_page'] = 15;
+        $config['uri_segment'] = 3;
+        $config['num_links'] = 2;
+        $config['full_tag_open'] = '<ul class = "page-pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = ' &gt;';
+        $config['next_tag_open'] = '<li class="page-numbers next">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;';
+        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+        $config['Previous_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+        $config['cur_tag_close'] = '</span></li>';
+        $config['num_tag_open'] = '<li class = "page-numbers">';
+        $config['num_tag_close'] = '</li>';
+//        $config['display_pages'] = FALSE;
+
+        $config['attributes'] = array('class' => 'page-numbers');
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        
+        $data['all_coupons'] = $this->coupons_model->get_coupons($config['per_page'],$page);
+        $data['links'] = $this->pagination->create_links();
 //                echo "<pre>";
 //        print_r($data['all_coupons']);exit;
         $this->load->view('coupons', $data);
@@ -174,8 +244,33 @@ class Index extends CI_Controller {
     public function stores() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
-        $data['all_stores']= $this->store_model->view_store()->result();       
+        $data['all_stores'] = $this->store_model->view_store()->result();
         $this->load->view('stores', $data);
+    }
+
+    function ajaxPaginationData() {
+//        $page = $this->input->post('page');
+//        if(!$page){
+//            $offset = 0;
+//        }else{
+//            $offset = $page;
+//        }
+//        
+//        //total rows count
+//        $totalRec = count($this->post->getRows());
+//        
+//        //pagination configuration
+//        $config['target']      = '#postList';
+//        $config['base_url']    = base_url().'posts/ajaxPaginationData';
+//        $config['total_rows']  = $totalRec;
+//        $config['per_page']    = $this->perPage;
+//        $this->ajax_pagination->initialize($config);
+//        
+//        //get the posts data
+//        $data['posts'] = $this->post->getRows(array('start'=>$offset,'limit'=>$this->perPage));
+//        
+//        //load the view
+//        $this->load->view('posts/ajax-pagination-data', $data, false);
     }
 
 }

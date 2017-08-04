@@ -373,7 +373,7 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="text-center p-20">
-                                                    <img class="store-logo" src="assets/images/brands/brand_01.jpg" alt="">
+                                                    <img class="store-logo" src="<?PHP echo $coupon_details->store_image; ?>" alt="">
                                                 </div>
                                                 <!-- end media -->
                                             </div>
@@ -388,15 +388,15 @@
                                                     <h4 class="color-green mb-10 t-uppercase">10% OFF</h4>
                                                     <h5 class="deal-title mb-10">
                                                         <a href="<?PHP echo $coupon_details->link; ?>" data-toggle="tooltip" data-placement="top" title="<?PHP echo $coupon_details->title; ?>">                                                        
-                                                        <?PHP
-                                                                if (strlen($coupon_details->title) > 38) {
-                                                                    echo substr($coupon_details->title, 0, 38) . '..';
-                                                                } else {
-                                                                    echo $coupon_details->title;
-                                                                }
-                                                                ?>
+                                                            <?PHP
+                                                            if (strlen($coupon_details->title) > 38) {
+                                                                echo substr($coupon_details->title, 0, 38) . '..';
+                                                            } else {
+                                                                echo $coupon_details->title;
+                                                            }
+                                                            ?>
                                                         </a>
-                                                        
+
                                                     </h5>
                                                     <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On <?PHP echo $coupon_details->expiry_date; ?></p>
                                                     <div class="showcode">
@@ -418,12 +418,12 @@
                                                     </button>
                                                     <div class="row row-v-10">
                                                         <div class="col-md-10 col-md-offset-1">
-                                                            <img src="assets/images/brands/store_logo.jpg" alt="">
+                                                            <img src="<?PHP echo $coupon_details->store_image; ?>" alt="">
                                                             <h3 class="mb-20"><?PHP echo $coupon_details->title; ?></h3>
                                                             <p class="color-mid"> </p>
                                                         </div>
                                                         <div class="col-md-10 col-md-offset-1">
-                                                            <a href="<?PHP echo $coupon_details->link; ?>" class="btn btn-link">Visit Our Store</a>
+                                                            <a href="<?PHP echo $coupon_details->store_link; ?>" class="btn btn-link">Visit Our Store</a>
                                                         </div>
 
                                                         <div class="col-md-10 col-md-offset-1">
@@ -435,7 +435,7 @@
                                                                 <span>Share this coupon :</span>                                                                   
                                                                 <ul class="list-inline social-icons social-icons--colored mt-10">                                                                   
                                                                     <li class="social-icons__item">  
-                                                                         <a href="#"><i class="fa fa-facebook"></i></a>
+                                                                        <a href="#"><i class="fa fa-facebook"></i></a>
                                                                     </li>
                                                                     <li class="social-icons__item">
                                                                         <a href="#"><i class="fa fa-twitter"></i></a>
@@ -470,14 +470,14 @@
 
                             <?PHP }
                             ?>
-
+                            <?PHP echo $links; ?>
                         </div>
                         <!-- End Row -->
 
                         <!-- Page Pagination -->
-                        <div class="page-pagination text-center mt-30 p-10">
+<!--                        <div class="page-pagination text-center mt-30 p-10">
                             <nav>
-                                <!-- Page Pagination -->
+                                 Page Pagination 
                                 <ul class="page-pagination">
                                     <li><a class="page-numbers previous" href="#">Previous</a>
                                     </li>
@@ -496,9 +496,9 @@
                                     <li><a href="#" class="page-numbers next">Next</a>
                                     </li>
                                 </ul>
-                                <!-- End Page Pagination -->
+                                 End Page Pagination 
                             </nav>
-                        </div>
+                        </div>-->
                         <!-- End Page Pagination -->
 
                     </section>

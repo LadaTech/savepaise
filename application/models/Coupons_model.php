@@ -95,15 +95,31 @@ class Coupons_model extends CI_Model {
         return $row;
     }
 
-    public function get_deals() {
+    public function get_deals($limit, $start) {
         $this->db->select('*');
-        $this->db->where('type', 'Promotion');        
-        return $this->db->get('coupons');
+        $this->db->where('type', 'Promotion');
+        $this->db->limit($limit, $start);
+        $this->db->join('stores','coupons.store_id = stores.id','left');
+        return $this->db->get('coupons')->result();
     }
-    public function get_coupons() {
+
+    public function get_coupons($limit, $start) {
         $this->db->select('*');
-        $this->db->where('type', 'Coupon');        
-        return $this->db->get('coupons');
+        $this->db->where('type', 'Coupon');
+        $this->db->limit($limit, $start);
+        $this->db->join('stores','coupons.store_id = stores.id','left');
+        return $this->db->get('coupons')->result();
+    }
+
+    public function get_deals_rows() {
+        $this->db->select('*');
+        $this->db->where('type', 'Promotion');
+        return $this->db->get('coupons')->result();
+    }
+    public function get_coupons_rows() {
+        $this->db->select('*');
+        $this->db->where('type', 'Coupon');
+        return $this->db->get('coupons')->result();
     }
 
 }

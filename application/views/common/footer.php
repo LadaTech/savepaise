@@ -6,7 +6,7 @@
                     <div class="footer-col col-sm-12">
                         <div class="footer-about text-center">
                             <div class="col-sm-12 ftr-logo">
-                                <img class="mb-10" src="assets/images/logo_light.png" width="250" alt="">
+                                <img class="mb-10" src="/assets/images/logo_light.png" width="250" alt="">
                                 <p class="color-light">All discount codes identified as "EXCLUSIVE" may not be republished in any medium without express written consent from SavePaise.com. 
                                 </p>									
                             </div>		
@@ -94,8 +94,8 @@
 
             <div class="col-xs-12">
                 <div class="payment-methods t-center">                             
-                    <span><img src="assets/images/icons/payment/visa.jpg" alt=""></span>
-                    <span><img src="assets/images/icons/payment/mastercard.jpg" alt=""></span>                             
+                    <span><img src="/assets/images/icons/payment/visa.jpg" alt=""></span>
+                    <span><img src="/assets/images/icons/payment/mastercard.jpg" alt=""></span>                             
                 </div>
             </div>
         </div>
