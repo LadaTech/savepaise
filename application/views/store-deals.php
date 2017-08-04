@@ -322,7 +322,7 @@
                                                         <li class="color-green"><i class="ico lnr lnr-smile mr-5"></i>Verifed</li>
                                                         <li class="color-muted"><i class="ico lnr lnr-users mr-5"></i>230 Used</li>
                                                     </ul>
-                                                    <h5 class="deal-title mb-10">
+                                                    <h5 class="deal-title deal-titled mb-10">
                                                         <a href="<?PHP echo $deals_detail->link; ?>"><?PHP echo $deals_detail->title; ?></a>
                                                     </h5>
     <!--                                                <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On <?PHP // echo $deals_detail->expiry_date;     ?></p>-->
@@ -340,7 +340,7 @@
                                                         <p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expired <?PHP echo $expired_days . "days"; ?>Back</p>  
                                                     <?PHP }
                                                     ?>   
-                                
+                                                    <div class="dealBox-logo"><img src="<?PHP echo $deals_detail->store_image; ?>" alt=""></div>
                                                     <div class="showcode">
                                                         <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#<?PHP echo $deals_detail->id; ?>">Show Code</button>
                                                         <div class="coupon-hide"><?PHP echo $deals_detail->code; ?></div>

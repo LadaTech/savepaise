@@ -2433,6 +2433,17 @@ h6.store-name {
 .dealBox-logo img {
     max-width: 100%;
     max-height: 100%;
+    text-align: center;
+    /* margin: 0px auto; */
+    position: absolute;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    left: -100%;
+    margin: auto;
+}
+h5.deal-title.deal-titled.mb-10 {
+    width: 70%;
 }
 .coupon-logo{border: #ccc dotted 2px;
     border-radius: 10px;
