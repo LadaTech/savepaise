@@ -117,8 +117,9 @@
                                     <div class="col-sm-5">
                                         <form class="search-form">
                                             <div class="input-group">
-                                                <input type="text" class="form-control input-lg search-input" placeholder="Enter Keyword Here ..." required="required">
+                                                <input type="text" class="form-control input-lg search-input" id="txtHint" placeholder="Enter Keyword Here ..." required="required" onkeyup="showHint(this.value)">
                                                 <div class="input-group-btn">
+                                                    <span id="txtHint"></span></br>
                                                     <div class="input-group">                                                    
                                                         <div class="input-group-btn">
                                                             <button type="submit" class="btn btn-lg btn-search btn-block">
@@ -249,13 +250,28 @@
             </header>
             <!-- –––––––––––––––[ HEADER ]––––––––––––––– -->
 
-            <script>
+            <script type="text/javascript" >
+            function showHint(str) {
+                if (str.length == 0) {
+                    document.getElementById("txtHint").innerHTML = "";
+                    return;
+                } else {
+                    if (window.XMLHttpRequest) {
 
-//$(document).ready(function(){
-
-                //   setTimeout(function() {
-                //    $('.rgms').modal('hide');
-                //  }, 5000);
-//});
-
-            </script>
+                        var xmlhttp = new XMLHttpRequest();
+                    } else {
+                        xmlhttp = new ActivexObject("Microsoft.XMLHTTP");
+                    }                    
+                    xmlhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        }
+//                        else {
+//                            console.log(this.readyState, this.status);
+//                        }
+                    };
+                    xmlhttp.open("GET", "<?PHP echo base_url()?>index/search_suggestion?q=" + str, true);
+                    xmlhttp.send();
+                }
+            }
+        </script>

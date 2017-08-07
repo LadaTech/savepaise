@@ -233,8 +233,8 @@ class Index extends CI_Controller {
         $config['attributes'] = array('class' => 'page-numbers');
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        
-        $data['all_coupons'] = $this->coupons_model->get_coupons($config['per_page'],$page);
+
+        $data['all_coupons'] = $this->coupons_model->get_coupons($config['per_page'], $page);
         $data['links'] = $this->pagination->create_links();
 //                echo "<pre>";
 //        print_r($data['all_coupons']);exit;
@@ -244,6 +244,9 @@ class Index extends CI_Controller {
     public function stores() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
+//        echo "<pre>";
+//        print_r($data);       
+//        exit;
         $config['base_url'] = base_url() . 'index/stores';
         $config['total_rows'] = count($this->store_model->get_stores_rows());
 //        echo $config['total_rows'];exit;
@@ -273,7 +276,7 @@ class Index extends CI_Controller {
         $config['attributes'] = array('class' => 'page-numbers');
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['all_stores'] = $this->store_model->view_store($config['per_page'],$page)->result();
+        $data['all_stores'] = $this->store_model->view_store($config['per_page'], $page)->result();
         $data['links'] = $this->pagination->create_links();
         $this->load->view('stores', $data);
     }
@@ -301,6 +304,33 @@ class Index extends CI_Controller {
 //        
 //        //load the view
 //        $this->load->view('posts/ajax-pagination-data', $data, false);
+    }
+
+    public function search_suggestion() {
+        $this->load->library('Headerincludes');
+        $data = $this->headerincludes->allHeaderIncludes();
+        echo "<pre>";
+        print_r($data);
+        exit;
+        $q = $_REQUEST["q"];
+
+        $hint = "";
+
+// lookup all hints from array if $q is different from "" 
+        if ($q !== "") {
+            $q = strtolower($q);
+            $len = strlen($q);
+            foreach ($a as $name) {
+                if (stristr($q, substr($name, 0, $len))) {
+                    if ($hint === "") {
+                        $hint = $name;
+                    } else {
+
+                        $hint = $hint . "<br>" . $name;
+                    }
+                }
+            }
+        }
     }
 
 }

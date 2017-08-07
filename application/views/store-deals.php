@@ -1,4 +1,4 @@
-<?PHP include_once('/common/header.php'); ?>
+<?PHP include_once('common/header.php'); ?>
 <!-- –––––––––––––––[ PAGE CONTENT ]––––––––––––––– -->
 <main id="mainContent" class="main-content">
     <div class="page-container ptb-20">
