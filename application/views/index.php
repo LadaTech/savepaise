@@ -21,7 +21,7 @@ include_once('common/header.php');
                             <ul class="nav-coupon-category panel">
                                 <?PHP foreach ($categories as $cat) {
                                     ?>
-                                    <li><a href=""><i class="fa fa-cutlery"></i><?PHP echo $cat->cat_name; ?></a></li>
+                                <li><a href="<?PHP echo base_url() ?>index/get_categories/<?PHP echo $cat->cat_name ?>"><i class="fa fa-cutlery"></i><?PHP echo $cat->cat_name; ?></a></li>
                                 <?PHP }
                                 ?>
                             
@@ -35,7 +35,7 @@ include_once('common/header.php');
                         <div class="header-deals-slider owl-slider" data-loop="true" data-autoplay="true" data-autoplay-timeout="10000" data-smart-speed="1000" data-nav-speed="false" data-nav="true" data-xxs-items="1" data-xxs-nav="true" data-xs-items="1" data-xs-nav="true" data-sm-items="1" data-sm-nav="true" data-md-items="1" data-md-nav="true" data-lg-items="1" data-lg-nav="true">
 
                             <div class="deal-single panel item">
-                                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/deals/deal_01.jpg">
+                                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="/assets/images/deals/deal_01.jpg">
                                     <div class="label-discount top-10 right-10">-50%</div>
 
                                     <div class="deal-about p-20 pos-a top-5 left-0">
@@ -58,7 +58,7 @@ include_once('common/header.php');
                                 </figure>
                             </div>
                             <div class="deal-single panel item">
-                                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/deals/deal_02.jpg">
+                                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="/assets/images/deals/deal_02.jpg">
                                     <div class="label-discount top-10 right-10">-30%</div>
 
                                     <div class="deal-about p-20 pos-a top-5 left-0">
@@ -81,7 +81,7 @@ include_once('common/header.php');
                                 </figure>
                             </div>
                             <div class="deal-single panel item">
-                                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/deals/deal_03.jpg">
+                                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="/assets/images/deals/deal_03.jpg">
                                     <div class="label-discount top-10 right-10">-30%</div>
 
                                     <div class="deal-about p-20 pos-a top-5 left-0">
@@ -138,7 +138,7 @@ include_once('common/header.php');
                                     <div class="item panel prl-15 ptb-20">
                                         <div class="row row-rl-5 row-xs-cell">
                                             <div class="col-xs-4 valign-middle">
-                                                <img class="pr-10" src="assets/images/icons/money.png" alt="">
+                                                <img class="pr-10" src="/assets/images/icons/money.png" alt="">
                                             </div>
                                             <div class="col-xs-8">
                                                 <h5 class="mb-10 pt-5">Save Money</h5>

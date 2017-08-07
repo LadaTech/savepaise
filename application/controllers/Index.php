@@ -229,11 +229,9 @@ class Index extends CI_Controller {
         $config['num_tag_open'] = '<li class = "page-numbers">';
         $config['num_tag_close'] = '</li>';
 //        $config['display_pages'] = FALSE;
-
         $config['attributes'] = array('class' => 'page-numbers');
         $this->pagination->initialize($config);
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;        
         $data['all_coupons'] = $this->coupons_model->get_coupons($config['per_page'], $page);
         $data['links'] = $this->pagination->create_links();
 //                echo "<pre>";
@@ -247,36 +245,39 @@ class Index extends CI_Controller {
 //        echo "<pre>";
 //        print_r($data);       
 //        exit;
-        $config['base_url'] = base_url() . 'index/stores';
-        $config['total_rows'] = count($this->store_model->get_stores_rows());
-//        echo $config['total_rows'];exit;
-        $config['per_page'] = 18;
-        $config['uri_segment'] = 3;
-        $config['num_links'] = 2;
-        $config['full_tag_open'] = '<ul class = "page-pagination">';
-        $config['full_tag_close'] = '</ul>';
-        $config['first_link'] = 'First';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_link'] = 'Last';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-        $config['next_link'] = ' &gt;';
-        $config['next_tag_open'] = '<li class="page-numbers next">';
-        $config['next_tag_close'] = '</li>';
-        $config['prev_link'] = '&lt;';
-        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
-        $config['Previous_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
-        $config['cur_tag_close'] = '</span></li>';
-        $config['num_tag_open'] = '<li class = "page-numbers">';
-        $config['num_tag_close'] = '</li>';
+//        $config['base_url'] = base_url() . 'index/stores';
+//        $config['total_rows'] = count($this->store_model->get_stores_rows());
+////        echo $config['total_rows'];exit;
+//        $config['per_page'] = 18;
+//        $config['uri_segment'] = 3;
+//        $config['num_links'] = 2;
+//        $config['full_tag_open'] = '<ul class = "page-pagination">';
+//        $config['full_tag_close'] = '</ul>';
+//        $config['first_link'] = 'First';
+//        $config['first_tag_open'] = '<li>';
+//        $config['first_tag_close'] = '</li>';
+//        $config['last_link'] = 'Last';
+//        $config['last_tag_open'] = '<li>';
+//        $config['last_tag_close'] = '</li>';
+//        $config['next_link'] = ' &gt;';
+//        $config['next_tag_open'] = '<li class="page-numbers next">';
+//        $config['next_tag_close'] = '</li>';
+//        $config['prev_link'] = '&lt;';
+//        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+//        $config['Previous_tag_close'] = '</li>';
+//        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+//        $config['cur_tag_close'] = '</span></li>';
+//        $config['num_tag_open'] = '<li class = "page-numbers">';
+//        $config['num_tag_close'] = '</li>';
 //        $config['display_pages'] = FALSE;
-
-        $config['attributes'] = array('class' => 'page-numbers');
-        $this->pagination->initialize($config);
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['all_stores'] = $this->store_model->view_store($config['per_page'], $page)->result();
+//        $config['attributes'] = array('class' => 'page-numbers');
+//        $this->pagination->initialize($config);
+//        echo $q;exit;
+//        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+//        $page = $config['per_page'];
+//        $data['all_stores'] = $this->store_model->view_store($config['per_page'], $page,$q)->result();
+        $q = $this->uri->segment(3);
+        $data['all_stores'] = $this->store_model->view_store($q)->result();
         $data['links'] = $this->pagination->create_links();
         $this->load->view('stores', $data);
     }
@@ -304,6 +305,10 @@ class Index extends CI_Controller {
 //        
 //        //load the view
 //        $this->load->view('posts/ajax-pagination-data', $data, false);
+    }
+    
+    public function get_categories(){
+        $this->load->view('category-deals');
     }
 
     public function search_suggestion() {

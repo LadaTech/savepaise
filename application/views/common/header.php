@@ -189,7 +189,7 @@
                                                     <ul>                                                        
                                                         <?PHP foreach ($stores as $store) {
                                                             ?>
-                                                            <li><a href=""><?PHP echo $store->store_name; ?></a></li>
+                                                        <li><a href="<?PHP echo base_url()?>index/stores/<?PHP echo $store->store_name?>"><?PHP echo $store->store_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
 
