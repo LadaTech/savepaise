@@ -20,4 +20,3 @@ class Subscribe_model extends CI_Model{
     
 }
 ?>
-

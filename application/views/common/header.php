@@ -188,8 +188,9 @@
                                                 <div class="col-md-3">
                                                     <ul>                                                        
                                                         <?PHP foreach ($stores as $store) {
+//                                                           $this->input->post($store->store_name);
                                                             ?>
-                                                        <li><a href="<?PHP echo base_url()?>index/stores/<?PHP echo $store->store_name?>"><?PHP echo $store->store_name; ?></a></li>
+                                                        <li><a href="<?PHP echo base_url()?>index/stores/<?PHP echo $store->store_name ?>"><?PHP echo $store->store_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
 
@@ -208,7 +209,7 @@
                                                     <ul>
                                                         <?PHP foreach ($sub_categories as $cat) {
                                                             ?>
-                                                            <li><a href=""><?PHP echo $cat->scat_name; ?></a></li>
+                                                        <li><a href="<?PHP echo base_url()?>index/subcategories/<?PHP echo str_replace(' ','-',$cat->scat_name); ?>"><?PHP echo $cat->scat_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
                                                     </ul>

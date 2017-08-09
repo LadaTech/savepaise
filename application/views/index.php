@@ -21,7 +21,7 @@ include_once('common/header.php');
                             <ul class="nav-coupon-category panel">
                                 <?PHP foreach ($categories as $cat) {
                                     ?>
-                                <li><a href="<?PHP echo base_url() ?>index/get_categories/<?PHP echo $cat->cat_name ?>"><i class="fa fa-cutlery"></i><?PHP echo $cat->cat_name; ?></a></li>
+                                <li><a href="<?PHP echo base_url() ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $cat->cat_name; ?></a></li>
                                 <?PHP }
                                 ?>
                             

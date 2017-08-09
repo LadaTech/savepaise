@@ -1,12 +1,16 @@
-<?php 
-class Subcategory_model extends CI_Model{
+<?php
+
+class Subcategory_model extends CI_Model {
+
     function __construct() {
         parent::__construct();
         $this->load->database();
     }
-    public function index(){
-         $this->load->helper('form', 'url', 'session');
+
+    public function index() {
+        $this->load->helper('form', 'url', 'session');
     }
+
     //To Add sub categories to Admin Panel 
     public function subcat_add($subcat_data) {
         $this->db->set($subcat_data);
@@ -18,10 +22,10 @@ class Subcategory_model extends CI_Model{
             return FALSE;
         }
     }
-    
+
     //To get the all subcategories list of Admin Panel 
-    public function subcat_view($catId='') {
-        if($catId!=''){
+    public function subcat_view($catId = '') {
+        if ($catId != '') {
             $this->db->where('category_id', $catId);
         }
         //$this->db->where('status', 1);
@@ -29,7 +33,7 @@ class Subcategory_model extends CI_Model{
 //        $query = $this->db->get('subcategories');
 //        $rows = $query->result_array();
 //        return $rows;
-        
+
         $this->db->select('*, sc.status scStatus,sc.created_date createdDate');
         $this->db->from('subcategories sc');
         $this->db->join('category_group cg', 'cg.g_id = sc.category_group', 'LEFT');
@@ -40,6 +44,7 @@ class Subcategory_model extends CI_Model{
         $query = $this->db->get();
         return $result = $query->result_array();
     }
+
     //End of the Function 
     //To get the all subcategories list of Admin Panel with pagination
     public function subcat_view1($isAll = '', $perPage = '25', $page = '1', $segment = '') {
@@ -63,8 +68,8 @@ class Subcategory_model extends CI_Model{
 
     //End of the Function 
     // To Edit subcategory of Admin Panel 
-    
-    
+
+
     public function getgroup($id) {
         //data is retrive from this query 
         $this->db->where('cate_id', $id);
@@ -72,7 +77,8 @@ class Subcategory_model extends CI_Model{
         $result = $query->result_array();
         return $result;
     }
-     // To Update the Edit category of Admin Panel 
+
+    // To Update the Edit category of Admin Panel 
     public function status() {
 
         $this->db->set('status', $_POST['status']);
@@ -83,11 +89,9 @@ class Subcategory_model extends CI_Model{
         } else {
             return FALSE;
         }
-    }      
-   
-    
-   
-/**
+    }
+
+    /**
      * Function to update sorting value in subcategories table 
      * @param type $sorting_id
      * @param type $id
@@ -102,6 +106,7 @@ class Subcategory_model extends CI_Model{
             return FALSE;
         }
     }
+
     //To search in categories list of the admin panel
     public function search_subcat($subcat_name) {
         $this->db->select('*');
@@ -115,7 +120,7 @@ class Subcategory_model extends CI_Model{
             return $query->result();
         }
     }
-    
+
     // To Edit subcategory of Admin Panel 
 
     public function getsubcategory() {
@@ -137,6 +142,7 @@ class Subcategory_model extends CI_Model{
         $result = $query->result_array();
         return $result;
     }
+
     /**
      * Function to get onchange category group in sub category list page
      * @param type $id
@@ -162,15 +168,14 @@ class Subcategory_model extends CI_Model{
         return $result;
     }
 
-    
-     public function getSubcatCookie($id) {
+    public function getSubcatCookie($id) {
         $this->db->where('category_group', $id);
         $query = $this->db->get('subcategories');
         $result = $query->result_array();
         return $result;
     }
-    
-     // To Update the Edit subcategory of Admin Panel 
+
+    // To Update the Edit subcategory of Admin Panel 
     public function subcat_update($sedit_data) {
         $this->db->where('scat_id', $sedit_data['scat_id']);
         $query = $this->db->update('subcategories', $sedit_data);
@@ -182,7 +187,6 @@ class Subcategory_model extends CI_Model{
     }
 
     //End of the Funtion 
-    
     // To dalete the  subcategory of Admin Panel 
     public function deletesubcategory($id) {
         $data = array(
@@ -203,12 +207,47 @@ class Subcategory_model extends CI_Model{
     }
 
     //End of the Funtion 
-    
-    public function display_sub_categories(){
-        $this->db->where('status',1);
+
+    public function display_sub_categories() {
+        $this->db->where('status', 1);
         $this->db->order_by('scat_name');
         $query = $this->db->get('subcategories');
         return $query;
+    }
+
+    public function view_subcategory($subcat_name = '', $limit = '', $start = '') {
+        if ($subcat_name != '') {
+            $this->db->where('scat_name', $subcat_name);
+            $this->db->where('type', 'Promotion');
+            $this->db->limit($limit, $start);
+            $this->db->order_by('added_date DESC');
+            $this->db->join('coupons', 'subcategories.scat_id = coupons.subcategory_id ', 'left');
+            $this->db->join('stores', 'stores.id =coupons.store_id', 'left');
+        }
+        $this->db->select('*');
+//        $this->db->from('stores');
+//        $this->db->limit($limit);
+//        $this->db->order_by('store_name');
+
+        return $this->db->get('subcategories')->result();
+    }
+
+    public function view_subcategory_rows($subcat_name = '') {
+        if ($subcat_name != '') {
+            $this->db->select('*');
+            $this->db->where('scat_name', $subcat_name);
+            $this->db->where('type', 'Promotion');
+//            $this->db->limit($limit, $start);
+            $this->db->order_by('added_date DESC');
+            $this->db->join('coupons', 'subcategories.scat_id = coupons.subcategory_id ', 'left');
+            $this->db->join('stores', 'stores.id =coupons.store_id', 'left');
+            $query = $this->db->get('subcategories');
+            return $query->num_rows();
+        }
+
+//        $this->db->from('stores');
+//        $this->db->limit($limit);
+//        $this->db->order_by('store_name');
     }
 
 }

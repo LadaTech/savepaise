@@ -23,18 +23,31 @@ class Store_model extends CI_Model {
         }
     }
 
-    public function view_store($store_name = '') {
+    public function view_store($store_name = '',$limit='',$start='') {
 //        $this->db->select('id,store_name,store_url,status,created_by,created_date');
         if ($store_name != '') {
 //            $this->db->select('*');
-//            $this->db->limit($limit, $start);
+//            $this->db->from('coupons as c');
+//           
+//            $this->db->where('store_name',$store_name);
+//            $this->db->where('type','Promotion');
+//            $this->db->join('subcategories as subcat','c.subcategory_id = subcat.scat_id','left');
+//             $this->db->limit($limit);
+//            $this->db->order_by('added_date DESC')
             $this->db->where('store_name',$store_name);
-//            return $this->db->get('stores');
+            $this->db->where('type','Promotion');
+            $this->db->limit($limit, $start);
+            $this->db->order_by('added_date DESC');
+            $this->db->join('coupons','stores.id = coupons.store_id ','left');
+            
+          
         }
         $this->db->select('*');
+//        $this->db->from('stores');
 //        $this->db->limit($limit);
-        $this->db->order_by('store_name');
-        return $this->db->get('stores');
+//        $this->db->order_by('store_name');
+        
+        return $this->db->get('stores')->result();
     }
 
     public function edit_store($uid) {
@@ -101,6 +114,19 @@ class Store_model extends CI_Model {
         $this->db->select('*');
         $this->db->order_by('store_name');
         return $this->db->get('stores')->result();
+    }
+    
+    public function get_specific_store_rows($store_name = '')
+    {
+       if ($store_name != '') {
+            $this->db->select('*');
+             $this->db->where('store_name',$store_name);
+            $this->db->where('type','Promotion');
+//            $this->db->limit($limit);
+            $this->db->join('coupons','stores.id = coupons.store_id ','left');
+           $query=  $this->db->get('stores');
+           return $query->num_rows();
+        } 
     }
 
 }

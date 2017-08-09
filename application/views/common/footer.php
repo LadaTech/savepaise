@@ -134,7 +134,7 @@
 
 <!------ header signin and signup ------->
 
-<div class="modal fade get-coupon-area" tabindex="-1" role="dialog" id="signIn">
+<div class="modal fade get-coupon-area" tabindex="-1" role="dialog"  style="display: none;" id="signIn">
 
     <div class="modal-dialog modal-lg">
         <div class="modal-content panel">
@@ -181,7 +181,8 @@
                                         <label class="color-mid" for="remember_social">Keep me signed in on this computer.</label>
                                 </div> -->
                                 <div class="text-center color-mid">
-                                    Need an Account ? <a href="#" class="color-green">Create Account</a>
+                                  <!--Need an Account ?  <button type="button" data-toggle="modal" href="#signUp" class="btn btn-danger">Create Account</button>-->
+                                    Need an Account ? <a data-toggle="modal"  href="#signUp"  class="color-green">Create Account</a>
                                 </div>
                             </div>
                         </div>
@@ -215,7 +216,7 @@
 
 
 
-<div class="modal fade get-coupon-area" tabindex="-1" role="dialog" id="signUp">
+<div class="modal fade get-coupon-area" tabindex="-1" role="dialog" style="display: none;" id="signUp">
     <div class="modal-dialog modal-lg">
         <div class="modal-content panel">
             <div class="modal-body">
@@ -270,7 +271,7 @@
                                         <label class="color-mid" for="remember_social">Keep me signed in on this computer.</label>
                                 </div>-->
                                 <div class="text-center color-mid">
-                                    Already have an Account ? <a href="#" class="color-green">Login</a>
+                                    Already have an Account ? <a href="#signIn" data-toggle="modal" class="color-green">Login</a>
                                 </div>
                             </div>
                         </div>

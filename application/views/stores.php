@@ -62,7 +62,7 @@
                     
                 </div>                
             </section>
-            <?PHP echo $links ;?>
+            <?PHP // echo $links ;?>
         </div>
     </div>
     <!-- End Page Container -->
