@@ -23,8 +23,8 @@ class Email_controller extends CI_Controller {
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
                 'smtp_port' => 465,
-                'smtp_user' => 'ladatechnology@gmail.com', // change it to yours
-                'smtp_pass' => 'ladatechnology121', // change it to yours
+                'smtp_user' => 'ladatechnology@gmail.com', 
+                'smtp_pass' => 'ladatechnology121', 
                 'mailtype' => 'html',
                 'charset' => 'iso-8859-1',
                 'wordwrap' => TRUE

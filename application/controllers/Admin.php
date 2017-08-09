@@ -371,7 +371,7 @@ class Admin extends CI_Controller {
 //        $this->pagination->initialize($config);
 //        $data['pagination'] = $this->pagination->create_links();     
 //$data['records'] = $this->addusers_model->view_user()->result();
-        $data['records'] = $this->store_model->view_store()->result();        
+        $data['records'] = $this->store_model->view_store();        
 //        echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/stores/view_store', $data);
