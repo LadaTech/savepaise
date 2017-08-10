@@ -19,8 +19,10 @@
                             <h2 class="color-lighter ">Free Online Shopping Coupons From Online Stores In India</h2>
                             <hr />
                             <ul>
-                                <li><a href="#">Amazon Offers</a></li>
-                                <li><a href="#">Flipkart Offers</a></li>
+                               <?PHP foreach ($stores as $store){?>
+                                <li><a href="<?PHP echo $store->store_url; ?>" target="_blank"><?PHP echo $store->store_name  ?> Offers</a></li>
+                               <?PHP }?>
+<!--                                <li><a href="#">Flipkart Offers</a></li>
                                 <li><a href="#">BookMyShow Offers</a></li>
                                 <li><a href="#">eBay Offers</a></li>	
                                 <li><a href="#">Freecharge Offers</a></li>
@@ -84,7 +86,7 @@
                                 <li><a href="#">Mobikwik Offers</a></li>
                                 <li><a href="#">Myntra Offers</a></li>
                                 <li><a href="#">Paytm Offers</a></li>
-                                <li><a href="#">Pizza Hut Offers</a></li>
+                                <li><a href="#">Pizza Hut Offers</a></li>-->
 
                             </ul>
                         </div>
@@ -245,7 +247,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only">Phone Number</label>
-                                    <input type="text" class="form-control input-lg"  id="pnumber" name="pnumber" placeholder="Phone Number">
+                                    <input type="number" class="form-control input-lg"  id="pnumber" name="pnumber" placeholder="Phone Number">
                                 </div>
                                 <div class="custom-checkbox mb-20">
                                     <input type="checkbox" id="agree_terms">
@@ -368,7 +370,7 @@
         },
                 'Sorry, I`ve enabled very strict password validation'
                 );
-        $("#sign_in").validate({
+        $("#sign_up").validate({
             rules: {
                 firstname: "required",
                 lastname: "required",
@@ -427,7 +429,7 @@
         },
                 'Sorry, I`ve enabled very strict password validation'
                 );
-        $("#sign_up").validate({
+        $("#sign_in").validate({
             rules: {
                 email: {
                     required: true,

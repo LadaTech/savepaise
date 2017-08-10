@@ -150,7 +150,7 @@
                                         <div class="media">
                                             <div class="media-left">
                                                 <a href="#">
-                                                    <img class="media-object" src="assets/images/deals/thumb_02.jpg" alt="Thumb" width="80">
+                                                    <img class="media-object" src="/assets/images/deals/thumb_02.jpg" alt="Thumb" width="80">
                                                 </a>
                                             </div>
                                             <div class="media-body">
@@ -387,7 +387,7 @@
                                                     </ul>
                                                     <h4 class="color-green mb-10 t-uppercase">10% OFF</h4>
                                                     <h5 class="deal-title mb-10">
-                                                        <a href="<?PHP echo $coupon_details->link; ?>" data-toggle="tooltip" data-placement="top" title="<?PHP echo $coupon_details->title; ?>">                                                        
+                                                        <a href="<?PHP echo $coupon_details->link; ?>" target="_blank" data-toggle="tooltip" data-placement="top" title="<?PHP echo $coupon_details->title; ?>">                                                        
                                                             <?PHP
                                                             if (strlen($coupon_details->title) > 38) {
                                                                 echo substr($coupon_details->title, 0, 38) . '..';

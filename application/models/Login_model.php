@@ -90,6 +90,18 @@ class Login_model extends CI_Model {
             return FALSE;
         }
     }
+    
+    public function email_check(){
+        $email = $this->security->xss_clean($this->input->post('email'));
+        $this->db->where('email',$email);
+        $query = $this->db->get('adduser')->row();
+        if(count($query)>0){
+            return TRUE;;
+        }
+        else{
+            return FALSE;
+        }
+    }
 
 }
 

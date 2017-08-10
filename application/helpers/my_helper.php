@@ -66,9 +66,64 @@ function GridDeals($couponArray) {
                                 <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On ' . $coupon['expiry_date'] . '</p>';
             if ($coupon['type'] == 'Coupon') {
                 $gridHtml .= '<div class="showcode" data-toggle-class="coupon-showen" data-toggle-event="click">
-                                <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_01">Get Coupon Code</button>
-                                <div class="coupon-hide">' . $coupon['code'] . '</div>
-                              </div>';
+                                <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#'.$coupon['id'].'">Get Coupon Code</button>
+                                <div class="coupon-hide">' . $coupon['code'] . '</div></div>
+                              <div class="modal fade get-coupon-area" tabindex="-1" role="dialog" id="'.$coupon['id'].'">                                        
+                                        <div class="modal-dialog">
+                                            <div class="modal-content panel">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <div class="row row-v-10">
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <img src="<?PHP echo $coupon_details->store_image; ?>" alt="">
+                                                            <h3 class="mb-20">'.$coupon['title'].'</h3>
+                                                            <p class="color-mid"> </p>
+                                                        </div>
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <a href="'.$coupon['link'].'" class="btn btn-link">Visit Our Store</a>
+                                                        </div>
+
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <h6 class="color-mid t-uppercase">Click below to get your coupon code</h6>
+                                                            <a href="'.$coupon['link'].'" target="_blank" class="coupon-code">'.$coupon['code'].'</a>
+                                                        </div>
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <div class="like-report mb-10">
+                                                                <span>Share this coupon :</span>                                                                   
+                                                                <ul class="list-inline social-icons social-icons--colored mt-10">                                                                   
+                                                                    <li class="social-icons__item">  
+                                                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                                                    </li>
+                                                                    <li class="social-icons__item">
+                                                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                                                    </li>
+                                                                    <li class="social-icons__item">
+                                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                                    </li>
+                                                                    <li class="social-icons__item">
+                                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer footer-info t-center ptb-40 prl-30">
+                                                    <h4 class="mb-15">Subscribe to Mail</h4>
+                                                    <p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>
+                                                    <form method="post" action="#">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control bg-white" placeholder="Your Email Address" required="required">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn" type="submit">Sign Up</button>
+                                                            </span>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>';
             } else {
                 $gridHtml .= '<div class="showcode"><a href="'.$coupon['link'].'" target="_blank" class="btn btn-sm btn-block">Activate Deal</a></div>';
             }

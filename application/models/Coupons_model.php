@@ -99,7 +99,7 @@ class Coupons_model extends CI_Model {
         $this->db->select('*');
         $this->db->where('type', 'Promotion');
         $this->db->limit($limit, $start);
-        $this->db->join('stores','coupons.store_id = stores.id','left');
+        $this->db->join('stores','stores.id = coupons.store_id','left');
         return $this->db->get('coupons')->result();
     }
 

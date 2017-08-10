@@ -63,28 +63,36 @@ class Index extends CI_Controller {
     }
 
     public function sign_up() {
-        if (isset($_POST["sign_up"]) == 'submit' || !empty($_POST)) {
-            $udata = array(
-                'firstname' => $_POST['firstname'],
-                'lastname' => $_POST['lastname'],
-                'email' => $_POST['email'],
-                'password' => base64_encode($_POST['password']),
-                'pnumber' => $_POST['pnumber'],
-                'usertype' => 3,
-                'status' => 1,
-                //'created_by' => $_SESSION['id'],
-                'created_date' => date('Y-m-d H:i:s')
-            );
-            if ($result = $this->login_model->sign_up($udata)) {
+        $result = $this->login_model->email_check();
+        if (isset($result) && ($result != TRUE)) {
+            if (isset($_POST["sign_up"]) == 'submit' || !empty($_POST)) {
+                $udata = array(
+                    'firstname' => $_POST['firstname'],
+                    'lastname' => $_POST['lastname'],
+                    'email' => $_POST['email'],
+                    'password' => base64_encode($_POST['password']),
+                    'pnumber' => $_POST['pnumber'],
+                    'usertype' => 3,
+                    'status' => 1,
+                    //'created_by' => $_SESSION['id'],
+                    'created_date' => date('Y-m-d H:i:s')
+                );
+
+                if ($result = $this->login_model->sign_up($udata)) {
 //               $_SESSION['msg'] = '<font color=green>Registred Sucessfully</font><br />';
-                $this->session->set_flashdata('msg', '<font color=green>Registred Sucessfully</font><br />');
-                redirect(base_url() . 'index');
+                    $this->session->set_flashdata('msg', '<font color=green>Registred Sucessfully</font><br />');
+                    redirect(base_url() . 'index');
 //               $this->load->view(echo baseurl().'index',$msg);
-            } else {
+                } else {
 //             $msg = '<font color=red>Registration failed</font><br />';
-                $this->session->set_flashdata('msg', '<font color=red>Registration failed</font><br />');
-                redirect(base_url() . 'index');
+                    $this->session->set_flashdata('msg', '<font color=red>Registration failed</font><br />');
+                    redirect(base_url() . 'index');
+                }
             }
+        }
+        else{
+           $this->session->set_flashdata('msg', '<font color=red>Email already exist</font><br />');
+           redirect(base_url() . 'index');
         }
     }
 
@@ -231,7 +239,7 @@ class Index extends CI_Controller {
 //        $config['display_pages'] = FALSE;
         $config['attributes'] = array('class' => 'page-numbers');
         $this->pagination->initialize($config);
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;        
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $data['all_coupons'] = $this->coupons_model->get_coupons($config['per_page'], $page);
         $data['links'] = $this->pagination->create_links();
 //                echo "<pre>";
@@ -241,93 +249,96 @@ class Index extends CI_Controller {
 
     public function stores() {
         $this->load->library('Headerincludes');
-        $data = $this->headerincludes->allHeaderIncludes();      
-        $q = $this->uri->segment(3);        
-        if(isset($q)){
-        $config['base_url'] = base_url() . 'index/stores/'.$q;
-        $config['total_rows'] = $this->store_model->get_specific_store_rows($q);
+        $data = $this->headerincludes->allHeaderIncludes();
+        $q = $this->uri->segment(3);  
+//        $storeName = $this->input->post('storeName');
+        
+        if (isset($q)) {
+            $config['base_url'] = base_url() . 'index/stores/' . $q;
+            $config['total_rows'] = $this->store_model->get_specific_store_rows($q);
 //        $config['total_rows'] = count($this->store_model->view_store($q));
 //        echo $config['total_rows'];exit;
-        $config['per_page'] = 10;
-        $config['uri_segment'] = 4;
-        $config['num_links'] = 2;
-        $config['full_tag_open'] = '<ul class = "page-pagination">';
-        $config['full_tag_close'] = '</ul>';
-        $config['first_link'] = 'First';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_link'] = 'Last';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-        $config['next_link'] = ' &gt;';
-        $config['next_tag_open'] = '<li class="page-numbers next">';
-        $config['next_tag_close'] = '</li>';
-        $config['prev_link'] = '&lt;';
-        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
-        $config['Previous_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
-        $config['cur_tag_close'] = '</span></li>';
-        $config['num_tag_open'] = '<li class = "page-numbers">';
-        $config['num_tag_close'] = '</li>';
+            $config['per_page'] = 10;
+            $config['uri_segment'] = 4;
+            $config['num_links'] = 2;
+            $config['full_tag_open'] = '<ul class = "page-pagination">';
+            $config['full_tag_close'] = '</ul>';
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li>';
+            $config['first_tag_close'] = '</li>';
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li>';
+            $config['last_tag_close'] = '</li>';
+            $config['next_link'] = ' &gt;';
+            $config['next_tag_open'] = '<li class="page-numbers next">';
+            $config['next_tag_close'] = '</li>';
+            $config['prev_link'] = '&lt;';
+            $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+            $config['Previous_tag_close'] = '</li>';
+            $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+            $config['cur_tag_close'] = '</span></li>';
+            $config['num_tag_open'] = '<li class = "page-numbers">';
+            $config['num_tag_close'] = '</li>';
 //        $config['display_pages'] = FALSE;
-        $config['attributes'] = array('class' => 'page-numbers');
-        $this->pagination->initialize($config);
+            $config['attributes'] = array('class' => 'page-numbers');
+            $this->pagination->initialize($config);
 //        echo $q;exit;
-        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+            $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
 //        $page = $config['per_page'];
-        $data['specific_item_deals'] = $this->store_model->view_store($q,$config['per_page'],$page);
+            $data['specific_item_deals'] = $this->store_model->view_store($q, $config['per_page'], $page);
 
-        $data['links'] = $this->pagination->create_links();
-        $this->load->view('store-deals',$data);
-        
-        }else{
-        $data['all_stores'] = $this->store_model->view_store($q);
-        $this->load->view('stores', $data);
+            $data['links'] = $this->pagination->create_links();
+            $this->load->view('store-deals', $data);
+        } else {
+            $data['all_stores'] = $this->store_model->view_store($q);
+//            echo "<pre>";
+//            print_r($data['all_stores']);exit;
+            $this->load->view('stores', $data);
         }
     }
-    
-    public function subcategories(){
-      $this->load->library('Headerincludes');
-      $data = $this->headerincludes->allHeaderIncludes(); 
-      $q = str_replace('-',' ',$this->uri->segment(3));
+
+    public function subcategories() {
+        $this->load->library('Headerincludes');
+        $data = $this->headerincludes->allHeaderIncludes();
+        $q = str_replace('-', ' ', $this->uri->segment(3));
 //      echo $q;exit;
-      if(isset($q)){
-        $config['base_url'] = base_url() . 'index/subcategories/'.str_replace(' ','-',$q);
-        $config['total_rows'] = $this->subcategory_model->view_subcategory_rows($q);
+        if (isset($q)) {
+            $config['base_url'] = base_url() . 'index/subcategories/' . str_replace(' ', '-', $q);
+            $config['total_rows'] = $this->subcategory_model->view_subcategory_rows($q);
 //        $config['total_rows'] = count($this->store_model->view_store($q));
 //        echo $config['total_rows'];exit;
-        $config['per_page'] = 15;
-        $config['uri_segment'] = 4;
-        $config['num_links'] = 2;
-        $config['full_tag_open'] = '<ul class = "page-pagination">';
-        $config['full_tag_close'] = '</ul>';
-        $config['first_link'] = 'First';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_link'] = 'Last';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-        $config['next_link'] = ' &gt;';
-        $config['next_tag_open'] = '<li class="page-numbers next">';
-        $config['next_tag_close'] = '</li>';
-        $config['prev_link'] = '&lt;';
-        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
-        $config['Previous_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
-        $config['cur_tag_close'] = '</span></li>';
-        $config['num_tag_open'] = '<li class = "page-numbers">';
-        $config['num_tag_close'] = '</li>';
+            $config['per_page'] = 15;
+            $config['uri_segment'] = 4;
+            $config['num_links'] = 2;
+            $config['full_tag_open'] = '<ul class = "page-pagination">';
+            $config['full_tag_close'] = '</ul>';
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li>';
+            $config['first_tag_close'] = '</li>';
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li>';
+            $config['last_tag_close'] = '</li>';
+            $config['next_link'] = ' &gt;';
+            $config['next_tag_open'] = '<li class="page-numbers next">';
+            $config['next_tag_close'] = '</li>';
+            $config['prev_link'] = '&lt;';
+            $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+            $config['Previous_tag_close'] = '</li>';
+            $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+            $config['cur_tag_close'] = '</span></li>';
+            $config['num_tag_open'] = '<li class = "page-numbers">';
+            $config['num_tag_close'] = '</li>';
 //        $config['display_pages'] = FALSE;
-        $config['attributes'] = array('class' => 'page-numbers');
-        $this->pagination->initialize($config);
-        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-       
-        $data['specific_item_deals'] = $this->subcategory_model->view_subcategory($q,$config['per_page'],$page);
+            $config['attributes'] = array('class' => 'page-numbers');
+            $this->pagination->initialize($config);
+            $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+
+            $data['specific_item_deals'] = $this->subcategory_model->view_subcategory($q, $config['per_page'], $page);
 //        echo "<pre>";
 //        print_r($data['specific_item_deals']);exit;
-        $data['links'] = $this->pagination->create_links();
-        $this->load->view('store-deals',$data);
-      }
+            $data['links'] = $this->pagination->create_links();
+            $this->load->view('store-deals', $data);
+        }
     }
 
     function ajaxPaginationData() {
@@ -354,11 +365,11 @@ class Index extends CI_Controller {
 //        //load the view
 //        $this->load->view('posts/ajax-pagination-data', $data, false);
     }
-    
-    public function get_categories(){
-         $this->load->library('Headerincludes');
+
+    public function get_categories() {
+        $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
-        $this->load->view('category-deals',$data);
+        $this->load->view('category-deals', $data);
     }
 
     public function search_suggestion() {
