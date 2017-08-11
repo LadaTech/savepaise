@@ -51,10 +51,11 @@
                                         <td><?php echo $cat['cat_id'] ?></td> 
                                         <td><?php echo $cat['cat_name']  ?></td>
                                         <td> <img src = "<?php echo base_url() ?>assets/images/nav-icons/<?php echo $cat['image']; ?>" alt="" width="30px" height="30px" />  </td>
-                                         <td><a href="<?php echo base_url() ?>admin/category_edit?catid=<?php echo $cat['cat_id']; ?>">Edit/</a><a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $cat['cat_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" >Delete</a> </td>
+                                        
                                         <td><i id="<?php echo $cat['cat_id']; ?>" onClick="changeStatus('<?php echo $cat['cat_id']; ?>', '<?PHP echo $cat['status']; ?>')" class="status_checks1 btn <?php echo ($cat['status']) ? 'btn-success' : 'btn-danger'
                                                     ?>"><?php echo ($cat['status']) ? 'Active' : 'Inactive' ?>
-                                                    </i></td>                                                                                 
+                                                    </i></td>  
+                                                     <td><a href="<?php echo base_url() ?>admin/category_edit?catid=<?php echo $cat['cat_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $cat['cat_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" ><i class="ace-icon fa fa-trash-o bigger-120"></i></a> </td>
                                         <td style="width:15%;">
                                                     <input type="text" class="sortW" name="sortId" id="sortid_<?php echo $cat['cat_id']; ?>" value="<?php echo $cat['sorting']; ?>">
                                                     <input type="hidden" name="catid" value="<?php echo $cat['cat_id']; ?>">

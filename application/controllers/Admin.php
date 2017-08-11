@@ -19,11 +19,12 @@ class Admin extends CI_Controller {
         $this->load->model('brand_model');
         $this->load->model('login_model');
         $this->load->model('store_model');
+        $this->load->model('coupons_model');
     }
 
     public function index() {    
         if ((isset($_SESSION['uemail']))&&($_SESSION['utype'] == 2 || $_SESSION['utype'] == 1)) {           
-            $this->load->view('admin/index');        
+            $this->load->view('admin/dashboard');        
         } else {
             redirect(base_url() . 'index');
         }
@@ -129,7 +130,7 @@ class Admin extends CI_Controller {
 //
         $data['cat_list'] = $this->category_model->view_category();
 //        echo "<pre>";
-//         print_r($data);exit;//
+//         print_r($data);exit;
 //        $data['group'] = $this->Category_model->cat_group();
         $this->load->view('admin/category/view_category', $data);
     }
@@ -383,6 +384,51 @@ class Admin extends CI_Controller {
 //         echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/stores/edit_store', $data);
+    }
+    
+    public function view_coupon() {        
+        //$config['base_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+//        $config['base_url'] = site_url("admin/categorygroup_list");
+//        $config['per_page'] = "10";
+//        $data['per_page'] = $config['per_page'];
+//        $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+//        $data['allRecords'] = $this->Category_model->getcat_group1('all', $config["per_page"], $data['page'], $this->uri->segment(3));
+//
+//        $config['total_rows'] = sizeof($data['allRecords']);
+//        $data['total_rows'] = $config['total_rows'];
+//        $config["uri_segment"] = 3;
+////        $choice = $config["total_rows"] / $config["per_page"];
+//        $choice = 10;
+//
+//        $config["num_links"] = floor($choice);
+//
+//        // integrate bootstrap pagination
+//        $config['full_tag_open'] = '<ul class="pagination">';
+//        $config['full_tag_close'] = '</ul>';
+//        $config['first_link'] = false;
+//        $config['last_link'] = false;
+//        $config['first_tag_open'] = '<li>';
+//        $config['first_tag_close'] = '</li>';
+//        $config['prev_link'] = '«';
+//        $config['prev_tag_open'] = '<li class="prev">';
+//        $config['prev_tag_close'] = '</li>';
+//        $config['next_link'] = '»';
+//        $config['next_tag_open'] = '<li>';
+//        $config['next_tag_close'] = '</li>';
+//        $config['last_tag_open'] = '<li>';
+//        $config['last_tag_close'] = '</li>';
+//        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+//        $config['cur_tag_close'] = '</a></li>';
+//        $config['num_tag_open'] = '<li>';
+//        $config['num_tag_close'] = '</li>';
+//        $this->pagination->initialize($config);
+//        $data['pagination'] = $this->pagination->create_links();     
+//$data['records'] = $this->addusers_model->view_user()->result();
+        $data['records'] = $this->coupons_model->view_coupon();        
+//        echo "<pre>";
+//        print_r($data);exit;
+        $this->load->view('admin/coupons/view_coupons', $data);
+       
     }
 
 }

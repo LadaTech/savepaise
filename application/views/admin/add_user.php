@@ -23,7 +23,7 @@ $this->load->view('admin/common/header', true);
                         Users
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add Users
+                            Add users
                         </small>
                     </h1>
                 </div><!-- /.page-header -->

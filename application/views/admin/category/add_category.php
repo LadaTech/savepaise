@@ -12,7 +12,7 @@ $this->load->view('admin/common/header', true);
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">Add User</li>
+                    <li class="active">Add category</li>
                 </ul><!-- /.breadcrumb -->
 
             </div>

@@ -154,26 +154,13 @@
             <b class="arrow"></b>
             <ul class="submenu">
                 <li class="">
-                    <a href="#">
+                    <a href="<?php echo base_url() ?>admin/view_coupon">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Coupons-1
+                        View Coupon
                     </a>
                     <b class="arrow"></b>
                 </li>
-                <li class="">
-                    <a href="#">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Coupons-2
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Coupons-3
-                    </a>
-                    <b class="arrow"></b>
-                </li>
+                
             </ul>
         </li>
         <li class="">

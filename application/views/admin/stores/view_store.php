@@ -38,6 +38,10 @@ $this->load->view('admin/common/header', true);
                                     <th class="center">ID</th>                                    
                                     <th class="center">Store Name </th>                               
                                     <th class="center">Store URL</th>
+                                    <th class="center">Offer ID</th>
+                                    <th class="center">Offer Name</th>
+                                    <th class="center">Store Image</th>
+                                    <th class="center">Store Link</th>
                                     <th class="center">Status</th>                                     
                                     <th class="center">Created_By</th> 
                                     <th class="center">Created_Date</th>                                    
@@ -45,12 +49,20 @@ $this->load->view('admin/common/header', true);
                                 </tr> 
                             </thead>
                             <tbody>
+
                                 <?php foreach ($records as $store_data) { ?>
                                     <tr>
                                         <td><?php echo $store_data->id ?></td>
                                         <td><?php echo $store_data->store_name ?></td>
-                                        <td><?php echo $store_data->store_url ?></td>
-                                        <td><?php echo $store_data->status ?></td>
+                                        <td><?php echo $store_data->store_url ?></td>                                        
+                                        <td><?php echo $store_data->offer_id ?></td>
+                                        <td><?php echo $store_data->offer_name ?></td>
+                                        <td><?php echo $store_data->store_image ?></td>
+                                        <td><?php echo $store_data->store_link ?></td>
+                                        <td><?php // echo $store_data->status      ?></td>
+                                        <td><i id="<?php echo $store_data->id; ?>" onClick="changeStatus('<?php echo $store_data->id; ?>', '<?PHP echo $store_data->status; ?>')" class="status_checks1 btn <?php echo ($store_data->status) ? 'btn-success' : 'btn-danger'
+                                    ?>"><?php echo ($store_data->status) ? 'Active' : 'Inactive' ?>
+                                            </i></td>   
                                         <td><?php echo $store_data->created_by ?></td>
                                         <td><?php echo $store_data->created_date ?></td>                                          
                                         <td>
@@ -80,17 +92,51 @@ Bootstrap
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.js"></script>
 <script type="text/javascript">
-//            function getConfirmation(){
-//               var retVal = confirm("Do you want to continue ?");
-//               if( retVal == true ){
-//                  document.write ("User wants to continue!");
-//                  return true;
-//               }
-//               else{
-//                  document.write ("User does not want to continue!");
-//                  return false;
-//               }
-//            }     
+
+
+
+                                                function changeStatus(id, status) {
+                                                   var id = id;
+                                                   alert(id);
+                                                    //var status = ($(this).hasClass("btn-success")) ? '0' : '1';
+                                                    //                                                                        alert(status);
+                                                    var msg = (status == '0') ? '1' : '0';
+                                                    if (status == '0') {
+                                                        status = 'Active';
+                                                    } else {
+                                                        status = 'Inactive';
+                                                    }
+                                                    if (confirm("Are you sure to " + status)) {
+                                                        //                                                                            var id = $(this).attr('id');
+                                                        //                                                                            alert(id);
+                                                        //                                                                            alert(status);
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: '<?php echo base_url() . "stores/status" ?>',
+                                                            data: {
+                                                                id: id,
+                                                                status: msg,
+                                                            },
+                                                            success: function (data)
+                                                            {
+                                                                $(this).hasClass("btn-success");
+                                                                if (status == 'Inactive') {
+                                                                    status = 'Active';
+                                                                    $('#' + id).addClass("btn-success");
+                                                                    $('#' + id).removeClass("btn-danger");
+                                                                } else {
+                                                                    status = 'Inactive';
+                                                                    $('#' + id).addClass("btn-danger");
+                                                                    $('#' + id).removeClass("btn-success");
+                                                                }
+                                                                $('#' + id).text(status);
+                                                            }
+                                                        });
+                                                    }
+
+                                                }
+
+
 
 </script>
 

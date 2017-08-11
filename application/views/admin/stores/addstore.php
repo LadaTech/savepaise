@@ -50,6 +50,18 @@ $this->load->view('admin/common/header', true);
                                     <input type="text" name="store_url" id="store_url" class="form-control capitalize"  placeholder="Enter Store URL" required />
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Offer Name<span class="text-danger">*</span></label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="offer_name" id="offer_name" class="form-control capitalize"  placeholder="Enter offername" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Store_Image <span class="text-danger">*</span></label>
+                                <div class="col-sm-6">
+                                    <input type="file" name="store_image" id="store_image" size="20" required />
+                                </div>
+                            </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-9 col-sm-offset-3">
@@ -79,11 +91,18 @@ $this->load->view('admin/common/header', true);
         $("#stores").validate({
             rules: {
                 store_name: "required",
-                store_url: "required"
+                store_url: "required",
+                offer_name: "required",
+                store_image: {
+                    required: true,
+                    extension: "jpeg" | "jpg" | "gif" | "png"
+                }
             },
             messages: {
                 store_name: "Please enter Store Name",
-                store_url: "Please Enter Store URL"
+                store_url: "Please Enter Store URL",
+                offer_name: "please enter offer name",
+                store_image: "Please upload jpeg | png | gif | jpg files only",
             }
         });
     });

@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 
 class Coupons_model extends CI_Model {
 
-    function __construct() {
+    public function __construct() {
         parent::__construct();
         $this->load->database();
     }
@@ -61,6 +61,12 @@ class Coupons_model extends CI_Model {
         }
     }
 
+    public function view_coupon() {
+        $this->db->select('*');
+//        $this->db->order_by('added_date DESC');
+        return $this->db->get('coupons')->result();
+    }
+
     public function getcoupons($storeId = '', $categoryId = '', $subcatId = '', $type = '', $limit = 10) {
         if ($storeId != "") {
             $this->db->where('store_id', $storeId);
@@ -99,7 +105,7 @@ class Coupons_model extends CI_Model {
         $this->db->select('*');
         $this->db->where('type', 'Promotion');
         $this->db->limit($limit, $start);
-        $this->db->join('stores','stores.id = coupons.store_id','left');
+        $this->db->join('stores', 'stores.id = coupons.store_id', 'left');
         return $this->db->get('coupons')->result();
     }
 
@@ -107,7 +113,7 @@ class Coupons_model extends CI_Model {
         $this->db->select('*');
         $this->db->where('type', 'Coupon');
         $this->db->limit($limit, $start);
-        $this->db->join('stores','coupons.store_id = stores.id','left');
+        $this->db->join('stores', 'coupons.store_id = stores.id', 'left');
         return $this->db->get('coupons')->result();
     }
 
@@ -116,6 +122,7 @@ class Coupons_model extends CI_Model {
         $this->db->where('type', 'Promotion');
         return $this->db->get('coupons')->result();
     }
+
     public function get_coupons_rows() {
         $this->db->select('*');
         $this->db->where('type', 'Coupon');

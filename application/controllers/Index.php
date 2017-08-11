@@ -251,6 +251,9 @@ class Index extends CI_Controller {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
         $q = $this->uri->segment(3);  
+//        $link_value = $_GET['link'];
+//        echo $q.'  ' .$link_value;exit;
+        
 //        $storeName = $this->input->post('storeName');
         
         if (isset($q)) {
@@ -290,6 +293,8 @@ class Index extends CI_Controller {
             $data['links'] = $this->pagination->create_links();
             $this->load->view('store-deals', $data);
         } else {
+            $a = $this->input->post('id');
+//            exit;
             $data['all_stores'] = $this->store_model->view_store($q);
 //            echo "<pre>";
 //            print_r($data['all_stores']);exit;

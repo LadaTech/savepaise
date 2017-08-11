@@ -57,6 +57,8 @@ $this->load->view('admin/common/header', true);
 //                                        if (ctype_digit($digit)) {
 //                                            $j = $digit + 1;
 //                                        }
+//                                echo "<pre>";
+//                                print_r($sublist);exit;
                                 foreach ($sublist as $ind):
 //                                            echo "<pre>";
 //                                            print_r($ind);exit;
@@ -68,7 +70,7 @@ $this->load->view('admin/common/header', true);
                                         <td><i id="<?php echo $ind['scat_id']; ?>" onClick="changeStatus('<?php echo $ind['scat_id']; ?>', '<?PHP echo $ind['scStatus']; ?>')" class="status_checks1 btn <?php echo ($ind['scStatus']) ? 'btn-success' : 'btn-danger'
                                            ?>"><?php echo ($ind['scStatus']) ? 'Active' : 'Inactive' ?>
                                             </i></td>                                                       
-                                        <td><a href="<?php echo base_url(); ?>admin/subcat_edit?subid=<?php echo $ind['scat_id']; ?>&cid=<?php echo $ind['category_id']; ?>">Edit</a><?php // if ($_SESSION['utype'] == 1) {  ?>/<a  href="<?php echo base_url() ?>subcategories/subcategory_delete?subid=<?php echo $ind['scat_id']; ?>" onclick="return confirm('Are you sure you want to delete this SubCategory?')" >Delete</a><?php // }  ?></td>
+                                            <td><a href="<?php echo base_url(); ?>admin/subcat_edit?subid=<?php echo $ind['scat_id']; ?>&cid=<?php echo $ind['category_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><?php // if ($_SESSION['utype'] == 1) {  ?><a  href="<?php echo base_url() ?>subcategories/subcategory_delete?subid=<?php echo $ind['scat_id']; ?>" onclick="return confirm('Are you sure you want to delete this SubCategory?')" ><i class="ace-icon fa fa-trash-o bigger-120"></i></a><?php // }  ?></td>
                                         <td style="width:15%;">
                                             <input type="text" name="subsortId" class="sortW" id="sortid_<?php echo $ind['scat_id']; ?>" value="<?php echo $ind['sorting']; ?>">
                                             <input type="hidden" name="subcatid" value="<?php echo $ind['scat_id']; ?>">
