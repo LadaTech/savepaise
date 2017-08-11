@@ -194,7 +194,7 @@
                             <div id="header-navbar" class="nav-collapse">
                                 <ul class="nav-menu">
                                     <li class="active">
-                                        <a href="<?PHP echo base_url() . 'index' ?>">Home</a>
+                                        <a href="<?PHP echo base_url(); ?>">Home</a>
                                     </li>
                                     <li class="dropdown-mega-menu">
                                         <a href="#">Online Stores</a>
