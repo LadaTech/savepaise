@@ -29,10 +29,10 @@
         <!-- ––––––––––––––––––––––––––––––––––––––––– -->
         <!-- SEO METAS                                 -->
         <!-- ––––––––––––––––––––––––––––––––––––––––– -->
-        <meta name="description" content="Save Paise is a responsive multipurpose-ecommerce site template allows you to store coupons and promo codes from different brands and create store for deals, discounts, It can be used as coupon website such as groupon.com and also as online store">
-        <meta name="	black Save Paise, coupon, coupon codes, coupon theme, coupons, deal news, deals, discounts, ecommerce, Save Paise deals, groupon, promo codes, responsive, shop, store coupons">
+        <meta name="description" content="Save Paise is a responsive multipurpose-ecommerce site allows you to store coupons and promo codes from different brands and create store for deals, discounts" />
+        <meta name="keywords" content="Save Paise, coupon, coupon codes, flipkart deals, amazon deals, jabon coupons, Deals of the day, daily coupons, deals, discounts, ecommerce, Save Paise deals, groupon, promo codes, shop, store coupons" />
         <meta name="robots" content="index, follow">
-        <meta name="author" content="CODASTROID">
+        <meta name="author" content="SavePaise">
 
         <!-- ––––––––––––––––––––––––––––––––––––––––– -->
         <!-- PAGE FAVICON                              -->
@@ -72,7 +72,23 @@
     </head>
 
     <body id="body" class="wide-layout preloader-active">
+        <script type="text/javascript">
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+            ga('create', 'UA-6498159-5', 'auto');
+            ga('send', 'pageview');
+
+        </script>
 
 
         <!-- ––––––––––––––––––––––––––––––––––––––––– -->
@@ -98,8 +114,8 @@
                 <!-- Header Header -->
                 <div class="header-header bg-white">
                     <div class="container">
-                           
-  
+
+
                         <div class="row row-rl-0 row-tb-20 row-md-cell">  
 
                             <div class="brand col-md-3 t-xs-center t-md-left valign-middle">
@@ -143,7 +159,7 @@
                                                 } else {
                                                     ?>                                    
                                                     Guest</span>
-                                        </div>
+                                            </div>
                                         <?PHP } ?> 
                                         <?PHP if (isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') { ?>
                                             <a href="<?PHP echo base_url() ?>/index/logout" onclick="return confirm('Are you sure you want to Sign out?')"  class="logout"><i class="icon-signout"></i> Logout </a>                                            
@@ -187,10 +203,11 @@
                                             <div class="row row-v-10">
                                                 <div class="col-md-3">
                                                     <ul>                                                        
-                                                        <?PHP foreach ($stores as $store) {
+                                                        <?PHP
+                                                        foreach ($stores as $store) {
 //                                                           $this->input->post($store->store_name);
                                                             ?>
-                                                        <li><a href="<?PHP echo base_url()?>index/stores/<?PHP echo $store->store_name ?>"><?PHP echo $store->store_name; ?></a></li>
+                                                            <li><a href="<?PHP echo base_url() ?>index/stores/<?PHP echo $store->store_name ?>"><?PHP echo $store->store_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
 
@@ -209,7 +226,7 @@
                                                     <ul>
                                                         <?PHP foreach ($sub_categories as $cat) {
                                                             ?>
-                                                        <li><a href="<?PHP echo base_url()?>index/subcategories/<?PHP echo str_replace(' ','-',$cat->scat_name); ?>"><?PHP echo $cat->scat_name; ?></a></li>
+                                                            <li><a href="<?PHP echo base_url() ?>index/subcategories/<?PHP echo str_replace(' ', '-', $cat->scat_name); ?>"><?PHP echo $cat->scat_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
                                                     </ul>
@@ -238,7 +255,7 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="<?PHP echo base_url().'index/contact_us'?>">Contact Us</a> </li>                                 
+                                    <li><a href="<?PHP echo base_url() . 'index/contact_us' ?>">Contact Us</a> </li>                                 
 
                                 </ul>
                             </div>
@@ -252,27 +269,27 @@
             <!-- –––––––––––––––[ HEADER ]––––––––––––––– -->
 
             <script type="text/javascript" >
-            function showHint(str) {
-                if (str.length == 0) {
-                    document.getElementById("txtHint").innerHTML = "";
-                    return;
-                } else {
-                    if (window.XMLHttpRequest) {
-
-                        var xmlhttp = new XMLHttpRequest();
+                function showHint(str) {
+                    if (str.length == 0) {
+                        document.getElementById("txtHint").innerHTML = "";
+                        return;
                     } else {
-                        xmlhttp = new ActivexObject("Microsoft.XMLHTTP");
-                    }                    
-                    xmlhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        if (window.XMLHttpRequest) {
+
+                            var xmlhttp = new XMLHttpRequest();
+                        } else {
+                            xmlhttp = new ActivexObject("Microsoft.XMLHTTP");
                         }
+                        xmlhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.getElementById("txtHint").innerHTML = this.responseText;
+                            }
 //                        else {
 //                            console.log(this.readyState, this.status);
 //                        }
-                    };
-                    xmlhttp.open("GET", "<?PHP echo base_url()?>index/search_suggestion?q=" + str, true);
-                    xmlhttp.send();
+                        };
+                        xmlhttp.open("GET", "<?PHP echo base_url() ?>index/search_suggestion?q=" + str, true);
+                        xmlhttp.send();
+                    }
                 }
-            }
-        </script>
+            </script>
