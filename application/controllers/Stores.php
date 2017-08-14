@@ -87,7 +87,9 @@ class stores extends CI_Controller {
 //        $this->load->view(base_url().'index',$data);
 //    }
     //To update the status of the subcategories list
-    public function status() {       
+    public function status() {   
+//        alert($_POST['status']);
+//        alert($_POST['id']);
         $updateStatus = $this->store_model->status();
         return $updateStatus;
     }

@@ -58,7 +58,7 @@ $this->load->view('admin/common/header', true);
 
                                         <td><img style="object-fit:contain; width:100px; height: 100px;" src="<?php echo base_url() . "/assets/images/nav-icons/" . $catGroup['image']; ?>" alt="<?php echo $catGroup['group_name']; ?>" /></td>
                                         <td><?php echo $catGroup['created_date']; ?> </td>
-                                        <td><a href="<?php echo base_url() ?>admin/editcategory_group?catid=<?php echo $catGroup['g_id']; ?>">Edit</a><?php // if ($_SESSION['utype'] == 1) {   ?>/<a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $catGroup['g_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" >Delete</a> <?php // }   ?></td>
+                                        <td><a href="<?php echo base_url() ?>admin/editcategory_group?catid=<?php echo $catGroup['g_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><?php // if ($_SESSION['utype'] == 1) {   ?><a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $catGroup['g_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" ><i class="ace-icon fa fa-trash-o bigger-120"></i></a> <?php // }   ?></td>
                                         <td style="width:15%;">
                                             <input type="text" class="sortW" name="sortId" id="sortid_<?php echo $catGroup['g_id']; ?>" value="<?php echo $catGroup['sorting']; ?>">
                                             <input type="hidden" name="catid" value="<?php echo $catGroup['g_id']; ?>">

@@ -59,7 +59,7 @@ $this->load->view('admin/common/header', true);
                                         <td><?php echo $store_data->offer_name ?></td>
                                         <td><?php echo $store_data->store_image ?></td>
                                         <td><?php echo $store_data->store_link ?></td>
-                                        <td><?php // echo $store_data->status      ?></td>
+                                        <!--<td><?php // echo $store_data->status      ?></td>-->
                                         <td><i id="<?php echo $store_data->id; ?>" onClick="changeStatus('<?php echo $store_data->id; ?>', '<?PHP echo $store_data->status; ?>')" class="status_checks1 btn <?php echo ($store_data->status) ? 'btn-success' : 'btn-danger'
                                     ?>"><?php echo ($store_data->status) ? 'Active' : 'Inactive' ?>
                                             </i></td>   
@@ -107,9 +107,9 @@ Bootstrap
                                                         status = 'Inactive';
                                                     }
                                                     if (confirm("Are you sure to " + status)) {
-                                                        //                                                                            var id = $(this).attr('id');
-                                                        //                                                                            alert(id);
-                                                        //                                                                            alert(status);
+//                                                                                                                                    var id = id;
+//                                                                                                                                    alert(id);
+//                                                                                                                                    alert(status);
                                                         $.ajax({
                                                             type: "POST",
                                                             url: '<?php echo base_url() . "stores/status" ?>',
@@ -122,6 +122,7 @@ Bootstrap
                                                                 $(this).hasClass("btn-success");
                                                                 if (status == 'Inactive') {
                                                                     status = 'Active';
+                                                                    
                                                                     $('#' + id).addClass("btn-success");
                                                                     $('#' + id).removeClass("btn-danger");
                                                                 } else {

@@ -130,6 +130,7 @@
                                                                 });
                                                             }
                                                             function changeStatus(id, status) {
+                                                            var id = id;
                                                                 //var status = ($(this).hasClass("btn-success")) ? '0' : '1';
                                                                 //                                                                        alert(status);
                                                                 var msg = (status == '0') ? '1' : '0';
@@ -139,9 +140,9 @@
                                                                     status = 'Inactive';
                                                                 }
                                                                 if (confirm("Are you sure to " + status)) {
-                                                                    //                                                                            var id = $(this).attr('id');
-                                                                    //                                                                            alert(id);
-                                                                    //                                                                            alert(status);
+//                                                                                                                                                var id = $(this).attr('id');
+//                                                                                                                                                alert(id);
+//                                                                                                                                                alert(status);
                                                                     $.ajax({
                                                                         type: "POST",
                                                                         url: '<?php echo base_url() . "category/changeStatus" ?>',

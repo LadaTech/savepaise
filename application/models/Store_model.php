@@ -130,7 +130,7 @@ class Store_model extends CI_Model {
         }
     }
     
-    public function status(){
+    public function status(){        
         $this->db->set('status', $_POST['status']);
         $this->db->where('id', $_POST['id']);
         $query = $this->db->update('stores');
