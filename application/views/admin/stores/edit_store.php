@@ -53,6 +53,20 @@
                                 </div>
                             </div>
                             
+                            <div class="form-group">                                
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Offer Name </label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="offer_name" name="offer_name"  class="form-control capitalize" value="<?php echo $store_data->offer_name; ?>" required/>
+                                </div>                                
+                            </div>
+                            <div class="form-group">                              
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Store Image </label>
+                                <div class="col-sm-9">
+                                    <input type="file" id="image_c" name="image_c"  class="form-control capitalize" required/>
+                                    <image src="<?PHP echo $store_data->store_image;?>"
+                                </div>                                
+                            </div>
+                            
                             <div class="center col-md-10">
                                 <button class="btn btn-primary" id="store_edit" name="store_edit">Update</button>
                             </div>
@@ -79,12 +93,16 @@
         $("#editstore").validate({
             rules: {
                 store_name: "required",
-                store_url: "required"                
+                store_url: "required",
+                offer_name:"required",
+                image_c:"required"
                 },
             
             messages: {
                 store_name: "Please Enter Store Name",
-                store_url: "Please Enter Store URL"           
+                store_url: "Please Enter Store URL",
+                offer_name:"please Enter Offer Name",
+                image_c:"Please upload jpeg | png | gif | jpg files only"
             
             }
         });

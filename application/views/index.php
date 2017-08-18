@@ -19,12 +19,25 @@ include_once('common/header.php');
                     <div class="col-xs-12 col-md-4 col-lg-3">
                         <aside>
                             <ul class="nav-coupon-category panel">
-                                <?PHP foreach ($categories as $cat) {
+                                <?PHP // foreach ($sub_categories as $sub_cat) {
                                     ?>
-                                <li><a href="<?PHP echo base_url() ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $cat->cat_name; ?></a></li>
-                                <?PHP }
+    <!--                                <li><a href="<?PHP // echo base_url()  ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
+                                <!--<li><a href="<?PHP // echo base_url() ?>index/get_categories/<?PHP // echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>-->
+                                <?PHP // }
                                 ?>
-                            
+                                <?PHP
+//                                for($i = 0;$i<=9;$i++){ 
+                                $tmp = 0;
+                                foreach ($sub_categories as $sub_cat) {
+                                    $tmp = $tmp+1;
+                                    if($tmp<10){
+                                    ?>
+    <!--                                <li><a href="<?PHP // echo base_url()  ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
+                                <li><a href="<?PHP // echo base_url() ?>index/get_categories/<?PHP // echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>
+                                <?PHP }
+                                }
+                                ?>
+
                                 <li class="all-cat">
                                     <a class="font-14" href="#">All Categories</a>
                                 </li>
@@ -193,14 +206,14 @@ include_once('common/header.php');
                             <a href="#" class="is-block">
                                 <div class="embed-responsive embed-responsive-4by3">
                                     <div class="store-logo view view-fifth">
-                                        <img src="<?PHP echo $popularStore->store_image;?>" alt="<?PHP echo $popularStore->store_name;?>" />
+                                        <img src="<?PHP echo $popularStore->store_image; ?>" alt="<?PHP echo $popularStore->store_name; ?>" />
                                         <div class="mask">
-                                            <h6><?PHP echo $popularStore->store_name?></h6> 												 
+                                            <h6><?PHP echo $popularStore->store_name ?></h6> 												 
                                             <a href="<?PHP echo $popularStore->store_link; ?>" target="_blank" class="info">73 Offers</a>
                                         </div>
                                     </div>
                                 </div>
-                                <h6 class="store-name ptb-10"><a href="<?PHP echo $popularStore->store_link;?>" target="_blank"><?PHP echo $popularStore->store_name;?></a></h6>
+                                <h6 class="store-name ptb-10"><a href="<?PHP echo $popularStore->store_link; ?>" target="_blank"><?PHP echo $popularStore->store_name; ?></a></h6>
                             </a>
                         </div> 
                         <?PHP

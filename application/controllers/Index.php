@@ -250,6 +250,61 @@ class Index extends CI_Controller {
     public function stores() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
+//        $q = $this->uri->segment(3);  
+//        $link_value = $_GET['link'];
+//        echo $q.'  ' .$link_value;exit;
+        
+//        $storeName = $this->input->post('storeName');
+        
+//        if (isset($q)) {
+//            $config['base_url'] = base_url() . 'index/stores/' . $q;
+//            $config['total_rows'] = $this->store_model->get_specific_store_rows($q);
+////        $config['total_rows'] = count($this->store_model->view_store($q));
+////        echo $config['total_rows'];exit;
+//            $config['per_page'] = 10;
+//            $config['uri_segment'] = 4;
+//            $config['num_links'] = 2;
+//            $config['full_tag_open'] = '<ul class = "page-pagination">';
+//            $config['full_tag_close'] = '</ul>';
+//            $config['first_link'] = 'First';
+//            $config['first_tag_open'] = '<li>';
+//            $config['first_tag_close'] = '</li>';
+//            $config['last_link'] = 'Last';
+//            $config['last_tag_open'] = '<li>';
+//            $config['last_tag_close'] = '</li>';
+//            $config['next_link'] = ' &gt;';
+//            $config['next_tag_open'] = '<li class="page-numbers next">';
+//            $config['next_tag_close'] = '</li>';
+//            $config['prev_link'] = '&lt;';
+//            $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+//            $config['Previous_tag_close'] = '</li>';
+//            $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+//            $config['cur_tag_close'] = '</span></li>';
+//            $config['num_tag_open'] = '<li class = "page-numbers">';
+//            $config['num_tag_close'] = '</li>';
+////        $config['display_pages'] = FALSE;
+//            $config['attributes'] = array('class' => 'page-numbers');
+//            $this->pagination->initialize($config);
+////        echo $q;exit;
+//            $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+////        $page = $config['per_page'];
+//            $data['specific_item_deals'] = $this->store_model->view_store($q, $config['per_page'], $page);
+//
+//            $data['links'] = $this->pagination->create_links();
+//            $this->load->view('store-deals', $data);
+//        } else {
+//            $a = $this->input->post('id');
+//            exit;
+            $data['all_stores'] = $this->store_model->view_store();
+//            echo "<pre>";
+//            print_r($data['all_stores']);exit;
+            $this->load->view('stores', $data);
+//        }
+    }
+    
+     public function store() {
+        $this->load->library('Headerincludes');
+        $data = $this->headerincludes->allHeaderIncludes();
         $q = $this->uri->segment(3);  
 //        $link_value = $_GET['link'];
 //        echo $q.'  ' .$link_value;exit;
@@ -289,16 +344,18 @@ class Index extends CI_Controller {
             $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
 //        $page = $config['per_page'];
             $data['specific_item_deals'] = $this->store_model->view_store($q, $config['per_page'], $page);
+//            echo "<pre>";
+//            print_r($data['specific_item_deals']);exit;
 
             $data['links'] = $this->pagination->create_links();
             $this->load->view('store-deals', $data);
-        } else {
-            $a = $this->input->post('id');
-//            exit;
-            $data['all_stores'] = $this->store_model->view_store($q);
-//            echo "<pre>";
-//            print_r($data['all_stores']);exit;
-            $this->load->view('stores', $data);
+//        } else {
+//            $a = $this->input->post('id');
+////            exit;
+//            $data['all_stores'] = $this->store_model->view_store($q);
+////            echo "<pre>";
+////            print_r($data['all_stores']);exit;
+//            $this->load->view('stores', $data);
         }
     }
 

@@ -124,7 +124,7 @@
                                     echo "<div class ='rgmsg' >" . $this->session->flashdata('msg') . "</div>";
                                 }
                                 ?>
-                                <a href="<?PHP echo base_url() . 'index' ?>" class="logo">
+                                <a href="<?PHP echo base_url()?>" class="logo">
                                     <img src="/assets/images/logo.png" alt="" width="250">
                                 </a>
                             </div>
@@ -207,7 +207,7 @@
                                                         foreach ($stores as $store) {
 //                                                           $this->input->post($store->store_name);
                                                             ?>
-                                                            <li><a href="<?PHP echo base_url() ?>index/stores/<?PHP echo $store->store_name ?>"><?PHP echo $store->store_name; ?></a></li>
+                                                            <li><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store->store_name ?>"><?PHP echo $store->store_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
 
@@ -243,17 +243,17 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
+<!--                                    <li>
                                         <a href="#">Shop by Brands</a>
                                         <ul>
-                                            <?PHP foreach ($brands as $brand) {
+                                            <?PHP // foreach ($brands as $brand) {
                                                 ?>
-                                                <li><a href=""><?PHP echo $brand->brand_name; ?></a></li>
-                                            <?PHP }
+                                                <li><a href=""><?PHP // echo $brand->brand_name; ?></a></li>
+                                            <?PHP // }
                                             ?>
 
                                         </ul>
-                                    </li>
+                                    </li>-->
 
                                     <li><a href="<?PHP echo base_url() . 'index/contact_us' ?>">Contact Us</a> </li>                                 
 

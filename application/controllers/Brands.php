@@ -63,7 +63,7 @@ class Brands extends CI_Controller {
             $ext = strtolower(end($tmp_ext)); //for converting capital to small
             $image_path = $_SERVER['REQUEST_TIME'] . '.' . $ext;
             if ((($_FILES["image_c"]["type"] == "image/jpeg") || ($_FILES["image_c"]["type"] == "image/jpg") || ($_FILES["image_c"]["type"] == "image/gif") || ($_FILES["image_c"]["type"] == "image/png")) && in_array($ext, $allowed_ext)) {
-                $target_path = $_SERVER['DOCUMENT_ROOT'] . '/assets/img/';
+                $target_path = $_SERVER['DOCUMENT_ROOT'] . 'assets/images/icons/';
                 // echo $target_path = base_url() . 'assets/img/'; 
 
                 $target_path = $target_path . basename($image_path);

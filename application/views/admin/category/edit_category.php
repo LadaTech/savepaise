@@ -37,14 +37,17 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label capitalize">Category Name <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="edit_catname" class="form-control capitalize" placeholder="Enter Category"  value="<?php echo $edit->cat_name; ?>" required/>                                        
+                                        <input type="text" name="edit_catname" class="form-control capitalize" placeholder="Enter Category"  value="<?php echo $edit['cat_name']; ?>" required/>                                        
                                     </div>
                                 </div>
                                <div class="form-group">
                                     <label class="col-sm-3 control-label">Image <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
-                                        <input type="file" name="image_c" id="image_c" size="20" required />
+                                        <input type="file" name="image_c" id="image_c" size="20"  required /><br/>
+                                        <?PHP // echo $edit['image']; ?> 
+                                        <img src="<?PHP // echo $_SERVER['DOCUMENT_ROOT'] ?>../../assets/images/icons/<?PHP echo $edit['image']; ?>" width="50px"/>                        
                                     </div>
+                                    
                                 </div>                                
                                 
                                 <div class="row">

@@ -23,7 +23,7 @@ class Store_model extends CI_Model {
         }
     }
 
-    public function view_store($store_name = '', $limit = '', $start = '') {
+    public function view_store($store_name = '', $limit = '', $start = '',$type = '') {
 //        $this->db->select('id,store_name,store_url,status,created_by,created_date');
         if ($store_name != '') {
             $this->db->select('*');
@@ -35,7 +35,7 @@ class Store_model extends CI_Model {
 //             $this->db->limit($limit);
 //            $this->db->order_by('added_date DESC')
             $this->db->where('store_name', $store_name);
-            $this->db->where('type', 'Promotion');
+//            $this->db->where('type', 'Promotion');
             $this->db->limit($limit, $start);
             $this->db->order_by('added_date DESC');
             $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
@@ -130,7 +130,7 @@ class Store_model extends CI_Model {
         }
     }
     
-    public function status(){        
+    public function changeStatus(){        
         $this->db->set('status', $_POST['status']);
         $this->db->where('id', $_POST['id']);
         $query = $this->db->update('stores');

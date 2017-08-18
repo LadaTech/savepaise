@@ -22,7 +22,7 @@ class Headerincludes {
         $data['categories'] = $CI->category_model->display_categories()->result();
         $data['sub_categories'] = $CI->subcategory_model->display_sub_categories()->result();
         $data['stores'] = $CI->store_model->display_store()->result();
-        $data['brands'] = $CI->brand_model->display_brands()->result();
+//        $data['brands'] = $CI->brand_model->display_brands()->result();
         $data['coupons'] = $CI->coupons_model->getcoupons();
         return $data;
     }

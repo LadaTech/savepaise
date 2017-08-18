@@ -37,13 +37,14 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label capitalize">Brand Name <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="edit_brandname" class="form-control capitalize" placeholder="Enter Brand"  value="<?php echo $edit->brand_name; ?>" required/>                                        
+                                        <input type="text" name="edit_brandname" class="form-control capitalize" placeholder="Enter Brand"  value="<?php echo $edit['brand_name']; ?>" required/>                                        
                                     </div>
                                 </div>
                                <div class="form-group">
                                     <label class="col-sm-3 control-label">Image <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
                                         <input type="file" name="image_c" id="image_c" size="20" required />
+                                        <img src="../../assets/images/icons/<?php echo $edit['logo']; ?>" width="50px" />
                                     </div>
                                 </div>                                
                                 

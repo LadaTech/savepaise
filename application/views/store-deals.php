@@ -328,6 +328,8 @@
 //                            exit;
                                 if ((isset($specific_item)) && (!is_numeric($specific_item))) {
                                     foreach ($specific_item_deals as $deals_detail) {
+//                                        echo "<pre>";
+//                                        print_r($deals_detail);
                                         ?>
                                         <div class="col-xs-12">
                                             <div class="coupon-single panel t-center t-sm-left">
@@ -368,10 +370,17 @@
                                                             <?PHP }
                                                             ?>   
                                                             <div class="dealBox-logo"><img src="<?PHP echo $deals_detail->store_image; ?>" alt=""></div>
+                                                            <?PHP if($deals_detail->type == 'Promotion'){?>
                                                             <div class="showcode">
                                                                 <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#<?PHP echo $deals_detail->id; ?>">Activate Deal</button>
                                                                 <div class="coupon-hide"><?PHP echo $deals_detail->code; ?></div>
                                                             </div>
+                                                            <?PHP }else{ ?>
+                                                            <div class="showcode">
+                                                                <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#<?PHP echo $deals_detail->id; ?>">GET COUPON CODE</button>
+                                                                <div class="coupon-hide"><?PHP echo $deals_detail->code; ?></div>
+                                                            </div>
+                                                            <?PHP }?>
                                                             <ul class="coupon-details list-inline">
                                                                 <li class="list-inline-item">
                                                                     <div class="btn-group" role="group" aria-label="...">

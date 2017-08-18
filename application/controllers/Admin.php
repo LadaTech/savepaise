@@ -137,6 +137,8 @@ class Admin extends CI_Controller {
 
     public function category_edit() {
         $data['edit'] = $this->category_model->edit_category();
+//        echo "<pre>";
+//        print_r($data);exit;
         $this->load->view('admin/category/edit_category', $data);
     }
 

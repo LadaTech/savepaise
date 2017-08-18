@@ -36,7 +36,7 @@ class Brand_model extends CI_Model {
     public function brandedit() {
         //data is retrive from this query 
         $this->db->where('brand_id', $_GET['id']);
-        $query = $this->db->get('brands')->result();
+        $query = $this->db->get('brands')->result_array();
         return $query[0];
     }
     

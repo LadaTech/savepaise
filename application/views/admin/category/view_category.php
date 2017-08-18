@@ -50,7 +50,7 @@
                                     <tr>                                       
                                         <td><?php echo $cat['cat_id'] ?></td> 
                                         <td><?php echo $cat['cat_name']  ?></td>
-                                        <td> <img src = "<?php echo base_url() ?>assets/images/nav-icons/<?php echo $cat['image']; ?>" alt="" width="30px" height="30px" />  </td>
+                                        <td> <img src = "<?php // echo $_SERVER['DOCUMENT_ROOT'] ?>../../assets/images/icons/<?php echo $cat['image']; ?>"  alt=""  width="30px" height="30px" />  </td>
                                         
                                         <td><i id="<?php echo $cat['cat_id']; ?>" onClick="changeStatus('<?php echo $cat['cat_id']; ?>', '<?PHP echo $cat['status']; ?>')" class="status_checks1 btn <?php echo ($cat['status']) ? 'btn-success' : 'btn-danger'
                                                     ?>"><?php echo ($cat['status']) ? 'Active' : 'Inactive' ?>
@@ -130,7 +130,7 @@
                                                                 });
                                                             }
                                                             function changeStatus(id, status) {
-                                                            var id = id;
+//                                                            var id = id;
                                                                 //var status = ($(this).hasClass("btn-success")) ? '0' : '1';
                                                                 //                                                                        alert(status);
                                                                 var msg = (status == '0') ? '1' : '0';
@@ -145,19 +145,21 @@
 //                                                                                                                                                alert(status);
                                                                     $.ajax({
                                                                         type: "POST",
-                                                                        url: '<?php echo base_url() . "category/changeStatus" ?>',
+                                                                        url: '<?php echo base_url() . "stores/changeStatus" ?>',
                                                                         data: {
                                                                             id: id,
                                                                             status: msg,
                                                                         },
                                                                         success: function (data)
                                                                         {
+                                                                            alert('success');
                                                                             $(this).hasClass("btn-success");
                                                                             if (status == 'Inactive') {
                                                                                 status = 'Active';
                                                                                 $('#' + id).addClass("btn-success");
                                                                                 $('#' + id).removeClass("btn-danger");
                                                                             } else {
+                                                                                alert('fail');
                                                                                 status = 'Inactive';
                                                                                 $('#' + id).addClass("btn-danger");
                                                                                 $('#' + id).removeClass("btn-success");

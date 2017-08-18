@@ -51,7 +51,7 @@ $this->load->view('admin/common/header', true);
                                                     ?>
                                                     <td><?php echo $i++; ?></td>
                                                     <td><?php echo $ind['brand_name']; ?></a></td>
-                                                    <td><img src = "<?php echo base_url() ?>assets/img/<?php echo $ind['logo']; ?>" alt="" width="50px" /></td>
+                                                    <td><img src = "<?php // echo base_url() ?>../../assets/images/icons/<?php echo $ind['logo']; ?>" alt="" width="50px" /></td>
                                                     <td><?php echo $ind['created_date'];
                                                     ?> </td>
                                                     <td><a href="<?php echo base_url() ?>admin/brandedit?id=<?php echo $ind['brand_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><?php // if ($_SESSION['utype'] == 1) { ?><a href="<?php echo base_url() ?>brands/branddelete?id=<?php echo $ind['brand_id']; ?>" onclick="return confirm('Are you sure you want to delete this Brand?')"><i class="ace-icon fa fa-trash-o bigger-120"></i></a><?php // } ?></td>

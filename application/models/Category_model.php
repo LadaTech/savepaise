@@ -31,7 +31,7 @@ class Category_model extends CI_Model {
     public function edit_category() {
         //data is retrive from this query 
         $this->db->where('cat_id', $_GET['catid']);
-        $query = $this->db->get('categories')->result();
+        $query = $this->db->get('categories')->result_array();
         return $query[0];
     }
 
