@@ -130,7 +130,7 @@
                             </div>
                             <div class="header-search col-md-9">
                                 <div class="row row-tb-10 ">
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-7">
                                         <form class="search-form">
                                             <div class="input-group">
                                                 <input type="text" class="form-control input-lg search-input" id="txtHint" placeholder="Enter Keyword Here ..." required="required" onkeyup="showHint(this.value)">
@@ -147,32 +147,11 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="col-sm-4 t-xs-center t-md-right">
+                                    <div class="col-sm-5 t-xs-center t-md-right">
                                         <div class="add-234x60"><p>234x60 add here</p></div>
                                     </div>
 
-                                    <div class="col-sm-3 t-xs-center t-md-right">
-                                        <div class="welcome-msg">Welcome ! <span class="guestName">
-                                                <?PHP
-                                                if (isset($_SESSION['firstname']) && $_SESSION['firstname'] != '' || isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') {
-                                                    echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname'];
-                                                } else {
-                                                    ?>                                    
-                                                    Guest</span>
-                                            </div>
-                                        <?PHP } ?> 
-                                        <?PHP if (isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') { ?>
-                                            <a href="<?PHP echo base_url() ?>/index/logout" onclick="return confirm('Are you sure you want to Sign out?')"  class="logout"><i class="icon-signout"></i> Logout </a>                                            
-                                            <!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href="<?PHP echo URLINDEXPATH; ?>abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  
-                                        <?PHP } else { ?>
-                                            <div class="header-cart">
-                                                <a href="#" data-toggle="modal" data-target="#signIn"><i class="fa fa-lock"></i> Sign In</a>
-                                            </div>
-                                            <div class="header-wishlist ml-20">
-                                                <a href="#" data-toggle="modal" data-target="#signUp"><i class="fa fa-user"></i> Sign Up</a> 
-                                            </div>
-                                        <?PHP } ?>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -193,7 +172,7 @@
                             </div>
                             <div id="header-navbar" class="nav-collapse">
                                 <ul class="nav-menu">
-                                    <li class="active">
+                                    <li>
                                         <a href="<?PHP echo base_url(); ?>">Home</a>
                                     </li>
                                     <li class="dropdown-mega-menu">
@@ -201,7 +180,7 @@
 
                                         <div class="mega-menu">
                                             <div class="row row-v-10">
-                                                <div class="col-md-3">
+                                                <div class="col-md-12">
                                                     <ul>                                                        
                                                         <?PHP
                                                         foreach ($stores as $store) {
@@ -222,7 +201,7 @@
                                         <a href="#">Popular Categories</a>
                                         <div class="mega-menu">
                                             <div class="row row-v-10">
-                                                <div class="col-md-3">
+                                                <div class="col-md-12">
                                                     <ul>
                                                         <?PHP foreach ($sub_categories as $cat) {
                                                             ?>
@@ -255,8 +234,48 @@
                                         </ul>
                                     </li>-->
 
-                                    <li><a href="<?PHP echo base_url() . 'index/contact_us' ?>">Contact Us</a> </li>                                 
-
+                                    <li><a href="<?PHP echo base_url() . 'index/contact_us' ?>">Contact Us</a> </li>    
+                                    
+                                        <div class="welcome-msg pull-right">Welcome ! <span class="guestName">
+                                                
+                                                <?PHP
+                                                if (isset($_SESSION['firstname']) && $_SESSION['firstname'] != '' || isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') {
+                                                    echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname'];
+                                                } else {
+                                                    ?>                                    
+                                                    Guest</span>
+                                                    <?PHP } ?> 
+                                                </div>
+                                        <li class="dropdown pull-right active">
+                                            
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+                                            <ul class="dropdown-menu bullet pull-center">       
+                                                
+                                        
+                                                <li class="divider"></li>
+                                                <li> 
+                                        <?PHP if (isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') { ?>
+                                               
+                                            <a href="<?PHP echo base_url() ?>/index/logout" onclick="return confirm('Are you sure you want to Sign out?')"  class="logout"><i class="fa fa-sign-out"></i> Logout </a>                                            
+                                                                                       
+<!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href="<?PHP echo URLINDEXPATH; ?>abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  
+                                        <?PHP } else { ?>
+                                            </li>
+                                            
+                                            <li>                                             
+                                                <a href="#" data-toggle="modal" data-target="#signIn"><i class="fa fa-unlock"></i> Sign In</a>                                            
+                                            </li>                                            
+                                            <li>                                             
+                                                <a href="#" data-toggle="modal" data-target="#signUp"><i class="fa fa-lock"></i> Sign Up</a>                                             
+                                            </li>
+                                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                            <li><a href="#"><i class="fa fa-key"></i> Change Password</a></li>
+                                        <?PHP } ?>
+                                            </ul>
+                                        </li>                                      
+                                        
+                                    
+                                     
                                 </ul>
                             </div>
 

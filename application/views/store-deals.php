@@ -3,7 +3,7 @@
 <main id="mainContent" class="main-content">
     <div class="page-container ptb-20">
         <div class="container">
-            <div class="row row-rl-10 row-tb-20">
+            <div class="row row-rl-10 row-tb-10">
                 <div class="page-sidebar col-md-3 col-xs-12">
                     <!-- Blog Sidebar -->
                     <aside class="sidebar blog-sidebar">
@@ -54,6 +54,7 @@
                                         </div>
                                     </div>
                                     <!-- End Latest Deals Widegt -->
+                                    <div class="add-250x250"><p>add size will be 250x250 here</p></div>
                                 </div>
                                 <div class="col-xs-12">
                                     <!-- Subscribe Widget -->
@@ -96,6 +97,7 @@
                                         </div>
                                     </div>
                                     <!-- End Subscribe Widget -->
+                                    <div class="add-250x250"><p>add size will be 250x250 here</p></div>
                                 </div>
                                 <div class="col-xs-12">
                                     <!-- Best Rated Deals -->
@@ -123,7 +125,7 @@
                                                             </span>
                                                         </span>
                                                     </div>
-                                                    <h4 class="price font-16">$60.00 <span class="price-sale color-muted">$200.00</span></h4>
+                                                    <h4 class="price font-14">$60.00 <span class="price-sale color-muted">$200.00</span></h4>
                                                 </div>
                                             </div>
                                             <div class="media">
@@ -147,7 +149,7 @@
                                                             </span>
                                                         </span>
                                                     </div>
-                                                    <h4 class="price font-16">$60.00 <span class="price-sale color-muted">$200.00</span></h4>
+                                                    <h4 class="price font-14">$60.00 <span class="price-sale color-muted">$200.00</span></h4>
                                                 </div>
                                             </div>
                                             <div class="media">
@@ -171,7 +173,7 @@
                                                             </span>
                                                         </span>
                                                     </div>
-                                                    <h4 class="price font-16">$60.00 <span class="price-sale color-muted">$200.00</span></h4>
+                                                    <h4 class="price font-14">$60.00 <span class="price-sale color-muted">$200.00</span></h4>
                                                 </div>
                                             </div>
                                             <div class="media">
@@ -195,11 +197,12 @@
                                                             </span>
                                                         </span>
                                                     </div>
-                                                    <h4 class="price font-16">$60.00 <span class="price-sale color-muted">$200.00</span></h4>
+                                                    <h4 class="price font-14">$60.00 <span class="price-sale color-muted">$200.00</span></h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="add-250x250"><p>add size will be 250x250 here</p></div>
                                     <!-- Best Rated Deals -->
                                 </div>
 
@@ -288,7 +291,7 @@
                     <div class="page-content col-xs-12 col-md-9">
                         <section class="section coupons-area coupons-area-list">
                             <!-- Page Control -->
-                            <header class="page-control panel ptb-15 prl-20 pos-r mb-30">
+                            <header class="page-control panel ptb-15 prl-20 pos-r mb-10">
                                 <!-- List Control View -->
                                 <h3 class="section-title font-18">Belk Deals and Coupons</h3>
                                 <!-- End List Control View -->
@@ -317,7 +320,7 @@
                                 </div> -->
                             </header>
                             <!-- End Page Control -->
-                            <div class="row row-masnory row-tb-20">
+                            <div class="row row-masnory row-tb-10">
                                 <?PHP
                                 $specific_item = $this->uri->segment(3);
 
@@ -345,7 +348,7 @@
                                                                                                              end:Savings 
                                                                                                         </div>-->
                                                     <!-- end col -->
-                                                    <div class="col-sm-9">
+                                                    <div class="col-sm-12">
                                                         <div class="panel-body">
                                                             <ul class="deal-meta list-inline mb-10">
                                                                 <li class="color-green"><i class="ico lnr lnr-smile mr-5"></i>Verifed</li>
@@ -485,7 +488,7 @@
                                                                                                      end:Savings 
                                                                                                 </div>-->
                                                 <!-- end col -->
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-12">
                                                     <div class="panel-body">
                                                         <ul class="deal-meta list-inline mb-10">
                                                             <li class="color-green"><i class="ico lnr lnr-smile mr-5"></i>Verifed</li>

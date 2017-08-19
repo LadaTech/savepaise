@@ -35,7 +35,7 @@
                     <span><a href="<?PHP echo base_url() ?>index/stores/<?PHP echo 'Y'; ?>">Y</a></span>
                     <span><a href="<?PHP echo base_url() ?>index/stores/<?PHP echo 'Z'; ?>">Z</a></span>
                 </div>
-                <div class="row row-rl-15 row-tb-15 stores-cat">
+                <div class="stores-cat">
                     <?PHP
 //                    echo "<pre>";
 //                    print_r($all_stores);

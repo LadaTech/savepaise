@@ -638,7 +638,7 @@ form.search-form {
   border-radius: 16px;
 }
 .text-center{text-align:center;}
-.add-234x60{width:232px; height:58px; border:#ccc solid 1px; background:#fafafa;margin:0px auto;}
+.add-234x60{width:340px; height:58px; border:#ccc solid 1px; background:#fafafa;margin:0px auto;}
 .add-234x60 p{text-align:center; margin-top:15px; color:#ccc;}
 .add-970x90 {width:970px; height:90px; background:#fafafa; border:#ccc solid 1px; margin:10px auto; display:block;}
 .add-970x90 p{text-align:center; margin-top:25px; color:#ccc;}
@@ -762,6 +762,44 @@ form.search-form {
   left: 0;
   padding: 15px 20px;
 }
+.nav-menu .mega-menu li {
+    width: 220px;
+    float: left;
+}
+
+.caret-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    border-bottom: 4px solid;
+    
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: middle;
+}
+li.dropdown {
+    list-style: none;
+}
+.dropdown-menu{padding: 5px 8px !important; min-width: 200px !important; left:-149px !important;}
+.dropdown-menu.bullet:before {
+    width: 0;
+    height: 0;
+    content: '';
+    display: inline-block;
+    position: absolute;
+    border-color: transparent;
+    border-style: solid;
+    -webkit-transform: rotate(360deg);
+    border-width: 0 7px 7px;
+    border-bottom-color: #ccc;
+    border-bottom-color: #ccc;
+    top: -7px;
+    right: 5px;
+}
+.dropdown-menu > li > a {
+    display: block;
+     padding: 0px 8px !important; font-size: 13px; }
 .nav-menu li {
   display: block;
   position: relative;
@@ -784,17 +822,18 @@ form.search-form {
 }
 .nav-menu > li > a,
 .nav-menu > a {
-  height: 40px;
-  line-height: 40px;
+  height: 30px;
+  line-height: 30px;
 }
 .nav-menu > li ul li a {
-  height: 40px;
-  line-height: 40px;
+  height: 30px;
+  line-height: 30px;
 }
 .nav-menu .mega-menu li a {
-  height: 35px;
-  line-height: 35px;
+  height: 30px;
+  line-height: 30px; padding: 0px 5px; 
 }
+.nav-menu .mega-menu li a:hover{background: #fafafa;}
 .nav-menu .mega-menu .mega-title {
   display: inline-block;
   height: 40px;
@@ -884,8 +923,8 @@ form.search-form {
   display: inline-block;
   position: relative;
   color: #bbbec1;
-  height: 20px;
-  line-height: 18px;
+  height: 16px;
+  line-height: 16px;
   padding: 0px 5px;
   text-transform: capitalize; float:left; border-right:#ccc solid 1px;  font-size: 10px;
     font-weight: normal;
@@ -896,7 +935,7 @@ form.search-form {
 .main-footer {
   text-align: center;
   background: #1e2b35;
-  height: 60px;
+  height: 55px;
 }
 .ftr-logo img{float: left;
     border-right: #fff dashed 1px;
@@ -904,10 +943,10 @@ form.search-form {
 .footer-links hr{margin:8px 0px 8px 0px !important;}
 .main-footer a{color:#ccc !important;}
 .main-footer p {
-  font-size: 15px;
+  font-size: 13px;
   line-height: 26px;
   color: #647d89;
-  margin: 17px 0 0 0; display: inline-block;
+  margin: 15px 0 0 0; display: inline-block;
 }
 ul.social {
     float: left;
@@ -1310,7 +1349,7 @@ ul.social {
 }
 @media only screen and (min-width: 768px) {
   .coupons-area-list .showcode {
-    width: 35%;
+    width: 22%;
     float: right;
   }
 }
@@ -1452,10 +1491,11 @@ ul.social {
   background-color: #d73925;
 }
 .welcome-msg {
-    color: green;
+    color: #ff0; margin-top: 4px;
+    margin-left: 5px;
 }
 .guestName {
-    color: #000;
+    color: #fff;
 }
 .logout {
     color: #f00;
@@ -2097,7 +2137,7 @@ ul.social {
     display: inline-block; margin-bottom:10px;
 }
 .embed-responsive-16by9 {
-    padding-bottom: 38.25% !important;
+    padding-bottom: 30% !important;
 }
  h3.deal-title.mb-10 {
     text-align: left; font-size: 16px;
@@ -2305,12 +2345,12 @@ ul.social {
 .social li  a{
     float: left;
     margin: 0px 5px;
-    color: #fff; padding:8px;
+    color: #fff; padding:3px;
 }
 .social li {
     background: #333;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     display: inline-block;
     border: #fff solid 1px;
     border-radius: 50%;
@@ -2320,7 +2360,7 @@ ul.social {
 h6.store-name {
     background: #fafafa;
     width: 100%;
-    border-top: #ccc solid 1px;
+    border-top: #ccc solid 1px; margin-bottom: 10px;
 }
 .view {
    width: 160px;
@@ -2443,7 +2483,7 @@ h6.store-name {
     margin: auto;
 }
 h5.deal-title.deal-titled.mb-10 {
-    width: 70%;
+    width: 75%;
 }
 .coupon-logo{border: #ccc dotted 2px;
     border-radius: 10px;

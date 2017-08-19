@@ -93,13 +93,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-xs-12">
-                <div class="payment-methods t-center">                             
-                    <span><img src="/assets/images/icons/payment/visa.jpg" alt=""></span>
-                    <span><img src="/assets/images/icons/payment/mastercard.jpg" alt=""></span>                             
-                </div>
-            </div>
+ 
         </div>
     </div>
 </section>
@@ -343,14 +337,14 @@
 <!-- Custom Template JavaScript                   -->
 <!-- ––––––––––––––––––––––––––––––––––––––––– -->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/main.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/tooltip.min.js"></script>
+<!--<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/tooltip.min.js"></script>-->
 
 <script src="<?php echo base_url(); ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- Bootstrap -->
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.js"></script>
-<script type="text/javascript" src="<?PHP echo base_url() ?>assets/js/tooltip.js"></script>
+<!--<script type="text/javascript" src="<?PHP echo base_url() ?>assets/js/tooltip.js"></script>-->
 <script type="text/javascript">
     $(document).ready(function () {
 //        custom validation method for usertype

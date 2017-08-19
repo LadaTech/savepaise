@@ -34,14 +34,18 @@ function GridDeals($couponArray) {
                                 <div class="ribbon">Featured</div>
                             </div>-->
                             <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" >
-                                <div class="label-discount left-90 top-2">-50%</div>
+                                <!--<div class="label-discount left-90 top-2">-50%</div>-->
                                 <div class="deal-store-logo">
                                     <img src="' . $coupon['store_image'] . '" alt="' . $coupon['store_name'] . '">
                                 </div>
                             </figure>
                            
-                            <div class="bg-white pt-20 pl-20 pr-15">
+                            <div class="bg-white ptb-15 pt-20 pl-20 pr-15">
                                 <div class="pr-md-10">
+                                    
+                                    <h3 class="deal-title mb-10">
+                                        <a href="' . $coupon['link'] . '" target="_blank">' . $coupon['title'] . '</a>
+                                    </h3>
                                     <div class="rating mb-10">
                                         <span class="rating-stars rate-allow" data-rating="5">
                                             <i class="fa fa-star-o"></i>
@@ -54,9 +58,6 @@ function GridDeals($couponArray) {
                                             ( <span class="rating-count">241</span> rates )
                                         </span>
                                     </div>
-                                    <h3 class="deal-title mb-10">
-                                        <a href="' . $coupon['link'] . '" target="_blank">' . $coupon['title'] . '</a>
-                                    </h3>
                                     <ul class="deal-meta list-inline mb-10 color-mid">
                                         <li><i class="ico fa fa-map-marker mr-10"></i>34 uses today</li>
                                         <li><i class="ico fa fa-shopping-basket mr-10"></i>Show all 23 offers</li>
