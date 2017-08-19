@@ -304,7 +304,6 @@
         </div>
     </div>
 </div>
-
 <!-- header signin and signup ends -------->
 
 <!-- ––––––––––––––––––––––––––––––––––––––––– -->
@@ -344,12 +343,14 @@
 <!-- Custom Template JavaScript                   -->
 <!-- ––––––––––––––––––––––––––––––––––––––––– -->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/main.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/tooltip.min.js"></script>
 
 <script src="<?php echo base_url(); ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- Bootstrap -->
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.js"></script>
+<script type="text/javascript" src="<?PHP echo base_url() ?>assets/js/tooltip.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
 //        custom validation method for usertype
@@ -513,6 +514,7 @@
 //  Copied.execCommand("Copy");
 //});
 </script>
+
 <script type="text/javascript">
 //  $("#copy_code").click(function(){
 //  var holdtext = $("#copy_text").innerText;
@@ -522,13 +524,52 @@
 //  Copied.execCommand("Copy");
 //});
 
-    function copy_coupon_code(id) {       
-        var holdtext = $("#copy_text_"+id).text();
-        alert(holdtext);
-       copied= holdtext.select()
-//        Copied = holdtext.createTextRange();
-        copied.execCommand("Copy");
+    function copyToClipboard(e, element) {
+        var field = document.getElementById('copy_' + element);
+//        alert(field);
+        field.focus()
+        field.setSelectionRange(0, field.value.length)
+        copySelectionText()
+//        var copysuccess = copySelectionText()
+//        if (copysuccess) {
+//            showtooltip(e)
+//
+//        }
     }
+    function copySelectionText() {
+        var copysuccess // var to check whether execCommand successfully executed
+        try {
+            document.execCommand("copy") // run command to copy selected text to clipboard
+        } catch (e) {
+            copysuccess = false
+        }
+        return copysuccess
+    }
+
+//    var tooltip, // global variables oh my! Refactor when deploying!
+//            hidetooltiptimer
+//
+//    function createtooltip() { // call this function ONCE at the end of page to create tool tip object
+//        tooltip = document.createElement('div')
+//        tooltip.style.cssText =
+//                "position:absolute; background:black; color:white; padding:4px;z-index:10000;"
+//                + 'border-radius:2px; font-size:12px;box-shadow:3px 3px 3px rgba(0,0,0,.4);'
+//                + 'opacity:0;transition:opacity 0.3s'
+//        tooltip.innerHTML = 'Copied!'
+//        document.body.appendChild(tooltip)
+//    }
+//
+//    function showtooltip(e) {
+//        var evt = e || event
+//        clearTimeout(hidetooltiptimer)
+//        tooltip.style.left = evt.pageX - 10 + 'px'
+//        tooltip.style.top = evt.pageY + 15 + 'px'
+//        tooltip.style.opacity = 1
+//        hidetooltiptimer = setTimeout(function () {
+//            tooltip.style.opacity = 0
+//        }, 500)
+//    }
+
 </script>
 <script>
 //    $(document).ready(function(){

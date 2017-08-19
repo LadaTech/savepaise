@@ -86,7 +86,8 @@ function GridDeals($couponArray) {
 
                                                         <div class="col-md-10 col-md-offset-1">
                                                             <h6 class="color-mid t-uppercase">'.$coupon['description'].'</h6>
-                                                            <a href="'.$coupon['link'].'" target="_blank" id ="copy_text_'.$coupon['id'].'" class="coupon-code">'.$coupon['code'].'</a><a href="" id="copy_code" class="copy_code" onclick="copy_coupon_code('.$coupon['id'].')">copy</a>
+                                                                <input type="text" id="copy_'.$coupon['id'].'" class="coupon-code" value="'.$coupon['code'].'">
+                                                            <button  onclick="copyToClipboard(event,'.$coupon['id'].');return false">copy</button>
                                                         </div>
                                                         <div class="col-md-10 col-md-offset-1">
                                                             <div class="like-report mb-10">
