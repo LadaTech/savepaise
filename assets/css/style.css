@@ -2520,3 +2520,9 @@ h5.deal-title.deal-titled.mb-10 {
     border: #ff6600 solid 1px;
     
 }*/
+.error {
+    color: red;
+    font-size: 12px;
+    display: block;
+    text-align: left;
+}
