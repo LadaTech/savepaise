@@ -66,8 +66,37 @@ class Coupons_model extends CI_Model {
 //        $this->db->order_by('added_date DESC');
         return $this->db->get('coupons')->result();
     }
+    
+    public function edit_coupon($id){
+        $this->db->where('id',$id);
+        $query = $this->db->get('coupons')->result();
+        return $query[0];        
+    }
+     public function update_coupon($coupon_data){
+        $id = $coupon_data['id'];
+        $this->db->where('id', $id);
+        $query = $this->db->update("coupons", $coupon_data);
+        if ($query) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }       
+    }
+    
+    public function delete_coupon($id){
+        $this->db->where('id',$id);
+        $this->db->delete('coupons');
+        $query = $this->db->get('coupons');
+        $result = $query->result_array();
+        if ($result) {
+            return $result;
+        } else {
+            return false;
+        }
+        
+    }
 
-    public function getcoupons($storeId = '', $categoryId = '', $subcatId = '', $type = '', $limit = 10) {
+    public function getcoupons($storeId = '', $categoryId = '', $subcatId = '', $type = '', $limit = 10, $id = '') {
         if ($storeId != "") {
             $this->db->where('store_id', $storeId);
         }
@@ -81,6 +110,13 @@ class Coupons_model extends CI_Model {
         if ($type != "") {
             $this->db->where('type', $type);
         }
+//        if ($id != "") {            
+//            $this->db->where('id', $id);
+//           $query = $this->db->get('coupons')->result();
+////           echo "<pre>";
+////           print_r($query);exit;
+//           return $query[0];
+//           }
 
         $expiryDate = date('Y-m-d');
         $this->db->where('expiry_date >=', $expiryDate);

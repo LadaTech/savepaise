@@ -59,7 +59,7 @@ $this->load->view('admin/common/header', true);
                                 <?php foreach ($records as $coupons_data) { ?>
                                     <tr>
                                         <td><?php echo $coupons_data->id ?></td>
-                                        <td><<?php echo $coupons_data->promo_id ?></td>
+                                        <td><?php echo $coupons_data->promo_id ?></td>
                                         <td><?php echo $coupons_data->store_id ?></td>                                        
                                         <td><?php echo $coupons_data->title ?></td>
                                         <td><?php echo $coupons_data->category_id ?></td>
@@ -76,8 +76,8 @@ $this->load->view('admin/common/header', true);
                                         <td><?php echo $coupons_data->created_date ?></td>
                                         <td>
                                             <div class="hidden-sm hidden-xs btn-group">	                                                                
-                                                <a href="<?php // echo base_url() ?>admin/edit_coupon?sid=<?php echo $coupons_data->id; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a>                                                
-                                                <a href="<?php // echo base_url() ?>admin/delete_coupon?sid=<?php echo $coupons_data->id; ?>" id="deletetag" class="deletetag" onclick="return confirm('Are you sure you want to delete this item?');" > <i class="ace-icon fa fa-trash-o bigger-120"></i></a>
+                                                <a href="<?php echo base_url() ?>admin/edit_coupon?sid=<?php echo $coupons_data->id; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a>                                                
+                                                <a href="<?php echo base_url() ?>coupons/delete_coupon?sid=<?php echo $coupons_data->id; ?>" id="deletetag" class="deletetag" onclick="return confirm('Are you sure you want to delete this item?');" > <i class="ace-icon fa fa-trash-o bigger-120"></i></a>
                                             </div>
                                         </td>                                     
                                     </tr>

@@ -22,14 +22,15 @@ class Admin extends CI_Controller {
         $this->load->model('coupons_model');
     }
 
-    public function index() {    
-        if ((isset($_SESSION['uemail']))&&($_SESSION['utype'] == 2 || $_SESSION['utype'] == 1)) {           
-            $this->load->view('admin/dashboard');        
+    public function index() {
+        if ((isset($_SESSION['uemail'])) && ($_SESSION['utype'] == 2 || $_SESSION['utype'] == 1)) {
+            $this->load->view('admin/dashboard');
         } else {
             redirect(base_url() . 'index');
         }
     }
-    public function dashboard(){       
+
+    public function dashboard() {
         $this->load->view('admin/index');
     }
 
@@ -332,10 +333,11 @@ class Admin extends CI_Controller {
         $data['edit'] = $this->brand_model->brandedit();
         $this->load->view('admin/brands/editbrand', $data);
     }
-     public function add_store() {
+
+    public function add_store() {
         $this->load->view('admin/stores/addstore');
     }
-    
+
     public function view_store() {
         //$config['base_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 //        $config['base_url'] = site_url("admin/categorygroup_list");
@@ -374,21 +376,22 @@ class Admin extends CI_Controller {
 //        $this->pagination->initialize($config);
 //        $data['pagination'] = $this->pagination->create_links();     
 //$data['records'] = $this->addusers_model->view_user()->result();
-        $data['records'] = $this->store_model->view_store();        
+        $data['records'] = $this->store_model->view_store();
 //        echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/stores/view_store', $data);
     }
+
     public function edit_store() {
         $this->load->database();
-        $uid = $_GET['sid'];        
-        $data['store_data'] = $this->store_model->edit_store($uid);        
+        $uid = $_GET['sid'];
+        $data['store_data'] = $this->store_model->edit_store($uid);
 //         echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/stores/edit_store', $data);
     }
-    
-    public function view_coupon() {        
+
+    public function view_coupon() {
         //$config['base_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 //        $config['base_url'] = site_url("admin/categorygroup_list");
 //        $config['per_page'] = "10";
@@ -426,12 +429,26 @@ class Admin extends CI_Controller {
 //        $this->pagination->initialize($config);
 //        $data['pagination'] = $this->pagination->create_links();     
 //$data['records'] = $this->addusers_model->view_user()->result();
-        $data['records'] = $this->coupons_model->view_coupon();        
+        $data['records'] = $this->coupons_model->view_coupon();
 //        echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/coupons/view_coupons', $data);
-       
     }
+
+    public function edit_coupon() {        
+        $id = $_GET['sid'];
+        
+//         echo "<pre>";
+//        print_r($data['store']);exit;
+        $data['coupon_data'] = $this->coupons_model->edit_coupon($id);
+        $data['subcategory_data'] = $this->subcategory_model->view_subcat()->result();
+        $data['store_data']=  $this->store_model->view_store(); 
+//           echo "<pre>";
+//        print_r($data);exit;
+        $this->load->view('admin/coupons/edit_coupon', $data);
+    }
+
+    
 
 }
 

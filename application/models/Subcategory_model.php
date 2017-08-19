@@ -44,6 +44,11 @@ class Subcategory_model extends CI_Model {
         $query = $this->db->get();
         return $result = $query->result_array();
     }
+    public function view_subcat(){
+        $this->db->select('*');
+       $query= $this->db->get('subcategories');
+       return $query;
+    }
 
     //End of the Function 
     //To get the all subcategories list of Admin Panel with pagination
