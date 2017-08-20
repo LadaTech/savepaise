@@ -14,6 +14,34 @@ class Coupons extends CI_Controller {
     public function index() {
         
     }
+    
+    public function add_coupon(){
+        if (isset($_POST["coupon_add"]) == 'submit' || !empty($_POST)) {
+            $coupon_data = array(                
+                'promo_id' => $_POST['promo_id'],
+                'store_id' => $_POST['store_id'],
+                'title' => $_POST['title'],
+                'category_id' => $_POST['category_id'],
+                'subcategory_id' => $_POST['subcategory_id'],
+                'description' => $_POST['description'],
+                'type' => $_POST['type'],
+                'code' => $_POST['code'],
+                'ref_id' => $_POST['ref_id'],
+                'link' => $_POST['link'],
+//                'created_by' => $_SESSION['uid'],
+                'created_date' => date('Y-m-d H:i:s')
+            );
+            $result = $this->Coupons_model->insert($coupon_data);
+            if ($result != '') {
+                $data['message'] = "coupon added successfully";
+                $this->load->view('admin/coupons/add_coupon',$data);
+            } else {
+                $data['message'] = "Error occured while adding coupon";
+                $this->load->view('admin/coupons/add_coupon',$data);
+            }
+        }
+        
+    }
 
     public function edit_coupon() {
         if (isset($_POST["coupon_edit"]) == 'submit' || !empty($_POST)) {

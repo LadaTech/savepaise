@@ -435,20 +435,26 @@ class Admin extends CI_Controller {
         $this->load->view('admin/coupons/view_coupons', $data);
     }
 
-    public function edit_coupon() {        
+    public function edit_coupon() {
         $id = $_GET['sid'];
-        
+
 //         echo "<pre>";
 //        print_r($data['store']);exit;
         $data['coupon_data'] = $this->coupons_model->edit_coupon($id);
         $data['subcategory_data'] = $this->subcategory_model->view_subcat()->result();
-        $data['store_data']=  $this->store_model->view_store(); 
+        $data['store_data'] = $this->store_model->view_store();
 //           echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/coupons/edit_coupon', $data);
     }
 
-    
+    public function add_coupon() {
+         $data['store_data'] = $this->store_model->view_store();
+        $data['subcategory_data'] = $this->subcategory_model->view_subcat()->result();
+//        echo "<pre>";
+//        print_r($data);exit;
+        $this->load->view('admin/coupons/add_coupon',$data);
+    }
 
 }
 
