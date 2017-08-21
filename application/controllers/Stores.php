@@ -8,7 +8,7 @@ class stores extends CI_Controller {
         parent::__construct();
         $this->load->library('form_validation', 'email');
         $this->load->helper('url', 'form', 'html');
-        $this->load->model('Store_model');
+        $this->load->model('store_model');
     }
 
     public function index() {
@@ -23,7 +23,7 @@ class stores extends CI_Controller {
             $ext = strtolower(end($tmp_ext)); //for converting capital to small
             $image_path = $_SERVER['REQUEST_TIME'] . '.' . $ext;
             if ((($_FILES["store_image"]["type"] == "image/jpeg") || ($_FILES["store_image"]["type"] == "image/jpg") || ($_FILES["store_image"]["type"] == "image/gif") || ($_FILES["store_image"]["type"] == "image/png")) && in_array($ext, $allowed_ext)) {
-                $target_path = $_SERVER['DOCUMENT_ROOT'] . 'assets/images/icons/';
+                $target_path = $_SERVER['DOCUMENT_ROOT'] . '/assets/images/icons/';
                 // echo $target_path = base_url() . 'assets/img/'; 
 
                 $target_path = $target_path . basename($image_path);
@@ -74,29 +74,28 @@ class stores extends CI_Controller {
                         $maxWidth = 50;
                         //  echo "The file " . basename($_FILES['image_c']['name']) . " has been uploaded";exit;
                     }
-                }                
+                }
             }
             $image_name = $image_path;
-        }else {
+        } else {
             $image_name = $_POST['logo'];
         }
-            $store_data = array(
-                'id' => $_POST['id'],
-                'store_name' => $_POST['store_name'],
-                'store_url' => $_POST['store_url'],
-                'store_url' => $_POST['offer_name'],
-                'store_image'=>$image_name,
-                'updated_by' => $_SESSION['uid'],
-                'updated_date' => date('Y-m-d H:i:s')
-            );
-            $result = $this->Store_model->update_store($store_data);
-            if ($result != '') {
-                redirect('admin/view_store');
-            } else {
-                redirect('admin/edit_store');
-            }
+        $store_data = array(
+            'id' => $_POST['id'],
+            'store_name' => $_POST['store_name'],
+            'store_url' => $_POST['store_url'],
+            'store_url' => $_POST['offer_name'],
+            'store_image' => $image_name,
+            'updated_by' => $_SESSION['uid'],
+            'updated_date' => date('Y-m-d H:i:s')
+        );
+        $result = $this->Store_model->update_store($store_data);
+        if ($result != '') {
+            redirect('admin/view_store');
+        } else {
+            redirect('admin/edit_store');
         }
-   
+    }
 
     public function delete_store() {
         $id = $_GET['sid'];
@@ -115,6 +114,14 @@ class stores extends CI_Controller {
         $this->load->model('store_model');
         $updateStatus = $this->store_model->changeStatus();
         return $updateStatus;
+    }
+
+    public function store_name_sorting() {
+        $id = $_POST['sortvalue'];
+        $sorting_data = array(
+            'sort' => $_POST['txtboxvalue']);
+        $result = $this->store_model->update_store_sorting($sorting_data, $id);
+        redirect('admin/view_subcategory');
     }
 
 }

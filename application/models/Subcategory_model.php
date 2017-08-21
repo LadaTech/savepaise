@@ -34,7 +34,7 @@ class Subcategory_model extends CI_Model {
 //        $rows = $query->result_array();
 //        return $rows;
 
-        $this->db->select('*, sc.status scStatus,sc.created_date createdDate');
+        $this->db->select('*, sc.status scStatus,sc.sorting scSort,sc.created_date createdDate');
         $this->db->from('subcategories sc');
         $this->db->join('category_group cg', 'cg.g_id = sc.category_group', 'LEFT');
         $this->db->join('categories c', 'sc.category_id = c.cat_id', 'LEFT');
@@ -254,6 +254,9 @@ class Subcategory_model extends CI_Model {
 //        $this->db->limit($limit);
 //        $this->db->order_by('store_name');
     }
+    
+   
+
 
 }
 

@@ -1,5 +1,4 @@
-<?PHP
-$this->load->view('admin/common/header', true);
+<?PHP $this->load->view('admin/common/header', true);
 ?>
 <div class="main-container ace-save-state" id="main-container">		
 <?PHP $this->load->view('admin/common/sidebar', true); ?>
@@ -33,7 +32,7 @@ $this->load->view('admin/common/header', true);
                         <!-- PAGE CONTENT BEGINS -->
                        <form method="post" id="addcategory"  class="form-horizontal" action="<?php echo base_url() . "category/add_category" ?>" enctype="multipart/form-data" >
                            <?php if ((isset($message)) && (!empty($message))) {
-                                print_r($message);
+                                echo $message;
                             } ?>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label capitalize">Category Name <span class="text-danger">*</span></label>

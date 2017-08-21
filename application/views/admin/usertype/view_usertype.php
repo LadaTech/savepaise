@@ -10,17 +10,17 @@
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">View Users</li>
+                    <li class="active">View user type</li>
                 </ul><!-- /.breadcrumb -->
             </div>
 
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        USER TYPES
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            View Users
+                            View User type
                         </small>
                     </h1>
                 </div><!-- /.page-header -->

@@ -23,34 +23,28 @@ class Store_model extends CI_Model {
         }
     }
 
-    public function view_store($store_name = '', $limit = '', $start = '',$type = '') {
-//        $this->db->select('id,store_name,store_url,status,created_by,created_date');
+    public function view_store($store_name = '', $limit = '', $start = '', $type = '') {
+
         if ($store_name != '') {
             $this->db->select('*');
-//            $this->db->from('coupons as c');
-//           
-//            $this->db->where('store_name',$store_name);
-//            $this->db->where('type','Promotion');
-//            $this->db->join('subcategories as subcat','c.subcategory_id = subcat.scat_id','left');
-//             $this->db->limit($limit);
-//            $this->db->order_by('added_date DESC')
             $this->db->where('store_name', $store_name);
-//            $this->db->where('type', 'Promotion');
             $this->db->limit($limit, $start);
             $this->db->order_by('added_date DESC');
             $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
             return $this->db->get('stores')->result();
-        } 
-        
-            $this->db->select('*'); 
-//            $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
-            $this->db->order_by('store_name');
-            return $this->db->get('stores')->result();
-//        $this->db->from('stores');
-//        $this->db->limit($limit);
-//        $this->db->order_by('store_name');
-       
+        }
+        $this->db->select('*');
+        $this->db->order_by('store_name');
+        $this->db->limit($limit, $start);
+        return $this->db->get('stores')->result();
     }
+
+//    public function view_store1($limit = '', $start = '') {
+//        $this->db->select('*');
+//        $this->db->order_by('store_name');
+//        $this->db->limit($limit, $start);
+//        return $this->db->get('stores')->result();
+//    }
 
     public function edit_store($uid) {
         $this->db->where('id', $uid);
@@ -129,11 +123,21 @@ class Store_model extends CI_Model {
             return $query->num_rows();
         }
     }
-    
-    public function changeStatus(){        
+
+    public function changeStatus() {
         $this->db->set('status', $_POST['status']);
         $this->db->where('id', $_POST['id']);
         $query = $this->db->update('stores');
+        if ($query) {
+            return true;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function update_store_sorting($sorting_id, $id) {
+        $this->db->where('id', $id);
+        $query = $this->db->update('stores', $sorting_id);
         if ($query) {
             return true;
         } else {

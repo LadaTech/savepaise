@@ -25,7 +25,7 @@ class Subcategories extends CI_Controller {
             $ext = strtolower(end($tmp_ext)); //for converting capital to small
             $image_path = $_SERVER['REQUEST_TIME'] . '.' . $ext;
             if ((($_FILES["image_c"]["type"] == "image/jpeg") || ($_FILES["image_c"]["type"] == "image/jpg") || ($_FILES["image_c"]["type"] == "image/gif") || ($_FILES["image_c"]["type"] == "image/png")) && in_array($ext, $allowed_ext)) {
-                $target_path = $_SERVER['DOCUMENT_ROOT'] . 'assets/images/icons';
+                $target_path = $_SERVER['DOCUMENT_ROOT'] . '/assets/images/icons';
                 // echo $target_path = base_url() . 'assets/img/'; 
 
                 $target_path = $target_path . basename($image_path);
@@ -42,7 +42,7 @@ class Subcategories extends CI_Controller {
             $subcat_data = array(
                 'category_id' => $_POST['cat_names'],
                 'category_group' => $_POST['cat_group'],
-                'brand_id' => $_POST['brandId'],
+//                'brand_id' => $_POST['brandId'],
                 'scat_name' => $_POST['subname'],
                 'logo' => $image_path,
                 'status' => 1,
@@ -135,6 +135,14 @@ class Subcategories extends CI_Controller {
         } else {
             redirect('admin/subcat_view');
         }
+    }
+    
+    public function subcategory_name_sorting() {       
+        $id = $_POST['sortvalue'];        
+        $sorting_data = array(
+            'sorting' => $_POST['txtboxvalue']);
+        $result = $this->subcategory_model->update_subcategory_sorting($sorting_data, $id);
+        redirect('admin/view_subcategory');
     }
 
 }

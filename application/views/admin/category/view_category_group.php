@@ -14,17 +14,17 @@ $this->load->view('admin/common/header', true);
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">View Users</li>
+                    <li class="active">View Category Group</li>
                 </ul><!-- /.breadcrumb -->
             </div>
 
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        CATEGORY-GROUP
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            View Users
+                            View Category Group
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
@@ -56,9 +56,9 @@ $this->load->view('admin/common/header', true);
                                         <td><?php echo $catGroup['cat_name']; ?></td>
                                         <td><?php echo $catGroup['group_name']; ?></td>
 
-                                        <td><img style="object-fit:contain; width:100px; height: 100px;" src="<?php echo base_url() . "/assets/images/nav-icons/" . $catGroup['image']; ?>" alt="<?php echo $catGroup['group_name']; ?>" /></td>
+                                        <td><img style="object-fit:contain; width:100px; height: 100px;" src="<?php echo base_url() . "/assets/images/icons/" . $catGroup['image']; ?>" /></td>
                                         <td><?php echo $catGroup['created_date']; ?> </td>
-                                        <td><a href="<?php echo base_url() ?>admin/editcategory_group?catid=<?php echo $catGroup['g_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><?php // if ($_SESSION['utype'] == 1) {   ?><a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $catGroup['g_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" ><i class="ace-icon fa fa-trash-o bigger-120"></i></a> <?php // }   ?></td>
+                                        <td><a href="<?php echo base_url() ?>admin/editcategory_group?catid=<?php echo $catGroup['g_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><?php // if ($_SESSION['utype'] == 1) {    ?><a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $catGroup['g_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" ><i class="ace-icon fa fa-trash-o bigger-120"></i></a> <?php // }    ?></td>
                                         <td style="width:15%;">
                                             <input type="text" class="sortW" name="sortId" id="sortid_<?php echo $catGroup['g_id']; ?>" value="<?php echo $catGroup['sorting']; ?>">
                                             <input type="hidden" name="catid" value="<?php echo $catGroup['g_id']; ?>">
@@ -82,15 +82,15 @@ $this->load->view('admin/common/header', true);
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.js"></script>
 <script type="text/javascript">
-                                    $(document).ready(function ()
-                                    {
-                                        $('.capitalize').keyup(function (evt) {
-                                            var text = $(this).val();
-                                            $(this).val(text.replace(/^(.)|\s(.)/g, function (data) {
-                                                return data.toUpperCase( );
-                                            }));
-                                        });
-                                    });
+                                                $(document).ready(function ()
+                                                {
+                                                    $('.capitalize').keyup(function (evt) {
+                                                        var text = $(this).val();
+                                                        $(this).val(text.replace(/^(.)|\s(.)/g, function (data) {
+                                                            return data.toUpperCase( );
+                                                        }));
+                                                    });
+                                                });
 </script>
 <script type="text/javascript">
     /**

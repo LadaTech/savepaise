@@ -63,8 +63,11 @@ class Coupons_model extends CI_Model {
 
     public function view_coupon() {
         $this->db->select('*');
+        $this->db->from('coupons c');
+        $this->db->join('subcategories sc','sc.scat_id = c.subcategory_id','left');
+        $this->db->join('stores s','s.id = c.store_id','left');
 //        $this->db->order_by('added_date DESC');
-        return $this->db->get('coupons')->result();
+        return $this->db->get()->result();
     }
     
     public function edit_coupon($id){

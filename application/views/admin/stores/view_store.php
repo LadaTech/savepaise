@@ -31,6 +31,7 @@ $this->load->view('admin/common/header', true);
 
                 <div class="row">
                     <div class="col-xs-12">
+                        <p align="center" id="success" class="text-success"></p>
                         <!-- PAGE CONTENT BEGINS -->
                         <table id="simple-table" class="table  table-bordered table-hover">
                             <thead>
@@ -42,7 +43,8 @@ $this->load->view('admin/common/header', true);
                                     <th class="center">Offer Name</th>
                                     <th class="center">Store Image</th>
                                     <th class="center">Store Link</th>
-                                    <th class="center">Status</th>                                     
+                                    <th class="center">Status</th>
+                                    <th class="center">Sorting</th>                                    
                                     <th class="center">Created_By</th> 
                                     <th class="center">Created_Date</th>                                    
                                     <th>Action</th>                            
@@ -57,12 +59,18 @@ $this->load->view('admin/common/header', true);
                                         <td><?php echo $store_data->store_url ?></td>                                        
                                         <td><?php echo $store_data->offer_id ?></td>
                                         <td><?php echo $store_data->offer_name ?></td>
-                                        <td><?php echo $store_data->store_image ?></td>
-                                        <td><?php echo $store_data->store_link ?></td>
-                                        <!--<td><?php // echo $store_data->status       ?></td>-->
+                                        <td><img src="<?php echo $store_data->store_image ?>"/></td>
+                                        <td><a href="<?php echo $store_data->store_link ?>" class="glyphicon glyphicon-link"></a></td>
+                                        <!--<td><?php // echo $store_data->status         ?></td>-->
                                         <td><i id="<?php echo $store_data->id; ?>" onClick="changeStatus('<?php echo $store_data->id; ?>', '<?PHP echo $store_data->status; ?>')" class="status_checks1 btn <?php echo ($store_data->status) ? 'btn-success' : 'btn-danger'
                                     ?>"><?php echo ($store_data->status) ? 'Active' : 'Inactive' ?>
-                                            </i></td>   
+                                            </i></td>  
+
+                                        <td style="width:15%;">
+                                            <input type="text" name="subsortId" class="sortW" id="sortid_<?php echo $store_data->id; ?>" value="<?php echo $store_data->sort; ?>">
+                                            <input type="hidden" name="storeid" value="<?php echo $store_data->id; ?>">
+                                            <button type="button" onClick="sortFunction('<?php echo $store_data->id; ?>', 'sortid_<?php echo $store_data->id; ?>');" id="catsorting" value="save" name="save" class="sorting_value btn btn-success btn-quirk btn-wide mr5">Save</button>
+                                        </td>
                                         <td><?php echo $store_data->created_by ?></td>
                                         <td><?php echo $store_data->created_date ?></td>                                          
                                         <td>
@@ -77,11 +85,16 @@ $this->load->view('admin/common/header', true);
                                 ?>  
                             </tbody>
                         </table>
+                        
                     </div>
+                    
                 </div>
+                
             </div>	 
         </div>
+        <?PHP echo $links; ?> 
     </div><!-- /.main-content -->
+    
     <?php $this->load->view('admin/common/footer', true); ?>
 </div><!-- /.main-container -->
 
@@ -95,47 +108,61 @@ Bootstrap
 
 
 
-                                                function changeStatus(id, status) {
+                                                    function changeStatus(id, status) {
 //                                                            var id = id;
-                                                    //var status = ($(this).hasClass("btn-success")) ? '0' : '1';
-                                                    //                                                                        alert(status);
-                                                    var msg = (status == '0') ? '1' : '0';
-                                                    if (status == '0') {
-                                                        status = 'Active';
-                                                    } else {
-                                                        status = 'Inactive';
-                                                    }
-                                                    if (confirm("Are you sure to " + status)) {
+                                                        //var status = ($(this).hasClass("btn-success")) ? '0' : '1';
+                                                        //                                                                        alert(status);
+                                                        var msg = (status == '0') ? '1' : '0';
+                                                        if (status == '0') {
+                                                            status = 'Active';
+                                                        } else {
+                                                            status = 'Inactive';
+                                                        }
+                                                        if (confirm("Are you sure to " + status)) {
 //                                                                                                                                                var id = $(this).attr('id');
 //                                                                                                                                                alert(id);
 //                                                                                                                                                alert(status);
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: '<?php echo base_url() . "stores/changeStatus" ?>',
+                                                                data: {
+                                                                    id: id,
+                                                                    status: msg,
+                                                                },
+                                                                success: function (data)
+                                                                {
+                                                                    $(this).hasClass("btn-success");
+                                                                    if (status == 'Inactive') {
+                                                                        status = 'Active';
+                                                                        $('#' + id).addClass("btn-success");
+                                                                        $('#' + id).removeClass("btn-danger");
+                                                                    } else {
+                                                                        status = 'Inactive';
+                                                                        $('#' + id).addClass("btn-danger");
+                                                                        $('#' + id).removeClass("btn-success");
+                                                                    }
+                                                                    $('#' + id).text(status);
+                                                                }
+                                                            });
+                                                        }
+
+                                                    }
+                                                    function sortFunction(subCatId, sortItemId) {
+                                                        var id = $('#' + sortItemId).val();
+                                                        var successMessage = 'Sorting value ' + id + ' Updated succesfully';
                                                         $.ajax({
                                                             type: "POST",
-                                                            url: '<?php echo base_url() . "category/changeStatus" ?>',
+                                                            url: '<?php echo base_url() . "stores/store_name_sorting" ?>',
                                                             data: {
-                                                                id: id,
-                                                                status: msg,
+                                                                txtboxvalue: id,
+                                                                sortvalue: subCatId
                                                             },
                                                             success: function (data)
                                                             {
-                                                                alert(data);
-                                                                $(this).hasClass("btn-success");
-                                                                if (status == 'Inactive') {
-                                                                    status = 'Active';
-                                                                    $('#' + id).addClass("btn-success");
-                                                                    $('#' + id).removeClass("btn-danger");
-                                                                } else {
-                                                                    alert('fail');
-                                                                    status = 'Inactive';
-                                                                    $('#' + id).addClass("btn-danger");
-                                                                    $('#' + id).removeClass("btn-success");
-                                                                }
-                                                                $('#' + id).text(status);
+                                                                $('#success').html(successMessage);
                                                             }
                                                         });
                                                     }
-
-                                                }
 
 
 

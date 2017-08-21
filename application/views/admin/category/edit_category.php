@@ -43,7 +43,7 @@
                                <div class="form-group">
                                     <label class="col-sm-3 control-label">Image <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
-                                        <input type="file" name="image_c" id="image_c" size="20"  required /><br/>
+                                        <input type="file" name="image_c" id="image_c" size="20"  /><br/>
                                         <?PHP // echo $edit['image']; ?> 
                                         <img src="<?PHP // echo $_SERVER['DOCUMENT_ROOT'] ?>../../assets/images/icons/<?PHP echo $edit['image']; ?>" width="50px"/>                        
                                     </div>
@@ -106,15 +106,15 @@
                         $("#editcategory").validate({
                             rules: {
                                 catname: "required",                               
-	          	    image_c:{
-				required:true,
-				extension: "jpeg"|"jpg"| "gif"|"png"
-			    },                           
+//	          	    image_c:{
+//				required:true,
+//				extension: "jpeg"|"jpg"| "gif"|"png"
+//			    },                           
   			        agree: "required"
                                   },
                             messages: {
                                 catname: "Please enter category Name",
-                                image_c:"Please upload jpeg | png | gif | jpg files only",                                
+//                                image_c:"Please upload jpeg | png | gif | jpg files only",                                
                                 agree: "Please accept our policy"
                             },
                             submitHandler: function (form) {

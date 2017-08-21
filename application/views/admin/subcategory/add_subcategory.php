@@ -69,21 +69,22 @@ $this->load->view('admin/common/header', true);
                                     <input type="text" id="subname" name="subname" class="form-control capitalize" placeholder="Enter Subcategory" required/>
                                 </div>
                             </div>  
-                            <div class="form-group">
+<!--                            <div class="form-group">
                                 <label class="col-sm-3 control-label capitalize">Brand Name <span class="text-danger">*</span></label>
-                                <div class="col-sm-6">                                                        
-                                    <?php // echo "<pre>";
+                                <div class="col-sm-6">                                                        -->
+                                    <?php
+                                    // echo "<pre>";
 //                                print_r($brandNames);exit;
                                     ?>
-                                    <select data-live-search="true" name="brandId" id="brandId" class="form-control" style="width: 100%" data-placeholder="Basic Select2 Box">
+<!--                                    <select data-live-search="true" name="brandId" id="brandId" class="form-control" style="width: 100%" data-placeholder="Basic Select2 Box">
                                         <option value="">select</option>                                                                                 
-                                        <?php foreach ($brandNames as $b) { ?>
-                                            <option value="<?php echo $b['brand_id']; ?>"><?php echo $b['brand_name']; ?></option>
-<?php } ?> 
+                                        <?php // foreach ($brandNames as $b) { ?>
+                                            <option value="<?php // echo $b['brand_id']; ?>"><?php echo $b['brand_name']; ?></option>
+<?php // } ?> 
                                     </select>
-                                    <span id="loadingBrands"><img src="<?PHP echo base_url(); ?>/assets/img/loading.gif" width="30px;" alt="loading.." /></span>
-                                </div>
-                            </div>
+                                    <span id="loadingBrands"><img src="<?PHP echo base_url(); ?>/assets/img/loading.gif" width="30px;" alt="loading.." /></span>-->
+<!--                                </div>
+                            </div>-->
 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Image <span class="text-danger">*</span></label>

@@ -295,6 +295,7 @@ class Index extends CI_Controller {
 //        } else {
 //            $a = $this->input->post('id');
 //            exit;
+     
             $data['all_stores'] = $this->store_model->view_store();
 //            echo "<pre>";
 //            print_r($data['all_stores']);exit;

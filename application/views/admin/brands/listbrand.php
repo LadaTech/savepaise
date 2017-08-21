@@ -14,17 +14,17 @@ $this->load->view('admin/common/header', true);
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">View Users</li>
+                    <li class="active">View Brand</li>
                 </ul><!-- /.breadcrumb -->
             </div>
 
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        BRANDS                        
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            View Users
+                            View brands
                         </small>
                     </h1>
                 </div><!-- /.page-header -->

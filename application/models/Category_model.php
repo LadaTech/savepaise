@@ -9,10 +9,12 @@ class Category_model extends CI_Model {
 
     public function index() {
         $this->load->database();
-        $this->load->helper('form', 'url', 'session');
+        $this->load->helper('form', 'url');
     }
 
     public function add_category($cat_data) {
+//        echo "<pre>";
+//        print_r($cat_data);exit;
         $this->db->set($cat_data);
         $query = $this->db->insert('categories', $cat_data);
         if ($query) {
@@ -153,6 +155,16 @@ class Category_model extends CI_Model {
         $this->db->order_by('cat_name');
         $query = $this->db->get('categories');
         return $query;
+    }
+    
+    public function update_category_sorting($sorting_id, $id) {
+        $this->db->where('cat_id', $id);
+        $query = $this->db->update('categories', $sorting_id);
+        if ($query) {
+            return true;
+        } else {
+            return FALSE;
+        }
     }
 
 }

@@ -37,14 +37,14 @@ $this->load->view('admin/common/header', true);
                                 <tr>
                                     <th class="center">ID</th>                                    
                                     <th class="center">Promo ID </th>                               
-                                    <th class="center">Store ID</th>
+                                    <th class="center">Store Name</th>
                                     <th class="center">Title</th>
                                     <th class="center">Category ID</th>
-                                    <th class="center">SubCategory ID</th>
+                                    <th class="center">SubCategory Name</th>
                                     <th class="center">Description</th>
                                     <th class="center">Type</th>
                                     <th class="center">code</th>                                     
-                                    <th class="center">Ref_ID</th> 
+                                    <!--<th class="center">Ref_ID</th>--> 
                                     <th class="center">Link</th>  
                                     <th class="center">Expiry Date</th>
                                     <th class="center">Added Date</th>
@@ -60,15 +60,15 @@ $this->load->view('admin/common/header', true);
                                     <tr>
                                         <td><?php echo $coupons_data->id ?></td>
                                         <td><?php echo $coupons_data->promo_id ?></td>
-                                        <td><?php echo $coupons_data->store_id ?></td>                                        
+                                        <td><?php echo $coupons_data->store_name ?></td>                                        
                                         <td><?php echo $coupons_data->title ?></td>
                                         <td><?php echo $coupons_data->category_id ?></td>
-                                        <td><?php echo $coupons_data->subcategory_id ?></td>
+                                        <td><?php echo $coupons_data->scat_name ?></td>
                                         <td><?php echo $coupons_data->description ?></td>
                                         <td><?php echo $coupons_data->type ?></td>                                        
                                         <td><?php echo $coupons_data->code ?></td>
-                                        <td><?php echo $coupons_data->ref_id ?></td>
-                                        <td><?php echo $coupons_data->link ?></td>
+                                        <!--<td><?php // echo $coupons_data->ref_id ?></td>-->
+                                        <td><a href="<?php echo $coupons_data->link ?>" class="glyphicon glyphicon-link"></a> </td>
                                         <td> <?php echo $coupons_data->expiry_date ?></td>
                                         <td><?php echo $coupons_data->added_date ?></td>
                                         <td><?php echo $coupons_data->status ?></td>
