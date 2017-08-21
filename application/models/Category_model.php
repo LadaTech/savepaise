@@ -73,6 +73,17 @@ class Category_model extends CI_Model {
             return FALSE;
         }
     }
+    
+     public function change_cat_group_Status() {
+        $this->db->set('status', $_POST['status']);
+        $this->db->where('g_id', $_POST['id']);
+        $query = $this->db->update('category_group');
+        if ($query) {
+            return true;
+        } else {
+            return FALSE;
+        }
+    }
 
     public function add_catgroup($catg_data) {
         $this->db->set($catg_data);
@@ -165,6 +176,17 @@ class Category_model extends CI_Model {
         } else {
             return FALSE;
         }
+    }
+    
+    public function update_categorygroup_sorting($sorting_id, $id){
+        $this->db->where('g_id', $id);
+        $query = $this->db->update('category_group', $sorting_id);
+        if ($query) {
+            return true;
+        } else {
+            return FALSE;
+        }
+        
     }
 
 }

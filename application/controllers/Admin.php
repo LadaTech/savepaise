@@ -65,6 +65,7 @@ class Admin extends CI_Controller {
     }
 
     public function add_usertype() {
+        
         $this->load->view('admin/usertype/add_usertype');
     }
 
@@ -85,6 +86,7 @@ class Admin extends CI_Controller {
     }
 
     public function add_category() {
+
         $this->load->view('admin/category/add_category');
 //        $this->load->view('admin/footer');
     }
@@ -326,6 +328,8 @@ class Admin extends CI_Controller {
 
         //$data['list'] = $this->Brand_model->brandslist();
         $data['group'] = $this->category_model->cat_group();
+//        echo "<pre>";
+//        print_r($data);exit;
         $this->load->view('admin/brands/listbrand', $data);
     }
 

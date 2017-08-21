@@ -72,7 +72,7 @@ class Brand_model extends CI_Model {
 //        if ($isAll == '') {
 //            $this->db->limit($perPage, $page);
 //        }
-        $this->db->where('status', 1);
+//        $this->db->where('status', 1);
         $this->db->order_by("brand_name", "asc");
         $query = $this->db->get('brands');        
         $result = $query->result_array();
@@ -102,6 +102,25 @@ class Brand_model extends CI_Model {
         $this->db->order_by('brand_name');
         $query = $this->db->get('brands');
         return $query;
+    }
+    public function status() {
+        $this->db->set('status', $_POST['status']);
+        $this->db->where('brand_id', $_POST['id']);
+        $query = $this->db->update('brands');
+        if ($query) {
+            return true;
+        } else {
+            return FALSE;
+        }
+    }
+    public function update_brand_sorting($sorting_id, $id) {
+        $this->db->where('brand_id', $id);
+        $query = $this->db->update('brands', $sorting_id);
+        if ($query) {
+            return true;
+        } else {
+            return FALSE;
+        }
     }
     
 }

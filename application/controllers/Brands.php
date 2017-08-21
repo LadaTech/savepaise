@@ -10,7 +10,7 @@ class Brands extends CI_Controller {
         $this->load->helper('url', 'form', 'html');
         $this->load->model('Category_model');
 //        $this->load->model('Login_model');
-        $this->load->model('Brand_model');
+        $this->load->model('brand_model');
         $this->load->library('upload');
     }
     
@@ -101,8 +101,21 @@ class Brands extends CI_Controller {
     public function branddelete() {
      
         $id=$_GET['id'];
-        $data = $this->Brand_model->deletebrand($id);
+        $data = $this->brand_model->deletebrand($id);
            redirect('admin/brandslist');
+    }
+    
+    public function status(){
+        $updateStatus = $this->brand_model->status();
+        return $updateStatus;
+    }
+    
+    public function brand_name_sorting(){
+        $id = $_POST['sortvalue'];        
+        $sorting_data = array(
+            'sort' => $_POST['txtboxvalue']);
+        $result = $this->brand_model->update_brand_sorting($sorting_data, $id);
+        redirect('admin/brandslist');
     }
     //To logout the admin panel
     function logout() {
@@ -110,5 +123,7 @@ class Brands extends CI_Controller {
         session_destroy();
         redirect('');
     }
+    
+    
 }
    

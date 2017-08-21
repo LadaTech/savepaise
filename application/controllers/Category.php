@@ -39,7 +39,7 @@ class Category extends CI_Controller {
                 'cat_name' => $_POST['catname'],
                 'image' => $image_path,
                 'status' => 1,
-//                'created_by' => $_SESSION['uid'],
+                'created_by' => $_SESSION['id'],
                 'created_date' => date('Y-m-d H:i:s')
             );
             $this->load->model('Category_model');
@@ -210,6 +210,18 @@ class Category extends CI_Controller {
             'sorting' => $_POST['txtboxvalue']);
         $result = $this->category_model->update_category_sorting($sorting_data, $id);
         redirect('admin/view_category');
+    }
+    public function category_group_sorting() {
+        $id = $_POST['sortvalue'];
+        $sorting_data = array(
+            'sorting' => $_POST['txtboxvalue']);
+        $result = $this->category_model->update_categorygroup_sorting($sorting_data, $id);
+        redirect('admin/view_category');
+    }
+    
+    public function change_cat_group_Status() {       
+        $updateStatus = $this->category_model->change_cat_group_Status();
+        return $updateStatus;
     }
 
 }
