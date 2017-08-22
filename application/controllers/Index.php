@@ -63,36 +63,52 @@ class Index extends CI_Controller {
     }
 
     public function sign_up() {
+        $this->load->library('email');
         $result = $this->login_model->email_check();
         if (isset($result) && ($result != TRUE)) {
             if (isset($_POST["sign_up"]) == 'submit' || !empty($_POST)) {
-                $udata = array(
-                    'firstname' => $_POST['firstname'],
-                    'lastname' => $_POST['lastname'],
-                    'email' => $_POST['email'],
-                    'password' => base64_encode($_POST['password']),
-                    'pnumber' => $_POST['pnumber'],
-                    'usertype' => 3,
-                    'status' => 1,
-                    //'created_by' => $_SESSION['id'],
-                    'created_date' => date('Y-m-d H:i:s')
-                );
+                $this->email->from('ladatech121@gmail.com');
+                $this->email->to($_POST['email']);
+                $this->email->subject('Email Test');
+                $this->email->message('Testing the email class');
+                $config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => 'ladatechnology@gmail.com',
+                'smtp_pass' => 'ladatechnology121',
+                'mailtype' => 'html',
+                'charset' => 'iso-8859-1',
+                'wordwrap' => TRUE
+            );                
+                if ($this->email->send()) {
+                    $udata = array(
+                        'firstname' => $_POST['firstname'],
+                        'lastname' => $_POST['lastname'],
+                        'email' => $_POST['email'],
+                        'password' => base64_encode($_POST['password']),
+                        'pnumber' => $_POST['pnumber'],
+                        'usertype' => 3,
+                        'status' => 1,
+                        'created_by' => $_SESSION['id'],
+                        'created_date' => date('Y-m-d H:i:s')
+                    );
 
-                if ($result = $this->login_model->sign_up($udata)) {
+                    if ($result = $this->login_model->sign_up($udata)) {
 //               $_SESSION['msg'] = '<font color=green>Registred Sucessfully</font><br />';
-                    $this->session->set_flashdata('msg', '<font color=green>Registred Sucessfully</font><br />');
-                    redirect(base_url() . 'index');
+                        $this->session->set_flashdata('msg', '<font color=green>Registred Sucessfully</font><br />');
+                        redirect(base_url() . 'index');
 //               $this->load->view(echo baseurl().'index',$msg);
+                    }
                 } else {
 //             $msg = '<font color=red>Registration failed</font><br />';
-                    $this->session->set_flashdata('msg', '<font color=red>Registration failed</font><br />');
+                    $this->session->set_flashdata('msg', '<font color=red>Registration failed.Email id not exist..</font><br />');
                     redirect(base_url() . 'index');
                 }
             }
-        }
-        else{
-           $this->session->set_flashdata('msg', '<font color=red>Email already exist</font><br />');
-           redirect(base_url() . 'index');
+        } else {
+            $this->session->set_flashdata('msg', '<font color=red>Email already exist</font><br />');
+            redirect(base_url() . 'index');
         }
     }
 
@@ -253,9 +269,7 @@ class Index extends CI_Controller {
 //        $q = $this->uri->segment(3);  
 //        $link_value = $_GET['link'];
 //        echo $q.'  ' .$link_value;exit;
-        
 //        $storeName = $this->input->post('storeName');
-        
 //        if (isset($q)) {
 //            $config['base_url'] = base_url() . 'index/stores/' . $q;
 //            $config['total_rows'] = $this->store_model->get_specific_store_rows($q);
@@ -295,23 +309,22 @@ class Index extends CI_Controller {
 //        } else {
 //            $a = $this->input->post('id');
 //            exit;
-     
-            $data['all_stores'] = $this->store_model->view_store();
+
+        $data['all_stores'] = $this->store_model->view_store();
 //            echo "<pre>";
 //            print_r($data['all_stores']);exit;
-            $this->load->view('stores', $data);
+        $this->load->view('stores', $data);
 //        }
     }
-    
-     public function store() {
+
+    public function store() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
-        $q = $this->uri->segment(3);  
+        $q = $this->uri->segment(3);
 //        $link_value = $_GET['link'];
 //        echo $q.'  ' .$link_value;exit;
-        
 //        $storeName = $this->input->post('storeName');
-        
+
         if (isset($q)) {
             $config['base_url'] = base_url() . 'index/stores/' . $q;
             $config['total_rows'] = $this->store_model->get_specific_store_rows($q);
