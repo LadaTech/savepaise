@@ -62,8 +62,8 @@
                             <div class="form-group">                              
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Store Image </label>
                                 <div class="col-sm-9">
-                                    <input type="file" id="image_c" name="image_c"  class="form-control capitalize" required/>
-                                    <image src="<?PHP echo $store_data->store_image;?>"
+                                    <input type="file" id="store_image" name="store_image"  class="form-control capitalize" >
+                                    <img src="<?PHP echo $store_data->store_image ?>" width="50px"/>
                                 </div>                                
                             </div>
                             

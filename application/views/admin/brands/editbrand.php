@@ -13,7 +13,7 @@
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">Add User</li>
+                    <li class="active">Edit Brand</li>
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -21,10 +21,10 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        BRANDS
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add Users
+                            Add Brand
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
@@ -44,7 +44,7 @@
                                     <label class="col-sm-3 control-label">Image <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
                                         <input type="file" name="image_c" id="image_c" size="20" />
-                                        <img src="../../assets/images/icons/<?php echo $edit['logo']; ?>" width="50px" />
+                                        <img src="<?PHP echo base_url() ?>assets/images/icons/<?PHP echo $edit['logo']; ?>" width="50px"/>
                                     </div>
                                 </div>                                
                                 

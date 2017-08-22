@@ -19,10 +19,10 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        CATEGORY
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add Users
+                            Add Category
                         </small>
                     </h1>
                 </div><!-- /.page-header -->

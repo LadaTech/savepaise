@@ -14,7 +14,7 @@
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">Add User</li>
+                    <li class="active">Edit Category_group</li>
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -22,10 +22,10 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        CATEGORY_GROUP
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add Users
+                            Edit Category_group
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
@@ -64,6 +64,7 @@
                             <label class="col-sm-3 control-label capitalize">Image</label>
                             <div class="col-sm-6">
                                 <input type="file" name="group_image" id="group_image" class="form-control capitalize" placeholder="Select Image" />
+                                <img src="<?PHP echo base_url() ?>assets/images/icons/<?PHP echo $catGroup[0]->image; ?>" width="50px"/>
                             </div>
                         </div>
                         <hr>

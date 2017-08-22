@@ -52,7 +52,7 @@ $this->load->view('admin/common/header', true);
                                     <tr>                                       
                                         <td><?php echo $cat['cat_id'] ?></td> 
                                         <td><?php echo $cat['cat_name'] ?></td>
-                                        <td> <img src = "<?php // echo $_SERVER['DOCUMENT_ROOT']    ?>../../assets/images/icons/<?php echo $cat['image']; ?>"  alt=""  width="30px" height="30px" />  </td>
+                                        <td> <img src = "<?php echo base_url()    ?>assets/images/icons/<?php echo $cat['image']; ?>"  alt=""  width="30px" height="30px" />  </td>
 
                                         <td><i id="<?php echo $cat['cat_id']; ?>" onClick="changeStatus('<?php echo $cat['cat_id']; ?>', '<?PHP echo $cat['status']; ?>')" class="status_checks1 btn <?php echo ($cat['status']) ? 'btn-success' : 'btn-danger'
                                     ?>"><?php echo ($cat['status']) ? 'Active' : 'Inactive' ?>

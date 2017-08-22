@@ -248,12 +248,16 @@ class Admin extends CI_Controller {
 //        $config['num_tag_close'] = '</li>';
 //        $this->pagination->initialize($config);
 //        $data['pagination'] = $this->pagination->create_links();
+//        echo "<pre>";
+//        print_r($_SESSION);exit;
 
         $data['sublist'] = $this->subcategory_model->subcat_view1('', $this->uri->segment(3));
 
         $data['categories'] = $this->category_model->view_category();
         $data['group'] = $this->category_model->cat_group();
         $data['sublist'] = $this->subcategory_model->subcat_view();
+//        echo "<pre>";
+//        print_r($data);exit;
 
         $this->load->view('admin/subcategory/view_subcategory', $data);
     }
@@ -439,6 +443,7 @@ class Admin extends CI_Controller {
 
     public function edit_coupon() {
         $id = $_GET['sid'];
+//        echo $id;exit;
 
 //         echo "<pre>";
 //        print_r($data['store']);exit;
@@ -446,7 +451,7 @@ class Admin extends CI_Controller {
         $data['subcategory_data'] = $this->subcategory_model->view_subcat()->result();
         $data['store_data'] = $this->store_model->view_store();
 //           echo "<pre>";
-//        print_r($data);exit;
+//        print_r($data['coupon_data']);exit;
         $this->load->view('admin/coupons/edit_coupon', $data);
     }
 

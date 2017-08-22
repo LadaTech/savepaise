@@ -46,7 +46,7 @@ class Coupons extends CI_Controller {
     public function edit_coupon() {
         if (isset($_POST["coupon_edit"]) == 'submit' || !empty($_POST)) {
             $coupon_data = array(
-                'id' => $_POST['id'],
+                'c_id' => $_POST['id'],
                 'promo_id' => $_POST['promo_id'],
                 'store_id' => $_POST['store_id'],
                 'title' => $_POST['title'],
@@ -82,10 +82,17 @@ class Coupons extends CI_Controller {
 //        $this->load->view(base_url().'index',$data);
 //    }
     //To update the status of the subcategories list
-    public function changeStatus() {
-        $this->load->model('store_model');
-        $updateStatus = $this->store_model->changeStatus();
+    public function changeStatus() {       
+        $updateStatus = $this->Coupons_model->changeStatus();
         return $updateStatus;
+    }
+    public function coupon_sorting(){
+        $id = $_POST['sortvalue'];
+        $sorting_data = array(
+            'c_sort' => $_POST['txtboxvalue'],
+        );
+         $result = $this->Coupons_model->coupon_sorting($sorting_data, $id);
+        redirect('admin/view_coupon');
     }
 
 }

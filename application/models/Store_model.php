@@ -52,8 +52,8 @@ class Store_model extends CI_Model {
         return $query[0];
     }
 
-    public function update_store($store_data) {
-        $id = $store_data['id'];
+    public function update_store($store_data,$id) {
+//        $id = $store_data['id'];
         $this->db->where('id', $id);
         $query = $this->db->update("stores", $store_data);
         if ($query) {

@@ -30,7 +30,13 @@ $this->load->view('admin/common/header', true);
                 </div><!-- /.page-header -->
 
                 <div class="row">
+                      <?PHP
+                        if (isset($message)) {
+                            echo $message;
+                        }
+                        ?>
                     <div class="col-xs-12">
+                      
                         <p align="center" id="success" class="text-success"></p>
                         <!-- PAGE CONTENT BEGINS -->
                         <table id="dataTable1" class="table table-bordered table-striped-col">
@@ -57,11 +63,11 @@ $this->load->view('admin/common/header', true);
                                     <tr><td><?php echo $j++; ?></td>
                                         <td><?php echo $catGroup['cat_name']; ?></td>
                                         <td><?php echo $catGroup['group_name']; ?></td>
-                                        <td><img src="<?PHP echo base_url() ?>assets/images/icons/<?PHP echo $catGroup['image']; ?>" /></td>
+                                        <td> <img src = "<?php echo base_url()    ?>assets/images/icons/<?php echo $catGroup['image']; ?>"  alt=""  width="30px" height="30px" />  </td>
                                         <td><?php echo $catGroup['created_date']; ?> </td>
-                                        <td><a href="<?php echo base_url() ?>admin/editcategory_group?catid=<?php echo $catGroup['g_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><?php // if ($_SESSION['utype'] == 1) {      ?><a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $catGroup['g_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" ><i class="ace-icon fa fa-trash-o bigger-120"></i></a> <?php // }      ?></td>
+                                        <td><a href="<?php echo base_url() ?>admin/editcategory_group?catid=<?php echo $catGroup['g_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><?php // if ($_SESSION['utype'] == 1) {       ?><a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $catGroup['g_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" ><i class="ace-icon fa fa-trash-o bigger-120"></i></a> <?php // }       ?></td>
                                         <td><i id="<?php echo $catGroup['g_id']; ?>" onClick="change_cat_group_Status('<?php echo $catGroup['g_id']; ?>', '<?PHP echo $catGroup['status']; ?>')" class="status_checks1 btn <?php echo ($catGroup['status']) ? 'btn-success' : 'btn-danger'
-                                    ?>"><?php echo ($catGroup['status']) ? 'Active' : 'Inactive' ?>
+                                           ?>"><?php echo ($catGroup['status']) ? 'Active' : 'Inactive' ?>
                                             </i></td>  
                                         <td style="width:15%;">
                                             <input type="text" class="sortW" name="sortId" id="sortid_<?php echo $catGroup['g_id']; ?>" value="<?php echo $catGroup['sorting']; ?>">
@@ -69,7 +75,7 @@ $this->load->view('admin/common/header', true);
                                             <button type="button" onClick="sortFunction('<?php echo $catGroup['g_id']; ?>', 'sortid_<?php echo $catGroup['g_id']; ?>');" id="catsorting" value="save" name="save" class="sorting_value btn btn-success btn-quirk btn-wide mr5">Save</button>
                                         </td></tr>
 
-                                <?php } ?>
+<?php } ?>
 
                             </tbody>
                         </table>
@@ -78,7 +84,7 @@ $this->load->view('admin/common/header', true);
             </div>	 
         </div>
     </div><!-- /.main-content -->
-    <?php $this->load->view('admin/common/footer', true); ?>
+<?php $this->load->view('admin/common/footer', true); ?>
 </div><!-- /.main-container -->
 
 <script src="<?php echo base_url(); ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -86,15 +92,15 @@ $this->load->view('admin/common/header', true);
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.js"></script>
 <script type="text/javascript">
-    $(document).ready(function ()
-    {
-        $('.capitalize').keyup(function (evt) {
-            var text = $(this).val();
-            $(this).val(text.replace(/^(.)|\s(.)/g, function (data) {
-                return data.toUpperCase( );
-            }));
-        });
-    });
+                                                $(document).ready(function ()
+                                                {
+                                                    $('.capitalize').keyup(function (evt) {
+                                                        var text = $(this).val();
+                                                        $(this).val(text.replace(/^(.)|\s(.)/g, function (data) {
+                                                            return data.toUpperCase( );
+                                                        }));
+                                                    });
+                                                });
 </script>
 <script type="text/javascript">
     /**
@@ -107,29 +113,29 @@ $this->load->view('admin/common/header', true);
         var JQUERY4U = {};
 
         JQUERY4U.UTIL =
-            {
-            setupFormValidation: function ()
-            {
-                //form validation rules
-                $("#subcategories").validate({
-                    rules: {
-                        cat_names: "required",
-                        cat_group: "required",
-                        subname: "required",
-                        agree: "required"
-                    },
-                    messages: {
-                        cat_names: "Please Select category Name",
-                        cat_group: "Please Select category Group Name",
-                        subname: "Please Enter Subcategory Name",
-                        agree: "Please accept our policy"
-                    },
-                    submitHandler: function (form) {
-                        form.submit();
+                {
+                    setupFormValidation: function ()
+                    {
+                        //form validation rules
+                        $("#subcategories").validate({
+                            rules: {
+                                cat_names: "required",
+                                cat_group: "required",
+                                subname: "required",
+                                agree: "required"
+                            },
+                            messages: {
+                                cat_names: "Please Select category Name",
+                                cat_group: "Please Select category Group Name",
+                                subname: "Please Enter Subcategory Name",
+                                agree: "Please accept our policy"
+                            },
+                            submitHandler: function (form) {
+                                form.submit();
+                            }
+                        });
                     }
-                });
-            }
-        }
+                }
         //when the dom has loaded setup form validation rules
         $(D).ready(function ($) {
             JQUERY4U.UTIL.setupFormValidation();
@@ -222,7 +228,7 @@ $this->load->view('admin/common/header', true);
 
         });
     }
-    
+
     function change_cat_group_Status(id, status) {
         //var status = ($(this).hasClass("btn-success")) ? '0' : '1';
         //                                                                        alert(status);

@@ -13,7 +13,7 @@
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">Add User</li>
+                    <li class="active">Edit Subcategories</li>
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -21,10 +21,10 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        SUBCATEGORIES
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add Users
+                            Edit Subcategories
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
@@ -77,7 +77,9 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Image</label>
                             <div class="col-sm-6">
+                                 
                                 <input type="file" name="image_c" id="image_c" size="20" />
+                                <img src="<?PHP echo base_url() ?>assets/images/icons/<?PHP echo $subedit->logo; ?>" width="50px"/>
                             </div>
                         </div>
                         <hr>

@@ -16,7 +16,7 @@ $this->load->view('admin/common/header', true);
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">Edit coupons</li>
+                    <li class="active">ADD coupons</li>
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -27,7 +27,7 @@ $this->load->view('admin/common/header', true);
                         Coupons
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Edit Coupons
+                            ADD Coupons
                         </small>
                     </h1>
                 </div><!-- /.page-header -->

@@ -39,7 +39,7 @@ class Category extends CI_Controller {
                 'cat_name' => $_POST['catname'],
                 'image' => $image_path,
                 'status' => 1,
-                'created_by' => $_SESSION['id'],
+                'created_by' => $_SESSION['firstname'],
                 'created_date' => date('Y-m-d H:i:s')
             );
             $this->load->model('Category_model');
@@ -69,7 +69,7 @@ class Category extends CI_Controller {
             $edit_data = array(
                 'cat_name' => $_POST['edit_catname'],
                 'status' => 1,
-//                'updated_by' => $_SESSION['uid'],
+                'updated_by' => $_SESSION['firstname'],
                 'updated_date' => date('Y-m-d H:i:s')
             );
             if ($_FILES["image_c"]["name"] != '') {
@@ -93,11 +93,11 @@ class Category extends CI_Controller {
                 }
                 $image_name = $image_path;
                 //echo $image_name;exit; 
-                $edit_data['image'] = $image_name;  
+                $edit_data['image'] = $image_name;
             }
             if ($result = $this->category_model->update_category($edit_data, $id))
                 redirect('admin/view_category');
-        } 
+        }
     }
 
     public function category_delete() {
@@ -110,6 +110,8 @@ class Category extends CI_Controller {
     }
 
     public function add_catgroup() {
+//        echo "<pre>";
+//        print_r($_POST); exit;
         if (isset($_POST["submit_g"]) == 'submit' || !empty($_POST)) {
             $allowed_ext = array("jpeg", "jpg", "gif", "png");
             $tmp_ext = explode(".", $_FILES["group_image"]["name"]); //for dividing purpose
@@ -136,7 +138,7 @@ class Category extends CI_Controller {
                 'group_name' => $_POST['c_group'],
                 'image' => $image_path,
                 'status' => 0,
-//                'created_by' => $_SESSION['uid'],
+                'created_by' => $_SESSION['firstname'],
                 'created_date' => date('Y-m-d H:i:s')
             );
 
@@ -156,50 +158,48 @@ class Category extends CI_Controller {
     }
 
     public function edit_catgroup() {
-        //print_r($_POST); print_r($_SESSION);exit;
-//        $editImage = 0;
+        $id = $_POST['editgroupId'];        
         if (isset($_POST["submit_g"]) == 'submit' || !empty($_POST)) {
-            $allowed_ext = array("jpeg", "jpg", "gif", "png");
-            $tmp_ext = explode(".", $_FILES["group_image"]["name"]); //for dividing purpose
-            $ext = strtolower(end($tmp_ext)); //for converting capital to small
-            $image_path = $_SERVER['REQUEST_TIME'] . '.' . $ext;
-            if ((($_FILES["group_image"]["type"] == "image/jpeg") || ($_FILES["group_image"]["type"] == "image/jpg") || ($_FILES["group_image"]["type"] == "image/gif") || ($_FILES["group_image"]["type"] == "image/png")) && in_array($ext, $allowed_ext)) {
-//                $editImage = 1;
-                $target_path = $_SERVER['DOCUMENT_ROOT'] . '/assets/images/icons/';
-                // echo $target_path = base_url() . 'assets/img/'; 
-
-                $target_path = $target_path . basename($image_path);
-                if (!file_exists($target_path)) {
-                    if (move_uploaded_file($_FILES['group_image']['tmp_name'], $target_path)) {
-                        $image = $target_path;
-                        $maxHeight = 50;
-                        $maxWidth = 50;
-                        //  echo "The file " . basename($_FILES['image_c']['name']) . " has been uploaded";exit;
-                    }
-                }
-            }
-            $image_name = $image_path;
-            $catg_data = array(
+             $catg_data = array(
                 'cate_id' => $_POST['catg_names'],
                 'group_name' => $_POST['c_group'],
-//                'image' => $image_path,
+
                 'status' => 0,
-//                'updated_by' => $_SESSION['uid'],
+                'updated_by' => $_SESSION['firstname'],
                 'updated_date' => date('Y-m-d H:i:s')
             );
-            $editGropId = $_POST['editgroupId'];
-            if ($editImage == 1) {
-                $catg_data['image'] = $image_path;
-            }
-            $result = $this->category_model->group_update($catg_data, $editGropId);
+            if ($_FILES["group_image"]["name"] != '') {
+                $allowed_ext = array("jpeg", "jpg", "gif", "png");
+                $tmp_ext = explode(".", $_FILES["group_image"]["name"]); //for dividing purpose
+                $ext = strtolower(end($tmp_ext)); //for converting capital to small
+                $image_path = $_SERVER['REQUEST_TIME'] . '.' . $ext;
+                if ((($_FILES["group_image"]["type"] == "image/jpeg") || ($_FILES["group_image"]["type"] == "image/jpg") || ($_FILES["group_image"]["type"] == "image/gif") || ($_FILES["group_image"]["type"] == "image/png")) && in_array($ext, $allowed_ext)) {
+//                $editImage = 1;
+                    $target_path = $_SERVER['DOCUMENT_ROOT'] . '/assets/images/icons/';
+                    // echo $target_path = base_url() . 'assets/img/'; 
 
-            if ($result != '') {
-                redirect('admin/view_category_group');
-            } else {
-                redirect('admin/category_group');
+                    $target_path = $target_path . basename($image_path);
+                    if (!file_exists($target_path)) {
+                        if (move_uploaded_file($_FILES['group_image']['tmp_name'], $target_path)) {
+                            $image = $target_path;
+                            $maxHeight = 50;
+                            $maxWidth = 50;
+                            //  echo "The file " . basename($_FILES['image_c']['name']) . " has been uploaded";exit;
+                        }
+                    }
+                }
+                  $image_name = $image_path;
+                //echo $image_name;exit; 
+                $catg_data['image'] = $image_name;
             }
+            if ($result = $this->category_model->group_update($catg_data, $id))                  
+                redirect('admin/view_category_group',$data);
         }
     }
+          
+
+            
+  
 
     /**
      * Function to update sorting value in categories
@@ -211,6 +211,7 @@ class Category extends CI_Controller {
         $result = $this->category_model->update_category_sorting($sorting_data, $id);
         redirect('admin/view_category');
     }
+
     public function category_group_sorting() {
         $id = $_POST['sortvalue'];
         $sorting_data = array(
@@ -218,8 +219,8 @@ class Category extends CI_Controller {
         $result = $this->category_model->update_categorygroup_sorting($sorting_data, $id);
         redirect('admin/view_category');
     }
-    
-    public function change_cat_group_Status() {       
+
+    public function change_cat_group_Status() {
         $updateStatus = $this->category_model->change_cat_group_Status();
         return $updateStatus;
     }

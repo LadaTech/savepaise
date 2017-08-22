@@ -15,7 +15,7 @@ $this->load->view('admin/common/header', true);
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">Add User</li>
+                    <li class="active">Add Sub_category</li>
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -23,10 +23,10 @@ $this->load->view('admin/common/header', true);
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        SUBCATEGORY
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add Users
+                            Add Subcategory
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
@@ -36,8 +36,9 @@ $this->load->view('admin/common/header', true);
                         <!-- PAGE CONTENT BEGINS -->
                         <form method="post" id="subcategories"  class="form-horizontal" action="<?php echo base_url() . "subcategories/subcat_add" ?>" enctype="multipart/form-data" >
                             <?php
+//                            echo $_SESSION['firstname'];exit;
                             if ((isset($message)) && (!empty($message))) {
-                                print_r($message);
+                               echo $message;
                             }
                             ?>
 

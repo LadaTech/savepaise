@@ -13,7 +13,7 @@
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">Add User</li>
+                    <li class="active">Edit Category</li>
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -21,10 +21,10 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        CATEGORY
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add Users
+                            Edit Category
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
@@ -45,7 +45,7 @@
                                     <div class="col-sm-6">
                                         <input type="file" name="image_c" id="image_c" size="20"  /><br/>
                                         <?PHP // echo $edit['image']; ?> 
-                                        <img src="<?PHP // echo $_SERVER['DOCUMENT_ROOT'] ?>../../assets/images/icons/<?PHP echo $edit['image']; ?>" width="50px"/>                        
+                                        <img src="<?PHP echo base_url()?>assets/images/icons/<?PHP echo $edit['image']; ?>" width="50px"/>                        
                                     </div>
                                     
                                 </div>                                

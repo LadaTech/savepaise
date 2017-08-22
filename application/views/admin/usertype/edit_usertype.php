@@ -13,7 +13,7 @@
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">Add User</li>
+                    <li class="active">Edit User_type</li>
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -21,10 +21,10 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        USERTYPE
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add Users
+                            Edit User_Type
                         </small>
                     </h1>
                 </div><!-- /.page-header -->

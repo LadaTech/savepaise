@@ -40,6 +40,7 @@ $this->load->view('admin/common/header', true);
                                     <th>Category Name</th>
                                     <th>Category Group Name</th>
                                     <th>Subcategory Name</th>
+                                    <th>Image</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                     <th>Sorting</th>                                    
@@ -67,7 +68,8 @@ $this->load->view('admin/common/header', true);
                                     <tr> <td><?php echo $j++; ?></td>                                                        
                                         <td><?php echo $ind['cat_name']; ?></td> 
                                         <td><?php echo $ind['group_name']; ?></td>
-                                        <td><?php echo $ind['scat_name']; ?></a></td> 
+                                        <td><?php echo $ind['scat_name']; ?></td> 
+                                        <td><img src="<?PHP echo base_url()?>assets/images/icons/<?php echo $ind['logo']; ?>" width="30px" height="30px" /></td> 
                                         <td><i id="<?php echo $ind['scat_id']; ?>" onClick="changeStatus('<?php echo $ind['scat_id']; ?>', '<?PHP echo $ind['scStatus']; ?>')" class="status_checks1 btn <?php echo ($ind['scStatus']) ? 'btn-success' : 'btn-danger'
                                     ?>"><?php echo ($ind['scStatus']) ? 'Active' : 'Inactive' ?>
                                             </i></td>                                                       

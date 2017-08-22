@@ -12,7 +12,7 @@ $this->load->view('admin/common/header', true);
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
 
-                    <li class="active">Add User</li>
+                    <li class="active">Add Category_group</li>
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -20,10 +20,10 @@ $this->load->view('admin/common/header', true);
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        CATEGORY_GROUP
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add Users
+                            Add Category_group
                         </small>
                     </h1>
                 </div><!-- /.page-header -->

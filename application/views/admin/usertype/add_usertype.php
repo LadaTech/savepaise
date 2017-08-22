@@ -9,16 +9,16 @@
                         <i class="ace-icon fa fa-home home-icon"></i>
                         <a href="<?php echo base_url() ?>admin/index">Home</a>
                     </li>
-                    <li class="active">Add User</li>
+                    <li class="active">Add UserType</li>
                 </ul><!-- /.breadcrumb -->
             </div>
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Users
+                        USERTYPES
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add Users
+                            Add Usertype
                         </small>
                     </h1>
                 </div><!-- /.page-header -->

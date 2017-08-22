@@ -62,8 +62,9 @@ class Coupons_model extends CI_Model {
     }
 
     public function view_coupon() {
-        $this->db->select('*');
+        $this->db->select('*,c.status cStatus,s.status stStatus,sc.status scStatus');        
         $this->db->from('coupons c');
+//        $this->db->from('stores');
         $this->db->join('subcategories sc','sc.scat_id = c.subcategory_id','left');
         $this->db->join('stores s','s.id = c.store_id','left');
 //        $this->db->order_by('added_date DESC');
@@ -71,13 +72,13 @@ class Coupons_model extends CI_Model {
     }
     
     public function edit_coupon($id){
-        $this->db->where('id',$id);
+        $this->db->where('c_id',$id);
         $query = $this->db->get('coupons')->result();
         return $query[0];        
     }
      public function update_coupon($coupon_data){
         $id = $coupon_data['id'];
-        $this->db->where('id', $id);
+        $this->db->where('c_id', $id);
         $query = $this->db->update("coupons", $coupon_data);
         if ($query) {
             return TRUE;
@@ -86,8 +87,32 @@ class Coupons_model extends CI_Model {
         }       
     }
     
+    public function changeStatus(){
+        $id = $_POST['id'];
+        $status = $_POST['status'];
+        $this->db->set('status',$status);
+        $this->db->where('c_id',$id);
+        $query = $this->db->update('coupons');
+        if($query){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public function coupon_sorting($sorting_data, $id){
+        $this->db->where('c_id', $id);
+        $query = $this->db->update('coupons', $sorting_data);
+        if($query){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    
     public function delete_coupon($id){
-        $this->db->where('id',$id);
+        $this->db->where('c_id',$id);
         $this->db->delete('coupons');
         $query = $this->db->get('coupons');
         $result = $query->result_array();
