@@ -45,7 +45,7 @@ class stores extends CI_Controller {
                 'created_by' => $_SESSION['firstname'],
                 'created_date' => date('Y-m-d H:i:s')
             );
-            $result = $this->Store_model->add_store($store_data);
+            $result = $this->store_model->add_store($store_data);
             if ($result != '') {
                 $data['message'] = "stores added successfully";
                 $this->load->view("admin/stores/addstore", $data);

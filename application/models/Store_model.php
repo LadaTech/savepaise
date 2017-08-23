@@ -33,9 +33,14 @@ class Store_model extends CI_Model {
             $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
             return $this->db->get('stores')->result();
         }
+        if(($limit != '')||($start != '') ){
+            $this->db->select('*');
+           $this->db->limit($limit,$start);
+           return $this->db->get('stores')->result();
+        }
         $this->db->select('*');
         $this->db->order_by('store_name');
-        $this->db->limit($limit, $start);
+//        $this->db->limit($limit, $start);
         return $this->db->get('stores')->result();
     }
 

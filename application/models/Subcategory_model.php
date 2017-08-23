@@ -24,7 +24,7 @@ class Subcategory_model extends CI_Model {
     }
 
     //To get the all subcategories list of Admin Panel 
-    public function subcat_view($catId = '') {
+    public function subcat_view($catId = '',$limit='',$start='') {
         if ($catId != '') {
             $this->db->where('category_id', $catId);
         }
@@ -38,6 +38,7 @@ class Subcategory_model extends CI_Model {
         $this->db->from('subcategories sc');
         $this->db->join('category_group cg', 'cg.g_id = sc.category_group', 'LEFT');
         $this->db->join('categories c', 'sc.category_id = c.cat_id', 'LEFT');
+        $this->db->limit($limit,$start);
 //        $this->db->where('c.status', 1);
 //        $this->db->where('sc.status', 1);
 //        $this->db->where('cg.status', 1);
@@ -57,7 +58,7 @@ class Subcategory_model extends CI_Model {
             $this->db->limit($perPage, $page);
         }
 //        $this->db->where('cate_id', $id);
-        $this->db->select('*, sc.status scStatus,sc.created_date createdDate');
+        $this->db->select('*, sc.status scStatus,sc.sorting scSort,sc.created_date createdDate');
         $this->db->from('subcategories sc');
         $this->db->join('category_group cg', 'cg.g_id = sc.category_group', 'LEFT');
         $this->db->join('categories c', 'sc.category_id = c.cat_id', 'LEFT');

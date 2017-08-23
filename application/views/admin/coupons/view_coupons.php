@@ -99,11 +99,14 @@ $this->load->view('admin/common/header', true);
                 </div>
             </div>	 
         </div>
+        <?PHP echo $links; ?> 
     </div><!-- /.main-content -->
     <?php $this->load->view('admin/common/footer', true); ?>
 </div><!-- /.main-container -->
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<!--<script src="<?PHP // echo base_url()?>assets/js/bootstrap.min.js"></script>
+<script src="<?PHP // echo base_url()?>assets/js/main.min.js"></script>-->
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript">
 //                                                    function changeStatus(id, status) {

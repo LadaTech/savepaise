@@ -65,7 +65,7 @@ $this->load->view('admin/common/header', true);
 //                                            echo "<pre>";
 //                                            print_r($ind);exit;
                                     ?>
-                                    <tr> <td><?php echo $j++; ?></td>                                                        
+                                    <tr> <td><?php echo $ind['scat_id']; ?></td>                                                        
                                         <td><?php echo $ind['cat_name']; ?></td> 
                                         <td><?php echo $ind['group_name']; ?></td>
                                         <td><?php echo $ind['scat_name']; ?></td> 
@@ -89,8 +89,10 @@ $this->load->view('admin/common/header', true);
                         </table>
                     </div>
                 </div>
+                  <?PHP echo $links ;?>
             </div>	 
         </div>
+      
     </div><!-- /.main-content -->
     <?php $this->load->view('admin/common/footer', true); ?>
 </div><!-- /.main-container -->

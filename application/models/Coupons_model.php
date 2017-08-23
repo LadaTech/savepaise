@@ -61,12 +61,13 @@ class Coupons_model extends CI_Model {
         }
     }
 
-    public function view_coupon() {
+    public function view_coupon($limit = '', $start='') {
         $this->db->select('*,c.status cStatus,s.status stStatus,sc.status scStatus');        
         $this->db->from('coupons c');
 //        $this->db->from('stores');
         $this->db->join('subcategories sc','sc.scat_id = c.subcategory_id','left');
         $this->db->join('stores s','s.id = c.store_id','left');
+        $this->db->limit($limit,$start);
 //        $this->db->order_by('added_date DESC');
         return $this->db->get()->result();
     }

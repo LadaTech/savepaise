@@ -9,7 +9,7 @@ class Brands extends CI_Controller {
         $this->load->library('form_validation', 'email');
         $this->load->helper('url', 'form', 'html');
         $this->load->model('Category_model');
-//        $this->load->model('Login_model');
+        $this->load->model('Login_model');
         $this->load->model('brand_model');
         $this->load->library('upload');
     }

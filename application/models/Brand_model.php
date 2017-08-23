@@ -68,12 +68,13 @@ class Brand_model extends CI_Model {
 
     // To view list of categories of Admin Panel with pagination
 
-    public function brandslist1($isAll = '', $segment = '') {
+    public function brandslist1($isAll = '',$limit='',$start='') {
 //        if ($isAll == '') {
 //            $this->db->limit($perPage, $page);
 //        }
 //        $this->db->where('status', 1);
         $this->db->order_by("brand_name", "asc");
+        $this->db->limit($limit,$start);
         $query = $this->db->get('brands');        
         $result = $query->result_array();
         return $result;

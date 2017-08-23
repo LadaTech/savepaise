@@ -7,7 +7,7 @@ class Addusers_model extends CI_Model {
     }
 
     public function index() {
-        $this->load->databse();
+        $this->load->database();
         $this->load->helper('form', 'url', 'session');
     }
 
