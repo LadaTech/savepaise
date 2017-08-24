@@ -58,12 +58,14 @@ class Users Extends CI_Controller {
 
                 if ($this->addusers_model->add_user($userdata)) {
                     $data1['message']="user added successfully";                    
-                    $this->load->view("admin/add_user",$data1);
+//                    $this->load->view("admin/add_user",$data1);
+                    redirect('admin/add_user');
                    
                 } else {
 
                     $data1['message']="error occured while adding";
-                    $this->load->view("admin/add_user",$data1);
+//                    $this->load->view("admin/add_user",$data1);
+                    redirect('admin/add_user');
                  
                 }
             }

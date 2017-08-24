@@ -9,15 +9,17 @@ class Coupons extends CI_Controller {
         $this->load->library('form_validation', 'email');
         $this->load->helper('url', 'form', 'html');
         $this->load->model('Coupons_model');
+        $this->load->model('store_model');
+        $this->load->model('subcategory_model');
     }
 
     public function index() {
         
     }
-    
-    public function add_coupon(){
+
+    public function add_coupon() {
         if (isset($_POST["coupon_add"]) == 'submit' || !empty($_POST)) {
-            $coupon_data = array(                
+            $coupon_data = array(
                 'promo_id' => $_POST['promo_id'],
                 'store_id' => $_POST['store_id'],
                 'title' => $_POST['title'],
@@ -34,13 +36,16 @@ class Coupons extends CI_Controller {
             $result = $this->Coupons_model->insert($coupon_data);
             if ($result != '') {
                 $data['message'] = "coupon added successfully";
-                $this->load->view('admin/coupons/add_coupon',$data);
+                $data['store_data'] = $this->store_model->view_store();
+                $data['subcategory_data'] = $this->subcategory_model->view_subcat()->result();
+                $this->load->view('admin/coupons/add_coupon', $data);
             } else {
                 $data['message'] = "Error occured while adding coupon";
-                $this->load->view('admin/coupons/add_coupon',$data);
+                $data['store_data'] = $this->store_model->view_store();
+                $data['subcategory_data'] = $this->subcategory_model->view_subcat()->result();
+                $this->load->view('admin/coupons/add_coupon', $data);
             }
         }
-        
     }
 
     public function edit_coupon() {
@@ -82,16 +87,17 @@ class Coupons extends CI_Controller {
 //        $this->load->view(base_url().'index',$data);
 //    }
     //To update the status of the subcategories list
-    public function changeStatus() {       
+    public function changeStatus() {
         $updateStatus = $this->Coupons_model->changeStatus();
         return $updateStatus;
     }
-    public function coupon_sorting(){
+
+    public function coupon_sorting() {
         $id = $_POST['sortvalue'];
         $sorting_data = array(
             'c_sort' => $_POST['txtboxvalue'],
         );
-         $result = $this->Coupons_model->coupon_sorting($sorting_data, $id);
+        $result = $this->Coupons_model->coupon_sorting($sorting_data, $id);
         redirect('admin/view_coupon');
     }
 

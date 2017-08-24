@@ -1,5 +1,6 @@
 <?PHP
 $this->load->view('admin/common/header', true);
+//if(isset($message)){echo $message;}exit;
 ?>
 <div class="main-container ace-save-state" id="main-container">		
     <?PHP $this->load->view('admin/common/sidebar', true); ?>
@@ -34,7 +35,7 @@ $this->load->view('admin/common/header', true);
                         <form method="post" id="catgroups"  class="form-horizontal" action="<?php echo base_url() . "category/add_catgroup" ?>" enctype="multipart/form-data" >
                             <?php
                             if ((isset($message)) && (!empty($message))) {
-                                print_r($message);
+                                echo $message;
                             }
                             ?>
 
@@ -45,7 +46,7 @@ $this->load->view('admin/common/header', true);
                                         <option value="">select</option>                                           
                                         <?php foreach ($category as $ind) { ?>
                                             <option value="<?php echo $ind['cat_id']; ?> "><?php echo $ind['cat_name']; ?></option>
-<?php } ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>

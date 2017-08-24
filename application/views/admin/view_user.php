@@ -74,6 +74,7 @@ $this->load->view('admin/common/header', true);
                 </div>
             </div>	 
         </div>
+        <?PHP echo  $links;?>
     </div><!-- /.main-content -->
     <?php $this->load->view('admin/common/footer', true); ?>
 </div><!-- /.main-container -->

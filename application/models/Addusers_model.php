@@ -23,9 +23,10 @@ class Addusers_model extends CI_Model {
     }
 
 //function for view user
-    public function view_user() {
-        $this->db->select('id, firstname, lastname, email, pnumber, usertype');        
-        return $this->db->get('adduser');
+    public function view_user($limit= '',$start='') {
+        $this->db->select('id, firstname, lastname, email, pnumber, usertype');
+        $this->db->limit($limit,$start);
+        return $this->db->get('adduser')->result();
     }
     
     public function edit_user($uid){

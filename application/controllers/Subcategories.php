@@ -55,12 +55,16 @@ class Subcategories extends CI_Controller {
 //        print_r($subcat_data);exit;
 
             if ($result = $this->subcategory_model->subcat_add($subcat_data)) {
-                $data1['message'] = "subcategory added successfully";
-                $this->load->view("admin/subcategory/add_subcategory", $data1);
-//                redirect('admin/view_subcategory');
+                $data['message'] = "subcategory added successfully";
+                $data['categories'] = $this->category_model->view_category();
+                $data['catgroup'] = $this->category_model->getcat_group();
+                $this->load->view("admin/subcategory/add_subcategory", $data);
+//                redirect('admin/add_subcategory');
             } else {
-                $data1['message'] = "error occured while adding";
-                $this->load->view("admin/subcategory/add_subcategory", $data1);
+                $data['message'] = "error occured while adding";
+                $data['categories'] = $this->category_model->view_category();
+                $data['catgroup'] = $this->category_model->getcat_group();
+                $this->load->view("admin/subcategory/add_subcategory", $data);
 //                redirect('admin/add_subcategory');
             }
         }
@@ -75,7 +79,7 @@ class Subcategories extends CI_Controller {
                 'category_id' => $_POST['scat_e'],
                 'scat_name' => $_POST['sub_edit'],
                 'category_group' => $_POST['cat_group'],
-                'status' => 1,
+//                'status' => 1,
                 'updated_by' => $_SESSION['firstname'],
                 'updated_date' => date('Y-m-d H:i:s')
             );
@@ -105,7 +109,6 @@ class Subcategories extends CI_Controller {
 
             if ($result = $this->subcategory_model->subcat_update($sedit_data))
                 redirect('admin/view_subcategory');
-            
         }
     }
 

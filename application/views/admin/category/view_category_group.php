@@ -30,13 +30,13 @@ $this->load->view('admin/common/header', true);
                 </div><!-- /.page-header -->
 
                 <div class="row">
-                      <?PHP
-                        if (isset($message)) {
-                            echo $message;
-                        }
-                        ?>
+                    <?PHP
+                    if (isset($message)) {
+                        echo $message;
+                    }
+                    ?>
                     <div class="col-xs-12">
-                      
+
                         <p align="center" id="success" class="text-success"></p>
                         <!-- PAGE CONTENT BEGINS -->
                         <table id="dataTable1" class="table table-bordered table-striped-col">
@@ -60,14 +60,14 @@ $this->load->view('admin/common/header', true);
 //                                    print_r($catGroup1);
 //                                    exit;
                                     ?>
-                                    <tr><td><?php echo $j++; ?></td>
+                                    <tr><td><?php echo $catGroup['g_id']; ?></td>
                                         <td><?php echo $catGroup['cat_name']; ?></td>
                                         <td><?php echo $catGroup['group_name']; ?></td>
-                                        <td> <img src = "<?php echo base_url()    ?>assets/images/icons/<?php echo $catGroup['image']; ?>"  alt=""  width="30px" height="30px" />  </td>
+                                        <td> <img src = "<?php echo base_url() ?>assets/images/icons/<?php echo $catGroup['image']; ?>"  alt=""  width="30px" height="30px" />  </td>
                                         <td><?php echo $catGroup['created_date']; ?> </td>
-                                        <td><a href="<?php echo base_url() ?>admin/editcategory_group?catid=<?php echo $catGroup['g_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><?php // if ($_SESSION['utype'] == 1) {       ?><a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $catGroup['g_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" ><i class="ace-icon fa fa-trash-o bigger-120"></i></a> <?php // }       ?></td>
+                                        <td><a href="<?php echo base_url() ?>admin/editcategory_group?catid=<?php echo $catGroup['g_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><?php // if ($_SESSION['utype'] == 1) {        ?><a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $catGroup['g_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" ><i class="ace-icon fa fa-trash-o bigger-120"></i></a> <?php // }        ?></td>
                                         <td><i id="<?php echo $catGroup['g_id']; ?>" onClick="change_cat_group_Status('<?php echo $catGroup['g_id']; ?>', '<?PHP echo $catGroup['status']; ?>')" class="status_checks1 btn <?php echo ($catGroup['status']) ? 'btn-success' : 'btn-danger'
-                                           ?>"><?php echo ($catGroup['status']) ? 'Active' : 'Inactive' ?>
+                                    ?>"><?php echo ($catGroup['status']) ? 'Active' : 'Inactive' ?>
                                             </i></td>  
                                         <td style="width:15%;">
                                             <input type="text" class="sortW" name="sortId" id="sortid_<?php echo $catGroup['g_id']; ?>" value="<?php echo $catGroup['sorting']; ?>">
@@ -75,7 +75,7 @@ $this->load->view('admin/common/header', true);
                                             <button type="button" onClick="sortFunction('<?php echo $catGroup['g_id']; ?>', 'sortid_<?php echo $catGroup['g_id']; ?>');" id="catsorting" value="save" name="save" class="sorting_value btn btn-success btn-quirk btn-wide mr5">Save</button>
                                         </td></tr>
 
-<?php } ?>
+                                <?php } ?>
 
                             </tbody>
                         </table>
@@ -83,8 +83,9 @@ $this->load->view('admin/common/header', true);
                 </div>
             </div>	 
         </div>
+        <?PHP echo $links; ?>
     </div><!-- /.main-content -->
-<?php $this->load->view('admin/common/footer', true); ?>
+    <?php $this->load->view('admin/common/footer', true); ?>
 </div><!-- /.main-container -->
 
 <script src="<?php echo base_url(); ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>

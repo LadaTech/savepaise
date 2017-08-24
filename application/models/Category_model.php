@@ -24,8 +24,11 @@ class Category_model extends CI_Model {
         }
     }
 
-    public function view_category() {
+    public function view_category($limit = '',$start='') {
+        $this->db->select('*');
+        $this->db->limit($limit,$start);
         $query = $this->db->get('categories');
+       
         $result = $query->result_array();
         return $result;
     }
@@ -102,7 +105,7 @@ class Category_model extends CI_Model {
         return $query;
     }
 
-    public function getCatGroups($catGroupId = '', $catId = '') {
+    public function getCatGroups($catGroupId = '', $catId = '',$limit = '',$start = '') {
         if ($catGroupId != '') {
             $this->db->where('g_id', $catGroupId);
         }
@@ -112,6 +115,7 @@ class Category_model extends CI_Model {
         $this->db->select('categories.cat_name,category_group.*');
         $this->db->from('categories');
         $this->db->join('category_group', 'category_group.cate_id = categories.cat_id');
+        $this->db->limit($limit,$start);
         $query = $this->db->get();
         //echo "<pre>";
 //        print_r($this->db);

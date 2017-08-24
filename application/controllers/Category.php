@@ -51,7 +51,7 @@ class Category extends CI_Controller {
             } else {
                 $data1['message'] = "error occured while adding"; //                    
                 $this->load->view("admin/category/add_category", $data1);
-                redirect('admin/add_category');
+//                redirect('admin/add_category');
             }
         }
     }
@@ -68,7 +68,7 @@ class Category extends CI_Controller {
         if (isset($_POST["edit_category"]) == 'submit' || !empty($_POST)) {
             $edit_data = array(
                 'cat_name' => $_POST['edit_catname'],
-                'status' => 1,
+//                'status' => 1,
                 'updated_by' => $_SESSION['firstname'],
                 'updated_date' => date('Y-m-d H:i:s')
             );
@@ -137,7 +137,7 @@ class Category extends CI_Controller {
                 'cate_id' => $_POST['catg_names'],
                 'group_name' => $_POST['c_group'],
                 'image' => $image_path,
-                'status' => 0,
+                'status' => 1,
                 'created_by' => $_SESSION['firstname'],
                 'created_date' => date('Y-m-d H:i:s')
             );
@@ -145,14 +145,16 @@ class Category extends CI_Controller {
             $result = $this->category_model->add_catgroup($catg_data);
 
             if ($result != '') {
-                $data1['message'] = "category gruop added successfully";
-                $this->load->view("admin/category/add_category_group", $data1);
+                $data['message'] = "category gruop added successfully";
+                $data['category'] = $this->category_model->view_category();
+                $this->load->view("admin/category/add_category_group", $data);
 //                redirect('admin/categorygroup_list?mes=1');
 //                redirect('admin/add_category_group');
             } else {
-                $data1['message'] = "error occured while adding"; //                    
-                $this->load->view("admin/category/add_category_group", $data1);
-//                redirect('admin/add_category_group');
+                $data['message'] = "error occured while adding";
+                $data['category'] = $this->category_model->view_category();
+                $this->load->view("admin/category/add_category_group", $data);
+//              redirect('admin/add_category_group');
             }
         }
     }
@@ -164,7 +166,7 @@ class Category extends CI_Controller {
                 'cate_id' => $_POST['catg_names'],
                 'group_name' => $_POST['c_group'],
 
-                'status' => 0,
+//                'status' => 0,
                 'updated_by' => $_SESSION['firstname'],
                 'updated_date' => date('Y-m-d H:i:s')
             );

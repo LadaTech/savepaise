@@ -46,9 +46,37 @@ class Admin extends CI_Controller {
     }
 
     public function view_user() {
+         $config['base_url'] = base_url() . 'admin/view_user';
+        $config['total_rows'] = count($this->addusers_model->view_user('',''));
+//        echo $config['total_rows'];exit;
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 3;
+        $config['num_links'] = 2;
+        $config['full_tag_open'] = '<ul class = "page-pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = ' &gt;';
+        $config['next_tag_open'] = '<li class="page-numbers next">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;';
+        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+        $config['Previous_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+        $config['cur_tag_close'] = '</span></li>';
+        $config['num_tag_open'] = '<li class = "page-numbers">';
+        $config['num_tag_close'] = '</li>';
+        $config['attributes'] = array('class' => 'page-numbers');
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $this->load->database();
-        $data['records'] = $this->addusers_model->view_user()->result();
+        $data['records'] = $this->addusers_model->view_user($config['per_page'],$page);
         $data['utype'] = $this->addusers_model->view_usertype()->result();
+         $data['links'] = $this->pagination->create_links();
 //        echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/view_user', $data);
@@ -93,46 +121,39 @@ class Admin extends CI_Controller {
     }
 
     public function view_category() {
-        //$config['base_url'] = site_url("admin/category_list/" . $this->uri->segment(3) . "/" . $this->uri->segment(4));
-        //$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-//        $config['base_url'] = site_url("admin/category_list/");
+         $config['base_url'] = base_url() . 'admin/view_category';
+        $config['total_rows'] = count($this->category_model->view_category('',''));
+//        echo $config['total_rows'];exit;
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 3;
+        $config['num_links'] = 2;
+        $config['full_tag_open'] = '<ul class = "page-pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = ' &gt;';
+        $config['next_tag_open'] = '<li class="page-numbers next">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;';
+        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+        $config['Previous_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+        $config['cur_tag_close'] = '</span></li>';
+        $config['num_tag_open'] = '<li class = "page-numbers">';
+        $config['num_tag_close'] = '</li>';
+        $config['attributes'] = array('class' => 'page-numbers');
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+//        $data['records'] = $this->coupons_model->view_coupon($config['per_page'],$page);      
+        
+
 //
-//        //$config['base_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-//        $config['per_page'] = "10";
-//        $data['per_page'] = $config['per_page'];
-//        $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-//        $data['allRecords'] = $this->Category_model->category_list1('all', $config["per_page"], $data['page'], $this->uri->segment(3));
-//
-//        $config['total_rows'] = sizeof($data['allRecords']);
-//        $data['total_rows'] = $config['total_rows'];
-//        $config["uri_segment"] = 3;
-////        $choice = $config["total_rows"] / $config["per_page"];
-//        $choice = 10;
-//        $config["num_links"] = floor($choice);
-//
-//        // integrate bootstrap pagination
-//        $config['full_tag_open'] = '<ul class="pagination">';
-//        $config['full_tag_close'] = '</ul>';
-//        $config['first_link'] = false;
-//        $config['last_link'] = false;
-//        $config['first_tag_open'] = '<li>';
-//        $config['first_tag_close'] = '</li>';
-//        $config['prev_link'] = '«';
-//        $config['prev_tag_open'] = '<li class="prev">';
-//        $config['prev_tag_close'] = '</li>';
-//        $config['next_link'] = '»';
-//        $config['next_tag_open'] = '<li>';
-//        $config['next_tag_close'] = '</li>';
-//        $config['last_tag_open'] = '<li>';
-//        $config['last_tag_close'] = '</li>';
-//        $config['cur_tag_open'] = '<li class="active"><a href="#">';
-//        $config['cur_tag_close'] = '</a></li>';
-//        $config['num_tag_open'] = '<li>';
-//        $config['num_tag_close'] = '</li>';
-//        $this->pagination->initialize($config);
-//        $data['pagination'] = $this->pagination->create_links();
-//
-        $data['cat_list'] = $this->category_model->view_category();
+        $data['cat_list'] = $this->category_model->view_category($config['per_page'],$page);
+        $data['links'] = $this->pagination->create_links();
 //        echo "<pre>";
 //         print_r($data);exit;
 //        $data['group'] = $this->Category_model->cat_group();
@@ -150,60 +171,48 @@ class Admin extends CI_Controller {
         $data['category'] = $this->category_model->view_category();
 //        echo "<pre>";
 //        print_r($data);exit;
-        $this->load->view('admin/category/add_category_group', $data);
+        $this->load->view('admin/category/add_category_group',$data);
 //        $this->load->view('admin/footer');
     }
 
     public function view_category_group() {
-        //$config['base_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-//        $config['base_url'] = site_url("admin/categorygroup_list");
-//        $config['per_page'] = "10";
-//        $data['per_page'] = $config['per_page'];
-//        $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-//        $data['allRecords'] = $this->Category_model->getcat_group1('all', $config["per_page"], $data['page'], $this->uri->segment(3));
-//
-//        $config['total_rows'] = sizeof($data['allRecords']);
-//        $data['total_rows'] = $config['total_rows'];
-//        $config["uri_segment"] = 3;
-////        $choice = $config["total_rows"] / $config["per_page"];
-//        $choice = 10;
-//
-//        $config["num_links"] = floor($choice);
-//
-//        // integrate bootstrap pagination
-//        $config['full_tag_open'] = '<ul class="pagination">';
-//        $config['full_tag_close'] = '</ul>';
-//        $config['first_link'] = false;
-//        $config['last_link'] = false;
-//        $config['first_tag_open'] = '<li>';
-//        $config['first_tag_close'] = '</li>';
-//        $config['prev_link'] = '«';
-//        $config['prev_tag_open'] = '<li class="prev">';
-//        $config['prev_tag_close'] = '</li>';
-//        $config['next_link'] = '»';
-//        $config['next_tag_open'] = '<li>';
-//        $config['next_tag_close'] = '</li>';
-//        $config['last_tag_open'] = '<li>';
-//        $config['last_tag_close'] = '</li>';
-//        $config['cur_tag_open'] = '<li class="active"><a href="#">';
-//        $config['cur_tag_close'] = '</a></li>';
-//        $config['num_tag_open'] = '<li>';
-//        $config['num_tag_close'] = '</li>';
-//        $this->pagination->initialize($config);
-//        $data['pagination'] = $this->pagination->create_links();
-//
-        $data['list'] = $this->category_model->getcat_group1('', $this->uri->segment(3));
+        $config['base_url'] = base_url() . 'admin/view_category_group';
+        $config['total_rows'] = count($this->category_model->getCatGroups('','','',''));
+//        echo $config['total_rows'];exit;
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 3;
+        $config['num_links'] = 2;
+        $config['full_tag_open'] = '<ul class = "page-pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = ' &gt;';
+        $config['next_tag_open'] = '<li class="page-numbers next">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;';
+        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+        $config['Previous_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+        $config['cur_tag_close'] = '</span></li>';
+        $config['num_tag_open'] = '<li class = "page-numbers">';
+        $config['num_tag_close'] = '</li>';
+        $config['attributes'] = array('class' => 'page-numbers');
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+//        $data['list'] = $this->category_model->getcat_group1('', $this->uri->segment(3));
 
-        $data['category'] = $this->category_model->view_category();
-        $data['catgroup'] = $this->category_model->getCatGroups();
-//        echo "<pre>";
-//        print_r($data);exit;
+//        $data['category'] = $this->category_model->view_category();
+        $data['catgroup'] = $this->category_model->getCatGroups('','',$config['per_page'],$page);
+        $data['links'] = $this->pagination->create_links();
         $this->load->view('admin/category/view_category_group', $data);
     }
 
     public function add_subcategory() {
         $data['categories'] = $this->category_model->view_category();
-
         $data['catgroup'] = $this->category_model->getcat_group();
 //        $data['brandNames'] = $this->brand_model->brandslist();
 //         echo "<pre>";
@@ -279,47 +288,42 @@ class Admin extends CI_Controller {
     //End of the Function 
     //To display the Brands_list for the Admin Panel
     public function brandslist() {
-        //$config['base_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-//        $config['base_url'] = site_url("admin/brandslist");
-//        $config['per_page'] = "10";
-//        $data['per_page'] = $config['per_page'];
-//        $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-//        $totalRecords = $this->Brand_model->getCount();
-//
-//        $config['total_rows'] = $totalRecords[0]['countbrands'];
-//        $data['total_rows'] = $config['total_rows'];
-//        $config["uri_segment"] = 3;
-////        $choice = $config["total_rows"] / $config["per_page"];
-//        $choice = 10;
-//
-//        $config["num_links"] = floor($choice);
-//
-//        // integrate bootstrap pagination
-//        $config['full_tag_open'] = '<ul class="pagination">';
-//        $config['full_tag_close'] = '</ul>';
-//        $config['first_link'] = false;
-//        $config['last_link'] = false;
-//        $config['first_tag_open'] = '<li>';
-//        $config['first_tag_close'] = '</li>';
-//        $config['prev_link'] = '«';
-//        $config['prev_tag_open'] = '<li class="prev">';
-//        $config['prev_tag_close'] = '</li>';
-//        $config['next_link'] = '»';
-//        $config['next_tag_open'] = '<li>';
-//        $config['next_tag_close'] = '</li>';
-//        $config['last_tag_open'] = '<li>';
-//        $config['last_tag_close'] = '</li>';
-//        $config['cur_tag_open'] = '<li class="active"><a href="#">';
-//        $config['cur_tag_close'] = '</a></li>';
-//        $config['num_tag_open'] = '<li>';
-//        $config['num_tag_close'] = '</li>';
-//        $this->pagination->initialize($config);
-//        $data['pagination'] = $this->pagination->create_links();
-
-        $data['list'] = $this->brand_model->brandslist1('', $this->uri->segment(3));
+        $config['base_url'] = base_url() . 'admin/brandslist';
+        $config['total_rows'] = count($this->brand_model->brandslist1('','',''));
+//        echo $config['total_rows'];exit;
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 3;
+        $config['num_links'] = 2;
+        $config['full_tag_open'] = '<ul class = "page-pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = ' &gt;';
+        $config['next_tag_open'] = '<li class="page-numbers next">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;';
+        $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+        $config['Previous_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+        $config['cur_tag_close'] = '</span></li>';
+        $config['num_tag_open'] = '<li class = "page-numbers">';
+        $config['num_tag_close'] = '</li>';
+//        $config['display_pages'] = FALSE;
+        $config['attributes'] = array('class' => 'page-numbers');
+        $this->pagination->initialize($config);
+//         echo  $this->uri->segment(2);exit;
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+//        echo $page."   ".$config['per_page'];exit;
+//        $data['records'] = $this->store_model->view_store('',$config['per_page'],$page);
+        $data['list'] = $this->brand_model->brandslist1('',$config['per_page'],$page );
+        $data['links'] = $this->pagination->create_links();
 
         //$data['list'] = $this->Brand_model->brandslist();
-        $data['group'] = $this->category_model->cat_group();
+//        $data['group'] = $this->category_model->cat_group();
 //        echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/brands/listbrand', $data);
@@ -337,7 +341,6 @@ class Admin extends CI_Controller {
     public function view_store() {
       $config['base_url'] = base_url() . 'admin/view_store';
         $config['total_rows'] = count($this->store_model->get_stores_rows());
-//       echo $config['total_rows'];exit;
 //        echo $config['total_rows'];exit;
         $config['per_page'] = 10;
         $config['uri_segment'] = 3;
@@ -387,7 +390,8 @@ class Admin extends CI_Controller {
 
     public function view_coupon() {
         $config['base_url'] = base_url() . 'admin/view_coupon';
-        $config['total_rows'] = count($this->coupons_model->get_coupons('',''));
+        $config['total_rows'] = count($this->coupons_model->view_coupon('',''));
+//        echo $config['total_rows'];exit;
         $config['per_page'] = 10;
         $config['uri_segment'] = 3;
         $config['num_links'] = 2;
@@ -437,7 +441,7 @@ class Admin extends CI_Controller {
 
     public function add_coupon() {
          $data['store_data'] = $this->store_model->view_store();
-        $data['subcategory_data'] = $this->subcategory_model->view_subcat()->result();
+         $data['subcategory_data'] = $this->subcategory_model->view_subcat()->result();
 //        echo "<pre>";
 //        print_r($data);exit;
         $this->load->view('admin/coupons/add_coupon',$data);
@@ -450,6 +454,7 @@ class Admin extends CI_Controller {
     public function view_banner(){     
         $config['base_url'] = base_url() . 'admin/view_banner';
         $config['total_rows'] = count( $this->banner_model->view_banner('','',''));
+//        echo $config['total_rows'];exit;
         $config['per_page'] = 10;
         $config['uri_segment'] = 3;
         $config['num_links'] = 2;

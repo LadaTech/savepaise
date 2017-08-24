@@ -73,11 +73,16 @@ class Brand_model extends CI_Model {
 //            $this->db->limit($perPage, $page);
 //        }
 //        $this->db->where('status', 1);
+        $this->db->select('*');
         $this->db->order_by("brand_name", "asc");
         $this->db->limit($limit,$start);
         $query = $this->db->get('brands');        
         $result = $query->result_array();
         return $result;
+//        $this->db->select('*');
+//        $query = $this->db->get('brands')->result();
+//        return $query;
+//        
     }
 
     // To dalete the  category of Admin Panel 
