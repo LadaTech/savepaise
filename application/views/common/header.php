@@ -125,7 +125,7 @@
                                 }
                                 ?>
                                 <a href="<?PHP echo base_url()?>" class="logo">
-                                    <img src="/assets/images/logo.png" alt="" width="250">
+                                    <img src="/assets/images/logo.png" alt="" width="250" />
                                 </a>
                             </div>
                             <div class="header-search col-md-9">

@@ -8,7 +8,7 @@
                 <h3 class="mb-40 t-uppercase">View deals by stores</h3>                
                 <div class="letters-toolbar p-10 panel mb-40">
                     <span class="all-stores"><a href="#">All stores</a></span>
-                    <span><a href="<?PHP echo base_url() ?>index/stores" onclick="char_value(<?PHP echo 'A' ?>)">A</a></span>
+                    <span><a href="" id="A" name="A" onclick="clickLink()">A</a></span>
                     <span><a href="<?PHP echo base_url() ?>index/stores/<?PHP echo 'B'; ?>"">B</a></span>
                     <span><a href="<?PHP echo base_url() ?>index/stores/<?PHP echo 'C'; ?>">C</a></span>
                     <span><a href="<?PHP echo base_url() ?>index/stores/<?PHP echo 'D'; ?>">D</a></span>
@@ -49,7 +49,7 @@
                                         <img src="<?PHP echo $store_details->store_image; ?>" alt="">
                                         <div class="mask">
                                             <h6><?PHP echo $store_details->store_name; ?></h6> 												 
-                                            <a href="<?PHP echo $store_details->store_link; ?>" target="_blank" class="info">73 Offers</a>
+                                            <a href="<?PHP echo $store_details->store_link; ?>" target="_blank" class="info"><?PHP echo $store_details->offers . "  " ?> offers </a>
                                         </div>
                                     </div>
                                 </div>
@@ -89,20 +89,22 @@
 
         });
 </script>-->-->
-
-<script type ="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
-                        function char_value(val) {
-                            var id = val;
-//                            alert(id);
+<script src="<?php echo base_url(); ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap -->
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+<script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
+<script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.js"></script>
+<script type ="text/javascript" >
+                        function clickLink() {
+                            var id = $("#A").html();
+                            alert(id);
                             $.ajax({
-                                type: "post",
-                                url: "<?php echo base_url().'index/stores'; ?>",
-                                data: {id: id},
-                                cache: false,
-                                async: false,
-                                success: function (result) {
-                                    console.log(result);
-                                }
+                                type: "POST",
+                                url: '<?php echo base_url() . "index/stores" ?>',
+                                data: {
+                                    id: id                                    
+                                }                              
                             });
                         }
+
 </script>

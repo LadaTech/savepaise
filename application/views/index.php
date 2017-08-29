@@ -195,7 +195,7 @@ include_once('common/header.php');
                                         <img src="<?PHP echo $popularStore->store_image; ?>" alt="<?PHP echo $popularStore->store_name; ?>" />
                                         <div class="mask">
                                             <h6><?PHP echo $popularStore->store_name ?></h6> 												 
-                                            <a href="<?PHP echo $popularStore->store_link; ?>" target="_blank" class="info">73 Offers</a>
+                                            <a href="<?PHP echo $popularStore->store_link; ?>" target="_blank" class="info"><?PHP echo $popularStore->offers ."   "?> Offers</a>
                                         </div>
                                     </div>
                                 </div>

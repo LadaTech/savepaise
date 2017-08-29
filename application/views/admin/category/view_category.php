@@ -98,6 +98,7 @@ $this->load->view('admin/common/header', true);
 
                                                 function sortFunction(catId, sortItemId) {
                                                     var id = $('#' + sortItemId).val();
+//                                                    alert(id);
                                                     var successMessage = 'Sorting value ' + id + ' Updated succesfully';
                                                     $.ajax({
                                                       

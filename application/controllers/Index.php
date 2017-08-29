@@ -72,15 +72,15 @@ class Index extends CI_Controller {
                 $this->email->subject('Email Test');
                 $this->email->message('Testing the email class');
                 $config = Array(
-                'protocol' => 'smtp',
-                'smtp_host' => 'ssl://smtp.googlemail.com',
-                'smtp_port' => 465,
-                'smtp_user' => 'ladatechnology@gmail.com',
-                'smtp_pass' => 'ladatechnology121',
-                'mailtype' => 'html',
-                'charset' => 'iso-8859-1',
-                'wordwrap' => TRUE
-            );                
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'ssl://smtp.googlemail.com',
+                    'smtp_port' => 465,
+                    'smtp_user' => 'ladatechnology@gmail.com',
+                    'smtp_pass' => 'ladatechnology121',
+                    'mailtype' => 'html',
+                    'charset' => 'iso-8859-1',
+                    'wordwrap' => TRUE
+                );
                 if ($this->email->send()) {
                     $udata = array(
                         'firstname' => $_POST['firstname'],
@@ -309,8 +309,8 @@ class Index extends CI_Controller {
 //        } else {
 //            $a = $this->input->post('id');
 //            exit;
-
-        $data['all_stores'] = $this->store_model->view_store();
+        $char_value = isset($_POST['id']);
+        $data['all_stores'] = $this->store_model->view_store('','','','',$char_value);
 //            echo "<pre>";
 //            print_r($data['all_stores']);exit;
         $this->load->view('stores', $data);
@@ -318,15 +318,55 @@ class Index extends CI_Controller {
     }
 
     public function store() {
+//        $type = $_POST['type'];
+//        echo $type;
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
         $q = $this->uri->segment(3);
-//        $link_value = $_GET['link'];
-//        echo $q.'  ' .$link_value;exit;
-//        $storeName = $this->input->post('storeName');
+//        echo $q;exit;
+        if ((isset($_POST['type']) && ($_POST['type'] == 'Coupon')) || (isset($_POST['type']) && ($_POST['type'] == 'Promotion'))) {
+//            echo "hi";exit;
+//            $config['base_url'] = base_url() . 'index/store/' . $q;
+//            $config['total_rows'] = $this->store_model->view_store1($q, $type, '', '');
+//            $config['total_rows'] = count($this->store_model->view_store($q));
+////        echo $config['total_rows'];exit;
+//            $config['per_page'] = 10;
+//            $config['uri_segment'] = 4;
+//            $config['num_links'] = 2;
+//            $config['full_tag_open'] = '<ul class = "page-pagination">';
+//            $config['full_tag_close'] = '</ul>';
+//            $config['first_link'] = 'First';
+//            $config['first_tag_open'] = '<li>';
+//            $config['first_tag_close'] = '</li>';
+//            $config['last_link'] = 'Last';
+//            $config['last_tag_open'] = '<li>';
+//            $config['last_tag_close'] = '</li>';
+//            $config['next_link'] = ' &gt;';
+//            $config['next_tag_open'] = '<li class="page-numbers next">';
+//            $config['next_tag_close'] = '</li>';
+//            $config['prev_link'] = '&lt;';
+//            $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
+//            $config['Previous_tag_close'] = '</li>';
+//            $config['cur_tag_open'] = '<li><span class="page-numbers current">';
+//            $config['cur_tag_close'] = '</span></li>';
+//            $config['num_tag_open'] = '<li class = "page-numbers">';
+//            $config['num_tag_close'] = '</li>';
+////        $config['display_pages'] = FALSE;
+//            $config['attributes'] = array('class' => 'page-numbers');
+//            $this->pagination->initialize($config);
+////        echo $q;exit;
+//            $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+////        $page = $config['per_page'];
+            $data['specific_item_deals'] = $this->store_model->view_store1($q, $_POST['type'] );
+//            echo "<pre>";
+//            print_r($data['specific_item_deals']);exit;
 
-        if (isset($q)) {
-            $config['base_url'] = base_url() . 'index/stores/' . $q;
+//            $data['links'] = $this->pagination->create_links();
+            $this->load->view('store-deals', $data);
+        } else {
+//        if (isset($q)) {
+            $config['base_url'] = base_url() . 'index/store/' . $q;
+//            echo "else block";exit;
             $config['total_rows'] = $this->store_model->get_specific_store_rows($q);
 //        $config['total_rows'] = count($this->store_model->view_store($q));
 //        echo $config['total_rows'];exit;
@@ -363,13 +403,6 @@ class Index extends CI_Controller {
 
             $data['links'] = $this->pagination->create_links();
             $this->load->view('store-deals', $data);
-//        } else {
-//            $a = $this->input->post('id');
-////            exit;
-//            $data['all_stores'] = $this->store_model->view_store($q);
-////            echo "<pre>";
-////            print_r($data['all_stores']);exit;
-//            $this->load->view('stores', $data);
         }
     }
 
@@ -417,31 +450,6 @@ class Index extends CI_Controller {
         }
     }
 
-    function ajaxPaginationData() {
-//        $page = $this->input->post('page');
-//        if(!$page){
-//            $offset = 0;
-//        }else{
-//            $offset = $page;
-//        }
-//        
-//        //total rows count
-//        $totalRec = count($this->post->getRows());
-//        
-//        //pagination configuration
-//        $config['target']      = '#postList';
-//        $config['base_url']    = base_url().'posts/ajaxPaginationData';
-//        $config['total_rows']  = $totalRec;
-//        $config['per_page']    = $this->perPage;
-//        $this->ajax_pagination->initialize($config);
-//        
-//        //get the posts data
-//        $data['posts'] = $this->post->getRows(array('start'=>$offset,'limit'=>$this->perPage));
-//        
-//        //load the view
-//        $this->load->view('posts/ajax-pagination-data', $data, false);
-    }
-
     public function get_categories() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
@@ -473,6 +481,20 @@ class Index extends CI_Controller {
                 }
             }
         }
+    }
+
+    public function store_deals_coupons() {
+        $type = $_POST['type'];
+        $store_name = $_POST['store_name'];
+//        echo $type;
+//        echo $store_name;
+        $data['specific_item_deals'] = $this->store_model->view_store1($store_name, $type);
+        echo "<pre>";
+        print_r($data);
+        exit;
+//        echo $type;
+//        echo $store_name;
+//        exit;
     }
 
 }

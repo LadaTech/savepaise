@@ -402,6 +402,7 @@
                                                     <div class="showcode">
                                                         <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#<?PHP echo $coupon_details->id; ?>">Get Coupon Code</button>
                                                         <div class="coupon-hide"><?PHP echo $coupon_details->code; ?></div>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -427,8 +428,11 @@
                                                         </div>
 
                                                         <div class="col-md-10 col-md-offset-1">
-                                                            <h6 class="color-mid t-uppercase">Click below to get your coupon code</h6>
-                                                            <a href="<?PHP echo $coupon_details->link; ?>" target="_blank" class="coupon-code"><?PHP echo $coupon_details->code; ?></a>
+<!--                                                            <h6 class="color-mid t-uppercase">Click below to get your coupon code</h6>
+                                                            <a href="<?PHP echo $coupon_details->link; ?>" target="_blank" class="coupon-code"><?PHP echo $coupon_details->code; ?></a>-->
+                                                             <h6 class="color-mid t-uppercase"><?PHP echo $coupon_details->description ?></h6>
+                                                                <input type="text" id="copy_<?PHP echo $coupon_details->id ?>" class="coupon-code" value="<?PHP echo $coupon_details->code; ?>">
+                                                            <button  onclick="copyToClipboard(event,<?PHP echo $coupon_details->id ?>);return false">copy</button>
                                                         </div>
                                                         <div class="col-md-10 col-md-offset-1">
                                                             <div class="like-report mb-10">
