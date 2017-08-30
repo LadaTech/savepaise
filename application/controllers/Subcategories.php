@@ -83,7 +83,7 @@ class Subcategories extends CI_Controller {
                 'updated_by' => $_SESSION['firstname'],
                 'updated_date' => date('Y-m-d H:i:s')
             );
-            if ($_FILES["image_c"]["name"] != '') {
+            if (!empty($_FILES) && $_FILES["image_c"]["name"] != '') {
                 $allowed_ext = array("jpeg", "jpg", "gif", "png", "zip");
                 $tmp_ext = explode(".", $_FILES["image_c"]["name"]); //for dividing purpose
                 $ext = strtolower(end($tmp_ext)); //for converting capital to small

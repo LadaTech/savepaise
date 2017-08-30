@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </div>
- 
+
         </div>
     </div>
 </section>
@@ -298,6 +298,85 @@
         </div>
     </div>
 </div>
+
+<!--for change password-->
+
+<div class="modal fade get-coupon-area" tabindex="-1" role="dialog"  style="display: none;" id="changepassword">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content panel">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <section class="sign-area panel">
+                    <h3 class="sign-title">CHANGE PASSWORD</h3>
+                    <div class="row row-rl-0">
+                        <div class="col-sm-6 col-md-7 col-left">
+                            <form class="p-40"  id="change_password" name="change_password" action="<?PHP echo base_url() ?>index/change_password" method="post">
+                                <div class="form-group">
+                                    <label class="sr-only">Old Password</label>
+                                    <input type="password" id="old_password" name="old_password" class="form-control input-lg" placeholder="Old Password">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">New PAssword</label>
+                                    <input type="password" id="new_password" name="new_password" class="form-control input-lg" placeholder="New Password">
+                                </div>                             
+
+                                <button type="submit"  id="change_password" name="change_password" class="btn btn-block btn-lg">SUBMIT</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade get-coupon-area" tabindex="-1" role="dialog"  style="display: none;" id="edit_profile">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content panel">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <section class="sign-area panel">
+                    <h3 class="sign-title">EDIT PROFILE</h3>
+                    <div class="row row-rl-0">
+                        <div class="col-sm-6 col-md-7 col-left">
+                            <form class="p-40"  id="change_password" name="change_password" action="<?PHP echo base_url() ?>index/edit_profile" method="post">
+                                <div class="form-group">
+                                    <label class="sr-only">Firstname</label>
+                                    <input type="text" id="firstname" name="firstname" class="form-control input-lg" value="<?PHP echo $_SESSION['firstname'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Lastname</label>
+                                    <input type="text" id="lastname" name="lastname" class="form-control input-lg" value="<?PHP echo $_SESSION['lastname'] ?>">
+                                </div> 
+                                <div class="form-group">
+                                    <label class="sr-only">Email</label>
+                                    <input type="email" id="email" name="email" class="form-control input-lg" value="<?PHP echo $_SESSION['email'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Phone Number</label>
+                                    <input type="number" id="pnumber" name="pnumber" class="form-control input-lg" value="<?PHP echo $_SESSION['pnumber'] ?>">
+                                </div>                             
+
+                                <button type="submit"  id="edit_profile" name="edit_profile" class="btn btn-block btn-lg">SUBMIT</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <!-- header signin and signup ends -------->
 
 <!-- ––––––––––––––––––––––––––––––––––––––––– -->
@@ -407,9 +486,7 @@
                 form.submit();
             }
         });
-
     });
-
     $(document).ready(function () {
         //        custom validation method for email
         $.validator.addMethod('customemail', function (value, element) {
@@ -449,7 +526,6 @@
             }
         });
     });
-
     $(document).ready(function () {
         //        custom validation method for email
         $.validator.addMethod('customemail', function (value, element) {
@@ -475,7 +551,6 @@
             }
         });
     });
-
     $(document).ready(function () {
         //        custom validation method for email
         $.validator.addMethod('customemail', function (value, element) {
@@ -501,6 +576,79 @@
             }
         });
     });
+    $(document).ready(function () {
+        $.validator.addMethod('custompass', function (value, element) {
+            var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+            return re.test(value);
+        },
+                'Sorry, I`ve enabled very strict password validation'
+                );
+        $('#change_password').validate({
+            rules: {
+                old_password: "required",
+                new_password: {
+                    required: true,
+                    custompass: true
+                }
+            },
+            messages: {
+                old_password: "please Enter Old Password",
+                new_password: {
+                    required: "Please Provide Password",
+                    custompass: "your password should least one number, one lowercase,one uppercase letter and minimum 6 letters"
+                }
+            }
+        });
+    });
+
+    $(document).ready(function () {
+//        custom validation method for usertype
+        $.validator.addMethod("valueNotEquals", function (value, element, arg) {
+            return arg !== value;
+        }, "Value must not equal arg.");
+//        custom validation method for email
+        $.validator.addMethod('customemail', function (value, element) {
+            var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            return re.test(value);
+        },
+                'Sorry, I`ve enabled very strict email validation'
+                );
+
+        $("#edit_profile").validate({
+            rules: {
+                firstname: "required",
+                lastname: "required",
+                email: {
+                    required: true,
+                    email: true,
+                    customemail: true
+                },               
+                pnumber: {
+                    required: true,
+                    number: true,
+                    maxlength: 10,
+                    minlength: 10
+                }
+            },
+            messages: {
+                firstname: "Please Enter First Name",
+                lastname: "Please Enter Last Name",
+                email: {
+                    required: "Please Enter Your Email",
+                    email: "Enter Correct Email Id ",
+                    customemail: "Enter Valid Email"
+                },               
+                pnumber: {
+                    required: "please enter mobile number",
+                    maxlength: "Please enter valid Phone number",
+                    minlength: "Please enter valid Phone number"
+                }
+            },
+            submitHandler: function (form) {
+                form.submit();
+            }
+        });
+    });
 
 //    $("#copy_code").click(function(){
 //  var holdtext = $("#copy_text").innerText;
@@ -508,15 +656,8 @@
 //  Copied.execCommand("Copy");
 //});
 </script>
-
 <script type="text/javascript">
-//  $("#copy_code").click(function(){
-//  var holdtext = $("#copy_text").innerText;
-//  alert(holdtext);
-//  alert("hi");
-//  Copied = holdtext.createTextRange();
-//  Copied.execCommand("Copy");
-//});
+
 
     function copyToClipboard(e, element) {
         var field = document.getElementById('copy_' + element);

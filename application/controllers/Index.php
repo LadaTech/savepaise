@@ -112,6 +112,51 @@ class Index extends CI_Controller {
         }
     }
 
+    public function edit_profile() {
+        if (isset($_POST["edit_profile"]) == 'submit' || !empty($_POST)) {
+            $uid = $_SESSION['id']; 
+            $usereditdata = array(
+//                'id' => $_SESSION['id'],
+                'firstname' => trim($_POST['firstname']),
+                'lastname' => trim($_POST['lastname']),
+                'email' => trim($_POST['email']),
+                'pnumber' => $_POST['pnumber'],
+                'usertype' => $_SESSION['usertype'],
+                'updated_date' => date('Y-m-d H:i:s')
+            );
+            if ($result = $this->login_model->edit_profile($uid,$usereditdata)) {
+                $this->session->set_flashdata('msg', '<font color=green>Profile Updated Successfully</font><br />');                
+                redirect(base_url());
+            } else {
+                $this->session->set_flashdata('msg', '<font color=red>Profile Updated Fail </font><br />');
+                redirect(base_url());
+            }
+//            $uid = $_GET['id'];            
+//            $data['utdata'] = $this->login_model->edit_profile($uid);
+////         echo "<pre>";
+////        print_r($data);exit;
+//            $this->load->view('admin/usertype/edit_usertype', $data);
+        }
+    }
+
+    public function change_password() {
+        if (isset($_POST['change_password'])) {
+            $old_password = base64_encode($_POST['old_password']);
+            $new_password = base64_encode($_POST['new_password']);
+//            echo "<pre>";
+//            echo $old_password." ".$new_password;
+//            print_r($_SESSION);exit;
+            $result = $this->login_model->change_password($old_password, $new_password);
+            if ($result == TRUE) {
+                $this->session->set_flashdata('msg', '<font color=green>password updated successfully</font><br />');
+                redirect(base_url());
+            } else {
+                $this->session->set_flashdata('msg', '<font color=red>error while updating password </font><br />');
+                redirect(base_url());
+            }
+        }
+    }
+
     public function home() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
@@ -310,7 +355,8 @@ class Index extends CI_Controller {
 //            $a = $this->input->post('id');
 //            exit;
         $char_value = isset($_POST['id']);
-        $data['all_stores'] = $this->store_model->view_store('','','','',$char_value);
+//        echo $char_value;exit;
+        $data['all_stores'] = $this->store_model->view_store('', '', '', '', $char_value);
 //            echo "<pre>";
 //            print_r($data['all_stores']);exit;
         $this->load->view('stores', $data);
@@ -357,10 +403,9 @@ class Index extends CI_Controller {
 ////        echo $q;exit;
 //            $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
 ////        $page = $config['per_page'];
-            $data['specific_item_deals'] = $this->store_model->view_store1($q, $_POST['type'] );
+            $data['specific_item_deals'] = $this->store_model->view_store1($q, $_POST['type']);
 //            echo "<pre>";
 //            print_r($data['specific_item_deals']);exit;
-
 //            $data['links'] = $this->pagination->create_links();
             $this->load->view('store-deals', $data);
         } else {

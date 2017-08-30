@@ -17,7 +17,6 @@ class Login_model extends CI_Model {
     public function validate() {
         //  print_r(base64_decode($_POST['upassword']));exit;
         // grab user input
-        
         // Prep the query
         $this->db->where('email', $username);
         $this->db->where('password', $pwd);
@@ -61,14 +60,14 @@ class Login_model extends CI_Model {
         }
     }
 
-    public function sign_in() {         
+    public function sign_in() {
         $username = $this->security->xss_clean($this->input->post('email'));
         $password = $this->security->xss_clean($this->input->post('password'));
-        $pwd = base64_encode($password);        
+        $pwd = base64_encode($password);
         $this->db->where('email', $username);
         $this->db->where('password', $pwd);
-        $query = $this->db->get('adduser');        
-        $row = $query->row(); 
+        $query = $this->db->get('adduser');
+        $row = $query->row();
 //        print_r($row);exit;
         if (count($row) > 0) {
             $data = array(
@@ -80,7 +79,7 @@ class Login_model extends CI_Model {
                 'pnumber' => $row->pnumber,
                 'usertype' => $row->usertype
             );
-           
+
             $this->session->set_userdata($data);
             return $row;
         }
@@ -90,15 +89,40 @@ class Login_model extends CI_Model {
             return FALSE;
         }
     }
-    
-    public function email_check(){
-        $email = $this->security->xss_clean($this->input->post('email'));
-        $this->db->where('email',$email);
-        $query = $this->db->get('adduser')->row();
-        if(count($query)>0){
-            return TRUE;;
+
+    public function edit_profile($id,$usereditdata) { 
+     
+        $this->db->where('id', $id);
+        $query = $this->db->update("adduser", $usereditdata);
+        if ($query) {
+            return TRUE;
+        } else {
+            return FALSE;
         }
-        else{
+    }
+
+    public function change_password($old_password, $new_password) {
+//         echo "<pre>";
+//            echo $old_password." ".$new_password;
+//            print_r($_SESSION);exit;
+        $this->db->set('password', $new_password);
+        $this->db->where('password', $old_password);
+        $query = $this->db->update('adduser');
+        if ($query) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function email_check() {
+        $email = $this->security->xss_clean($this->input->post('email'));
+        $this->db->where('email', $email);
+        $query = $this->db->get('adduser')->row();
+        if (count($query) > 0) {
+            return TRUE;
+            ;
+        } else {
             return FALSE;
         }
     }
