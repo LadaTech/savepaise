@@ -68,7 +68,7 @@ class stores extends CI_Controller {
                 'updated_by' => $_SESSION['firstname'],
                 'updated_date' => date('Y-m-d H:i:s')
             );
-            if ($_FILES["store_image"]["name"] != ''){
+            if (!empty($_FILES) && $_FILES["store_image"]["name"] != ''){
                 $allowed_ext = array("jpeg", "jpg", "gif", "png");
                 $tmp_ext = explode(".", $_FILES["store_image"]["name"]); //for dividing purpose
                 $ext = strtolower(end($tmp_ext)); //for converting capital to small
@@ -95,6 +95,7 @@ class stores extends CI_Controller {
             
             $result = $this->store_model->update_store($store_data,$id);
             redirect('admin/view_store');
+            exit;
             
         }
     }
@@ -128,4 +129,3 @@ class stores extends CI_Controller {
 
 }
 ?>
-
