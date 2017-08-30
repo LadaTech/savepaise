@@ -44,9 +44,9 @@
                                             </div>
                                             <div class="visit-site">
                                                 <?PHP if (isset($deals_detail)) { ?>
-                                                    <a href="<?PHP echo $deals_detail->store_url; ?>" target="_blank">go to store</a>
+                                                    <a href="<?PHP echo $deals_detail->store_link; ?>" target="_blank">go to store</a>
                                                 <?PHP } else { ?>
-                                                    <a href="" target="_blank">go to store</a>
+                                                    <a href="" >go to store</a>
                                                 <?PHP } ?>
                                             </div>
                                         </div>

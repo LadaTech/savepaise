@@ -109,40 +109,7 @@ $this->load->view('admin/common/header', true);
 <script src="<?PHP // echo base_url()?>assets/js/main.min.js"></script>-->
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript">
-//                                                    function changeStatus(id, status) {
-////                                                        alert(id);
-////                                                        alert(status);
-//                                                        var msg = (status == '0') ? '1' : '0';
-//                                                        if (status == 0) {
-//                                                            status = 'InActive';
-//                                                        } else {
-//                                                            status = 'Active';
-//                                                        }
-//                                                        if (confirm("Are you sure to" + status)) {
-//                                                            $.ajax({
-//                                                                type: "post",
-//                                                                url: '<?PHP // echo base_url() . "coupons/changeStatus" ?>',
-//                                                                data: {
-//                                                                    id: id,
-//                                                                    status: msg,
-//                                                                },
-//                                                                success: function (data) {
-//                                                                    $(this).hasClass("btn-success");
-//                                                                    if (status == 'InActive') {
-//                                                                        status = 'Active';
-//                                                                        $('#' + id).addClass("btn-success");
-//                                                                        $('#' + id).removeClass("btn-danger");
-//                                                                    }
-//                                                                    else {
-//                                                                        status = "InActive";
-//                                                                        $('#' + id).addclass("btn-danger");
-//                                                                        ('#' + id).removeClass("btn-success");
-//                                                                    }
-//                                                                    $('#' + id).text(status);
-//                                                                }
-//                                                            });
-//                                                        }
-//                                                    }
+//                                                   
                                                     function changeStatus(id, status) {
 //                                                        alert(id);
 //                                                        alert(status);
@@ -151,9 +118,9 @@ $this->load->view('admin/common/header', true);
                                                         //                                                                        alert(status);
                                                         var msg = (status == '0') ? '1' : '0';
                                                         if (status == '0') {
-                                                            status = 'Active';
-                                                        } else {
                                                             status = 'Inactive';
+                                                        } else {
+                                                            status = 'Active';
                                                         }
                                                         if (confirm("Are you sure to " + status)) {
 //                                                                                                                                                var id = $(this).attr('id');
@@ -164,7 +131,7 @@ $this->load->view('admin/common/header', true);
                                                                 url: '<?php echo base_url() . "coupons/changeStatus" ?>',
                                                                 data: {
                                                                     id: id,
-                                                                    status: msg,
+                                                                    status: msg
                                                                 },
                                                                 success: function (data)
                                                                 {
@@ -185,25 +152,7 @@ $this->load->view('admin/common/header', true);
                                                             });
                                                         }
 
-                                                    }
-
-//                                                    function sortFunction(coupons_id, sortitem_id) {
-//                                                        var id = $('#' + sortitem_id).val();
-//                                                        alert(id);
-//                                                        var successMessage = 'sorting' + id + 'Updated successfully';
-//                                                        $.ajax({
-//                                                            type: "post",
-//                                                            url: '<?PHP // echo base_url() . "coupons/coupon_sorting"  ?>',
-//                                                            data: {
-//                                                                txtboxvalue: id,
-//                                                                sortvalue: coupons_id,
-//                                                            },
-//                                                                    success:function(data){
-//                                                                        $('#success').html(successMessage);
-//                                                                    }
-//                                                        });
-//
-//                                                    }
+                                                    }                                          
 
                                                     function sortFunction(catId, sortItemId) {
                                                         var id = $('#' + sortItemId).val();

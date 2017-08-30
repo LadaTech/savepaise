@@ -90,7 +90,7 @@ class Index extends CI_Controller {
                         'pnumber' => $_POST['pnumber'],
                         'usertype' => 3,
                         'status' => 1,
-                        'created_by' => $_SESSION['id'],
+//                        'created_by' => $_SESSION['id'],
                         'created_date' => date('Y-m-d H:i:s')
                     );
 
@@ -224,7 +224,7 @@ class Index extends CI_Controller {
 //        exit;
     }
 
-    public function store_deals() {
+    public function deals() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
 //        $confg = array();

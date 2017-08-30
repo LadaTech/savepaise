@@ -52,9 +52,9 @@ $this->load->view('admin/common/header', true);
                                     <tr>                                       
                                         <td><?php echo $cat['cat_id'] ?></td> 
                                         <td><?php echo $cat['cat_name'] ?></td>
-                                        <td> <img src = "<?php echo base_url()    ?>assets/images/icons/<?php echo $cat['image']; ?>"  alt=""  width="30px" height="30px" />  </td>
+                                        <td> <img src = "<?php echo base_url() ?>assets/images/icons/<?php echo $cat['image']; ?>"  alt=""  width="30px" height="30px" />  </td>
 
-                                        <td><i id="<?php echo $cat['cat_id']; ?>" onClick="changeStatus('<?php echo $cat['cat_id']; ?>', '<?PHP echo $cat['status']; ?>')" class="status_checks1 btn <?php echo ($cat['status']) ? 'btn-success' : 'btn-danger'
+                                        <td><i id="<?php echo $cat['cat_id']; ?>" onClick="change_cat_Status('<?php echo $cat['cat_id']; ?>', '<?PHP echo $cat['status']; ?>')" class="status_checks1 btn <?php echo ($cat['status']) ? 'btn-success' : 'btn-danger'
                                     ?>"><?php echo ($cat['status']) ? 'Active' : 'Inactive' ?>
                                             </i></td>  
                                         <td><a href="<?php echo base_url() ?>admin/category_edit?catid=<?php echo $cat['cat_id']; ?>"><i class="ace-icon fa fa-pencil bigger-120"></i></a><a  href="<?php echo base_url() ?>category/category_delete?catid=<?php echo $cat['cat_id']; ?>" onclick="return confirm('Are you sure you want to delete this Category?')" ><i class="ace-icon fa fa-trash-o bigger-120"></i></a> </td>
@@ -73,7 +73,7 @@ $this->load->view('admin/common/header', true);
                 </div>
             </div>	 
         </div>
-        <?PHP echo $links ;?>
+        <?PHP echo $links; ?>
     </div><!-- /.main-content -->
     <?php $this->load->view('admin/common/footer', true); ?>
 </div><!-- /.main-container -->
@@ -87,95 +87,132 @@ $this->load->view('admin/common/header', true);
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
 <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.js"></script>
 <script type="text/javascript">
-                                                $(document).ready(function () {
-                                                    $('.capitalize').keyup(function (evt) {
-                                                        var text = $(this).val();
-                                                        $(this).val(text.replace(/^(.)|\s(.)/g, function (data) {
-                                                            return data.toUpperCase();
-                                                        }));
-                                                    });
-                                                });
+    $(document).ready(function () {
+        $('.capitalize').keyup(function (evt) {
+            var text = $(this).val();
+            $(this).val(text.replace(/^(.)|\s(.)/g, function (data) {
+                return data.toUpperCase();
+            }));
+        });
+    });
 
-                                                function sortFunction(catId, sortItemId) {
-                                                    var id = $('#' + sortItemId).val();
-//                                                    alert(id);
-                                                    var successMessage = 'Sorting value ' + id + ' Updated succesfully';
-                                                    $.ajax({
+    function sortFunction(catId, sortItemId) {
+        var id = $('#' + sortItemId).val();
+        //                                                    alert(id);
+        var successMessage = 'Sorting value ' + id + ' Updated succesfully';
+        $.ajax({
                                                       
-                                                        type: "POST",
-                                                        url: '<?php echo base_url()."category/category_name_sorting"  ?>',
-                                                        data: {
-                                                            txtboxvalue: id,
-                                                            sortvalue: catId
-                                                        },
-                                                        success: function (data)
-                                                        {
-                                                            $('#success').html(successMessage);
-                                                        }
-                                                    });
-                                                }
-                                                function checkboxFunction(id, checkval) {
-                                                    $('#' + checkval).change(function () {
-                                                        if ($(this).is(":checked")) {
-                                                            var checkValue = '1';
-                                                        } else {
-                                                            var checkValue = '0';
-                                                        }
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            url: '<?php echo base_url() . "category/category_checked" ?>',
-                                                            data: {
-                                                                catId: id,
-                                                                checkVal: checkValue
-                                                            },
-                                                            success: function (data)
-                                                            {
-                                                                //alert(data);
-                                                            }
-                                                        });
+            type: "POST",
+            url: '<?php echo base_url() . "category/category_name_sorting" ?>',
+            data: {
+                txtboxvalue: id,
+                sortvalue: catId
+            },
+            success: function (data)
+            {
+                $('#success').html(successMessage);
+            }
+        });
+    }
+    function checkboxFunction(id, checkval) {
+        $('#' + checkval).change(function () {
+            if ($(this).is(":checked")) {
+                var checkValue = '1';
+            } else {
+                var checkValue = '0';
+            }
+            $.ajax({
+                type: "POST",
+                url: '<?php echo base_url() . "category/category_checked" ?>',
+                data: {
+                    catId: id,
+                    checkVal: checkValue
+                },
+                success: function (data)
+                {
+                    //alert(data);
+                }
+            });
 
-                                                    });
-                                                }
-                                                function changeStatus(id, status) {
-//                                                            var id = id;
-                                                    //var status = ($(this).hasClass("btn-success")) ? '0' : '1';
-                                                    //                                                                        alert(status);
-                                                    var msg = (status == '0') ? '1' : '0';
-                                                    if (status == '0') {
-                                                        status = 'Active';
-                                                    } else {
-                                                        status = 'Inactive';
-                                                    }
-                                                    if (confirm("Are you sure to " + status)) {
-//                                                                                                                                                var id = $(this).attr('id');
-//                                                                                                                                                alert(id);
-//                                                                                                                                                alert(status);
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            url: '<?php echo base_url() . "category/changeStatus" ?>',
-                                                            data: {
-                                                                id: id,
-                                                                status: msg,
-                                                            },
-                                                            success: function (data)
-                                                            {
-                                                              
-                                                                $(this).hasClass("btn-success");
-                                                                if (status == 'Inactive') {
-                                                                    status = 'Active';
-                                                                    $('#' + id).addClass("btn-success");
-                                                                    $('#' + id).removeClass("btn-danger");
-                                                                } else {
-                                                                    
-                                                                    status = 'Inactive';
-                                                                    $('#' + id).addClass("btn-danger");
-                                                                    $('#' + id).removeClass("btn-success");
-                                                                }
-                                                                $('#' + id).text(status);
-                                                            }
-                                                        });
-                                                    }
+        });
+    }
+    function change_cat_Status(id, status) {
+                                                
+        var msg = (status == '0') ? '1' : '0';
+        if (status == '0') {
+            status = 'Inactive';
+        } else {
+            status = 'Active';
+        }
+        if (confirm("Are you sure to " + status)) {
+            //                                                                            var id = $(this).attr('id');
+            //                                                                            alert(id);
+            //                                                                            alert(status);
+            $.ajax({
+                type: "POST",
+                url: '<?php echo base_url() . "category/change_cat_Status" ?>',
+                data: {
+                    id: id,
+                    status: msg
+                },
+                success: function (data)
+                {
+                    $(this).hasClass("btn-success");
+                    if (status == 'Inactive') {
+                        status = 'Active';
+                        $('#' + id).addClass("btn-success");
+                        $('#' + id).removeClass("btn-danger");
+                    } else {
+                        status = 'Inactive';
+                        $('#' + id).addClass("btn-danger");
+                        $('#' + id).removeClass("btn-success");
+                    }
+                    $('#' + id).text(status);
+                }
+            });
+        }
 
-                                                }
+                                                
+                                                
+        //                                                            var id = id;
+        //var status = ($(this).hasClass("btn-success")) ? '0' : '1';
+        //                                                                        alert(status);
+        //                                                    var msg = (status == '0') ? '1' : '0';
+        //                                                    if (status == '0') {
+        //                                                        status = 'Active';
+        //                                                    } else {
+        //                                                        status = 'Inactive';
+        //                                                    }
+        //                                                    if (confirm("Are you sure to " + status)) {
+        ////                                                                                                                                                var id = $(this).attr('id');
+        ////                                                                                                                                                alert(id);
+        ////                                                                                                                                                alert(status);
+        //                                                        $.ajax({
+        //                                                            type: "POST",
+        //                                                            url: '',
+        //                                                            data: {
+        //                                                                id: id,
+        //                                                                status: msg
+        //                                                            },
+        //                                                            success: function (data)
+        //                                                            {
+        //                                                              
+        //                                                                $(this).hasClass("btn-success");
+        //                                                                if (status == 'Inactive') {
+        //                                                                    status = 'Active';
+        //                                                                    $('#' + id).addClass("btn-success");
+        //                                                                    $('#' + id).removeClass("btn-danger");
+        //                                                                } else {
+        //                                                                    
+        //                                                                    status = 'Inactive';
+        //                                                                    $('#' + id).addClass("btn-danger");
+        //                                                                    $('#' + id).removeClass("btn-success");
+        //                                                                }
+        //                                                                $('#' + id).text(status);
+        //                                                            }
+        //                                                        });
+        //                                                    }
+
+    }
 </script>
 

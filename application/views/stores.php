@@ -46,10 +46,10 @@
                             <a href="<?PHP echo $store_details->store_link; ?>" class="is-block">
                                 <div class="embed-responsive embed-responsive-4by3">
                                     <div class="store-logo view view-fifth view view-fifth">
-                                        <img src="<?PHP echo $store_details->store_image; ?>" alt="">
+                                        <img src="<?PHP echo $store_details->store_image; ?>" alt="" /> 
                                         <div class="mask">
-                                            <h6><?PHP echo $store_details->store_name; ?></h6> 												 
-                                            <a href="<?PHP echo $store_details->store_link; ?>" target="_blank" class="info"><?PHP echo $store_details->offers . "  " ?> offers </a>
+                                            <a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store_details->store_name ?>" target="_blank"><h6><?PHP echo $store_details->store_name; ?></h6></a> 												 
+                                            <a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store_details->store_name ?>" target="_blank" class="info"><?PHP echo $store_details->offers . "  " ?> offers </a>
                                         </div>
                                     </div>
                                 </div>
@@ -58,9 +58,9 @@
                                     $name = explode('.', $store_details->offer_name);
                                     $store_name = $name[0];
                                     ?>
-                                    <h6 class="store-name ptb-10 t-center" id="store_url"><a href="<?PHP echo $store_details->store_url; ?>" target="_blank" ><?PHP echo $store_name; ?></a></h6>
+                                    <h6 class="store-name ptb-10 t-center" id="store_url"><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store_details->store_name ?>" target="_blank" ><?PHP echo $store_name; ?></a></h6>
                                 <?PHP } else { ?>
-                                    <h6 class="store-name ptb-10 t-center" id="store_url"><a href="<?PHP echo $store_details->store_url; ?>" target="_blank" ><?PHP echo $store_details->store_name; ?></a></h6><?PHP } ?>
+                                    <h6 class="store-name ptb-10 t-center" id="store_url"><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store_details->store_name ?>" target="_blank" ><?PHP echo $store_details->store_name; ?></a></h6><?PHP } ?>
                             </a>
                         </div>
 

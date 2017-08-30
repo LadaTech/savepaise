@@ -114,9 +114,9 @@ Bootstrap
                                                         //                                                                        alert(status);
                                                         var msg = (status == '0') ? '1' : '0';
                                                         if (status == '0') {
-                                                            status = 'Active';
-                                                        } else {
                                                             status = 'Inactive';
+                                                        } else {
+                                                            status = 'Active';
                                                         }
                                                         if (confirm("Are you sure to " + status)) {
 //                                                                                                                                                var id = $(this).attr('id');
@@ -127,7 +127,7 @@ Bootstrap
                                                                 url: '<?php echo base_url() . "stores/changeStatus" ?>',
                                                                 data: {
                                                                     id: id,
-                                                                    status: msg,
+                                                                    status: msg
                                                                 },
                                                                 success: function (data)
                                                                 {

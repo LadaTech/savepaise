@@ -158,7 +158,7 @@ include_once('common/header.php');
             <section class="section latest-deals-area">
                 <header class="panel ptb-10 prl-20 pos-r mb-10">
                     <h3 class="section-title font-18">Latest Deals</h3>
-                    <a href="<?PHP base_url() ?>index/store_deals" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
+                    <a href="<?PHP base_url() ?>index/deals" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
                 </header>
                 <div class="row row-masnory row-tb-20" id="home-latestDeals">
 
@@ -194,12 +194,12 @@ include_once('common/header.php');
                                     <div class="store-logo view view-fifth">
                                         <img src="<?PHP echo $popularStore->store_image; ?>" alt="<?PHP echo $popularStore->store_name; ?>" />
                                         <div class="mask">
-                                            <h6><?PHP echo $popularStore->store_name ?></h6> 												 
-                                            <a href="<?PHP echo $popularStore->store_link; ?>" target="_blank" class="info"><?PHP echo $popularStore->offers ."   "?> Offers</a>
+                                          <a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank">  <h6><?PHP echo $popularStore->store_name ?></h6></a> 												 
+                                            <a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank" class="info"><?PHP echo $popularStore->offers ."   "?> Offers</a>
                                         </div>
                                     </div>
                                 </div>
-                                <h6 class="store-name ptb-10"><a href="<?PHP echo $popularStore->store_link; ?>" target="_blank"><?PHP echo $popularStore->store_name; ?></a></h6>
+                                <h6 class="store-name ptb-10"><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank"><?PHP echo $popularStore->store_name; ?></a></h6>
                             </a>
                         </div> 
                         <?PHP

@@ -142,7 +142,7 @@ $this->load->view('admin/common/header', true);
                                                             url: '<?php echo base_url() . "subcategories/status" ?>',
                                                             data: {
                                                                 id: id,
-                                                                status: msg,
+                                                                status: msg
                                                             },
                                                             success: function (data)
                                                             {

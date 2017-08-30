@@ -259,7 +259,7 @@
                                                 <li><a href="#" data-toggle="modal" data-target="#changepassword"><i class="fa fa-key"></i> Change Password</a></li>
                                                 <a href="<?PHP echo base_url() ?>/index/logout" onclick="return confirm('Are you sure you want to Sign out?')"  class="logout"><i class="fa fa-sign-out"></i> Logout </a>                                            
 
-    <!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href="<?PHP echo URLINDEXPATH; ?>abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  
+    <!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href=""abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  
                                             <?PHP } else { ?>
                                         </li>
 

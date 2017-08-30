@@ -56,11 +56,7 @@ class Category extends CI_Controller {
         }
     }
 
-    public function changeStatus() {
-        $this->load->model('category_model');
-        $updateStatus = $this->category_model->changeStatus();
-        return $updateStatus;
-    }
+    
 
     public function category_edit() {
 
@@ -212,6 +208,11 @@ class Category extends CI_Controller {
             'sorting' => $_POST['txtboxvalue']);
         $result = $this->category_model->update_category_sorting($sorting_data, $id);
         redirect('admin/view_category');
+    }
+    
+    public function change_cat_Status() {        
+        $updateStatus = $this->category_model->changeStatus();
+        return $updateStatus;
     }
 
     public function category_group_sorting() {
