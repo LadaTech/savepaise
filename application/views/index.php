@@ -20,21 +20,22 @@ include_once('common/header.php');
                         <aside>
                             <ul class="nav-coupon-category panel">
                                 <?PHP // foreach ($sub_categories as $sub_cat) {
-                                    ?>
-    <!--                                <li><a href="<?PHP // echo base_url()  ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
-                                <!--<li><a href="<?PHP // echo base_url() ?>index/get_categories/<?PHP // echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>-->
+                                ?>
+    <!--                                <li><a href="<?PHP // echo base_url()    ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
+                                <!--<li><a href="<?PHP // echo base_url()   ?>index/get_categories/<?PHP // echo str_replace(' ', '_', $cat->cat_name)   ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>-->
                                 <?PHP // }
                                 ?>
                                 <?PHP
 //                                for($i = 0;$i<=9;$i++){ 
                                 $tmp = 0;
                                 foreach ($sub_categories as $sub_cat) {
-                                    $tmp = $tmp+1;
-                                    if($tmp<10){
-                                    ?>
-    <!--                                <li><a href="<?PHP // echo base_url()  ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
-                                <li><a href="<?PHP echo base_url() ?>index/subcategories/<?PHP echo str_replace(' ', '-', $sub_cat->scat_name); ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>
-                                <?PHP }
+                                    $tmp = $tmp + 1;
+                                    if ($tmp < 10) {
+                                        ?>
+                    <!--                                <li><a href="<?PHP // echo base_url()    ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
+                                        <li><a href="<?PHP echo base_url() ?>index/subcategories/<?PHP echo str_replace(' ', '-', $sub_cat->scat_name); ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>
+                                        <?PHP
+                                    }
                                 }
                                 ?>
 
@@ -125,11 +126,16 @@ include_once('common/header.php');
                                     <div class="item panel">
                                         <div class="row row-rl-5 row-xs-cell">                                             
                                             <div class="col-xs-12">
-                                                <div style="width:415px; height: 200px; background: #fafafa;"></div>
-                                               <!-- <h5 class="mb-10 pt-5">Deals & Coupons</h5>
-                                                <p class="color-mid">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aspernatur.</p>
-                                            -->
-                                               </div>
+                                                <div style="width:415px; height: 200px; background: #fafafa;">
+                                                    <!-- iFrame Ad Tag: 2594 -->
+                                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2594&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
+                                                    <!-- // End Ad Tag -->
+                                                    <!-- iFrame Ad Tag: 2594 -->
+                                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2594&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
+                                                    <!-- // End Ad Tag -->
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -137,15 +143,22 @@ include_once('common/header.php');
                                     <div class="item panel">
                                         <div class="row row-rl-5 row-xs-cell">                                             
                                             <div class="col-xs-12">
-                                                 <div style="width:415px; height: 200px; background: #fafafa;"></div>
-                                               <!-- <h5 class="mb-10 pt-5">Find Best Offers</h5>
-                                                <p class="color-mid">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aspernatur.</p>
-                                            -->
-                                               </div>
+                                                <div style="width:415px; height: 200px; background: #fafafa;">
+                                                    <!-- iFrame Ad Tag: 2594 -->
+                                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2594&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
+                                                    <!-- // End Ad Tag -->
+                                                    <!-- iFrame Ad Tag: 2594 -->
+                                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2594&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
+                                                    <!-- // End Ad Tag -->
+                                                </div>
+                                                <!-- <h5 class="mb-10 pt-5">Find Best Offers</h5>
+                                                 <p class="color-mid">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aspernatur.</p>
+                                                -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                 
+
                             </div>
                         </div>
                         <!-- save money best price -->
@@ -194,8 +207,8 @@ include_once('common/header.php');
                                     <div class="store-logo view view-fifth">
                                         <img src="<?PHP echo $popularStore->store_image; ?>" alt="<?PHP echo $popularStore->store_name; ?>" />
                                         <div class="mask">
-                                          <a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank">  <h6><?PHP echo $popularStore->store_name ?></h6></a> 												 
-                                            <a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank" class="info"><?PHP echo $popularStore->offers ."   "?> Offers</a>
+                                            <a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank">  <h6><?PHP echo $popularStore->store_name ?></h6></a> 												 
+                                            <a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank" class="info"><?PHP echo $popularStore->offers . "   " ?> Offers</a>
                                         </div>
                                     </div>
                                 </div>
