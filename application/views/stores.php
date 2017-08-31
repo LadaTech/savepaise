@@ -1,4 +1,4 @@
-<?PHP include_once('common/header.php'); ?>
+﻿<?PHP include_once('common/header.php'); ?>
 <!-- –––––––––––––––[ PAGE CONTENT ]––––––––––––––– -->
 <main id="mainContent" class="main-content">
     <!-- Page Container -->
@@ -58,9 +58,9 @@
                                     $name = explode('.', $store_details->offer_name);
                                     $store_name = $name[0];
                                     ?>
-                                    <h6 class="store-name ptb-10 t-center" id="store_url"><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store_details->store_name ?>" target="_blank" ><?PHP echo $store_name; ?></a></h6>
+                                  <!--  <h6 class="store-name ptb-10 t-center" id="store_url"><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store_details->store_name ?>" target="_blank" ><?PHP echo $store_name; ?></a></h6> -->
                                 <?PHP } else { ?>
-                                    <h6 class="store-name ptb-10 t-center" id="store_url"><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store_details->store_name ?>" target="_blank" ><?PHP echo $store_details->store_name; ?></a></h6><?PHP } ?>
+                                  <!--  <h6 class="store-name ptb-10 t-center" id="store_url"><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store_details->store_name ?>" target="_blank" ><?PHP echo $store_details->store_name; ?></a></h6> --> <?PHP } ?>
                             </a>
                         </div>
 

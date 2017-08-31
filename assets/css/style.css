@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 .lnr {
   font-weight: bold;
@@ -2133,7 +2133,7 @@ ul.social {
 .header-deals-slider .owl-stage-outer{height:260px !important;}
 .store-item.t-center {
     width: 160px;
-    height: 165px;
+    height: 110px;
     display: inline-block; margin-bottom:10px;
 }
 .embed-responsive-16by9 {
@@ -2356,7 +2356,7 @@ ul.social {
     border-radius: 50%;
 }
 
-.embed-responsive-4by3{padding-bottom:0px; height:120px; width:160px;}
+.embed-responsive-4by3{padding-bottom:0px; height:100px; width:160px;}
 h6.store-name {
     background: #fafafa;
     width: 100%;
