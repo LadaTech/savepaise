@@ -21,8 +21,8 @@ include_once('common/header.php');
                             <ul class="nav-coupon-category panel">
                                 <?PHP // foreach ($sub_categories as $sub_cat) {
                                 ?>
-    <!--                                <li><a href="<?PHP // echo base_url()    ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
-                                <!--<li><a href="<?PHP // echo base_url()   ?>index/get_categories/<?PHP // echo str_replace(' ', '_', $cat->cat_name)   ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>-->
+    <!--                                <li><a href="<?PHP // echo base_url()            ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
+                                <!--<li><a href="<?PHP // echo base_url()           ?>index/get_categories/<?PHP // echo str_replace(' ', '_', $cat->cat_name)           ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>-->
                                 <?PHP // }
                                 ?>
                                 <?PHP
@@ -32,7 +32,7 @@ include_once('common/header.php');
                                     $tmp = $tmp + 1;
                                     if ($tmp < 10) {
                                         ?>
-                    <!--                                <li><a href="<?PHP // echo base_url()    ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
+                                                                                    <!--                                <li><a href="<?PHP // echo base_url()            ?>index/get_categories/<?PHP echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
                                         <li><a href="<?PHP echo base_url() ?>index/subcategories/<?PHP echo str_replace(' ', '-', $sub_cat->scat_name); ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>
                                         <?PHP
                                     }
@@ -130,8 +130,9 @@ include_once('common/header.php');
                                                     <!-- iFrame Ad Tag: 2594 -->
                                                     <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2594&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
                                                     <!-- // End Ad Tag -->
-                                                    <!-- iFrame Ad Tag: 2594 -->
-                                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2594&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
+                                                    &nbsp;
+                                                    <!-- iFrame Ad Tag: 2600 -->
+                                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2600&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
                                                     <!-- // End Ad Tag -->
                                                 </div>
 
@@ -144,11 +145,12 @@ include_once('common/header.php');
                                         <div class="row row-rl-5 row-xs-cell">                                             
                                             <div class="col-xs-12">
                                                 <div style="width:415px; height: 200px; background: #fafafa;">
-                                                    <!-- iFrame Ad Tag: 2594 -->
-                                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2594&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
+                                                    <!-- iFrame Ad Tag: 2602 -->
+                                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2602&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
                                                     <!-- // End Ad Tag -->
-                                                    <!-- iFrame Ad Tag: 2594 -->
-                                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2594&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
+                                                    &nbsp;
+                                                    <!-- iFrame Ad Tag: 2596 -->
+                                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2596&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="200" height="200"></iframe>
                                                     <!-- // End Ad Tag -->
                                                 </div>
                                                 <!-- <h5 class="mb-10 pt-5">Find Best Offers</h5>
@@ -178,7 +180,11 @@ include_once('common/header.php');
                 </div>                
             </section>
             <div class="col-sm-12">					 
-                <div class="add-970x90"><p>add size will be 970x90 here</p></div>					 
+                <div class="add-970x90">
+                    <!-- iFrame Ad Tag: 2598 -->
+                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2598&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="728" height="90"></iframe>
+                    <!-- // End Ad Tag -->
+                </div>					 
             </div>
             <section class="section latest-coupons-area ptb-30">
                 <header class="panel ptb-10 prl-20 pos-r mb-10">
@@ -190,7 +196,11 @@ include_once('common/header.php');
                 </div>
             </section>
             <div class="col-sm-12">					 
-                <div class="add-970x90"><p>add size will be 970x90 here</p></div>					 
+                <div class="add-970x90">
+                    <div data-WRID="WRID-148482303625173661" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="90" width="728">
+                    </div>
+                    <script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+                </div>					 
             </div>
             <section class="section stores-area stores-area-v1">
                 <header class="panel ptb-10 prl-20 pos-r mb-10">

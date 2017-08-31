@@ -47,7 +47,9 @@
                                     </div>
                                 </div>
                                 <!-- End Latest Deals Widegt -->
-                                <div class="add-250x250"><p>add size will be 250x250 here</p></div>
+                                <div class="add-250x250"><!-- iFrame Ad Tag: 2604 -->
+                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2604&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="250" height="250"></iframe>
+                                    <!-- // End Ad Tag --></div>
                             </div>
                             <div class="col-xs-12">
                                 <!-- Subscribe Widget -->
@@ -90,7 +92,9 @@
                                     </div>
                                 </div>
                                 <!-- End Subscribe Widget -->
-                                <div class="add-250x250"><p>add size will be 250x250 here</p></div>
+                                <div class="add-250x250"><!-- iFrame Ad Tag: 2606 -->
+                                    <iframe src="http://tracking.vcommission.com/aff_ad?campaign_id=2606&aff_id=43595&format=iframe&format=iframe" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="250" height="250"></iframe>
+                                    <!-- // End Ad Tag --></div>
                             </div>
                             <div class="col-xs-12">
                                 <!-- Best Rated Deals -->

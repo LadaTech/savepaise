@@ -148,7 +148,9 @@
                                         </form>
                                     </div>
                                     <div class="col-sm-5 t-xs-center t-md-right">
-                                        <div class="add-234x60"><p>234x60 add here</p></div>
+                                        <div class="add-234x60">
+                                            <div data-WRID="WRID-148491855160624029" data-widgetType="staticBanner"  data-class="affiliateAdsByFlipkart" height="60" width="234"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+                                        </div>
                                     </div>
 
 
