@@ -23,40 +23,25 @@ class Store_model extends CI_Model {
         }
     }
 
-    public function view_store1($store_name = '', $type = '', $limit = '', $start = '') {
+    public function view_store1($store_name = '', $type = '', $limit = '10', $start = '0') {
 //        echo $store_name;
 //        echo $type;
-        if ($store_name != '' && $type == 'Promotion') {
-            $this->db->select('*');
-            $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
+        $this->db->select('*');
+        $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
+        if ($store_name != '') {
             $this->db->where('stores.store_name', $store_name);
-            $this->db->where('coupons.type', $type);
-            $this->db->order_by('added_date DESC');
-//             $this->db->limit($limit,$start);
-            return $this->db->get('stores')->result();
         }
-        if ($store_name != '' && $type == 'Coupon') {
-            $this->db->select('*');
-            $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
-            $this->db->where('stores.store_name', $store_name);
+        if ($type != '') {
             $this->db->where('coupons.type', $type);
-            $this->db->order_by('added_date DESC');
-            $this->db->limit($limit, $start);
-            return $this->db->get('stores')->result();
-//                   echo $store_name;
-////        echo $type;exit;
-//            $this->db->select('*');
-////            $this->db->from('stores');
-//            $this->db->where('store_name', $store_name);
-//            $this->db->where('coupons.type',$type);
-////            $this->db->limit($limit, $start);
-//            $this->db->order_by('added_date DESC');
-//            $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
-//            return $this->db->get('stores')->result();
         }
+        $this->db->order_by('added_date DESC');
+        $this->db->limit($limit, $start);
+        $query = $this->db->get('stores');
+//        print_r($this->db);
+        return $query->result();
     }
 
-    public function view_store($store_name = '', $limit = '', $start = '', $type = '',$char_value='') {
+    public function view_store($store_name = '', $limit = '', $start = '', $type = '', $char_value = '') {
 
         if ($store_name != '') {
             $this->db->select('*');
@@ -100,7 +85,7 @@ class Store_model extends CI_Model {
 //        return $this->db->get('stores')->result();   
 //        }
 
-        $this->db->select('*,count(coupons.store_id) as offers');        
+        $this->db->select('*,count(coupons.store_id) as offers');
         $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
         $this->db->order_by('store_name', 'asc');
         $this->db->group_by('id');
@@ -111,7 +96,6 @@ class Store_model extends CI_Model {
     public function number_of_offers() {
         $this->db->select('*');
         $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
-        
     }
 
     public function edit_store($uid) {
@@ -146,10 +130,10 @@ class Store_model extends CI_Model {
     public function display_store() {
         $this->db->select('*,count(coupons.store_id) as offers');
 //        $this->db->where('store.status', 1);
-        $this->db->order_by('sort','asc');
+        $this->db->order_by('sort', 'asc');
 //        $query = $this->db->get('stores');
 //        return $query;
-                
+
         $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
 //        $this->db->order_by('store_name', 'asc');
         $this->db->group_by('stores.id');

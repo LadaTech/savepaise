@@ -114,7 +114,7 @@ class Index extends CI_Controller {
 
     public function edit_profile() {
         if (isset($_POST["edit_profile"]) == 'submit' || !empty($_POST)) {
-            $uid = $_SESSION['id']; 
+            $uid = $_SESSION['id'];
             $usereditdata = array(
 //                'id' => $_SESSION['id'],
                 'firstname' => trim($_POST['firstname']),
@@ -124,8 +124,8 @@ class Index extends CI_Controller {
                 'usertype' => $_SESSION['usertype'],
                 'updated_date' => date('Y-m-d H:i:s')
             );
-            if ($result = $this->login_model->edit_profile($uid,$usereditdata)) {
-                $this->session->set_flashdata('msg', '<font color=green>Profile Updated Successfully</font><br />');                
+            if ($result = $this->login_model->edit_profile($uid, $usereditdata)) {
+                $this->session->set_flashdata('msg', '<font color=green>Profile Updated Successfully</font><br />');
                 redirect(base_url());
             } else {
                 $this->session->set_flashdata('msg', '<font color=red>Profile Updated Fail </font><br />');
@@ -221,6 +221,23 @@ class Index extends CI_Controller {
         $data['couponsList'] = $this->coupons_model->getcoupons($storeId, $categoryId, $subcatId, $type, $limit);
 //        print_r($data['couponsList']);
         $this->load->view('ajaxdeals', $data);
+//        exit;
+    }
+
+    public function getCoupons() {
+//        print_r($_POST);
+        $storeName = $this->input->post('store_name');
+//        $categoryId = $this->input->post('category');
+//        $subcatId = $this->input->post('subcat');
+        $type = $this->input->post('type');
+        if ($type == 'all') {
+            $type = '';
+        }
+//        $limit = $this->input->post('limit');
+        $data['type'] = $type;
+        $data['couponsList'] = $this->store_model->view_store1($storeName, $type);
+//        print_r($data['couponsList']);
+        $this->load->view('ajaxCoupons', $data);
 //        exit;
     }
 
@@ -369,6 +386,7 @@ class Index extends CI_Controller {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
         $q = $this->uri->segment(3);
+        $data['storeName'] = $q;
 //        echo $q;exit;
         if ((isset($_POST['type']) && ($_POST['type'] == 'Coupon')) || (isset($_POST['type']) && ($_POST['type'] == 'Promotion'))) {
 //            echo "hi";exit;
