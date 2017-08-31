@@ -1,4 +1,4 @@
-
+﻿
 <?PHP
 //if ($this->session->flashdata() != NULL) {
 //    echo $this->session->flashdata('msg');
@@ -199,7 +199,7 @@ include_once('common/header.php');
                                         </div>
                                     </div>
                                 </div>
-                                <h6 class="store-name ptb-10"><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank"><?PHP echo $popularStore->store_name; ?></a></h6>
+                               <!-- <h6 class="store-name ptb-10"><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank"><?PHP echo $popularStore->store_name; ?></a></h6> -->
                             </a>
                         </div> 
                         <?PHP
