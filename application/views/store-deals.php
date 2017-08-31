@@ -282,7 +282,7 @@
                         <!-- Page Control -->
                         <header class="page-control panel ptb-15 prl-20 pos-r mb-10">
                             <!-- List Control View -->
-                            <h3 class="section-title font-18">Belk Deals and Coupons</h3>
+                            <h3 class="section-title font-18">Best Deals and Coupons</h3>
                             <!-- End List Control View -->
                             <div class="right-10 pos-tb-center">
                                 <form method="post" id="item_type" name="item_type" action="#">

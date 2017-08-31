@@ -1,3 +1,24 @@
+CREATE TABLE `home_banners` (
+  `b_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY Key,
+  `image` varchar(450) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `link` varchar(300) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `reviews` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `sorting` int(11) NOT NULL,
+  `created_by` varchar(40) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `updated_by` varchar(40) NOT NULL,
+  `updated_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin
+
+alter table brands add column `sort` int(10) NOT NULL after solr_status
+alter table subcategories change id scat_id int(11) primary key auto_increment not null  
+
+
+
 -- phpMyAdmin SQL Dump
 -- version 4.5.1
 -- http://www.phpmyadmin.net

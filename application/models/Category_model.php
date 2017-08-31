@@ -26,6 +26,7 @@ class Category_model extends CI_Model {
 
     public function view_category($limit = '',$start='') {
         $this->db->select('*');
+        $this->db->order_by('status DESC');
         $this->db->limit($limit,$start);
         $query = $this->db->get('categories');
        
@@ -115,7 +116,9 @@ class Category_model extends CI_Model {
         $this->db->select('categories.cat_name,category_group.*');
         $this->db->from('categories');
         $this->db->join('category_group', 'category_group.cate_id = categories.cat_id');
+        $this->db->order_by('category_group.status DESC');
         $this->db->limit($limit,$start);
+       
         $query = $this->db->get();
         //echo "<pre>";
 //        print_r($this->db);

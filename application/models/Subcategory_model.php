@@ -38,6 +38,7 @@ class Subcategory_model extends CI_Model {
         $this->db->from('subcategories sc');
         $this->db->join('category_group cg', 'cg.g_id = sc.category_group', 'LEFT');
         $this->db->join('categories c', 'sc.category_id = c.cat_id', 'LEFT');
+        $this->db->order_by('scStatus desc');
         $this->db->limit($limit,$start);
 //        $this->db->where('c.status', 1);
 //        $this->db->where('sc.status', 1);
@@ -197,7 +198,7 @@ class Subcategory_model extends CI_Model {
     public function deletesubcategory($id) {
         $data = array(
             'status' => 0,
-            'updated_by' => $_SESSION['uid'],
+            'updated_by' => $_SESSION['firstname'],
             'updated_date' => date('Y-m-d H:i:s')
         );
         $this->db->where('scat_id', $id);

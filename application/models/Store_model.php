@@ -47,7 +47,7 @@ class Store_model extends CI_Model {
             $this->db->select('*');
             $this->db->where('store_name', $store_name);
             $this->db->limit($limit, $start);
-            $this->db->order_by('added_date DESC');
+            $this->db->order_by('stores.status desc');
             $this->db->join('coupons', 'stores.id = coupons.store_id ', 'left');
             return $this->db->get('stores')->result();
         }
@@ -130,7 +130,7 @@ class Store_model extends CI_Model {
     public function display_store() {
         $this->db->select('*,count(coupons.store_id) as offers');
 //        $this->db->where('store.status', 1);
-        $this->db->order_by('sort', 'asc');
+        $this->db->order_by('stores.sort', 'asc');
 //        $query = $this->db->get('stores');
 //        return $query;
 

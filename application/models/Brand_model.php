@@ -74,7 +74,7 @@ class Brand_model extends CI_Model {
 //        }
 //        $this->db->where('status', 1);
         $this->db->select('*');
-        $this->db->order_by("brand_name", "asc");
+        $this->db->order_by('status desc');
         $this->db->limit($limit,$start);
         $query = $this->db->get('brands');        
         $result = $query->result_array();
