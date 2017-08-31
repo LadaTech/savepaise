@@ -1,22 +1,4 @@
-
-/*
- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- FRIDAY - Coupons, Deals, Discounts and Promo Codes Template
- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- 
- - File           : main.js
- - Desc           : Template - JavaScript
- - Version        : 1.1
- - Date           : 2017-03-01
- - Author         : CODASTROID
- - Author URI     : https://themeforest.net/user/codastroid
- 
- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- */
-
-
-
-
+﻿
 (function ($) {
 
     "use strict";
@@ -272,6 +254,7 @@
                 navSpeed: (navSpeed ? navSpeed : false),
                 center: (center ? center : false),
                 responsiveClass: true,
+	animateOut: 'fadeOut',
                 responsive: {
                     0: {
                         items: (xxs_items ? xxs_items : (items_general ? items_general : 1)),
@@ -365,39 +348,7 @@
         });
     };
 
-    /*-------------------------------------
-     Deals Countdown function
-     -------------------------------------*/
-    var countdown = function () {
-        var countdown_select = $("[data-countdown]");
-        countdown_select.each(function () {
-            $(this).countdown($(this).data('countdown'))
-                    .on('update.countdown', function (e) {
-                        var format = '%H : %M : %S';
-                        if (e.offset.totalDays > 0) {
-                            format = '%d Day%!d ' + format;
-                        }
-                        if (e.offset.weeks > 0) {
-                            format = '%w Week%!w ' + format;
-                        }
-                        $(this).html(e.strftime(format));
-                    });
-        }).on('finish.countdown', function (e) {
-            $(this).html('This offer ha expired!').addClass('disabled');
-        });
-    };
-
-    /*-------------------------------------
-     Delete Item From Cart
-     -------------------------------------*/
-    var cart_delete_item = function () {
-        var close = $("#cart_list").find(".close[data-dismiss='alert']");
-        close.on('click', function () {
-            if (confirm("Do You Really Want to Delete This item ?") === false) {
-                return false;
-            }
-        });
-    };
+  
 
     var buyTheme = function () {
         if (top.location != self.location) {
@@ -432,11 +383,11 @@
         add_favorite();
         owl_carousel();
         toogle_class();
-        countdown();
+      
         data_rating();
         do_rating();
-        countdown();
-        cart_delete_item();
+       
+       
     });
 
     /* ================================

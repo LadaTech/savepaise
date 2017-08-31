@@ -30,10 +30,10 @@ $this->load->view('admin/common/header', true);
                 </div><!-- /.page-header -->
 
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 table-responsive">
                         <p align="center" id="success" class="text-success"></p>
                         <!-- PAGE CONTENT BEGINS -->
-                        <table id="simple-table" class="table  table-bordered table-hover">
+                        <table id="simple-table" class="table  table-bordered table-hover" style="width:1500px; ">
                             <thead>
                                 <tr>
                                     <th class="center">ID</th>                                    
