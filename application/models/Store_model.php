@@ -35,7 +35,7 @@ class Store_model extends CI_Model {
             $this->db->where('coupons.type', $type);
         }
         $this->db->order_by('added_date DESC');
-        $this->db->limit($limit, $start);
+//        $this->db->limit($limit, $start);
         $query = $this->db->get('stores');
 //        print_r($this->db);
         return $query->result();

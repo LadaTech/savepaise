@@ -16,7 +16,7 @@
                                             <?PHP
 //                                            echo "<pre>";
 //                                            print_r($specific_item_deals);
-                                            $specific_item = $this->uri->segment(3);
+                                            $specific_item = str_replace('-',' ', $this->uri->segment(3));
 //                                            echo $specific_item;exit;
                                             if ((isset($specific_item)) && (!is_numeric($specific_item))) {
                                                 if (isset($specific_item_deals) && is_array($specific_item_deals && count($specific_item_deals) > 0)) {
@@ -305,7 +305,8 @@
                         <!-- End Page Control -->
                         <div class="row row-masnory row-tb-10" id='couponsDisplay'>
                             <?PHP
-                            $specific_item = $this->uri->segment(3);
+                            $specific_item = str_replace('-',' ', $this->uri->segment(3));
+//                            echo $specific_item;exit;
                             if ((isset($specific_item)) && (!is_numeric($specific_item))) {
                                 get_instance()->load->helper('my');
                                 echo displayInnerCoupons($specific_item_deals);
@@ -338,12 +339,17 @@
         $('#couponsDisplay').html('');
         var radioValue = $("input[name='all']:checked").val();
         var value = '<?PHP echo $storeName; ?>';
+        var category_type = '<?PHP echo $this->uri->segment(2); ?>';
+//        alert(radioValue);
+//        alert(value);
+//        alert(category_type);
         $.ajax({
             type: "POST",
             url: '<?php echo base_url() . "index/getCoupons" ?>',
             data: {
                 store_name: value,
-                type: radioValue
+                type: radioValue,
+                category_type:category_type
             },
             success: function (data)
             {
@@ -351,4 +357,6 @@
             }
         });
     });
+    
+   
 </script>

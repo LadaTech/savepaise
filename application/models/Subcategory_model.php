@@ -24,7 +24,7 @@ class Subcategory_model extends CI_Model {
     }
 
     //To get the all subcategories list of Admin Panel 
-    public function subcat_view($catId = '',$limit='',$start='') {
+    public function subcat_view($catId = '', $limit = '', $start = '') {
         if ($catId != '') {
             $this->db->where('category_id', $catId);
         }
@@ -39,17 +39,18 @@ class Subcategory_model extends CI_Model {
         $this->db->join('category_group cg', 'cg.g_id = sc.category_group', 'LEFT');
         $this->db->join('categories c', 'sc.category_id = c.cat_id', 'LEFT');
         $this->db->order_by('scStatus desc');
-        $this->db->limit($limit,$start);
+        $this->db->limit($limit, $start);
 //        $this->db->where('c.status', 1);
 //        $this->db->where('sc.status', 1);
 //        $this->db->where('cg.status', 1);
         $query = $this->db->get();
         return $result = $query->result_array();
     }
-    public function view_subcat(){
+
+    public function view_subcat() {
         $this->db->select('*');
-       $query= $this->db->get('subcategories');
-       return $query;
+        $query = $this->db->get('subcategories');
+        return $query;
     }
 
     //End of the Function 
@@ -222,21 +223,38 @@ class Subcategory_model extends CI_Model {
         return $query;
     }
 
-    public function view_subcategory($subcat_name = '', $limit = '', $start = '') {
+    public function view_subcategory1($subcat_name = '',$limit = '', $start = '') {
+//        echo $subcat_name;
+//        echo $limit." ".$start;exit;
         if ($subcat_name != '') {
-            $this->db->where('scat_name', $subcat_name);
-            $this->db->where('type', 'Promotion');
-            $this->db->limit($limit, $start);
-            $this->db->order_by('added_date DESC');
+            $this->db->select('*');
+            $this->db->where('subcategories.scat_name', $subcat_name);
             $this->db->join('coupons', 'subcategories.scat_id = coupons.subcategory_id ', 'left');
             $this->db->join('stores', 'stores.id =coupons.store_id', 'left');
+            $this->db->order_by('added_date DESC');
+            $this->db->limit($limit, $start);
+            $query = $this->db->get('subcategories');
+            return $query->result();
         }
-        $this->db->select('*');
-//        $this->db->from('stores');
-//        $this->db->limit($limit);
-//        $this->db->order_by('store_name');
+    }
 
-        return $this->db->get('subcategories')->result();
+    public function view_subcategory($subcat_name = '', $limit = '', $start = '', $type = '') {
+//        echo $type;exit;    
+        $this->db->select('*');
+        $this->db->join('coupons', 'subcategories.scat_id = coupons.subcategory_id ', 'left');
+        $this->db->join('stores', 'stores.id =coupons.store_id', 'left');
+        if ($subcat_name != '') {
+            $this->db->where('subcategories.scat_name', $subcat_name);
+        }
+        if ($type != '') {
+            $this->db->where('coupons.type', $type);
+        }
+        $this->db->order_by('added_date DESC');
+        $this->db->limit($limit, $start);
+        $query = $this->db->get('subcategories');
+//        echo "<pre>";
+//        print_r($query->);exit;
+        return $query->result();
     }
 
     public function view_subcategory_rows($subcat_name = '') {
@@ -256,9 +274,6 @@ class Subcategory_model extends CI_Model {
 //        $this->db->limit($limit);
 //        $this->db->order_by('store_name');
     }
-    
-   
-
 
 }
 

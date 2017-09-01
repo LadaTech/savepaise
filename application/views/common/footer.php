@@ -20,7 +20,8 @@
                             <hr />
                             <ul>
                                 <?PHP foreach ($stores as $store) { ?>
-                                    <li><a href="<?PHP echo $store->store_url; ?>" target="_blank"><?PHP echo $store->store_name ?> Offers</a></li>
+                                
+                                    <li><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store->store_name ?>" target="_blank"><?PHP echo $store->store_name ?> Offers</a></li>
                                 <?PHP } ?>
                                 <!--                                <li><a href="#">Flipkart Offers</a></li>
                                                                 <li><a href="#">BookMyShow Offers</a></li>
