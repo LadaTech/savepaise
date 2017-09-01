@@ -809,6 +809,9 @@ li.dropdown {
 .nav-menu > li {
   float: left;
 }
+#header-navbar i.fa.fa-user {
+    padding-top: 8px;
+}
 .nav-menu a {
   text-decoration: none;
   display: block;
@@ -2355,7 +2358,15 @@ ul.social {
     border-radius: 50%;
 }
 
-.embed-responsive-4by3{padding-bottom:0px; height:100px; width:160px;}
+.embed-responsive-4by3{padding-bottom:0px; height:140px; width:160px;}
+.store-logo.view img {
+    position: absolute;
+    margin: auto;
+    top: -100%;
+    left: -100%;
+    right: -100%;
+    bottom: -100%;
+}
 h6.store-name {
     background: #fafafa;
     width: 100%;

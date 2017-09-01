@@ -2341,7 +2341,7 @@ label {
   color: #F5F5F5 !important;
 }
 .color-light {
-  color: #d4d4d4 !important;
+  color: #d4d4d4 !important; margin: 10px !important;
 }
 .color-muted {
   color: #97a4ad !important;
