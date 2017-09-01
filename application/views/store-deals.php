@@ -307,7 +307,7 @@
                             <?PHP
                             $specific_item = str_replace('-',' ', $this->uri->segment(3));
 //                            echo $specific_item;exit;
-                            if ((isset($specific_item)) && (!is_numeric($specific_item))) {
+                            if (($specific_item != '') && (!is_numeric($specific_item))) {
                                 get_instance()->load->helper('my');
                                 echo displayInnerCoupons($specific_item_deals);
                                 echo $links;
