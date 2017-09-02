@@ -252,14 +252,13 @@
 
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                                         <ul class="dropdown-menu bullet pull-center">       
-
-
-                                            <li class="divider"></li>
+                                          
                                             <li> 
                                                 <?PHP if (isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') { ?>
                                                 <li><a href="#" data-toggle="modal" data-target="#edit_profile"><i class="fa fa-user"></i> Profile</a></li>
                                                 <li><a href="#" data-toggle="modal" data-target="#changepassword"><i class="fa fa-key"></i> Change Password</a></li>
-                                                <a href="<?PHP echo base_url() ?>/index/logout" onclick="return confirm('Are you sure you want to Sign out?')"  class="logout"><i class="fa fa-sign-out"></i> Logout </a>                                            
+                                                 <li class="divider"></li>
+                                                <li><a href="<?PHP echo base_url() ?>/index/logout" onclick="return confirm('Are you sure you want to Sign out?')"  class="logout"><i class="fa fa-sign-out"></i> Logout </a>     </li>                                       
 
     <!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href=""abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  
                                             <?PHP } else { ?>

@@ -381,11 +381,6 @@
 
                                             <div class="col-xs-12">
                                                 <div class="panel-body">
-                                                    <ul class="deal-meta list-inline mb-10">
-                                                        <li class="color-green"><i class="ico lnr lnr-smile mr-5"></i>Verifed</li>
-                                                        <li class="color-muted"><i class="ico lnr lnr-users mr-5"></i>125 Used</li>
-                                                    </ul>
-                                                    <h4 class="color-green mb-10 t-uppercase">10% OFF</h4>
                                                     <h5 class="deal-title mb-10">
                                                         <a href="<?PHP echo $coupon_details->link; ?>" target="_blank" data-toggle="tooltip" data-placement="top" title="<?PHP echo $coupon_details->title; ?>">                                                        
                                                             <?PHP
@@ -398,6 +393,11 @@
                                                         </a>
 
                                                     </h5>
+                                                    <ul class="deal-meta list-inline mb-10">
+                                                        <li class="color-green"><i class="ico lnr lnr-smile mr-5"></i>Verifed</li>
+                                                        <li class="color-muted"><i class="ico lnr lnr-users mr-5"></i>125 Used</li>
+                                                    </ul>
+                                                    <h4 class="color-green mb-10 t-uppercase">10% OFF</h4>                                                    
                                                     <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On <?PHP echo $coupon_details->expiry_date; ?></p>
                                                     <div class="showcode">
                                                         <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#<?PHP echo $coupon_details->id; ?>">Get Coupon Code</button>
