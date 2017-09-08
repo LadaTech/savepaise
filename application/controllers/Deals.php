@@ -4,7 +4,7 @@
 //ini_set("display_errors", 1);
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Store extends CI_Controller {
+class Deals extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -22,7 +22,7 @@ class Store extends CI_Controller {
         $this->load->model('subcategory_model');
     }
 
-    public function index() {
+    public function store() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
         $q = $this->uri->segment(3);
