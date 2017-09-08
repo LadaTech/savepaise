@@ -24,7 +24,12 @@
         <!-- ––––––––––––––––––––––––––––––––––––––––– -->
         <!-- PAGE TITLE                                -->
         <!-- ––––––––––––––––––––––––––––––––––––––––– -->
-        <title>Save Paise | Coupons, Deals, Discounts and Promo codes Website</title>
+        <?PHP
+        if (!isset($pageTitle)) {
+            $pageTitle = "Coupons, Deals, Discounts and Promo codes Website";
+        }
+        ?>
+        <title><?PHP echo $pageTitle; ?> - Save Paise</title>
 
         <!-- ––––––––––––––––––––––––––––––––––––––––– -->
         <!-- SEO METAS                                 -->
@@ -125,7 +130,7 @@
                                 }
                                 ?>
                                 <a href="<?PHP echo base_url() ?>" class="logo">
-                                    <img src="/assets/images/logo.png" alt="" width="250" />
+                                    <img src="/assets/images/logo.png" alt="save Paise logo" width="250" />
                                 </a>
                             </div>
                             <div class="header-search col-md-9">
@@ -188,7 +193,7 @@
                                                         foreach ($stores as $store) {
 //                                                           $this->input->post($store->store_name);
                                                             ?>
-                                                            <li><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store->store_name ?>"><?PHP echo $store->store_name; ?></a></li>
+                                                            <li><a href="<?PHP echo base_url() ?>store/<?PHP echo $store->store_name ?>"><?PHP echo $store->store_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
 
@@ -207,7 +212,7 @@
                                                     <ul>
                                                         <?PHP foreach ($sub_categories as $cat) {
                                                             ?>
-                                                            <li><a href="<?PHP echo base_url() ?>index/subcategories/<?PHP echo str_replace(' ', '-', $cat->scat_name); ?>"><?PHP echo $cat->scat_name; ?></a></li>
+                                                            <li><a href="<?PHP echo base_url() ?>index/category/<?PHP echo str_replace(' ', '-', $cat->scat_name); ?>"><?PHP echo $cat->scat_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
                                                     </ul>
@@ -229,7 +234,7 @@
                                                                             <ul>
                                     <?PHP // foreach ($brands as $brand) {
                                     ?>
-                                                                                    <li><a href=""><?PHP // echo $brand->brand_name;  ?></a></li>
+                                                                                    <li><a href=""><?PHP // echo $brand->brand_name;     ?></a></li>
                                     <?PHP // }
                                     ?>
                                     
@@ -252,15 +257,15 @@
 
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                                         <ul class="dropdown-menu bullet pull-center">       
-                                          
+
                                             <li> 
                                                 <?PHP if (isset($_SESSION['usertype']) && $_SESSION['usertype'] != '') { ?>
                                                 <li><a href="#" data-toggle="modal" data-target="#edit_profile"><i class="fa fa-user"></i> Profile</a></li>
                                                 <li><a href="#" data-toggle="modal" data-target="#changepassword"><i class="fa fa-key"></i> Change Password</a></li>
-                                                 <li class="divider"></li>
+                                                <li class="divider"></li>
                                                 <li><a href="<?PHP echo base_url() ?>/index/logout" onclick="return confirm('Are you sure you want to Sign out?')"  class="logout"><i class="fa fa-sign-out"></i> Logout </a>     </li>                                       
 
-    <!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href=""abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  
+                <!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href=""abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  
                                             <?PHP } else { ?>
                                         </li>
 

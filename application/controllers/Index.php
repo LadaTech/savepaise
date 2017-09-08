@@ -272,7 +272,7 @@ class Index extends CI_Controller {
 //        echo $q;exit;
 //            $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
             $data['type'] = $type;
-            $data['couponsList'] = $this->subcategory_model->view_subcategory($storeName,'','', $type);
+            $data['couponsList'] = $this->subcategory_model->view_subcategory($storeName, '', '', $type);
 //            $data['links'] = $this->pagination->create_links();
 //            echo "<pre>";
 //            print_r($data);exit;
@@ -419,104 +419,16 @@ class Index extends CI_Controller {
         $this->load->view('stores', $data);
 //        }
     }
+   
 
-    public function store() {
-//        $type = $_POST['type'];
-//        echo $type;
-        $this->load->library('Headerincludes');
-        $data = $this->headerincludes->allHeaderIncludes();
-        $q = $this->uri->segment(3);
-        $data['storeName'] = $q;
-//        echo $q;exit;
-        if ((isset($_POST['type']) && ($_POST['type'] == 'Coupon')) || (isset($_POST['type']) && ($_POST['type'] == 'Promotion'))) {
-//            echo "hi";exit;
-//            $config['base_url'] = base_url() . 'index/store/' . $q;
-//            $config['total_rows'] = $this->store_model->view_store1($q, $type, '', '');
-//            $config['total_rows'] = count($this->store_model->view_store($q));
-////        echo $config['total_rows'];exit;
-//            $config['per_page'] = 10;
-//            $config['uri_segment'] = 4;
-//            $config['num_links'] = 2;
-//            $config['full_tag_open'] = '<ul class = "page-pagination">';
-//            $config['full_tag_close'] = '</ul>';
-//            $config['first_link'] = 'First';
-//            $config['first_tag_open'] = '<li>';
-//            $config['first_tag_close'] = '</li>';
-//            $config['last_link'] = 'Last';
-//            $config['last_tag_open'] = '<li>';
-//            $config['last_tag_close'] = '</li>';
-//            $config['next_link'] = ' &gt;';
-//            $config['next_tag_open'] = '<li class="page-numbers next">';
-//            $config['next_tag_close'] = '</li>';
-//            $config['prev_link'] = '&lt;';
-//            $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
-//            $config['Previous_tag_close'] = '</li>';
-//            $config['cur_tag_open'] = '<li><span class="page-numbers current">';
-//            $config['cur_tag_close'] = '</span></li>';
-//            $config['num_tag_open'] = '<li class = "page-numbers">';
-//            $config['num_tag_close'] = '</li>';
-////        $config['display_pages'] = FALSE;
-//            $config['attributes'] = array('class' => 'page-numbers');
-//            $this->pagination->initialize($config);
-////        echo $q;exit;
-//            $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-////        $page = $config['per_page'];
-            $data['specific_item_deals'] = $this->store_model->view_store1($q, $_POST['type']);
-//            echo "<pre>";
-//            print_r($data['specific_item_deals']);exit;
-//            $data['links'] = $this->pagination->create_links();
-            $this->load->view('store-deals', $data);
-        } else {
-//        if (isset($q)) {
-            $config['base_url'] = base_url() . 'index/store/' . $q;
-//            echo "else block";exit;
-            $config['total_rows'] = count($this->store_model->view_store($q));
-//        $config['total_rows'] = count($this->store_model->view_store($q));
-//        echo $config['total_rows'];exit;
-            $config['per_page'] = 10;
-            $config['uri_segment'] = 4;
-            $config['num_links'] = 2;
-            $config['full_tag_open'] = '<ul class = "page-pagination">';
-            $config['full_tag_close'] = '</ul>';
-            $config['first_link'] = 'First';
-            $config['first_tag_open'] = '<li>';
-            $config['first_tag_close'] = '</li>';
-            $config['last_link'] = 'Last';
-            $config['last_tag_open'] = '<li>';
-            $config['last_tag_close'] = '</li>';
-            $config['next_link'] = ' &gt;';
-            $config['next_tag_open'] = '<li class="page-numbers next">';
-            $config['next_tag_close'] = '</li>';
-            $config['prev_link'] = '&lt;';
-            $config['Previous_tag_open'] = '<li class = "page-numbers previous">';
-            $config['Previous_tag_close'] = '</li>';
-            $config['cur_tag_open'] = '<li><span class="page-numbers current">';
-            $config['cur_tag_close'] = '</span></li>';
-            $config['num_tag_open'] = '<li class = "page-numbers">';
-            $config['num_tag_close'] = '</li>';
-//        $config['display_pages'] = FALSE;
-            $config['attributes'] = array('class' => 'page-numbers');
-            $this->pagination->initialize($config);
-//        echo $q;exit;
-            $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-//        $page = $config['per_page'];
-            $data['specific_item_deals'] = $this->store_model->view_store($q, $config['per_page'], $page);
-//            echo "<pre>";
-//            print_r($data['specific_item_deals']);exit;
-
-            $data['links'] = $this->pagination->create_links();
-            $this->load->view('store-deals', $data);
-        }
-    }
-
-    public function subcategories() {
+    public function category() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();
         $q = str_replace('-', ' ', $this->uri->segment(3));
         $data['storeName'] = $q;
         if ((isset($_POST['type']) && ($_POST['type'] == 'Coupon')) || (isset($_POST['type']) && ($_POST['type'] == 'Promotion'))) {
 //            echo "hi";exit;
-            $config['base_url'] = base_url() . 'index/subcategories/' . str_replace(' ', '-', $q);
+            $config['base_url'] = base_url() . 'index/category/' . str_replace(' ', '-', $q);
             $config['total_rows'] = count($this->subcategory_model->view_subcategory($q));
 //        $config['total_rows'] = count($this->store_model->view_store($q));
             echo $config['total_rows'];
@@ -553,7 +465,7 @@ class Index extends CI_Controller {
             $data['links'] = $this->pagination->create_links();
             $this->load->view('store-deals', $data);
         } else {
-            $config['base_url'] = base_url() . 'index/subcategories/' . str_replace(' ', '-', $q);
+            $config['base_url'] = base_url() . 'index/category/' . str_replace(' ', '-', $q);
             $config['total_rows'] = count($this->subcategory_model->view_subcategory1($q));
 //            echo $config['total_rows'];exit;
             $config['per_page'] = 10;
@@ -604,9 +516,7 @@ class Index extends CI_Controller {
         print_r($data);
         exit;
         $q = $_REQUEST["q"];
-
         $hint = "";
-
 // lookup all hints from array if $q is different from "" 
         if ($q !== "") {
             $q = strtolower($q);
@@ -638,4 +548,9 @@ class Index extends CI_Controller {
 //        exit;
     }
 
+    public function gotostore() {
+        $data["rUrl"] = $_REQUEST["r"];
+        $data["logo"] = $_REQUEST["img"];
+        $this->load->view('gotostore', $data);
+    }
 }

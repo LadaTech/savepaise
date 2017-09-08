@@ -44,7 +44,7 @@ function GridDeals($couponArray) {
                                 <div class="pr-md-10">
                                     
                                     <h3 class="deal-title mb-10">
-                                        <a href="' . $coupon['link'] . '" target="_blank">' . $coupon['title'] . '</a>
+                                        <a href="/index/gotostore/?r=' . urlencode($coupon['link']) . '&img=' . urlencode($coupon['store_image']) . '" target="_blank">' . $coupon['title'] . '</a>
                                     </h3>
                                     <div class="rating mb-10">
                                         <span class="rating-stars rate-allow" data-rating="5">
@@ -318,12 +318,11 @@ function displayInnerCoupons($couopons) {
                                 <p class="color-mid"> </p>
                             </div>
                             <div class="col-md-10 col-md-offset-1">
-                                <a href="'. $couponDetail->link.'" target="_blank" class="btn btn-link">Visit Our Store</a>
+                                <a href="' . $couponDetail->link . '" target="_blank" class="btn btn-link">Visit Our Store</a>
                             </div>
                             <div class="col-md-10 col-md-offset-1">';
             if ($couponDetail->type == "Promotion") {
-                $html.= '<a href = "'.$couponDetail->link . '" target = "_blank"> <h6 class = "color-mid t-uppercase">'. $couponDetail->description .'</h6></a>';
-                
+                $html.= '<a href = "' . $couponDetail->link . '" target = "_blank"> <h6 class = "color-mid t-uppercase">' . $couponDetail->description . '</h6></a>';
             } else {
                 $html.= '<h6 class = "color-mid t-uppercase">' . $couponDetail->description . '</h6>
                 <input type = "text" id = "copy_' . $couponDetail->id . '" class = "coupon-code" value = "' . $couponDetail->code . '">

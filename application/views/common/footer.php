@@ -20,75 +20,8 @@
                             <hr />
                             <ul>
                                 <?PHP foreach ($stores as $store) { ?>
-                                
-                                    <li><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $store->store_name ?>" target="_blank"><?PHP echo $store->store_name ?> Offers</a></li>
+                                    <li><a href="<?PHP echo base_url() ?>store/<?PHP echo $store->store_name ?>" target="_blank"><?PHP echo $store->store_name ?> Offers</a></li>
                                 <?PHP } ?>
-                                <!--                                <li><a href="#">Flipkart Offers</a></li>
-                                                                <li><a href="#">BookMyShow Offers</a></li>
-                                                                <li><a href="#">eBay Offers</a></li>	
-                                                                <li><a href="#">Freecharge Offers</a></li>
-                                                                <li><a href="#">IRCTC Offers</a></li>
-                                                                <li><a href="#">Jabong Offers</a></li>
-                                                                <li><a href="#">MakeMyTrip Offers</a></li>
-                                                                <li><a href="#">Mobikwik Offers</a></li>
-                                                                <li><a href="#">Myntra Offers</a></li>
-                                                                <li><a href="#">Paytm Offers</a></li>
-                                                                <li><a href="#">Pizza Hut Offers</a></li>
-                                                                <li><a href="#">Amazon Offers</a></li>
-                                                                <li><a href="#">Flipkart Offers</a></li>
-                                                                <li><a href="#">BookMyShow Offers</a></li>
-                                                                <li><a href="#">eBay Offers</a></li>	
-                                                                <li><a href="#">Freecharge Offers</a></li>
-                                                                <li><a href="#">IRCTC Offers</a></li>
-                                                                <li><a href="#">Jabong Offers</a></li>
-                                                                <li><a href="#">MakeMyTrip Offers</a></li>
-                                                                <li><a href="#">Mobikwik Offers</a></li>
-                                                                <li><a href="#">Myntra Offers</a></li>
-                                                                <li><a href="#">Paytm Offers</a></li>
-                                                                <li><a href="#">Pizza Hut Offers</a></li>
-                                                                <li><a href="#">Amazon Offers</a></li>
-                                                                <li><a href="#">Flipkart Offers</a></li>
-                                                                <li><a href="#">BookMyShow Offers</a></li>
-                                                                <li><a href="#">eBay Offers</a></li>	
-                                                                <li><a href="#">Freecharge Offers</a></li>
-                                                                <li><a href="#">IRCTC Offers</a></li>
-                                                                <li><a href="#">Jabong Offers</a></li>
-                                                                <li><a href="#">MakeMyTrip Offers</a></li>
-                                                                <li><a href="#">Mobikwik Offers</a></li>
-                                                                <li><a href="#">Myntra Offers</a></li>
-                                                                <li><a href="#">Paytm Offers</a></li>
-                                                                <li><a href="#">Pizza Hut Offers</a></li>
-                                                                <li><a href="#">Amazon Offers</a></li>
-                                                                <li><a href="#">Flipkart Offers</a></li>
-                                                                <li><a href="#">BookMyShow Offers</a></li>
-                                                                <li><a href="#">eBay Offers</a></li>	
-                                                                <li><a href="#">Freecharge Offers</a></li>
-                                                                <li><a href="#">IRCTC Offers</a></li>
-                                                                <li><a href="#">Jabong Offers</a></li>
-                                                                <li><a href="#">MakeMyTrip Offers</a></li>
-                                                                <li><a href="#">Mobikwik Offers</a></li>
-                                                                <li><a href="#">Myntra Offers</a></li>
-                                                                <li><a href="#">Paytm Offers</a></li>
-                                                                <li><a href="#">Pizza Hut Offers</a></li>
-                                                                <li><a href="#">Jabong Offers</a></li>
-                                                                <li><a href="#">MakeMyTrip Offers</a></li>
-                                                                <li><a href="#">Mobikwik Offers</a></li>
-                                                                <li><a href="#">Myntra Offers</a></li>
-                                                                <li><a href="#">Paytm Offers</a></li>
-                                                                <li><a href="#">Pizza Hut Offers</a></li>
-                                                                <li><a href="#">Amazon Offers</a></li>
-                                                                <li><a href="#">Flipkart Offers</a></li>
-                                                                <li><a href="#">BookMyShow Offers</a></li>
-                                                                <li><a href="#">eBay Offers</a></li>	
-                                                                <li><a href="#">Freecharge Offers</a></li>
-                                                                <li><a href="#">IRCTC Offers</a></li>
-                                                                <li><a href="#">Jabong Offers</a></li>
-                                                                <li><a href="#">MakeMyTrip Offers</a></li>
-                                                                <li><a href="#">Mobikwik Offers</a></li>
-                                                                <li><a href="#">Myntra Offers</a></li>
-                                                                <li><a href="#">Paytm Offers</a></li>
-                                                                <li><a href="#">Pizza Hut Offers</a></li>-->
-
                             </ul>
                         </div>
                     </div>
@@ -104,9 +37,8 @@
         <div class="row">
             <p>Copyright &copy; 2017 . All rights reserved.</p>
             <ul class="social">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="http://facebook.com/savepaise/" target="_blank"><i class="fa fa-facebook"></i></a></li>
                 <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
             </ul>
             <span class="pull-right" style="margin-top:15px; margin-right:25px;"><a href="index.php">Home | <a href="site-map.php">Site Map</a></span>
@@ -623,7 +555,7 @@
                     required: true,
                     email: true,
                     customemail: true
-                },               
+                },
                 pnumber: {
                     required: true,
                     number: true,
@@ -638,7 +570,7 @@
                     required: "Please Enter Your Email",
                     email: "Enter Correct Email Id ",
                     customemail: "Enter Valid Email"
-                },               
+                },
                 pnumber: {
                     required: "please enter mobile number",
                     maxlength: "Please enter valid Phone number",

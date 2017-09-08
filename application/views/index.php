@@ -33,7 +33,7 @@ include_once('common/header.php');
                                     if ($tmp < 10) {
                                         ?>
                                                                                     <!--                                <li><a href="<?PHP // echo base_url()            ?>index/get_categories/<?PHP // echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
-                                        <li><a href="<?PHP echo base_url() ?>index/subcategories/<?PHP echo str_replace(' ', '-', $sub_cat->scat_name); ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>
+                                        <li><a href="<?PHP echo base_url() ?>index/category/<?PHP echo str_replace(' ', '-', $sub_cat->scat_name); ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>
                                         <?PHP
                                     }
                                 }
