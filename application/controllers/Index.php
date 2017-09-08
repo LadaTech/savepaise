@@ -421,8 +421,6 @@ class Index extends CI_Controller {
     }
    
 
-    
-
     public function get_categories() {
         $this->load->library('Headerincludes');
         $data = $this->headerincludes->allHeaderIncludes();

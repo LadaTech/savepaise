@@ -217,12 +217,11 @@ include_once('common/header.php');
                                     <div class="store-logo view view-fifth">
                                         <img src="<?PHP echo $popularStore->store_image; ?>" alt="<?PHP echo $popularStore->store_name; ?>" />
                                         <div class="mask">
-                                            <a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank">  <h6><?PHP echo $popularStore->store_name ?></h6></a> 												 
-                                            <a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank" class="info"><?PHP echo $popularStore->offers . "   " ?> Offers</a>
+                                            <a href="<?PHP echo base_url() ?>deals/store/<?PHP echo $popularStore->store_name ?>" target="_blank">  <h6><?PHP echo $popularStore->store_name ?></h6></a> 												 
+                                            <a href="<?PHP echo base_url() ?>deals/store/<?PHP echo $popularStore->store_name ?>" target="_blank" class="info"><?PHP echo $popularStore->offers . "   " ?> Offers</a>
                                         </div>
                                     </div>
                                 </div>
-                               <!-- <h6 class="store-name ptb-10"><a href="<?PHP echo base_url() ?>index/store/<?PHP echo $popularStore->store_name ?>" target="_blank"><?PHP echo $popularStore->store_name; ?></a></h6> -->
                             </a>
                         </div> 
                         <?PHP
