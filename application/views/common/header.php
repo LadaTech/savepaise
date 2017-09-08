@@ -193,7 +193,7 @@
                                                         foreach ($stores as $store) {
 //                                                           $this->input->post($store->store_name);
                                                             ?>
-                                                            <li><a href="<?PHP echo base_url() ?>deals/store/<?PHP echo $store->store_name ?>"><?PHP echo $store->store_name; ?></a></li>
+                                                            <li><a href="<?PHP echo base_url() ?>coupons/store/<?PHP echo $store->store_name ?>"><?PHP echo $store->store_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
 
@@ -212,37 +212,15 @@
                                                     <ul>
                                                         <?PHP foreach ($sub_categories as $cat) {
                                                             ?>
-                                                            <li><a href="<?PHP echo base_url() ?>deals/category/<?PHP echo str_replace(' ', '-', $cat->scat_name); ?>"><?PHP echo $cat->scat_name; ?></a></li>
+                                                            <li><a href="<?PHP echo base_url() ?>coupons/category/<?PHP echo str_replace(' ', '-', $cat->scat_name); ?>"><?PHP echo $cat->scat_name; ?></a></li>
                                                         <?PHP }
                                                         ?>
                                                     </ul>
                                                 </div>                                            
-
-                                                <!--                                                <div class="col-md-3">
-                                                                                                    <ul>
-                                                                                                        <li><a href="category-deals.php">Fashion</a></li>
-                                                                                                        <li><a href="#">Mobile Offers</a></li>
-                                                                                                        <li><a href="#">Baby Clothes</a></li>
-                                                                                                        <li><a href="#">Hotels</a></li>
-                                                                                                    </ul>
-                                                                                                </div>-->
                                             </div>
                                         </div>
                                     </li>
-                                    <!--                                    <li>
-                                                                            <a href="#">Shop by Brands</a>
-                                                                            <ul>
-                                    <?PHP // foreach ($brands as $brand) {
-                                    ?>
-                                                                                    <li><a href=""><?PHP // echo $brand->brand_name;     ?></a></li>
-                                    <?PHP // }
-                                    ?>
-                                    
-                                                                            </ul>
-                                                                        </li>-->
-
                                     <li><a href="<?PHP echo base_url() . 'index/contact_us' ?>">Contact Us</a> </li>    
-
                                     <div class="welcome-msg pull-right">Welcome ! <span class="guestName">
 
                                             <?PHP
@@ -265,7 +243,7 @@
                                                 <li class="divider"></li>
                                                 <li><a href="<?PHP echo base_url() ?>/index/logout" onclick="return confirm('Are you sure you want to Sign out?')"  class="logout"><i class="fa fa-sign-out"></i> Logout </a>     </li>                                       
 
-                <!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href=""abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  
+                    <!--<div class="wishlist"><a title="My Wishlist" target="_blank"  href=""abp/wishlist"><span class="hidden-xs">Wishlist</span></a></div>-->  
                                             <?PHP } else { ?>
                                         </li>
 
@@ -278,21 +256,15 @@
 
                                     <?PHP } ?>
                                 </ul>
-                                </li>                                      
-
-
-
+                                </li>
                                 </ul>
                             </div>
-
                         </nav>
                     </div>
                 </div>
                 <!-- End Header Menu -->
-
             </header>
             <!-- –––––––––––––––[ HEADER ]––––––––––––––– -->
-
             <script type="text/javascript" >
                 function showHint(str) {
                     if (str.length == 0) {

@@ -1,15 +1,6 @@
-﻿
 <?PHP
-//if ($this->session->flashdata() != NULL) {
-//    echo $this->session->flashdata('msg');
-//}
-//echo "<pre>";
-//print_r($records);
-//exit;
-
 include_once('common/header.php');
 ?>
-
 <!-- –––––––––––––––[ PAGE CONTENT ]––––––––––––––– -->
 <main id="mainContent" class="main-content">
     <div class="page-container ptb-10">
@@ -19,26 +10,17 @@ include_once('common/header.php');
                     <div class="col-xs-12 col-md-4 col-lg-3">
                         <aside>
                             <ul class="nav-coupon-category panel">
-                                <?PHP // foreach ($sub_categories as $sub_cat) {
-                                ?>
-    <!--                                <li><a href="<?PHP // echo base_url()            ?>index/get_categories/<?PHP // echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP // echo $sub_cat->cat_name; ?></a></li>-->
-                                <!--<li><a href="<?PHP // echo base_url()           ?>index/get_categories/<?PHP // echo str_replace(' ', '_', $cat->cat_name)           ?>"><i class="fa fa-cutlery"></i><?PHP // echo $sub_cat->scat_name; ?></a></li>-->
-                                <?PHP // }
-                                ?>
-                                <?PHP
-//                                for($i = 0;$i<=9;$i++){ 
+                               <?PHP
                                 $tmp = 0;
                                 foreach ($sub_categories as $sub_cat) {
                                     $tmp = $tmp + 1;
                                     if ($tmp < 10) {
                                         ?>
-                                                                                    <!--                                <li><a href="<?PHP // echo base_url()            ?>index/get_categories/<?PHP // echo str_replace(' ', '_', $cat->cat_name) ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->cat_name; ?></a></li>-->
-                                        <li><a href="<?PHP echo base_url() ?>index/category/<?PHP echo str_replace(' ', '-', $sub_cat->scat_name); ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>
+                                        <li><a href="<?PHP echo base_url() ?>coupons/category/<?PHP echo str_replace(' ', '-', $sub_cat->scat_name); ?>"><i class="fa fa-cutlery"></i><?PHP echo $sub_cat->scat_name; ?></a></li>
                                         <?PHP
                                     }
                                 }
                                 ?>
-
                                 <li class="all-cat">
                                     <a class="font-14" href="#">All Categories</a>
                                 </li>
@@ -217,8 +199,8 @@ include_once('common/header.php');
                                     <div class="store-logo view view-fifth">
                                         <img src="<?PHP echo $popularStore->store_image; ?>" alt="<?PHP echo $popularStore->store_name; ?>" />
                                         <div class="mask">
-                                            <a href="<?PHP echo base_url() ?>deals/store/<?PHP echo $popularStore->store_name ?>" target="_blank">  <h6><?PHP echo $popularStore->store_name ?></h6></a> 												 
-                                            <a href="<?PHP echo base_url() ?>deals/store/<?PHP echo $popularStore->store_name ?>" target="_blank" class="info"><?PHP echo $popularStore->offers . "   " ?> Offers</a>
+                                            <a href="<?PHP echo base_url() ?>coupons/store/<?PHP echo $popularStore->store_name ?>" target="_blank">  <h6><?PHP echo $popularStore->store_name ?></h6></a> 												 
+                                            <a href="<?PHP echo base_url() ?>coupons/store/<?PHP echo $popularStore->store_name ?>" target="_blank" class="info"><?PHP echo $popularStore->offers . "   " ?> Offers</a>
                                         </div>
                                     </div>
                                 </div>
