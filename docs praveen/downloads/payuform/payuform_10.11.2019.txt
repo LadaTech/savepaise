@@ -1,0 +1,237 @@
+November 10, 2019, 9:13 pm insert payu details. 
+November 10, 2019, 9:13 pm Redirecting to payu page and the 
+Transaction Details are txId=254089361460  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 6444.9
+FirstName = sdfdsaand cpId = 104136911
+November 10, 2019, 9:13 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',14,'yes','gtKFFx|254089361460|6444.9|14|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|104136911|T|6444.9|||||||eCwWELxi','pending','254089361460','6444.9',now())
+November 10, 2019, 9:13 pm New record created successfully
+November 10, 2019, 9:13 pm generating hidden form with transaction id - 254089361460 
+November 10, 2019, 9:13 pm redirecting to payu with transation id - 254089361460 
+November 10, 2019, 9:13 pm insert payu details. 
+November 10, 2019, 9:13 pm insert payu details. 
+November 10, 2019, 9:15 pm Redirecting to payu page and the 
+Transaction Details are txId=11416626991  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 0
+FirstName = sdfdsaand cpId = 75865031
+November 10, 2019, 9:15 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',14,'yes','OzI3W5MV|11416626991|0|14|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|75865031|T|0|||||||2tiJjIow5v','pending','11416626991','0',now())
+November 10, 2019, 9:15 pm New record created successfully
+November 10, 2019, 9:15 pm generating hidden form with transaction id - 11416626991 
+November 10, 2019, 9:15 pm redirecting to payu with transation id - 11416626991 
+November 10, 2019, 9:16 pm insert payu details. 
+November 10, 2019, 9:16 pm Redirecting to payu page and the 
+Transaction Details are txId=569335941870  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 0
+FirstName = sdfdsaand cpId = 642980876
+November 10, 2019, 9:16 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',14,'yes','OzI3W5MV|569335941870|0|14|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|642980876|T|0|||||||2tiJjIow5v','pending','569335941870','0',now())
+November 10, 2019, 9:16 pm New record created successfully
+November 10, 2019, 9:16 pm generating hidden form with transaction id - 569335941870 
+November 10, 2019, 9:16 pm redirecting to payu with transation id - 569335941870 
+November 10, 2019, 9:16 pm insert payu details. 
+November 10, 2019, 9:16 pm Redirecting to payu page and the 
+Transaction Details are txId=36129761306  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 0
+FirstName = sdfdsaand cpId = 1281529478
+November 10, 2019, 9:16 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',14,'yes','OzI3W5MV|36129761306|0|14|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|1281529478|T|0|||||||2tiJjIow5v','pending','36129761306','0',now())
+November 10, 2019, 9:16 pm New record created successfully
+November 10, 2019, 9:16 pm generating hidden form with transaction id - 36129761306 
+November 10, 2019, 9:16 pm redirecting to payu with transation id - 36129761306 
+November 10, 2019, 9:18 pm insert payu details. 
+November 10, 2019, 9:18 pm Redirecting to payu page and the 
+Transaction Details are txId=237609871742  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 0
+FirstName = sdfdsaand cpId = 925011170
+November 10, 2019, 9:18 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',14,'yes','OzI3W5MV|237609871742|0|14|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|925011170|T|0|||||||2tiJjIow5v','pending','237609871742','0',now())
+November 10, 2019, 9:18 pm New record created successfully
+November 10, 2019, 9:18 pm generating hidden form with transaction id - 237609871742 
+November 10, 2019, 9:18 pm redirecting to payu with transation id - 237609871742 
+November 10, 2019, 9:18 pm insert payu details. 
+November 10, 2019, 9:18 pm Redirecting to payu page and the 
+Transaction Details are txId=637818868  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 0
+FirstName = sdfdsaand cpId = 420979916
+November 10, 2019, 9:18 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',14,'yes','OzI3W5MV|637818868|0|14|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|420979916|T|0|||||||2tiJjIow5v','pending','637818868','0',now())
+November 10, 2019, 9:18 pm New record created successfully
+November 10, 2019, 9:18 pm generating hidden form with transaction id - 637818868 
+November 10, 2019, 9:18 pm redirecting to payu with transation id - 637818868 
+November 10, 2019, 9:18 pm insert payu details. 
+November 10, 2019, 9:18 pm Redirecting to payu page and the 
+Transaction Details are txId=434692391395  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 0
+FirstName = sdfdsaand cpId = 184606342
+November 10, 2019, 9:18 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',14,'yes','gtKFFx|434692391395|0|14|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|184606342|T|0|||||||eCwWELxi','pending','434692391395','0',now())
+November 10, 2019, 9:18 pm New record created successfully
+November 10, 2019, 9:18 pm generating hidden form with transaction id - 434692391395 
+November 10, 2019, 9:18 pm redirecting to payu with transation id - 434692391395 
+November 10, 2019, 9:19 pm insert payu details. 
+November 10, 2019, 9:19 pm Redirecting to payu page and the 
+Transaction Details are txId=86581421664  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 0
+FirstName = sdfdsaand cpId = 1333339743
+November 10, 2019, 9:19 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',14,'yes','gtKFFx|86581421664|0|14|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|1333339743|T|0|||||||eCwWELxi','pending','86581421664','0',now())
+November 10, 2019, 9:19 pm New record created successfully
+November 10, 2019, 9:19 pm generating hidden form with transaction id - 86581421664 
+November 10, 2019, 9:19 pm redirecting to payu with transation id - 86581421664 
+November 10, 2019, 9:20 pm insert payu details. 
+November 10, 2019, 9:20 pm Redirecting to payu page and the 
+Transaction Details are txId=93011475588  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 920.7
+FirstName = sdfdsaand cpId = 960985739
+November 10, 2019, 9:20 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',2,'yes','gtKFFx|93011475588|920.7|2|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|960985739|T|920.7|||||||eCwWELxi','pending','93011475588','920.7',now())
+November 10, 2019, 9:20 pm New record created successfully
+November 10, 2019, 9:20 pm generating hidden form with transaction id - 93011475588 
+November 10, 2019, 9:20 pm redirecting to payu with transation id - 93011475588 
+November 10, 2019, 9:21 pm insert payu details. 
+November 10, 2019, 9:21 pm Redirecting to payu page and the 
+Transaction Details are txId=44238282202  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 1381.05
+FirstName = sdfdsaand cpId = 177549130
+November 10, 2019, 9:21 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',3,'yes','OzI3W5MV|44238282202|1381.05|3|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|177549130|T|1381.05|||||||2tiJjIow5v','pending','44238282202','1381.05',now())
+November 10, 2019, 9:21 pm New record created successfully
+November 10, 2019, 9:21 pm generating hidden form with transaction id - 44238282202 
+November 10, 2019, 9:21 pm redirecting to payu with transation id - 44238282202 
+November 10, 2019, 9:21 pm insert payu details. 
+November 10, 2019, 9:21 pm Redirecting to payu page and the 
+Transaction Details are txId=38278199986  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 0
+FirstName = sdfdsaand cpId = 232242524
+November 10, 2019, 9:21 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',3,'yes','gtKFFx|38278199986|0|3|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|232242524|T|0|||||||eCwWELxi','pending','38278199986','0',now())
+November 10, 2019, 9:21 pm New record created successfully
+November 10, 2019, 9:21 pm generating hidden form with transaction id - 38278199986 
+November 10, 2019, 9:21 pm redirecting to payu with transation id - 38278199986 
+November 10, 2019, 9:21 pm insert payu details. 
+November 10, 2019, 9:21 pm Redirecting to payu page and the 
+Transaction Details are txId=126281741473  email=sdfdsa@dfdsdas.com phone=1111111111 and amount = 920.7
+FirstName = sdfdsaand cpId = 1362902576
+November 10, 2019, 9:21 pm inerted query - INSERT INTO transaction_info (name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dfas', 'sdfdsa@dfdsdas.com', '1111111111',2,'yes','gtKFFx|126281741473|920.7|2|sdfdsa|sdfdsa@dfdsdas.com|MSMIND|1362902576|T|920.7|||||||eCwWELxi','pending','126281741473','920.7',now())
+November 10, 2019, 9:21 pm New record created successfully
+November 10, 2019, 9:21 pm generating hidden form with transaction id - 126281741473 
+November 10, 2019, 9:21 pm redirecting to payu with transation id - 126281741473 
+November 10, 2019, 9:23 pm insert payu details. 
+November 10, 2019, 9:37 pm insert payu details. 
+November 10, 2019, 9:37 pm Redirecting to payu page and the 
+Transaction Details are txId=8559875587  email=sdfasd@dfads.com phone=1212121212 and amount = 6905.25
+Surname=surname FirstName = nameand cpId = 715661554
+November 10, 2019, 9:37 pm inerted query - INSERT INTO transaction_info (surname,name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('surname','name', 'sdfasd@dfads.com', '1212121212',15,'yes','gtKFFx|8559875587|6905.25|15|name|sdfasd@dfads.com|MSMIND|715661554|T|6905.25|||||||eCwWELxi','pending','8559875587','6905.25',now())
+November 10, 2019, 9:37 pm New record created successfully
+November 10, 2019, 9:37 pm generating hidden form with transaction id - 8559875587 
+November 10, 2019, 9:37 pm redirecting to payu with transation id - 8559875587 
+November 10, 2019, 9:38 pm insert payu details. 
+November 10, 2019, 9:38 pm Redirecting to payu page and the 
+Transaction Details are txId=213989261282  email=sdfasd@dfads.com phone=1212121212 and amount = 0
+Surname=surname FirstName = nameand cpId = 1349562724
+November 10, 2019, 9:38 pm inerted query - INSERT INTO transaction_info (surname,name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('surname','name', 'sdfasd@dfads.com', '1212121212',15,'yes','gtKFFx|213989261282|0|15|name|sdfasd@dfads.com|MSMIND|1349562724|T|0|||||||eCwWELxi','pending','213989261282','0',now())
+November 10, 2019, 9:38 pm New record created successfully
+November 10, 2019, 9:38 pm generating hidden form with transaction id - 213989261282 
+November 10, 2019, 9:38 pm redirecting to payu with transation id - 213989261282 
+November 10, 2019, 9:39 pm insert payu details. 
+November 10, 2019, 9:39 pm Redirecting to payu page and the 
+Transaction Details are txId=91854859162  email=sdfasd@dfads.com phone=1212121212 and amount = 1381.05
+Surname=surname ss FirstName = nameand cpId = 680633685
+November 10, 2019, 9:39 pm inerted query - INSERT INTO transaction_info (surname,name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('surname ss','name', 'sdfasd@dfads.com', '1212121212',3,'yes','gtKFFx|91854859162|1381.05|3|name|sdfasd@dfads.com|MSMIND|680633685|T|1381.05|||||||eCwWELxi','pending','91854859162','1381.05',now())
+November 10, 2019, 9:39 pm New record created successfully
+November 10, 2019, 9:39 pm generating hidden form with transaction id - 91854859162 
+November 10, 2019, 9:39 pm redirecting to payu with transation id - 91854859162 
+November 10, 2019, 9:40 pm insert payu details. 
+November 10, 2019, 9:40 pm Redirecting to payu page and the 
+Transaction Details are txId=475036631377  email=sdfasd@dfads.com phone=1212121212 and amount = 920.7
+Surname=surname ss FirstName = nameand cpId = 1266683513
+November 10, 2019, 9:40 pm inerted query - INSERT INTO transaction_info (surname,name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('surname ss','name', 'sdfasd@dfads.com', '1212121212',2,'yes','gtKFFx|475036631377|920.7|2|name|sdfasd@dfads.com|MSMIND|1266683513|T|920.7|||||||eCwWELxi','pending','475036631377','920.7',now())
+November 10, 2019, 9:40 pm New record created successfully
+November 10, 2019, 9:40 pm generating hidden form with transaction id - 475036631377 
+November 10, 2019, 9:40 pm redirecting to payu with transation id - 475036631377 
+November 10, 2019, 9:41 pm insert payu details. 
+November 10, 2019, 9:41 pm Redirecting to payu page and the 
+Transaction Details are txId=855621341376  email=sdfasd@dfads.com phone=1212121212 and amount = 1381.05
+Surname=surname ss FirstName = nameand cpId = 44537894
+November 10, 2019, 9:41 pm inerted query - INSERT INTO transaction_info (surname,name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('surname ss','name', 'sdfasd@dfads.com', '1212121212',3,'yes','gtKFFx|855621341376|1381.05|3|sdfasd|sdfasd@dfads.com|MSMIND|44537894|T|1381.05|||||||eCwWELxi','pending','855621341376','1381.05',now())
+November 10, 2019, 9:41 pm New record created successfully
+November 10, 2019, 9:41 pm generating hidden form with transaction id - 855621341376 
+November 10, 2019, 9:41 pm redirecting to payu with transation id - 855621341376 
+November 10, 2019, 9:41 pm insert payu details. 
+November 10, 2019, 9:42 pm Redirecting to payu page and the 
+Transaction Details are txId=224761971847  email=sdfasd@dfads.com phone=1212121212 and amount = 460.35
+Surname=surname ss FirstName = nameand cpId = 1115857120
+November 10, 2019, 9:42 pm inerted query - INSERT INTO transaction_info (surname,name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('surname ss','name', 'sdfasd@dfads.com', '1212121212',1,'yes','gtKFFx|224761971847|460.35|1|surname ss.name|sdfasd@dfads.com|MSMIND|1115857120|T|460.35|||||||eCwWELxi','pending','224761971847','460.35',now())
+November 10, 2019, 9:42 pm New record created successfully
+November 10, 2019, 9:42 pm generating hidden form with transaction id - 224761971847 
+November 10, 2019, 9:42 pm redirecting to payu with transation id - 224761971847 
+November 10, 2019, 9:48 pm insert payu details. 
+November 10, 2019, 9:48 pm Redirecting to payu page and the 
+Transaction Details are txId=337158211009  email=sdfasd@dfads.com phone=1212121212 and amount = 920.7
+Surname=surname ss FirstName = nameand cpId = 990333414
+November 10, 2019, 9:48 pm inerted query - INSERT INTO transaction_info (surname,name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('surname ss','name', 'sdfasd@dfads.com', '1212121212',2,'yes','gtKFFx|337158211009|920.7|2|surname ss.name|sdfasd@dfads.com|MSMIND|990333414|T|920.7|||||||eCwWELxi','pending','337158211009','920.7',now())
+November 10, 2019, 9:48 pm New record created successfully
+November 10, 2019, 9:48 pm generating hidden form with transaction id - 337158211009 
+November 10, 2019, 9:48 pm redirecting to payu with transation id - 337158211009 
+November 10, 2019, 9:48 pm insert payu details. 
+November 10, 2019, 9:49 pm Redirecting to payu page and the 
+Transaction Details are txId=87127691282  email=sdfasd@dfads.com phone=1212121212 and amount = 460.35
+Surname=surname ss FirstName = nameand cpId = 346879189
+November 10, 2019, 9:49 pm inerted query - INSERT INTO transaction_info (surname,name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('surname ss','name', 'sdfasd@dfads.com', '1212121212',1,'yes','gtKFFx|87127691282|460.35|1|surname ss.name|sdfasd@dfads.com|MSMIND|346879189|T|460.35|||||||eCwWELxi','pending','87127691282','460.35',now())
+November 10, 2019, 9:49 pm New record created successfully
+November 10, 2019, 9:49 pm generating hidden form with transaction id - 87127691282 
+November 10, 2019, 9:49 pm redirecting to payu with transation id - 87127691282 
+November 10, 2019, 9:50 pm insert payu details. 
+November 10, 2019, 9:50 pm Redirecting to payu page and the 
+Transaction Details are txId=36285401799  email=sdfasd@dfads.com phone=1212121212 and amount = 1381.05
+Surname=surname ss FirstName = nameand cpId = 608641515
+November 10, 2019, 9:50 pm inerted query - INSERT INTO transaction_info (surname,name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('surname ss','name', 'sdfasd@dfads.com', '1212121212',3,'yes','gtKFFx|36285401799|1381.05|3|surname ss.name|sdfasd@dfads.com|MSMIND|608641515|T|1381.05|||||||eCwWELxi','pending','36285401799','1381.05',now())
+November 10, 2019, 9:50 pm New record created successfully
+November 10, 2019, 9:50 pm generating hidden form with transaction id - 36285401799 
+November 10, 2019, 9:50 pm redirecting to payu with transation id - 36285401799 
+November 10, 2019, 9:50 pm Transaction success response is: {"mihpayid":"403993715520097474","mode":"CC","status":"success","unmappedstatus":"captured","key":"gtKFFx","txnid":"36285401799","amount":"1381.05","cardCategory":"domestic","discount":"0.00","net_amount_debit":"1381.05","addedon":"2019-11-11 02:20:12","productinfo":"3","firstname":"surname ss.name","lastname":"","address1":"","address2":"","city":"","state":"","country":"","zipcode":"","email":"sdfasd@dfads.com","phone":"1212121212","udf1":"MSMIND","udf2":"608641515","udf3":"T","udf4":"1381.05","udf5":"","udf6":"","udf7":"","udf8":"","udf9":"","udf10":"","hash":"964f5bc4089681317665516ee62b975d1191e939e0aeb87c260904191513098441ba99270193d49db9f0ca1b919b1cc1fd150785ead75bf561795f0b8e19e820","field1":"838180","field2":"991680","field3":"2041","field4":"0","field5":"206764723907","field6":"00","field7":"AUCPOSITIVE","field8":"Approved or completed successfully","field9":"No Error","payment_source":"payu","PG_TYPE":"AXISPG","bank_ref_num":"838180","bankcode":"CC","error":"E000","error_Message":"No Error","name_on_card":"test","cardnum":"512345XXXXXX2346","cardhash":"This field is no longer supported in postback params.","issuing_bank":"HDFC","card_type":"MAST"}
+November 10, 2019, 9:50 pm Error: update transaction_info set status = 'success',txRefNo=  where txId = '36285401799'<br>You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where txId = '36285401799'' at line 1
+November 10, 2019, 10:20 pm insert payu details. 
+November 10, 2019, 10:21 pm insert payu details. 
+November 10, 2019, 10:21 pm Redirecting to payu page and the 
+Transaction Details are txId=425567631001  email=dsfasd@dsfdsaf.com phone=1111111111 and amount = 920.7
+Surname=dsfas FirstName = dsfasand cpId = 618237602
+November 10, 2019, 10:21 pm inerted query - INSERT INTO transaction_info (surname,name, emailid, phonenumber,no_of_tickets,transport,request,status,txId,amount,created_ts)
+VALUES ('dsfas','dsfas', 'dsfasd@dsfdsaf.com', '1111111111',2,'yes','gtKFFx|425567631001|920.7|2|dsfas.dsfas|dsfasd@dsfdsaf.com|MSMIND|618237602|T|920.7|||||||eCwWELxi','pending','425567631001','920.7',now())
+November 10, 2019, 10:21 pm New record created successfully
+November 10, 2019, 10:21 pm generating hidden form with transaction id - 425567631001 
+November 10, 2019, 10:21 pm redirecting to payu with transation id - 425567631001 
+November 10, 2019, 10:22 pm Transaction success response is: {"mihpayid":"403993715520097483","mode":"CC","status":"success","unmappedstatus":"captured","key":"gtKFFx","txnid":"425567631001","amount":"920.70","cardCategory":"domestic","discount":"0.00","net_amount_debit":"920.7","addedon":"2019-11-11 02:51:25","productinfo":"2","firstname":"dsfas.dsfas","lastname":"","address1":"","address2":"","city":"","state":"","country":"","zipcode":"","email":"dsfasd@dsfdsaf.com","phone":"1111111111","udf1":"MSMIND","udf2":"618237602","udf3":"T","udf4":"920.7","udf5":"","udf6":"","udf7":"","udf8":"","udf9":"","udf10":"","hash":"38e88e2d0f42e1382faf4d398593c9eee644cb479f5154cf96e3aa9c92137380c67bcb2a43f994720e61558e82315e1dbc8048e69cfbecb3cc00e84b5ebf8ade","field1":"155423","field2":"562274","field3":"2041","field4":"0","field5":"588190109871","field6":"00","field7":"AUCPOSITIVE","field8":"Approved or completed successfully","field9":"No Error","payment_source":"payu","PG_TYPE":"AXISPG","bank_ref_num":"155423","bankcode":"CC","error":"E000","error_Message":"No Error","name_on_card":"test","cardnum":"512345XXXXXX2346","cardhash":"This field is no longer supported in postback params.","issuing_bank":"HDFC","card_type":"MAST"}
+November 10, 2019, 10:22 pm Transaction was success with transaction id 425567631001 
+November 10, 2019, 10:22 pm insert payu details. 
+November 10, 2019, 10:22 pm insert payu details. 
+November 10, 2019, 10:42 pm insert payu details. 
+November 10, 2019, 10:44 pm insert payu details. 
+November 10, 2019, 10:49 pm insert payu details. 
+November 10, 2019, 10:54 pm insert payu details. 
+November 10, 2019, 10:55 pm insert payu details. 
+November 10, 2019, 10:57 pm insert payu details. 
+November 10, 2019, 10:57 pm insert payu details. 
+November 10, 2019, 10:59 pm insert payu details. 
+November 10, 2019, 11:00 pm insert payu details. 
+November 10, 2019, 11:00 pm insert payu details. 
+November 10, 2019, 11:01 pm insert payu details. 
+November 10, 2019, 11:01 pm insert payu details. 
+November 10, 2019, 11:01 pm insert payu details. 
+November 10, 2019, 11:08 pm insert payu details. 
+November 10, 2019, 11:11 pm insert payu details. 
+November 10, 2019, 11:11 pm insert payu details. 
+November 10, 2019, 11:11 pm insert payu details. 
+November 10, 2019, 11:12 pm insert payu details. 
+November 10, 2019, 11:12 pm insert payu details. 
+November 10, 2019, 11:14 pm insert payu details. 
+November 10, 2019, 11:15 pm insert payu details. 
+November 10, 2019, 11:15 pm insert payu details. 
+November 10, 2019, 11:20 pm insert payu details. 
+November 10, 2019, 11:20 pm insert payu details. 
+November 10, 2019, 11:20 pm insert payu details. 
+November 10, 2019, 11:25 pm insert payu details. 
+November 10, 2019, 11:25 pm insert payu details. 
+November 10, 2019, 11:26 pm insert payu details. 
+November 10, 2019, 11:27 pm insert payu details. 
+November 10, 2019, 11:29 pm insert payu details. 
