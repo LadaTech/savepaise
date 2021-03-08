@@ -1,0 +1,76 @@
+Host: staging.hotcareers.ai
+IP: 52.202.203.107
+
+DBhost: hotcareersai.cwmjzbx42iky.us-east-1.rds.amazonaws.com
+Username: staging_user
+Pwd: j@hot(Carriers)#  
+
+
+DOMAIN: https://www.hotcareers.ai
+IP ADDRESS: 3.215.108.178
+------------------------------------------------------------------------------------------------
+HOTCAREERS.AI ADMIN LOGIN
+https://www.hotcareers.ai/my_admin/
+username: admin
+password: hRRY5PDW
+H0tC@re$
+new username: administrator
+new password: hRRY5PDW
+---------------------------------------------------------------------------------------------------
+HOTCAREERS.AI AWS RDS INSTANCE DETAILS FOR DATABASE:
+Endpoint: hotcareersai.cwmjzbx42iky.us-east-1.rds.amazonaws.com
+Port: 3306
+username: root
+password: jbKh0tCare$
+database name: hotcareers
+
+For FTP:----
+Host:  3.215.108.178
+Username: ubuntu
+Protocol: SFTP
+Pass: user attached pem file
+
+jobs-jobiak.cluster-cwmjzbx42iky.us-east-1.rds.amazonaws.com
+jobs_praveen
+JzkNYA7#YrvJEtg5$6*V9yaz25_v
+
+tail -f /var/log/apache2/error.log
+
+mysql -h jobs-jobiak.cluster-cwmjzbx42iky.us-east-1.rds.amazonaws.com -u jobs_jobiak_praveen -p
+
+
+ALTER TABLE `hotcareers_staging`.`jobs` ADD INDEX `solrIndex`(`solrIndex`);
+
+define(‘REDIS_HOST’, ‘tcp://52.20.202.34:6371’);
+define(‘SOLR_HOST’, ‘34.226.21.43:8983’);
+
+
+tcp://jobs-jobiak-cache.vkqqvh.clustercfg.use1.cache.amazonaws.com:6379
+for prod
+sting solr 34.226.21.43:8983
+
+
+&utm_campaign=jobiak&utm_source=jobiak&utm_medium=organic
+
+
+select
+
+REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(job_title,",",""),"&",""),"(",""),")",""),"'",""),"&",""),"!",""),"+",""),":",""),"â€“",""),";",""),"#",""),"$",""),"â€™",""),"%",""),"ã",""),"ã",""),"*",""),"|",""),"â€¨",""),"Â",""),"?",""),"---","-"),"[",""),"]",""),"-Â",""),"/",""),"â€“ ",""),"â€“ ",""),"â€",""),"â€œ","")," -Â ",""),".",""),"@",""),"â€‹","")
+Jobtitle, company,
+lcase(concat("https://staging.hotcareers.ai/",
+REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(concat(REPLACE(company,"/","") , '/job/' , REPLACE(job_title,"/","") , '-jobs-' , job_location , '/' , job_id)," ","-"),",",""),"&",""),"(",""),")",""),"'",""),"&",""),"!",""),"+",""),":",""),"â€“",""),";",""),"#",""),"$",""),"â€™",""),"%",""),"ã",""),"ã",""),"*",""),"|",""),"â€¨",""),"Â",""),"?",""),"---","-"),"[",""),"]",""),"-Â",""),"â€“ ",""),"â€“ ",""),"â€",""),"â€œ","")," -Â ",""),".",""),"@",""),"â€‹","")
+
+
+)) url,
+job_location,job_id,maincategory
+ from jobs
+where expired>now() and job_state_id !='' and solrIndex=1
+order by job_id desc limit 100000
+
+
+https://jobiak.uthealtheasttexas.com/job/tyler-tx-patient-safety-assistant-nights?id=1168593312
+
+
+
+ALTER TABLE `hotcareers`.`apply` ADD COLUMN `emailid` VARCHAR(100) NOT NULL AFTER `jobseeker_apply_status`,
+ ADD INDEX `emailid`(`emailid`);
