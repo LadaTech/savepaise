@@ -1,0 +1,199 @@
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=235443116  email=dsfasdsdfads@dfds.com phone=11111111111111111 and amount = 1111
+FirstName = dsfasdsdfadsand cpId = 519135410
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=6622315  email=dfads@dsfdsa.com phone=dsdfasd and amount = 121
+FirstName = dfadsand cpId = 469476734
+Redirecting to payu page and the 
+Transaction Details are txId=949188233  email=dfads@dsfdsa.com phone=dsdfasd and amount = 121
+FirstName = dfadsand cpId = 322738360
+Redirecting to payu page and the 
+Transaction Details are txId=637359620  email=dfads@dsfdsa.com phone=dsdfasd and amount = 121
+FirstName = dfadsand cpId = 910638555
+Redirecting to payu page and the 
+Transaction Details are txId=364105225  email=dfads@dsfdsa.com phone=dsdfasd and amount = 121
+FirstName = dfadsand cpId = 729474756
+Redirecting to payu page and the 
+Transaction Details are txId=891143799  email=dfads@dsfdsa.com phone=dsdfasd and amount = 121
+FirstName = dfadsand cpId = 1227868847
+Redirecting to payu page and the 
+Transaction Details are txId=198944092  email=dfads@dsfdsa.com phone=dsdfasd and amount = 121
+FirstName = dfadsand cpId = 813989175
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=859558106  email= phone= and amount = 
+FirstName = and cpId = 1022047837
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=648071290  email= phone= and amount = 
+FirstName = and cpId = 992700162
+insert payu details. 
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=785705567  email= phone=dsfdsfdsfdsa and amount = 
+FirstName = and cpId = 1392293283
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=331054688  email= phone= and amount = 
+FirstName = and cpId = 1356060523
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=436462403  email= phone= and amount = 
+FirstName = and cpId = 327687015
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=98022461  email=sdfasd@sdfdsa.com phone=11 and amount = 
+FirstName = sdfasdand cpId = 526924162
+Redirecting to payu page and the 
+Transaction Details are txId=905578614  email=sdfasd@sdfdsa.com phone=11 and amount = 
+FirstName = sdfasdand cpId = 956811657
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=792724610  email=dsfa@dsfsfasd.com phone=1 and amount = 1350
+FirstName = dsfaand cpId = 1281357351
+Redirecting to payu page and the 
+Transaction Details are txId=786804200  email=dsfa@dsfsfasd.com phone=1 and amount = 1350
+FirstName = dsfaand cpId = 62955496
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=758911133  email=dsfasdd@dsfads.com phone=1 and amount = 3150
+FirstName = dsfasddand cpId = 50132026
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=173889161  email=dsfasd@dsfsad.com phone=1 and amount = 1350
+FirstName = dsfasdand cpId = 774701158
+insert payu details. 
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=840332032  email=dsfas@dfadsf.com phone=1 and amount = 1350
+FirstName = dsfasand cpId = 1019379867
+Transaction Failure response is: {"mihpayid":"403993715520077159","mode":"CC","status":"failure","unmappedstatus":"failed","key":"gtKFFx","txnid":"840332032","amount":"1350.00","cardCategory":"domestic","discount":"0.00","net_amount_debit":"0.00","addedon":"2019-11-05 18:54:57","productinfo":"3","firstname":"dsfas","lastname":"","address1":"","address2":"","city":"","state":"","country":"","zipcode":"","email":"dsfas@dfadsf.com","phone":"1","udf1":"MSMIND","udf2":"1019379867","udf3":"T","udf4":"1350","udf5":"","udf6":"","udf7":"","udf8":"","udf9":"","udf10":"","hash":"64640bf0a787897f8e0122b3560589221798642ebd242689d5dbc45106c1c277f8bd1e043e538101770e4b133b9fc158021f8e209f796dfd642695c925d0c2d8","field1":"634430","field2":"385738","field3":"203005","field4":"1","field5":"644889625352","field6":"45","field7":"AUCPOSITIVE","field8":"","field9":"","payment_source":"payu","PG_TYPE":"AXISPG","bank_ref_num":"634430","bankcode":"CC","error":"","error_Message":"","name_on_card":"dsfa","cardnum":"411111XXXXXX1111","cardhash":"This field is no longer supported in postback params.","issuing_bank":"UNKNOWN","card_type":"VISA"}
+Transaction Failure response is: {"mihpayid":"403993715520077159","mode":"CC","status":"failure","unmappedstatus":"failed","key":"gtKFFx","txnid":"840332032","amount":"1350.00","cardCategory":"domestic","discount":"0.00","net_amount_debit":"0.00","addedon":"2019-11-05 18:54:57","productinfo":"3","firstname":"dsfas","lastname":"","address1":"","address2":"","city":"","state":"","country":"","zipcode":"","email":"dsfas@dfadsf.com","phone":"1","udf1":"MSMIND","udf2":"1019379867","udf3":"T","udf4":"1350","udf5":"","udf6":"","udf7":"","udf8":"","udf9":"","udf10":"","hash":"64640bf0a787897f8e0122b3560589221798642ebd242689d5dbc45106c1c277f8bd1e043e538101770e4b133b9fc158021f8e209f796dfd642695c925d0c2d8","field1":"634430","field2":"385738","field3":"203005","field4":"1","field5":"644889625352","field6":"45","field7":"AUCPOSITIVE","field8":"","field9":"--Retry exhausted","payment_source":"payu","PG_TYPE":"AXISPG","bank_ref_num":"634430","bankcode":"CC","error":"E308","error_Message":"Bank was unable to authenticate","name_on_card":"dsfa","cardnum":"411111XXXXXX1111","cardhash":"This field is no longer supported in postback params.","issuing_bank":"UNKNOWN","card_type":"VISA"}
+Redirecting to payu page and the 
+Transaction Details are txId=660583497  email=dsfas@dfadsf.com phone=1 and amount = 1350
+FirstName = dsfasand cpId = 1285402338
+Transaction Failure response is: {"mihpayid":"403993715520077218","mode":"CC","status":"failure","unmappedstatus":"failed","key":"gtKFFx","txnid":"660583497","amount":"1350.00","cardCategory":"domestic","discount":"0.00","net_amount_debit":"0.00","addedon":"2019-11-05 18:56:52","productinfo":"3","firstname":"dsfas","lastname":"","address1":"","address2":"","city":"","state":"","country":"","zipcode":"","email":"dsfas@dfadsf.com","phone":"1","udf1":"MSMIND","udf2":"1285402338","udf3":"T","udf4":"1350","udf5":"","udf6":"","udf7":"","udf8":"","udf9":"","udf10":"","hash":"acff45d78e9d8be0969baab3be368fb7d98d02f7ac44dc312d3121224bc74b2885de776e4e842dc3488af1d110208c75b9251e64f8760005f29c364d39a474e3","field1":"745420","field2":"176911","field3":"203005","field4":"1","field5":"370111749299","field6":"45","field7":"AUCPOSITIVE","field8":"","field9":"","payment_source":"payu","PG_TYPE":"AXISPG","bank_ref_num":"745420","bankcode":"CC","error":"","error_Message":"","name_on_card":"test","cardnum":"401200XXXXXX1112","cardhash":"This field is no longer supported in postback params.","issuing_bank":"AXIS","card_type":"VISA"}
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=380737305  email= phone=9985190066 and amount = 0
+FirstName = and cpId = 619872809
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=340637208  email= phone= and amount = 0
+FirstName = and cpId = 493445436
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=223876954  email= phone= and amount = 0
+FirstName = and cpId = 217611718
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=101715088  email= phone= and amount = 0
+FirstName = and cpId = 719921701
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=871429444  email= phone= and amount = 0
+FirstName = and cpId = 92604394
+insert payu details. 
+insert payu details. 
+Redirecting to payu page and the 
+Transaction Details are txId=910186768  email= phone= and amount = 0
+FirstName = and cpId = 277038608
+insert payu details. 

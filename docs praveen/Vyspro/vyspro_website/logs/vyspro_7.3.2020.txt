@@ -1,0 +1,13 @@
+March 7, 2020, 7:24 pm inserted query - INSERT INTO events (event_name,description,event_starttime,event_endtime, location,chief_guest,
+                             guest_of_honour,main_photo,created_by,created_date)
+                    VALUES ('','<p>\r\n	dsfdas dsf dsf</p>\r\n','2020-03-04 00:00:00', '1970-01-01 01:00:00', 'dsfads','','','_98519898441_photo_DSC_0347 l.jpg',1,now())
+March 7, 2020, 7:24 pm New record created successfully
+March 7, 2020, 7:24 pm event added successfully 
+March 7, 2020, 7:24 pm inserted query - INSERT INTO bulletin (title,description,bulletin_date, location,photo,created_by,created_date)
+                    VALUES ('sdfdsf','<p>\r\n	dsfadsfdsafdsafadsfdsa</p>\r\n','2020-03-04 00:00:00','dsfdasfadsf','sdfdsf_10598755584_photo_DSC_0347 l.jpg',1,now())
+March 7, 2020, 7:24 pm New record created successfully
+March 7, 2020, 7:24 pm event added successfully 
+March 7, 2020, 7:26 pm inserted query - INSERT INTO bulletin (title,description,bulletin_date, location,photo,created_by,created_date)
+                    VALUES ('dfadsf','<p>\r\n	dfads fdsf ads</p>\r\n','2020-03-11 00:00:00','dsfads','69940186543_photo_re3.png',1,now())
+March 7, 2020, 7:26 pm New record created successfully
+March 7, 2020, 7:26 pm event added successfully 
